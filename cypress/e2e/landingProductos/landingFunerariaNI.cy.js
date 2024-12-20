@@ -1,7 +1,7 @@
 import homePage from "../../pages/home/homePage";
 import landingFunerariaNI from "../../pages/funeraria/landingFunerariaNI/landingFunerariaNI";
 import homePageMobile from "../../pageMobile/homeMobile/homePageMobile";
-import landingFunerariaNIMobile from "../../pageMobile/funerariaMobile/landingFunerariaNIMobile";
+import landingFunerariaNIMobile from "../../pageMobile/funerariaMobile/landingFunerariaNiMobile/landingFunerariaNIMobile";
 describe('Formulario landing de funeraria NI', () => {
 
     beforeEach(() => {
@@ -48,41 +48,41 @@ describe('Formulario landing de funeraria NI', () => {
         landingFunerariaNI.iniciarUnaCotizacion()
     })
     //{nombre historia}
-    it.only('Landing Funeraria - NI - Telefonos -Mobile', ()=> {
+    it('Landing Funeraria - NI - Telefonos -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.iconoTelefonosTitulo()
     })
     //{nombre historia}
-    it.only('Landing Funeraria - NI - Empieza aqui -Mobile', ()=>{
+    it('Landing Funeraria - NI - Empieza aqui -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.empiezaAqui()
 
     })
     //{nombre historia}
-    it.only('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
+    it('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaHablar()
 
     })
     //{nombre historia}
-    it.only('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
+    it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaOtraSolicitud()
 
     })
     //{nombre historia}
-    it.only('Landing Funeraria - NI -Revisar titulos -Mobile', ()=>{
+    it('Landing Funeraria - NI -Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.encontrarTitulo1()
         landingFunerariaNIMobile.encontrarTitulo2()
     })
     //{nombre historia}
-    it.only('Landing Funeraria - NI - Iniciar una cotizacion -Mobile', ()=>{
+    it('Landing Funeraria - NI - Iniciar una cotizacion -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.iniciarUnaCotizacion()

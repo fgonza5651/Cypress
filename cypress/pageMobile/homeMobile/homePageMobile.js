@@ -2,6 +2,7 @@ const btnMenuDesplegable = '[src="https://stappdeveastus001.blob.core.windows.ne
 const btnProductosServicios = ':nth-child(4) > .a-menu-sidenav'
 const btnFunerariaMenu = '#mat-tab-content-0-1 > div > ul > li:nth-child(1) > a'
 const btnNecesidadInmeditaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(2) > a'
+const btnProntoFallecimientoFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(3) > a'
 
 
 
@@ -19,6 +20,13 @@ class HomePageMobile {
         cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnFunerariaMenu, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnNecesidadInmeditaFuneraria, { timeout: 10000 }).should('be.visible').click();
+    }
+
+    ingresoFunerariaNIFMobile(){
+        cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnFunerariaMenu, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProntoFallecimientoFuneraria, { timeout: 10000 }).should('be.visible').click();
     }
 }
 
