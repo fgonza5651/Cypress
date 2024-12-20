@@ -9,7 +9,7 @@ const menuNcesidadFutura = '(//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[
 //Funeraria desde la Barra
 const menuFuneraria = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > a'
 const menuFunerariaNI = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(1) > a'
-
+const menuFunerariaNIF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(2) > a'
 // parques del home
 const btnConocerParquePAV = '.cont-card-parque > :nth-child(1) > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
 const btnConocerParquePCO = ':nth-child(2) > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
@@ -52,6 +52,13 @@ class HomePage {
         cy.get(menuFuneraria, { timeout: 10000 }).realHover();
         cy.get(menuFunerariaNI, { timeout: 10000 }).realHover().click()
     }
+
+    ingresoFunerariaNIFProductosServicios(){
+        cy.xpath(menuProductosServicios, { timeout: 10000 }).realHover();
+        cy.get(menuFuneraria, { timeout: 10000 }).realHover();
+        cy.get(menuFunerariaNIF, { timeout: 10000 }).realHover().click()
+    }
+    
 
     //se ingresa al parque de PAV
     ingresarPAV(){
