@@ -1,6 +1,5 @@
-
-const btnCompraEnLinea = '#click_compra_linea_header'
-const inputNumeroCompraEnLinea = '#mat-input-0'
+const btnTelefonoTitulo = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-mobile > img:nth-child(1)'
+const popUpTelefonos = '#mat-tab-content-2-0 > .mat-tab-body-content'
 const btnEmpiezaAqui = '.btn-empieza-aqui'
 const urlFlujoFunerario = 'https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=funeraria-ni'
 const btnIniciarCotizacion = '.btn-iniciar-cot'
@@ -20,12 +19,12 @@ const titulo2 = '¿Cómo es nuestro servicio funerario?'
 
 const formularioLanding = Cypress.env('Formulario')
 
-class LandingFunerariaNI {
+class LandingFunerariaNIMobile {
 
-    //revisa el boton compra en linea, lo preciona y rellena el formulario
-    compraEnLinea(){
-        cy.get(btnCompraEnLinea,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroCompraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+    //revisa el boton de telefonos y lo preciona 
+    iconoTelefonosTitulo (){
+        cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()
+        cy.get(popUpTelefonos,{timeout: 100000}).should('be.visible')
     }
     //preciona el boton empieza aqui y revisa que nos redireccione a la pagina correcta
     empiezaAqui (){
@@ -62,5 +61,5 @@ class LandingFunerariaNI {
 
 }
 
-const landingFunerariaNI = new LandingFunerariaNI()
-export default landingFunerariaNI;
+const landingFunerariaNIMobile = new LandingFunerariaNIMobile()
+export default landingFunerariaNIMobile;
