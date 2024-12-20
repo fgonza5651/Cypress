@@ -48,41 +48,41 @@ describe('Formulario landing de funeraria NI', () => {
         landingFunerariaNI.iniciarUnaCotizacion()
     })
     //{nombre historia}
-    it('Landing Funeraria - NI - Telefonos -Mobile', ()=> {
+    it.only('Landing Funeraria - NI - Telefonos -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.iconoTelefonosTitulo()
     })
     //{nombre historia}
-    it('Landing Funeraria - NI - Empieza aqui -Mobile', ()=>{
+    it.only('Landing Funeraria - NI - Empieza aqui -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.empiezaAqui()
 
     })
     //{nombre historia}
-    it('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
+    it.only('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaHablar()
 
     })
     //{nombre historia}
-    it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobie', ()=>{
+    it.only('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaOtraSolicitud()
 
     })
     //{nombre historia}
-    it('Landing Funeraria - NI -Revisar titulos -Mobile', ()=>{
+    it.only('Landing Funeraria - NI -Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.encontrarTitulo1()
         landingFunerariaNIMobile.encontrarTitulo2()
     })
     //{nombre historia}
-    it('Landing Funeraria - NI - Iniciar una cotizacion', ()=>{
+    it.only('Landing Funeraria - NI - Iniciar una cotizacion -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIMobile()
         landingFunerariaNIMobile.iniciarUnaCotizacion()
