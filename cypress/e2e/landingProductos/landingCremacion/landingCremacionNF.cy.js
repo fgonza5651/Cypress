@@ -1,4 +1,4 @@
-import homePage from "../../pages/home/homePage";
+import homePage from "../../../pages/home/homePage";
 
 describe('Landing cremacion NF', () => {
 

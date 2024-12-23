@@ -1,7 +1,7 @@
-import homePage from "../../pages/home/homePage";
-import landingFunerariaNF from "../../pages/funeraria/landingFunerariaNF/landingFunerariaNF";
-import homePageMobile from "../../pageMobile/homeMobile/homePageMobile";
-import landingFunerariaNFMobile from "../../pageMobile/funerariaMobile/landingFunerariaNFMobile/landingFunerariaNFMobile";
+import homePage from "../../../pages/home/homePage";
+import landingFunerariaNF from "../../../pages/funeraria/landingFunerariaNF/landingFunerariaNF"
+import homePageMobile from "../../../pageMobile/homeMobile/homePageMobile";
+import landingFunerariaNFMobile from "../../../pageMobile/funerariaMobile/landingFunerariaNFMobile/landingFunerariaNFMobile";
 
 describe('Formulario landing de funeraria NF', () => {
 

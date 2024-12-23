@@ -1,9 +1,16 @@
 const btnMenuDesplegable = '[src="https://stappdeveastus001.blob.core.windows.net/corporativo-ic/media/icons/svg/menu-hamburguesa.svg"]'
 const btnProductosServicios = ':nth-child(4) > .a-menu-sidenav'
+//Botones Funeraria
 const btnFunerariaMenu = '#mat-tab-content-0-1 > div > ul > li:nth-child(1) > a'
 const btnNecesidadInmeditaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(2) > a'
 const btnProntoFallecimientoFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(3) > a'
 const btnNecesidadFuturaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(4) > a'
+//Botones Sepultura
+const btnSepulturaMenu = '#mat-tab-content-0-1 > div > ul > li:nth-child(4) > a'
+const btnNecesidadInmeditaSepultura = '#mat-tab-content-0-2 > div > ul > li:nth-child(2) > a'
+const btnProntoFallecimientoSepultura = '#mat-tab-content-0-2 > div > ul > li:nth-child(3) > a'
+const btnNecesidadFuturaSepultura = '#mat-tab-content-0-2 > div > ul > li:nth-child(4) > a'
+
 
 
 
@@ -36,6 +43,28 @@ class HomePageMobile {
         cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnFunerariaMenu, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnNecesidadFuturaFuneraria, { timeout: 10000 }).should('be.visible').click();
+    }
+    //Ingresa desde el menu desplegable a la seccion Funeraria Necesidad inmediata de la saccion Productos y servicios
+    ingresoSepulturaNIProductosServiciosMobile(){
+        cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnSepulturaMenu, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnNecesidadInmeditaSepultura, { timeout: 10000 }).should('be.visible').click();
+    }
+    //Ingresa desde el menu desplegable a la seccion Funeraria pronto fallecimineto  de la saccion Productos y servicios
+    ingresoSepulturaNIFProductosServiciosMobile(){
+        cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnSepulturaMenu, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProntoFallecimientoSepultura, { timeout: 10000 }).should('be.visible').click();
+    }
+
+    //Ingresa desde el menu desplegable a la seccion Funeraria Necesidad futura de la saccion Productos y servicios
+    ingresoSepulturaNFProductosServiciosMobile(){
+        cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnSepulturaMenu, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnNecesidadFuturaSepultura, { timeout: 10000 }).should('be.visible').click();
     }
 }
 
