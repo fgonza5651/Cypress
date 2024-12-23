@@ -2,6 +2,7 @@ import homePage from "../../../pages/home/homePage";
 import landingFunerariaNI from "../../../pages/funeraria/landingFunerariaNI/landingFunerariaNI";
 import homePageMobile from "../../../pageMobile/homeMobile/homePageMobile";
 import landingFunerariaNIMobile from "../../../pageMobile/funerariaMobile/landingFunerariaNiMobile/landingFunerariaNIMobile";
+
 describe('Formulario landing de funeraria NI', () => {
 
     beforeEach(() => {
