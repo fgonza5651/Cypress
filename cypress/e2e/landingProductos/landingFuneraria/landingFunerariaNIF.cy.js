@@ -1,7 +1,7 @@
-import homePage from "../../pages/home/homePage";
-import landingFunerariaNIF from "../../pages/funeraria/landingFunerariaNIF/landingFunerariaNIF";
-import homePageMobile from "../../pageMobile/homeMobile/homePageMobile";
-import landingFunerariaNIFMobile from "../../pageMobile/funerariaMobile/landingFunerariaNIFMobile/landingFunerariaNIFMobile";
+import homePage from "../../../pages/home/homePage";
+import landingFunerariaNIF from "../../../pages/funeraria/landingFunerariaNIF/landingFunerariaNIF";
+import homePageMobile from "../../../pageMobile/homeMobile/homePageMobile";
+import landingFunerariaNIFMobile from "../../../pageMobile/funerariaMobile/landingFunerariaNIFMobile/landingFunerariaNIFMobile";
 describe('Formulario landing de funeraria NIF', () => {
 
     beforeEach(() => {

@@ -11,6 +11,12 @@ const menuFuneraria = '#contenedor-header-menu > div > div.contenedor-menu-despl
 const menuFunerariaNI = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(1) > a'
 const menuFunerariaNIF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(2) > a'
 const menuFunerariaNF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(3) > a'
+
+//Sepultura desde la Barra
+const menuSepultura = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > a'
+const menuSepulturaNI = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > ul > li:nth-child(1) > a'
+const menuSepulturaNIF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > ul > li:nth-child(2) > a'
+const menuSepulturaNF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > ul > li:nth-child(3) > a'
 // parques del home
 const btnConocerParquePAV = '.cont-card-parque > :nth-child(1) > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
 const btnConocerParquePCO = ':nth-child(2) > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
@@ -65,6 +71,26 @@ class HomePage {
         cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
         cy.get(menuFuneraria, { timeout: 100000 }).realHover();
         cy.get(menuFunerariaNF, { timeout: 100000 }).realHover().click()
+    }
+
+    //se ingresa a Sepultura necesidad inmediata desde el menu del header desde productos y servicios
+    ingresoSepulturaNIProductosServicios(){
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.get(menuSepultura, { timeout: 100000 }).realHover();
+        cy.get(menuSepulturaNI, { timeout: 100000 }).realHover().click()
+    }
+    //se ingresa a Sepultura pronto fallecimineto desde el menu del header desde productos y servicios
+    ingresoSepulturaNIFProductosServicios(){
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.get(menuSepultura, { timeout: 100000 }).realHover();
+        cy.get(menuSepulturaNIF, { timeout: 100000 }).realHover().click()
+    }
+
+    //se ingresa a Sepultura necesidad futura desde el menu del header desde productos y servicios
+    ingresoSepulturaNFProductosServicios(){
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.get(menuSepultura, { timeout: 100000 }).realHover();
+        cy.get(menuSepulturaNF, { timeout: 100000 }).realHover().click({timeout: 100000})
     }
     
 

@@ -1,9 +1,9 @@
-import homePage from "../../pages/home/homePage"
-import landingCremacionNi from "../../pages/cremacion/landingCremacionNI/cremacionNIPage";
-import PavHome from "../../pages/parques/PAV";
-import PcoHome from "../../pages/parques/PCO";
-import PphHome from "../../pages/parques/PPH";
-import CrenacionNIFF from "../../pages/cremacion/landingCremacionNIF/cremacionNIFPage";
+import homePage from "../../../pages/home/homePage"
+import landingCremacionNi from "../../../pages/cremacion/landingCremacionNI/cremacionNIPage";
+import PavHome from "../../../pages/parques/PAV";
+import PcoHome from "../../../pages/parques/PCO";
+import PphHome from "../../../pages/parques/PPH";
+import CrenacionNIFF from "../../../pages/cremacion/landingCremacionNIF/cremacionNIFPage";
 
 describe('Formulario landing de cremacion NI/NIF', () => {
 
