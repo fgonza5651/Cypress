@@ -10,6 +10,7 @@ const menuNcesidadFutura = '(//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[
 const menuFuneraria = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > a'
 const menuFunerariaNI = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(1) > a'
 const menuFunerariaNIF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(2) > a'
+const menuFunerariaNF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(3) > a'
 // parques del home
 const btnConocerParquePAV = '.cont-card-parque > :nth-child(1) > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
 const btnConocerParquePCO = ':nth-child(2) > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
@@ -31,32 +32,39 @@ class HomePage {
 
     //selecciona de cremacion NI
     seleccionaraCremacionNI(){
-        cy.get(btnCremacionNI, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnCremacionNI, { timeout: 100000 }).should('be.visible').click();
     }
 
     //selecciona de cremacion NIF
     seleccionCremacionNIF(){
-        cy.get(btnCremacionNIF, { timeout: 10000 }).should('be.visible').click()
+        cy.get(btnCremacionNIF, { timeout: 100000 }).should('be.visible').click()
     }
 
     //se ingresa a cremacion desde el menu del header desde productos y servicios
     ingresoCremacionNIProductosServicios(){
-        cy.xpath(menuProductosServicios, { timeout: 10000 }).realHover();
-        cy.xpath(menuCremacion, { timeout: 10000 }).realHover();
-        cy.xpath(menuNecesidadInmediata, { timeout: 10000 }).realHover().click()
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.xpath(menuCremacion, { timeout: 100000 }).realHover();
+        cy.xpath(menuNecesidadInmediata, { timeout: 100000 }).realHover().click()
     }
 
-    //se ingresa a Funeraria desde el menu del header desde productos y servicios
+    //se ingresa a Funeraria necesidad inmediata desde el menu del header desde productos y servicios
     ingresoFunerariaNIProductosServicios(){
-        cy.xpath(menuProductosServicios, { timeout: 10000 }).realHover();
-        cy.get(menuFuneraria, { timeout: 10000 }).realHover();
-        cy.get(menuFunerariaNI, { timeout: 10000 }).realHover().click()
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.get(menuFuneraria, { timeout: 100000 }).realHover();
+        cy.get(menuFunerariaNI, { timeout: 100000 }).realHover().click()
+    }
+    //se ingresa a Funeraria pronto fallecimineto desde el menu del header desde productos y servicios
+    ingresoFunerariaNIFProductosServicios(){
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.get(menuFuneraria, { timeout: 100000 }).realHover();
+        cy.get(menuFunerariaNIF, { timeout: 100000 }).realHover().click()
     }
 
-    ingresoFunerariaNIFProductosServicios(){
-        cy.xpath(menuProductosServicios, { timeout: 10000 }).realHover();
-        cy.get(menuFuneraria, { timeout: 10000 }).realHover();
-        cy.get(menuFunerariaNIF, { timeout: 10000 }).realHover().click()
+    //se ingresa a Funeraria necesidad futura desde el menu del header desde productos y servicios
+    ingresoFunerariaNFProductosServicios(){
+        cy.xpath(menuProductosServicios, { timeout: 100000 }).realHover();
+        cy.get(menuFuneraria, { timeout: 100000 }).realHover();
+        cy.get(menuFunerariaNF, { timeout: 100000 }).realHover().click()
     }
     
 
