@@ -50,41 +50,41 @@ describe('Formulario landing de funeraria NI', () => {
     //{nombre historia}
     it('Landing Funeraria - NI - Telefonos -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIMobile()
+        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.iconoTelefonosTitulo()
     })
     //{nombre historia}
     it('Landing Funeraria - NI - Empieza aqui -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIMobile()
+        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.empiezaAqui()
 
     })
     //{nombre historia}
     it('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIMobile()
+        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaHablar()
 
     })
     //{nombre historia}
     it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIMobile()
+        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaOtraSolicitud()
 
     })
     //{nombre historia}
     it('Landing Funeraria - NI -Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIMobile()
+        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.encontrarTitulo1()
         landingFunerariaNIMobile.encontrarTitulo2()
     })
     //{nombre historia}
     it('Landing Funeraria - NI - Iniciar una cotizacion -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIMobile()
+        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.iniciarUnaCotizacion()
     })
 

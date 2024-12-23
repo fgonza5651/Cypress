@@ -3,6 +3,7 @@ const btnProductosServicios = ':nth-child(4) > .a-menu-sidenav'
 const btnFunerariaMenu = '#mat-tab-content-0-1 > div > ul > li:nth-child(1) > a'
 const btnNecesidadInmeditaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(2) > a'
 const btnProntoFallecimientoFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(3) > a'
+const btnNecesidadFuturaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(4) > a'
 
 
 
@@ -15,18 +16,26 @@ class HomePageMobile {
         cy.visit('/')
     }
     //Ingresa desde el menu desplegable a la seccion Funeraria Necesidad inmediata de la saccion Productos y servicios
-    ingresoFunerariaNIMobile(){
+    ingresoFunerariaNIProductosServiciosMobile(){
         cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnFunerariaMenu, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnNecesidadInmeditaFuneraria, { timeout: 10000 }).should('be.visible').click();
     }
-
-    ingresoFunerariaNIFMobile(){
+    //Ingresa desde el menu desplegable a la seccion Funeraria pronto fallecimineto  de la saccion Productos y servicios
+    ingresoFunerariaNIFProductosServiciosMobile(){
         cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnFunerariaMenu, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnProntoFallecimientoFuneraria, { timeout: 10000 }).should('be.visible').click();
+    }
+
+    //Ingresa desde el menu desplegable a la seccion Funeraria Necesidad futura de la saccion Productos y servicios
+    ingresoFunerariaNFProductosServiciosMobile(){
+        cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnFunerariaMenu, { timeout: 10000 }).should('be.visible').click();
+        cy.get(btnNecesidadFuturaFuneraria, { timeout: 10000 }).should('be.visible').click();
     }
 }
 
