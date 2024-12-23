@@ -1,8 +1,9 @@
 import homePage from "../../../pages/home/homePage";
-import landingSepulturaNI from "../../../pages/sepultura/landingSepulturaNI/landingSepulturaNI";
+import landingSepulturaNIF from "../../../pages/sepultura/landingSepulturaNIF/landingSepulturaNIF";
 import homePageMobile from "../../../pageMobile/homeMobile/homePageMobile";
-import landingSepulturaNIMobile from "../../../pageMobile/sepulturaMobile/landingSepulturaNIMobile/landingSepulturaNIMobile";
-describe('Formulario landing de funeraria NI', () => {
+import landingSepulturaNIFMobile from "../../../pageMobile/sepulturaMobile/landingSepulturaNIFMobile/landingSepulturaNIFMobile";
+
+describe('Formulario landing de Sepultura NIF', () => {
 
     beforeEach(() => {
         Cypress.on('uncaught:exception', (err, runnable) => {
@@ -11,137 +12,137 @@ describe('Formulario landing de funeraria NI', () => {
           });
     });
     //{nombre historia}
-    it('Landing Sepultura - NI - Compra en linea', ()=>{
+    it('Landing Sepultura - NIF - Compra en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.compraEnLinea()
+        landingSepulturaNIF.compraEnLinea()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Empieza aqui', function() {
+    it('Landing Sepultura - NIF - Llamanos', function() {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.llamanos()
+        landingSepulturaNIF.llamanos()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
+    it('Landing Sepultura - NIF - Chat whatsapp', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.chatWhatsapp()
+        landingSepulturaNIF.chatWhatsapp()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
+    it('Landing Sepultura - NIF - Hablar en linea con una ejecutiva', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.ejecutivaEnlineaHablar()
+        landingSepulturaNIF.ejecutivaEnlineaHablar()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
+    it('Landing Sepultura - NIF - Realizar otra solicitud con ejecutiva en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.ejecutivaEnlineaOtraSolicitud()
+        landingSepulturaNIF.ejecutivaEnlineaOtraSolicitud()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Revisar titulos', ()=>{
+    it('Landing Sepultura - NIF - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.encontrarTitulo1()
-        landingSepulturaNI.encontrarTitulo2()
+        landingSepulturaNIF.encontrarTitulo1()
+        landingSepulturaNIF.encontrarTitulo2()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Iniciar una cotizacion', ()=>{
+    it('Landing Sepultura - NIF - Iniciar una cotizacion', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.iniciarUnaCotizacion()
+        landingSepulturaNIF.iniciarUnaCotizacion()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque americo vespucio', ()=>{
+    it('Landing Sepultura - NIF - Descubre parque americo vespucio', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.descubrePAV()
+        landingSepulturaNIF.descubrePAV()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque cordillera', ()=>{
+    it('Landing Sepultura - NIF - Descubre parque cordillera', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.descubrePCO()
+        landingSepulturaNIF.descubrePCO()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque padre hurtado', ()=>{
+    it('Landing Sepultura - NIF - Descubre parque padre hurtado', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.descubrePPH()
+        landingSepulturaNIF.descubrePPH()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque padre hurtado', ()=>{
+    it('Landing Sepultura - NIF - Selecciona tu necesidad', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNI.seleccionarNecesidad()
+        landingSepulturaNIF.seleccionarNecesidad()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Telefonos -Mobile', ()=> {
+    it('Landing Sepultura - NIF - Telefonos -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.iconoTelefonosTitulo()
+        landingSepulturaNIFMobile.iconoTelefonosTitulo()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Empieza aqui -Mobile', ()=>{
+    it('Landing Sepultura - NIF - Llamanos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.llamanos()
+        landingSepulturaNIFMobile.llamanos()
     })
-    it('Landing Sepultura - NI - Empieza aqui -Mobile', ()=>{
+    it('Landing Sepultura - NIF - Chat whatsapp -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.chatWhatsapp()
-    })
-    //{nombre historia}
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.ejecutivaEnlineaHablar()
+        landingSepulturaNIFMobile.chatWhatsapp()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
+    it('Landing Sepultura - NIF - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.ejecutivaEnlineaOtraSolicitud()
+        landingSepulturaNIFMobile.ejecutivaEnlineaHablar()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI -Revisar titulos -Mobile', ()=>{
+    it('Landing Sepultura - NIF - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.encontrarTitulo1()
-        landingSepulturaNIMobile.encontrarTitulo2()
+        landingSepulturaNIFMobile.ejecutivaEnlineaOtraSolicitud()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Iniciar una cotizacion -Mobile', ()=>{
+    it('Landing Sepultura - NIF -Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.iniciarUnaCotizacion()
+        landingSepulturaNIFMobile.encontrarTitulo1()
+        landingSepulturaNIFMobile.encontrarTitulo2()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque americo vespucio', ()=>{
+    it('Landing Sepultura - NIF - Iniciar una cotizacion -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.descubrePAV()
+        landingSepulturaNIFMobile.iniciarUnaCotizacion()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque cordillera', ()=>{
+    it('Landing Sepultura - NIF - Descubre parque americo vespucio -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.descubrePCO()
+        landingSepulturaNIFMobile.descubrePAV()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Descubre parque padre hurtado', ()=>{
+    it('Landing Sepultura - NIF - Descubre parque cordillera -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.descubrePPH()
+        landingSepulturaNIFMobile.descubrePCO()
     })
     //{nombre historia}
-    it.only('Landing Sepultura - NI - Descubre parque padre hurtado', ()=>{
+    it('Landing Sepultura - NIF - Descubre parque padre hurtado -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIMobile.seleccionarNecesidad()
+        landingSepulturaNIFMobile.descubrePPH()
+    })
+    //{nombre historia}
+    it('Landing Sepultura - NIF - Selecciona tu necesidad -Mobile ', ()=>{
+        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
+        landingSepulturaNIFMobile.seleccionarNecesidad()
     })
     
 })
