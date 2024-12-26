@@ -139,7 +139,7 @@ describe('Formulario landing de Sepultura NI', () => {
         landingSepulturaNIMobile.descubrePPH()
     })
     //{nombre historia}
-    it.only('Landing Sepultura - NI - Selecciona tu necesidad -Mobile', ()=>{
+    it('Landing Sepultura - NI - Selecciona tu necesidad -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIProductosServiciosMobile()
         landingSepulturaNIMobile.seleccionarNecesidad()
