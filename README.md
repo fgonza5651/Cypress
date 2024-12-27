@@ -2,7 +2,7 @@
 
 -------------------------------------------------------------
 Nombre: Benjamin Barria
-Fecha: 26/12/2024-16:57
+Fecha: 27/12/2024-09:11
 Version: 1.0.0
 Descripcion: Se incorporo el sector cremacion basico ni junto a las funciones 
 compraEnLinea,ejecutivaEnLineaHablar, ejecutivaEnLineaOtraSolicitud, agregarVelatorioBasico, agregarVelatorioEstandar, agregarVelatorioPremium, agregarFunerariaBasico, agregarFunerariaTradicion, agregarFunerariaTradicionDestacado, agregarFunerariaSustentable, agregarFunerariaPremium, agregarFunerariaPremiumDestacado, agregarDescansoVidriado, agregarDescansoPared, agregarDescansoFloresPremium, agregarDescansoFlores, agregarDescansoMemoriar, revisarAgregarCarrito, tourVirtual, caracteristicasDetalles, llamanos, escribenos, cotiza ademas se su respectiva version mobile con las funciones 
