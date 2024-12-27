@@ -11,78 +11,78 @@ describe('Formulario landing de funeraria NI', () => {
             return false;
           });
     });
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NI - Compra en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.compraEnLinea()
     })
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NI - Empieza aqui', function() {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.empiezaAqui()
     })
-    //{nombre historia}
+    //CEC-2843
     it('Landing Funeraria - NI - Hablar en linea con una ejecutiva', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2822
     it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.ejecutivaEnlineaOtraSolicitud()
     })
-    //{nombre historia}
+    //CEC-3966
     it('Landing Funeraria - NI - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.encontrarTitulo1()
         landingFunerariaNI.encontrarTitulo2()
     })
-    //{nombre historia}
+    //CEC-3914
     it('Landing Funeraria - NI - Iniciar una cotizacion', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.iniciarUnaCotizacion()
     })
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NI - Telefonos -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.iconoTelefonosTitulo()
     })
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NI - Empieza aqui -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.empiezaAqui()
 
     })
-    //{nombre historia}
+    //CEC-2843
     it('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaHablar()
 
     })
-    //{nombre historia}
+    //CEC-2822
     it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.ejecutivaEnlineaOtraSolicitud()
 
     })
-    //{nombre historia}
+    //CEC-3966
     it('Landing Funeraria - NI -Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.encontrarTitulo1()
         landingFunerariaNIMobile.encontrarTitulo2()
     })
-    //{nombre historia}
+    //CEC-3914
     it('Landing Funeraria - NI - Iniciar una cotizacion -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
