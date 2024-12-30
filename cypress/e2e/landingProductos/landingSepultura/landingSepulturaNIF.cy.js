@@ -11,80 +11,80 @@ describe('Formulario landing de Sepultura NIF', () => {
             return false;
           });
     });
-    //{nombre historia}
+    //CEC-2861
     it('Landing Sepultura - NIF - Compra en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.compraEnLinea()
     })
-    //{nombre historia}
+    //CEC-2870
     it('Landing Sepultura - NIF - Llamanos', function() {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.llamanos()
     })
-    //{nombre historia}
+    //CEC-2714
     it('Landing Sepultura - NIF - Chat whatsapp', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.chatWhatsapp()
     })
-    //{nombre historia}
+    //CEC-3419
     it('Landing Sepultura - NIF - Hablar en linea con una ejecutiva', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2861
     it('Landing Sepultura - NIF - Realizar otra solicitud con ejecutiva en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.ejecutivaEnlineaOtraSolicitud()
     })
-    //{nombre historia}
+    //CEC-5068
     it('Landing Sepultura - NIF - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.encontrarTitulo1()
         landingSepulturaNIF.encontrarTitulo2()
     })
-    //{nombre historia}
+    //CEC-5060
     it('Landing Sepultura - NIF - Iniciar una cotizacion', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.iniciarUnaCotizacion()
     })
-    //{nombre historia}
+    //CEC-5056
     it('Landing Sepultura - NIF - Descubre parque americo vespucio', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.descubrePAV()
     })
-    //{nombre historia}
+    //CEC-5068
     it('Landing Sepultura - NIF - Descubre parque cordillera', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.descubrePCO()
     })
-    //{nombre historia}
+    //CEC-5057
     it('Landing Sepultura - NIF - Descubre parque padre hurtado', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.descubrePPH()
     })
-    //{nombre historia}
+    //CEC-2870
     it('Landing Sepultura - NIF - Selecciona tu necesidad', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.seleccionarNecesidad()
     })
-    //{nombre historia}
+    //CEC-2870
     it('Landing Sepultura - NIF - Telefonos -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.iconoTelefonosTitulo()
     })
-    //{nombre historia}
+    //CEC-2870
     it('Landing Sepultura - NIF - Llamanos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
@@ -95,50 +95,50 @@ describe('Formulario landing de Sepultura NIF', () => {
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.chatWhatsapp()
     })
-    //{nombre historia}
+    //CEC-2714
     it('Landing Sepultura - NIF - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-3419
     it('Landing Sepultura - NIF - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.ejecutivaEnlineaOtraSolicitud()
     })
-    //{nombre historia}
+    //CEC-2861
     it('Landing Sepultura - NIF -Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.encontrarTitulo1()
         landingSepulturaNIFMobile.encontrarTitulo2()
     })
-    //{nombre historia}
+    //CEC-5068
     it('Landing Sepultura - NIF - Iniciar una cotizacion -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.iniciarUnaCotizacion()
     })
-    //{nombre historia}
+    //CEC-5060
     it('Landing Sepultura - NIF - Descubre parque americo vespucio -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.descubrePAV()
     })
-    //{nombre historia}
+    //CEC-5056
     it('Landing Sepultura - NIF - Descubre parque cordillera -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.descubrePCO()
     })
-    //{nombre historia}
+    //CEC-5068
     it('Landing Sepultura - NIF - Descubre parque padre hurtado -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.descubrePPH()
     })
-    //{nombre historia}
+    //CEC-5057
     it('Landing Sepultura - NIF - Selecciona tu necesidad -Mobile ', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
