@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cypress:open": "cypress open"
+    "cypress:open": "cypress open",
+    "cypress:runDefault": "cypress run --spec C:/Git/gitEcommers/Cypress/cypress/e2e/landingProductos/landingCremacion/cremacionBasicoNI.cy.js"
   },
   "author": "QA",
   "license": "ISC"
