@@ -7,6 +7,7 @@ const btnTourVirtual = '#grilla-navegacion-pdp > div > div.cont-btn-volver > a.b
 const popUpTourVirtual = '.contenedor-swiper'
 //Agregar al carrito
 const btnAgregarCarrito = '.contenedor-caracteristicas-pdp > .contenedor-detalle-producto > .contenedor-total-pagar > .btn-agragar-compra'
+const btnCarroCompras = '#contenedor-sidenav-carro-compra > div.cont-carro > div.cont-total-pagar > button'
 //Informacion y caracteristicas de Cremacion
 const btnCaracteristicas = '.contenedor-tabs-caracteristicas > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-1-0'
 const informacionCaracteristicas = '.contenedor-tabs-caracteristicas > .mat-tab-group > .mat-tab-body-wrapper > #mat-tab-content-1-0 > .mat-tab-body-content'
@@ -51,6 +52,7 @@ const btnDescansoFlores = '#cont-swipper-otras-opciones > swiper > div > div.swi
 const btnDescansoMemorial = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
 const iconCheckDescanso = '#mat-checkbox-6 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
 
+//Funcion que revisa la suma de los productos agregados sea igual al total
 function ComprararPrecios (precioTotaltext, precioAgregadoText){
     cy.wait(1000)
     cy.get(precioTotaltext).invoke('text').then((precioInicial) => {
@@ -102,6 +104,10 @@ class CremacionBasicoNIMobile {
     agregarVelatorioBasico(){
         cy.get(btnDetalleVelatorio,{timeout:100000}).should('be.visible').click()
         cy.get(popUpVelatorio,{timeout:100000}).should('be.visible')
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioVelatorio')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckVelatorio).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -110,6 +116,10 @@ class CremacionBasicoNIMobile {
     agregarVelatorioEstandar(){
         cy.get(btnDetalleVelatorio,{timeout:100000}).should('be.visible').click()
         cy.get(btnVelatorioEstandar,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioVelatorio')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckVelatorio).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -118,6 +128,10 @@ class CremacionBasicoNIMobile {
     agregarVelatorioPremium(){
         cy.get(btnDetalleVelatorio,{timeout:100000}).should('be.visible').click()
         cy.get(btnVelatorioPremium,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioVelatorio')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckVelatorio).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -125,6 +139,10 @@ class CremacionBasicoNIMobile {
     //Ademas revisa si la casilla quede marcada con un check
     agregarFunerariaBasico(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -133,6 +151,10 @@ class CremacionBasicoNIMobile {
     agregarFunerariaTradicion(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaTradicion,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -141,6 +163,10 @@ class CremacionBasicoNIMobile {
     agregarFunerariaTradicionDestacado(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaTradicionDestacada,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -149,6 +175,10 @@ class CremacionBasicoNIMobile {
     agregarFunerariaSustentable(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaSustentable,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -157,6 +187,10 @@ class CremacionBasicoNIMobile {
     agregarFunerariaPremium(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaPremium,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -165,6 +199,10 @@ class CremacionBasicoNIMobile {
     agregarFunerariaPremiumDestacado(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaPremiumDestacada,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -172,6 +210,10 @@ class CremacionBasicoNIMobile {
     //Ademas revisa si la casilla quede marcada con un check
     agregarDescansoVidriado(){
         cy.get(btnDetalleDescanso,{timeout:100000}).should('be.visible').click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioDescanso')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -180,6 +222,10 @@ class CremacionBasicoNIMobile {
     agregarDescansoPared(){
         cy.get(btnDetalleDescanso,{timeout:100000}).should('be.visible').click()
         cy.get(btnDescansoPared,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioDescanso')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -188,6 +234,10 @@ class CremacionBasicoNIMobile {
     agregarDescansoFloresPremium(){
         cy.get(btnDetalleDescanso,{timeout:100000}).should('be.visible').click()
         cy.get(btnDescansoFloresPremium,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioDescanso')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -196,6 +246,10 @@ class CremacionBasicoNIMobile {
     agregarDescansoFlores(){
         cy.get(btnDetalleDescanso,{timeout:100000}).should('be.visible').click()
         cy.get(btnDescansoFlores,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioDescanso')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -204,6 +258,10 @@ class CremacionBasicoNIMobile {
     agregarDescansoMemoriar(){
         cy.get(btnDetalleDescanso,{timeout:100000}).should('be.visible').click()
         cy.get(btnDescansoMemorial,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioDescanso')
+        })
         ComprararPrecios(totalPrecio, precioAgregado)
         cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
@@ -211,6 +269,10 @@ class CremacionBasicoNIMobile {
     revisarAgregarCarrito () {
         cy.get(btnAgregarCarrito,{timeout:100000}).should('be.visible').click()
         cy.get(slideCarrito,{timeout:100000}).should('be.visible')
+    }
+    //Preciona el boton ir al carro de compras
+    precionarCarroCompra(){
+        cy.get(btnCarroCompras,{timeout:100000}).should('be.visible').click()
     }
     //Preciona el boton tour virtual y revisa que se desplegue el pop up
     tourVirtual(){
@@ -240,6 +302,35 @@ class CremacionBasicoNIMobile {
     cotiza (){
         cy.get(btnCotiza,{timeout:100000}).should('be.visible').click()
         cy.url({timeout: 100000}).should('eq', urlCotiza)
+    }
+    //revisa que el precio de velatorio en el slide carrito sean iguales al solicitado
+    revisarPreciosVelatorio(){
+        cy.get('@precioVelatorio').then((precioVelatorio) =>{
+            const precioVelatorioNum = precioVelatorio.replace(/[' ']/g,'')
+            Cypress.env('precioVelatorio',precioVelatorioNum)
+            cy.log(precioVelatorioNum)
+            cy.wrap(precioVelatorioNum).as('precioVelatorioExport')
+            cy.get(slideCarrito,{timeout:100000}).contains(precioVelatorioNum).should('be.visible')
+        })
+    }
+    //revisa que el precio de funeraria en el slide carrito sean iguales al solicitado
+    revisarPreciosFuneraria(){
+        cy.get('@precioFuneraria').then((precioFuneraria) =>{
+            const precioFunerariaNum = precioFuneraria.replace(/[' ']/g,'')
+            cy.log(precioFunerariaNum)
+            cy.wrap(precioFunerariaNum).as('precioFunerariaExport')
+            cy.get(slideCarrito,{timeout:100000}).contains(precioFunerariaNum).should('be.visible')
+        })
+    }
+    //revisa que el precio de descanso en el slide carrito sean iguales al solicitado
+    revisarPreciosDescanso (){
+        cy.get('@precioDescanso').then((precioDescanso) =>{
+            const precioDescansoNum = precioDescanso.replace(/[' ']/g,'')
+            Cypress.env('precioDescanso',precioDescansoNum)
+            cy.log(precioDescansoNum)
+            cy.wrap(precioDescansoNum).as('precioDescansoExport')
+            cy.get(slideCarrito,{timeout:100000}).contains(precioDescansoNum).should('be.visible')
+        })  
     }
 }
 

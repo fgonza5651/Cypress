@@ -1,26 +1,30 @@
 import cremacionBasicoNI from "../../../pages/cremacion/cremacionBasicoNI/cremacionBasicoNI";
-import cremacionBasicoNIMobile from "../../../pageMobile/cremacionMobile/cremacionBasicoNI/cremacionBasicoNIMobile";
-
+import carroCompras from "../../../pages/carroCompras/carroCompras/carroCompras";
+import webpay3 from "../../../pages/carroCompras/webpay/webpay3";
+import authenticatorWebpay from "../../../pages/carroCompras/webpay/autentificacion";
+import checkoutRecibo from "../../../pages/carroCompras/recibo/checkoutRecibo";
 
 describe('test cremacion-basico-NI', () =>{
     beforeEach(() => {
+        cy.clearCookies();   
+        cy.clearLocalStorage();
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
     });
     //{nombre historia}
-    it('Landing Sepultura - NI - Compra en linea', ()=>{
+    it('Cremacion -Basico - NI  - Compra en linea', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.compraEnLinea()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
+    it('Cremacion -Basico - NI  - Hablar en linea con una ejecutiva', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.ejecutivaEnlineaHablar()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
+    it('Cremacion -Basico - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.ejecutivaEnlineaOtraSolicitud()
     })
@@ -29,18 +33,75 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioBasico()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaRedcompra()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            cy.log('Funciona')
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaAprobada()
+            checkoutRecibo.revisarVelatorioResumen()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Velatorio estandar', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioEstandar()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            cy.log('Funciona')
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaRechazada() 
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Velatorio premium', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioPremium()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaRedcompra()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankRechazar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria basico', () =>{
@@ -48,6 +109,27 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarVelatorioBasico()
         cremacionBasicoNI.agregarFunerariaBasico()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankRechazar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria tradicion', () =>{
@@ -55,6 +137,29 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarVelatorioBasico()
         cremacionBasicoNI.agregarFunerariaTradicion()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaRedcompra()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaAprobada()
+            checkoutRecibo.revisarVelatorioResumen()
+            checkoutRecibo.revisarFunerariaResumen()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria tradicion destacada', () =>{
@@ -62,6 +167,27 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarVelatorioEstandar()
         cremacionBasicoNI.agregarFunerariaTradicionDestacado()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaRedcompra()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankRechazar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria sustentable', () =>{
@@ -69,6 +195,27 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarVelatorioEstandar()
         cremacionBasicoNI.agregarFunerariaSustentable()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria premium', () =>{
@@ -76,6 +223,27 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarVelatorioPremium()
         cremacionBasicoNI.agregarFunerariaPremium()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankRechazar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria premium destacada', () =>{
@@ -83,6 +251,27 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarVelatorioPremium()
         cremacionBasicoNI.agregarFunerariaPremiumDestacado()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso vidriado', () =>{
@@ -91,6 +280,32 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarFunerariaPremiumDestacado()
         cremacionBasicoNI.agregarDescansoVidriado()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.revisarPreciosDescanso()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.revisarDescansoResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaRedcompra()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaAprobada()
+            checkoutRecibo.revisarVelatorioResumen()
+            checkoutRecibo.revisarFunerariaResumen()
+            checkoutRecibo.revisarDescansoResumen()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso pared', () =>{
@@ -99,6 +314,29 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarFunerariaTradicion()
         cremacionBasicoNI.agregarDescansoPared()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.revisarPreciosDescanso()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.revisarDescansoResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso flores premium', () =>{
@@ -107,6 +345,29 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarFunerariaTradicionDestacado()
         cremacionBasicoNI.agregarDescansoFloresPremium()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.revisarPreciosDescanso()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.revisarDescansoResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso flores', () =>{
@@ -115,6 +376,29 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarFunerariaSustentable()
         cremacionBasicoNI.agregarDescansoFlores()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.revisarPreciosDescanso()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.revisarDescansoResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaMastercard()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankRechazar()
+            checkoutRecibo.validarPaginaRechazada()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso memorial', () =>{
@@ -123,6 +407,32 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.agregarFunerariaPremium()
         cremacionBasicoNI.agregarDescansoMemoriar()
         cremacionBasicoNI.revisarAgregarCarrito()
+        cremacionBasicoNI.revisarPreciosVelatorio()
+        cremacionBasicoNI.revisarPreciosFuneraria()
+        cremacionBasicoNI.revisarPreciosDescanso()
+        cremacionBasicoNI.precionarCarroCompra()
+        carroCompras.revisarVelatorioResumen()
+        carroCompras.revisarFunerariaResumen()
+        carroCompras.revisarDescansoResumen()
+        carroCompras.precionarIrComprar()
+        carroCompras.formularioDatosPersonales()
+        carroCompras.formularioContacto()
+        carroCompras.formularioFallecidoPrimerServico()
+        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.TerminosCondicionesPagar()
+        webpay3.precionarTarjetas()
+        const caso = webpay3.formularioTarjetaRedcompra()
+        cy.log(caso)
+        if(caso == 0){
+            cy.log('Falla')
+        }else{
+            authenticatorWebpay.formularioTransbankAceptar()
+            checkoutRecibo.validarPaginaAprobada()
+            checkoutRecibo.revisarVelatorioResumen()
+            checkoutRecibo.revisarFunerariaResumen()
+            checkoutRecibo.revisarDescansoResumen()
+        }
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Tour virtual', () =>{
@@ -149,145 +459,4 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.cotiza()
     })
-    //{nombre historia}
-    it('Landing Sepultura - NI - Compra en linea', ()=>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.iconoTelefonosTitulo()
-    })
-    //{nombre historia}
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.ejecutivaEnlineaHablar()
-    })
-    //{nombre historia}
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.ejecutivaEnlineaOtraSolicitud()
-    })
-    
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio basico -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioBasico()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio estandar -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioEstandar()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio premium -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioPremium()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Funeraria basico -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioBasico()
-        cremacionBasicoNIMobile.agregarFunerariaBasico()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Funeraria tradicion -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioBasico()
-        cremacionBasicoNIMobile.agregarFunerariaTradicion()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Funeraria tradicion destacada -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioEstandar()
-        cremacionBasicoNIMobile.agregarFunerariaTradicionDestacado()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Funeraria sustentable -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioEstandar()
-        cremacionBasicoNIMobile.agregarFunerariaSustentable()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Funeraria premium -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioPremium()
-        cremacionBasicoNIMobile.agregarFunerariaPremium()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Funeraria premium destacada -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioPremium()
-        cremacionBasicoNIMobile.agregarFunerariaPremiumDestacado()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Descanso vidriado -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioPremium()
-        cremacionBasicoNIMobile.agregarFunerariaPremiumDestacado()
-        cremacionBasicoNIMobile.agregarDescansoVidriado()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Descanso pared -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioBasico()
-        cremacionBasicoNIMobile.agregarFunerariaTradicion()
-        cremacionBasicoNIMobile.agregarDescansoPared()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Descanso flores premium -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioEstandar()
-        cremacionBasicoNIMobile.agregarFunerariaTradicionDestacado()
-        cremacionBasicoNIMobile.agregarDescansoFloresPremium()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Descanso flores -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioEstandar()
-        cremacionBasicoNIMobile.agregarFunerariaSustentable()
-        cremacionBasicoNIMobile.agregarDescansoFlores()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Descanso memorial -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.agregarVelatorioPremium()
-        cremacionBasicoNIMobile.agregarFunerariaPremium()
-        cremacionBasicoNIMobile.agregarDescansoMemoriar()
-        cremacionBasicoNIMobile.revisarAgregarCarrito()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Tour virtual -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.tourVirtual()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Caracteristicas y detalles -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.caracteristicasDetalles()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Llamanos -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.llamanos()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Escribenos -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.escribenos()
-    })
-    //{nombre historia}
-    it('Cremacion - Basico -NI -Cotiza -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.cotiza()
-    })
-})
+});
