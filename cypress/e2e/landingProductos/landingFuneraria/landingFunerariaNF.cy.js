@@ -11,85 +11,85 @@ describe('Formulario landing de funeraria NF', () => {
             return false;
           });
     });
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NF - Compra en linea', ()=> {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.compraEnLinea()
     })
-    //{nombre historia}
+    //CEC-4200
     it('Landing Funeraria - NF - Solicitar asesoria close Pop up', ()=> {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.solicitarAsesoriaCierrePopup()
     })
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NF - Solicitar asesoria Go home', ()=> {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.solicitarAsesoriaGoHome()
     })
-    //{nombre historia}
+    //CEC-2843
     it('Landing Funeraria - NF - Hablar en linea con una ejecutiva', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2822
     it('Landing Funeraria - NF - Realizar otra solicitud con ejecutiva en linea', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.ejecutivaEnlineaOtraSolicitud()
     })
-    //{nombre historia}
+    //CEC-4291
     it('Landing Funeraria - NF - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.encontrarTitulo()
     })
-    //{nombre historia}
+    //CEC-4369
     it('Landing Funeraria - NF - Solicitar asesoria final de pagina', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.solicitarAsesoriaFinalPagina()
     })
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NF - Compra en linea -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.iconoTelefonosTitulo()
     })
-    //{nombre historia}
+    //CEC-4200
     it('Landing Funeraria - NF - Solicitar asesoria close Pop up -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.solicitarAsesoriaCierrePopup()
     })
-    //{nombre historia}
+    //CEC-2842
     it('Landing Funeraria - NF - Solicitar asesoria Go home -Mobile', ()=> {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.solicitarAsesoriaGoHome()
     })
-    //{nombre historia}
+    //CEC-2843
     it('Landing Funeraria - NF - Hablar en linea con una ejecutiva -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2822
     it('Landing Funeraria - NF - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.ejecutivaEnlineaOtraSolicitud()
     })
-    //{nombre historia}
+    //CEC-4291
     it('Landing Funeraria - NF - Revisar titulos -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.encontrarTitulo()
     })
-    //{nombre historia}
+    //CEC-4369
     it('Landing Funeraria - NF - Solicitar asesoria final de pagina -Mobile', ()=>{
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
