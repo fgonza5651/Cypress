@@ -1,6 +1,13 @@
 # Cypress
 
--------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
+Fecha: 03/01/2025-16:20
+Version: 1.0.0
+Descripcion: Se incorporo el flujo completo de cremacion basico ni ademas de las funciones revisar precio velatorio, revisar precio funeraria y revisar precio descanso, ademas de almacer los valores de cada funeraria, velatorio, descanso que se seleccina.
+Ademas se incorporaron los archivos webpay, autentificacion, carroCompras y checkoutRecibo. Tambien se separo los test en 2 archivos cremacionBasicoNI.cy.js y cremacionBasicoNIMObile.cy.js
+---------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria
 Fecha: 27/12/2024-09:11
 Version: 1.0.0
