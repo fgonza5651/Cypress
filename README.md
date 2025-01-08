@@ -5,7 +5,7 @@ Fecha: 08/01/2025 - 10:59
 version: 1.0.1
 Descripcion: Se agrega el lufjo de funnel de sepultura donde se selecciona un parque, capacidad y rango de precio, luego se selecciona una card
 ---------------------------------------------------------------------------------------------------------
-Nombre: Benjamin Barria
+Nombre:  - Pruebas-  
 Fecha: 03/01/2025-16:20
 Version: 1.0.0
 Descripcion: Se incorporo el flujo completo de cremacion basico ni ademas de las funciones revisar precio velatorio, revisar precio funeraria y revisar precio descanso, ademas de almacer los valores de cada funeraria, velatorio, descanso que se seleccina.
