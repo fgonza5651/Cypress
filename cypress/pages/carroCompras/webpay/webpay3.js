@@ -71,7 +71,7 @@ class Webpay3{
                 if(!$modal.is(':visible')){
                     cy.get(inputNumeroTarjeta,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaRechazadaMasterCard'].numero)
                     cy.get(btnContinuar,{timeout:100000}).should('be.visible').click()
-                    cy.wait(6000)
+                    cy.wait(4000)
                     cy.get(boxPagar).then(($error) => {
                         if(!$error.text().includes('Intenta')){
                             cy.get(inputFechaExpiracion,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaRechazadaMasterCard'].mes)

@@ -52,6 +52,8 @@ class CremacionFullNIMobile {
     ingresoCremacionFullNIMobile(){
         cy.viewport('iphone-xr')
         cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-full-ni')
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     }
     //Agrega al carrito el articulo velatorio cafeteria basico y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check

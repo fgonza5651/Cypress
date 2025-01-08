@@ -35,9 +35,9 @@ describe('test cremacion-Full-NI', () =>{
                     if(success){
                         cy.log('Error')
                     }else{
-                        cy.log('Funciona')
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
                     }
                 })
             }
@@ -65,7 +65,6 @@ describe('test cremacion-Full-NI', () =>{
                     if(success){
                         cy.log('Error')
                     }else{
-                        cy.log('Funciona')
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaRechazada() 
                     }
@@ -97,6 +96,7 @@ describe('test cremacion-Full-NI', () =>{
                     }else{
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
                     }
                 })
             }
@@ -163,6 +163,8 @@ describe('test cremacion-Full-NI', () =>{
                     }else{
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
                     }
                 })
             }
@@ -196,6 +198,8 @@ describe('test cremacion-Full-NI', () =>{
                     }else{
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
                     }
                 })
             }
@@ -297,6 +301,8 @@ describe('test cremacion-Full-NI', () =>{
                     }else{
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
                     }
                 })
             }
@@ -369,6 +375,9 @@ describe('test cremacion-Full-NI', () =>{
                     }else{
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
+                        checkoutRecibo.revisarDescansoResumen()
                     }
                 })
             }
@@ -405,6 +414,9 @@ describe('test cremacion-Full-NI', () =>{
                     }else{
                         authenticatorWebpay.formularioTransbankAceptar()
                         checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
+                        checkoutRecibo.revisarDescansoResumen()
                     }
                 })
             }

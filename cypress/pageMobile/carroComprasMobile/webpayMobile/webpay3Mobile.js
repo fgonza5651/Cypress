@@ -11,8 +11,6 @@ const btnPagar = 'Pagar'
 const popUpTransaccionCaida = '.modal__content.modal__content--error'
 const boxPagar = '.card-number'
 
-
-
 const formularioWebpay3 = Cypress.env('Formulario')
 class Webpay3Mobile{
     //Preciona la opcion tarjetas
@@ -21,7 +19,7 @@ class Webpay3Mobile{
             cy.wait(4000)
             cy.get(popUpTransaccionCaida).then(($modal)=>{
                 if(!$modal.is(':visible')){
-                    cy.get(btnTarjetas,{timeout:100000}).should('be.visible').click()
+                    cy.get(btnTarjetas,{timeout:100000}).click()
                     resolve(false)
                 }else{
                     cy.wait(3000)

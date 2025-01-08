@@ -47,12 +47,10 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
     })
 }
 
-const formularioLanding = Cypress.env('Formulario')
-
-class CremacionFullNI {
-    //ingreso a la URL de Cremacion Full NI
-    ingresoCremacionFullNI(){
-        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-full-ni')
+class CremacionPremiumNI {
+    //ingreso a la URL de Cremacion Premium NI
+    ingresoCremacionPremiumNI(){
+        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
@@ -262,5 +260,5 @@ class CremacionFullNI {
     }
 }
 
-const cremacionFullNI = new CremacionFullNI()
-export default cremacionFullNI
+const cremacionPremiumNI = new CremacionPremiumNI()
+export default cremacionPremiumNI
