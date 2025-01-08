@@ -1,6 +1,9 @@
 # Cypress
 
-
+Nombre:Fernando Reyes
+Fecha: 08/01/2025 - 10:59
+version: 1.0.1
+Descripcion: Se agrega el lufjo de funnel de sepultura donde se selecciona un parque, capacidad y rango de precio, luego se selecciona una card
 ---------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria
 Fecha: 03/01/2025-16:20
