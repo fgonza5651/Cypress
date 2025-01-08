@@ -109,6 +109,7 @@ class CarroComprasMobile{
     TerminosCondicionesPagar (){
         cy.get(btnSiguienteFallecidoTercerServicio,{timeout:100000}).should('be.visible').click()
         cy.get(btnCheckTerminosCondiciones,{timeout:100000}).should('be.visible').click()
+        cy.wait(1000)
         cy.get(btnIrPagar,{timeout:100000}).should('be.visible').click()
     }
 }

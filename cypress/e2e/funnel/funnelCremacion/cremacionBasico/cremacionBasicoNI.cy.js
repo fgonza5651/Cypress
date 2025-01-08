@@ -1,8 +1,8 @@
-import cremacionBasicoNI from "../../../pages/cremacion/cremacionBasicoNI/cremacionBasicoNI";
-import carroCompras from "../../../pages/carroCompras/carroCompras/carroCompras";
-import webpay3 from "../../../pages/carroCompras/webpay/webpay3";
-import authenticatorWebpay from "../../../pages/carroCompras/webpay/autentificacion";
-import checkoutRecibo from "../../../pages/carroCompras/recibo/checkoutRecibo";
+import cremacionBasicoNI from "../../../../pages/cremacion/cremacionBasicoNI/cremacionBasicoNI";
+import carroCompras from "../../../../pages/carroCompras/carroCompras/carroCompras";
+import webpay3 from "../../../../pages/carroCompras/webpay/webpay3";
+import authenticatorWebpay from "../../../../pages/carroCompras/webpay/autentificacion";
+import checkoutRecibo from "../../../../pages/carroCompras/recibo/checkoutRecibo";
 
 describe('test cremacion-basico-NI', () =>{
     beforeEach(() => {
