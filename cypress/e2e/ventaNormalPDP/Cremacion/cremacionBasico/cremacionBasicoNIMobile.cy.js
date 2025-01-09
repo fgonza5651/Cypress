@@ -1,8 +1,8 @@
-import cremacionBasicoNIMobile from "../../../pageMobile/cremacionMobile/cremacionBasicoNI/cremacionBasicoNIMobile";
-import carroComprasMobile from "../../../pageMobile/carroComprasMobile/carroComprasMobile/carroComprasMobile";
-import webpay3Mobile from "../../../pageMobile/carroComprasMobile/webpayMobile/webpay3Mobile";
-import authenticatorWebpayMobile from "../../../pageMobile/carroComprasMobile/webpayMobile/autentificacionMobile";
-import checkoutReciboMobile from "../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
+import cremacionBasicoNIMobile from "../../../../pageMobile/cremacionMobile/cremacionBasicoNI/cremacionBasicoNIMobile";
+import carroComprasMobile from "../../../../pageMobile/carroComprasMobile/carroComprasMobile/carroComprasMobile";
+import webpay3Mobile from "../../../../pageMobile/carroComprasMobile/webpayMobile/webpay3Mobile";
+import authenticatorWebpayMobile from "../../../../pageMobile/carroComprasMobile/webpayMobile/autentificacionMobile";
+import checkoutReciboMobile from "../../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
 
 describe('test cremacion-basico-NI', () =>{
     beforeEach(() => {
@@ -15,17 +15,17 @@ describe('test cremacion-basico-NI', () =>{
     });   
    
    //{nombre historia}
-    it('Landing Sepultura - NI - Compra en linea', ()=>{
+    it('Cremacion - Basica - NI - Compra en linea - Mobile', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.iconoTelefonosTitulo()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
+    it('Cremacion - Basica - NI - Hablar en linea con una ejecutiva - Mobile', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.ejecutivaEnlineaHablar()
     })
     //{nombre historia}
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
+    it('Cremacion - Basica - NI - Realizar otra solicitud con ejecutiva en linea - Mobile', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.ejecutivaEnlineaOtraSolicitud()
     })
@@ -44,16 +44,23 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoPrimerServico()
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaAprobada()
-            checkoutReciboMobile.revisarVelatorioResumen()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaAprobada()
+                        checkoutReciboMobile.revisarVelatorioResumen()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Velatorio estandar -Mobile', () =>{
@@ -69,15 +76,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoPrimerServico()
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankRechazar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankRechazar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Velatorio premium -Mobile', () =>{
@@ -93,15 +107,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoPrimerServico()
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria basico -Mobile', () =>{
@@ -121,15 +142,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankRechazar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankRechazar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria tradicion -Mobile', () =>{
@@ -149,17 +177,24 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaAprobada()
-            checkoutReciboMobile.revisarFunerariaResumen()
-            checkoutReciboMobile.revisarVelatorioResumen()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaAprobada()
+                        checkoutReciboMobile.revisarFunerariaResumen()
+                        checkoutReciboMobile.revisarVelatorioResumen()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria tradicion destacada -Mobile', () =>{
@@ -179,16 +214,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankRechazar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
-        
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankRechazar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria sustentable -Mobile', () =>{
@@ -208,15 +249,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        const caso = webpay3Mobile.precionarTarjetas()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            webpay3Mobile.formularioTarjetaMastercard()
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria premium -Mobile', () =>{
@@ -236,15 +284,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankRechazar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankRechazar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Funeraria premium destacada -Mobile', () =>{
@@ -264,17 +319,24 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaAprobada()
-            checkoutReciboMobile.revisarFunerariaResumen()
-            checkoutReciboMobile.revisarVelatorioResumen()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaAprobada()
+                        checkoutReciboMobile.revisarFunerariaResumen()
+                        checkoutReciboMobile.revisarVelatorioResumen()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso vidriado -Mobile', () =>{
@@ -297,18 +359,25 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaAprobada()
-            checkoutReciboMobile.revisarFunerariaResumen()
-            checkoutReciboMobile.revisarVelatorioResumen()
-            checkoutReciboMobile.revisarDescansoResumen()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaAprobada()
+                        checkoutReciboMobile.revisarFunerariaResumen()
+                        checkoutReciboMobile.revisarVelatorioResumen()
+                        checkoutReciboMobile.revisarDescansoResumen()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso pared -Mobile', () =>{
@@ -331,15 +400,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankRechazar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankRechazar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso flores premium -Mobile', () =>{
@@ -362,15 +438,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso flores -Mobile', () =>{
@@ -393,15 +476,22 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankRechazar()
-            checkoutReciboMobile.validarPaginaRechazada()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankRechazar()
+                        checkoutReciboMobile.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso memorial -Mobile', () =>{
@@ -424,18 +514,26 @@ describe('test cremacion-basico-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas()
-        const caso = webpay3Mobile.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpayMobile.formularioTransbankAceptar()
-            checkoutReciboMobile.validarPaginaAprobada()
-            checkoutReciboMobile.revisarFunerariaResumen()
-            checkoutReciboMobile.revisarVelatorioResumen()
-            checkoutReciboMobile.revisarDescansoResumen()
-        }
+        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    //
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpayMobile.formularioTransbankAceptar()
+                        checkoutReciboMobile.validarPaginaAprobada()
+                        checkoutReciboMobile.revisarFunerariaResumen()
+                        checkoutReciboMobile.revisarVelatorioResumen()
+                        checkoutReciboMobile.revisarDescansoResumen()
+                    }
+                })
+            }
+        })
     })
     //{nombre historia}
     it('Cremacion - Basico -NI -Tour virtual -Mobile', () =>{

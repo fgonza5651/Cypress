@@ -1,11 +1,16 @@
 # Cypress
 
+Nombre: Benjamin Barria 
+Fecha: 09/01/2025-12:25
+Version: 1.0.2
+Descripcion: Se incorporo todo el sector de cremacion full NI ademas de cremacion Premium NI, tambien se modifico el de los archivos de prueba colocandolos test en una carpeta llamada "e2e" -> "ventaNormalPDP" -> "Cremacion" y dentro de esta se creo una carpeta para cada sector, ademas se comento los if utiizados tanto en el sector de test case como en los archivos webpay3.js y webpay3Mobile.js. Ademas se incorporaron mas condiciones en los archivos anteriores asi como en los test case
+---------------------------------------------------------------------------------------------------------
 Nombre:Fernando Reyes
 Fecha: 08/01/2025 - 10:59
 version: 1.0.1
 Descripcion: Se agrega el lufjo de funnel de sepultura donde se selecciona un parque, capacidad y rango de precio, luego se selecciona una card
 ---------------------------------------------------------------------------------------------------------
-Nombre:  - Pruebas-  
+Nombre: Benjamin Barria 
 Fecha: 03/01/2025-16:20
 Version: 1.0.0
 Descripcion: Se incorporo el flujo completo de cremacion basico ni ademas de las funciones revisar precio velatorio, revisar precio funeraria y revisar precio descanso, ademas de almacer los valores de cada funeraria, velatorio, descanso que se seleccina.

@@ -1,34 +1,9 @@
-const btnTelefonoTitulo = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-mobile > img:nth-child(1)'
-const popUpTelefonos = '#mat-tab-content-2-0 > .mat-tab-body-content'
 const totalPrecio = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-total-pagar.ng-star-inserted > div > p.cifra-valor-pagar'
 const precioAgregado = '#contenedor-sidenav-ssaa > div > div.cont-info-producto-ssaa > div.cont-info-ssaa > div > p.text-normal'
 const slideCarrito = '#sidenav-carro-compra > div'
-const btnTourVirtual = '#grilla-navegacion-pdp > div > div.cont-btn-volver > a.btn-tour-virtual-mobile.ng-star-inserted'
-const popUpTourVirtual = '.contenedor-swiper'
 //Agregar al carrito
 const btnAgregarCarrito = '.contenedor-caracteristicas-pdp > .contenedor-detalle-producto > .contenedor-total-pagar > .btn-agragar-compra'
 const btnCarroCompras = '#contenedor-sidenav-carro-compra > div.cont-carro > div.cont-total-pagar > button'
-//Informacion y caracteristicas de Cremacion
-const btnCaracteristicas = '.contenedor-tabs-caracteristicas > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-1-0'
-const informacionCaracteristicas = '.contenedor-tabs-caracteristicas > .mat-tab-group > .mat-tab-body-wrapper > #mat-tab-content-1-0 > .mat-tab-body-content'
-const btnDetalle = '.contenedor-tabs-caracteristicas > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-1-1'
-const informacionDetalle = '.contenedor-tabs-caracteristicas > .mat-tab-group > .mat-tab-body-wrapper > #mat-tab-content-1-1 > .mat-tab-body-content'
-//botones Comunicate con nosotros
-const btnLlamanos = '#btn_llamanos_comunicate_con_nosotros'
-const inputNombreLlamanos = ':nth-child(1) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex'
-const inputApellidoLlamanos = '.form-datos-cliente > :nth-child(2) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex'
-const inputTelefonoLlamanos = ':nth-child(3) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex'
-const btnEscribenos = '.btn-escribenos'
-const btnCotiza = '.btn-cotiza'
-const urlCotiza = 'https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui'
-//campo ejecutiva en linea
-const btnEjecutiva = '#chatSalesforce'
-const btnHablarConAsesora = '#btn-wsp'
-const inputNumeroAsesoraEnLinea = '#mat-input-1'
-const btnOtraSolicitud = '.cont-btns-contactos > :nth-child(3)'
-const inputNombreOtraSolicitud = '#FirstName'
-const inputApellidoOtraSolicitud = '#LastName'
-const inputEmailOtraSolicitud = '#Email'
 //Botones de velatorio
 const popUpVelatorio = '#mat-tab-content-2-0 > div'
 const btnDetalleVelatorio = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-servicios-adicionales.ng-star-inserted > div:nth-child(2) > div > button.btn-ver-detalle-mobile'
@@ -72,34 +47,13 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
     })
 }
 
-const formularioLanding = Cypress.env('Formulario')
-
-class CremacionBasicoNIMobile {
+class CremacionFullNIMobile {
     //ingreso a la URL de Cremacion Basica NI Mobile
-    ingresoCremacionBasicaNIMobile(){
+    ingresoCremacionFullNIMobile(){
         cy.viewport('iphone-xr')
-        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-full-ni')
         cy.clearCookies();   
         cy.clearLocalStorage();
-    }
-    //revisa el boton de telefonos y lo preciona 
-    iconoTelefonosTitulo (){
-        cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()
-        cy.get(popUpTelefonos,{timeout: 100000}).should('be.visible')
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion hablar con asesora de ventas y rellena el formulario
-    ejecutivaEnlineaHablar (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnHablarConAsesora,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion otro tipo de solicitud y rellena el formulario
-    ejecutivaEnlineaOtraSolicitud (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnOtraSolicitud,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNombreOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputEmailOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
     }
     //Agrega al carrito el articulo velatorio cafeteria basico y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -276,35 +230,6 @@ class CremacionBasicoNIMobile {
     precionarCarroCompra(){
         cy.get(btnCarroCompras,{timeout:100000}).should('be.visible').click()
     }
-    //Preciona el boton tour virtual y revisa que se desplegue el pop up
-    tourVirtual(){
-        cy.get(btnTourVirtual,{timeout:100000}).should('be.visible').click()
-        cy.get(popUpTourVirtual,{timeout:10000}).should('be.visible')
-    }
-    //Revisa que se muestre tanto las caracteristicas como los detalles 
-    caracteristicasDetalles (){
-        cy.get(btnDetalle,{timeout:100000}).should('be.visible').click()
-        cy.get(informacionDetalle,{timeout:100000}).should('be.visible')
-        cy.get(btnCaracteristicas,{timeout:100000}).should('be.visible').click()
-        cy.get(informacionCaracteristicas,{timeout:100000}).should('be.visible')
-    }
-    //Preciona el boton llamanos y rellena el formulario
-    llamanos (){
-        cy.get(btnLlamanos,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNombreLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputTelefonoLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //Preciona el boton escribenos y rellena el formulario
-    escribenos (){
-        cy.get(btnEscribenos,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //Preciona el boton cotiza que esta al final de la pagina y revisa que nos redireccione a "https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui"
-    cotiza (){
-        cy.get(btnCotiza,{timeout:100000}).should('be.visible').click()
-        cy.url({timeout: 100000}).should('eq', urlCotiza)
-    }
     //revisa que el precio de velatorio en el slide carrito sean iguales al solicitado
     revisarPreciosVelatorio(){
         cy.get('@precioVelatorio').then((precioVelatorio) =>{
@@ -336,5 +261,5 @@ class CremacionBasicoNIMobile {
     }
 }
 
-const cremacionBasicoNIMobile = new CremacionBasicoNIMobile ()
-export default cremacionBasicoNIMobile
+const cremacionFullNIMobile = new CremacionFullNIMobile ()
+export default cremacionFullNIMobile

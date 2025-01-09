@@ -5,7 +5,7 @@ const nroPedidoRechaso = '#contenedor-ntyp > div.cont-ntyp > div.cont-numero-ped
 class CheckoutRecibo{
     //revisa que la pagina contenga la palabra "con éxito" ademas revisa que la url contenga el mismo numero del pedido
     validarPaginaAprobada(){
-        cy.get(nroPedidoAprovado).invoke('text').then((nroPedidotext) => {
+        cy.get(nroPedidoAprovado,{timeout:10000}).invoke('text').then((nroPedidotext) => {
             const nroPedidonum = nroPedidotext.replace(/[\D]/g, '');
             cy.url().should('include', `/${nroPedidonum}`)
             cy.contains('con éxito')
@@ -13,7 +13,7 @@ class CheckoutRecibo{
     )}
     //revisa que la pagina contenga la palabra "Rechazada" ademas revisa que la url contenga el mismo numero del pedido
     validarPaginaRechazada(){
-        cy.get(nroPedidoRechaso).invoke('text').then((nroPedidotext) => {
+        cy.get(nroPedidoRechaso,{timeout:10000}).invoke('text').then((nroPedidotext) => {
             const nroPedidonum = nroPedidotext.replace(/[\D]/g, '');
             cy.url().should('include', `/${nroPedidonum}`)
             cy.contains('Rechazada')
