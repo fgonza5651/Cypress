@@ -33,6 +33,13 @@ class CheckoutReciboMobile{
             cy.get(resumenPago).contains(precioFunerariaExport)
         })
     }
+    //revisa que en el resumen de compra el precio de Cremacion agregado sea el mismo que se solicito
+    revisarCremacionResumen(){
+        cy.get('@precioCremacionExport').then((precioCremacionExport) => {
+            cy.log(precioCremacionExport)
+            cy.get(resumenPago).contains(precioCremacionExport)
+        })
+    }
     //revisa que en el resumen de compra el precio del descanso agregado sea el mismo que se solicito
     revisarDescansoResumen(){
         cy.get('@precioDescansoExport').then((precioDescansoExport) => {
