@@ -78,7 +78,9 @@ class CremacionBasicoNIMobile {
     //ingreso a la URL de Cremacion Basica NI Mobile
     ingresoCremacionBasicaNIMobile(){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     }
     //revisa el boton de telefonos y lo preciona 
     iconoTelefonosTitulo (){

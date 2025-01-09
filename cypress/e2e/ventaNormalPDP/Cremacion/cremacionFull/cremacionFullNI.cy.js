@@ -28,10 +28,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -58,10 +60,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -87,10 +91,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -121,10 +127,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -154,10 +162,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -189,10 +199,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -224,10 +236,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -257,10 +271,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -292,10 +308,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -330,10 +348,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -366,10 +386,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -405,10 +427,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -444,10 +468,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -480,10 +506,12 @@ describe('test cremacion-Full-NI', () =>{
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
         webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{

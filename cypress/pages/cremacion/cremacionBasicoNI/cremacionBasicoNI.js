@@ -77,7 +77,9 @@ const formularioLanding = Cypress.env('Formulario')
 class CremacionBasicoNI {
     //ingreso a la URL de Cremacion Basico NI
     ingresoCremacionBasicaNI(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     }
     //revisa el boton compra en linea, lo preciona y rellena el formulario
     compraEnLinea(){

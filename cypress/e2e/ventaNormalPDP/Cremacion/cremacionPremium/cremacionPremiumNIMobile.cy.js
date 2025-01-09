@@ -29,10 +29,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -59,10 +61,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -88,10 +92,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoSegundoServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -122,10 +128,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -155,10 +163,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -190,10 +200,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -223,10 +235,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -258,10 +272,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -293,10 +309,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -331,10 +349,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -370,10 +390,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -406,10 +428,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -445,10 +469,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
@@ -481,10 +507,12 @@ describe('test cremacion-Premium-NI', () =>{
         carroComprasMobile.formularioFallecidoTercerServicio()
         carroComprasMobile.TerminosCondicionesPagar()
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
             if(respuesta){
                 cy.log('Error')
             }else{
                 webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
                     if(success){
                         cy.log('Error')
                     }else{
