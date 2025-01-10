@@ -74,6 +74,7 @@ class Webpay3Mobile{
                 if(!$modal.is(':visible')){
                     cy.get(inputNumeroTarjeta,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaRechazadaMasterCard'].numero)
                     cy.contains(btnContinuar,{timeout:100000}).should('be.visible').click()
+                    cy.wait(6000)
                     cy.get(boxPagar).then(($error)=>{
                         //Revisa si debajo del numero de tarjeta aparece el tecto "Intenta..." de una transaccion fallida, si este aparece se termina la ejecucion sino se continua con el flujo
                         if (!$error.text().includes('Intenta')) {

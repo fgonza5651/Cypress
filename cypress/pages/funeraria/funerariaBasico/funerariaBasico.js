@@ -45,7 +45,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaBasico {
-    //ingreso a la URL de Cremacion Full NI
+    //ingreso a la URL de funeraria plan basico
     ingresarFunerariaBasico(){
         cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-basico')
         cy.clearCookies();   
