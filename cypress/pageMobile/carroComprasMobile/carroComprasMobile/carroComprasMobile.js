@@ -53,6 +53,13 @@ class CarroComprasMobile{
             cy.get(resumenCompra).contains(precioFunerariaExport)
         })
     }
+    //Revisa que el precio del servicio Cremacion en el resumen sea el mismo que el seleccionado 
+    revisarCremacionResumen(){
+        cy.get('@precioCremacionExport').then((precioCremacionExport) => {
+            cy.log(precioCremacionExport)
+            cy.get(resumenCompra).contains(precioCremacionExport)
+        })
+    }
     //Revisa que el precio del servicio descanso en el resumen sea el mismo que el seleccionado 
     revisarDescansoResumen(){
         cy.get('@precioDescansoExport').then((precioDescansoExport) => {

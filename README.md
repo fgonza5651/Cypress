@@ -1,5 +1,9 @@
 # Cypress
-
+Nombre: Benjamin Barria 
+Fecha: 09/01/2025-18:02
+Version: 1.0.3
+Descripcion:Se incorporo todo el sector de funeraria basica tanto para desktop como mobile realizando el flujo completo y se incorporo la funcione revisarCremacionResumen en el archivo carroCompras.js y tambien se agrego la funcion revisarCremacionResumen en el archivo checkoutRecibo.js
+---------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria 
 Fecha: 09/01/2025-12:25
 Version: 1.0.2

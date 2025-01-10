@@ -33,6 +33,13 @@ class CheckoutRecibo{
             cy.get(resumenPago).contains(precioFunerariaExport)
         })
     }
+    //revisa que el precio de funeraria en el resumen sea el mismo que el seleccionado 
+    revisarCremacionResumen(){
+        cy.get('@precioCremacionExport').then((precioCremacionExport) => {
+            cy.log(precioCremacionExport)
+            cy.get(resumenPago).contains(precioCremacionExport)
+        })
+    }
     //revisa que el precio del descanso en el resumen sea el mismo que el seleccionado 
     revisarDescansoResumen(){
         cy.get('@precioDescansoExport').then((precioDescansoExport) => {
