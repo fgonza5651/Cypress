@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 10/01/2025-14:20
+Version: 1.0.5
+Descripcion: Se incorporo el sector funeraria plan tradicion destacado en desktop asi como en Mobile ambos con sus flujos correspondientes, ademas se agrego los archivos "funerariaTradicionDestacado.js" y "funerariaTradicionDestacadoMobile.js" los que tienen todas las funcionalidades de la pagina inicial
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 10/01/2025-12:48
 Version: 1.0.5
 Descripcion: Se incorporaron las pruebas de todo el sector de funeraria plan sustentable tanto para desktop como para Mobile ambos con sus flujos correspondientes, en ambos casos se creo un archivo el cual contines todas las funcionalidades de la pagina inicial siendo estos "funerariaSustentable.js" y "funerariaSustentableMobile.js"  
