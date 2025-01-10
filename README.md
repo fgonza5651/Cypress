@@ -1,8 +1,13 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 10/01/2025-11:11
+Version: 1.0.4
+Descripcion: Se incorporaron las pruebas para todo el sector de funeraria plan tradicion tanto para desktop como Mobile ambos con su flujo completo, en ambos casos se creo un archivo el cual contiene todas las funcionalidades de la pagina inicial "funerariaTradicion.js" y "funerariaTradicionMobile.js" 
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 09/01/2025-18:02
 Version: 1.0.3
-Descripcion:Se incorporo todo el sector de funeraria basica tanto para desktop como mobile realizando el flujo completo y se incorporo la funcione revisarCremacionResumen en el archivo carroCompras.js y tambien se agrego la funcion revisarCremacionResumen en el archivo checkoutRecibo.js
+Descripcion:Se incorporo todo el sector de funeraria basica tanto para desktop como Mobile realizando el flujo completo y se incorporo la funcione revisarCremacionResumen en el archivo carroCompras.js y tambien se agrego la funcion revisarCremacionResumen en el archivo checkoutRecibo.js
 ---------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria 
 Fecha: 09/01/2025-12:25
