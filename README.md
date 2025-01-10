@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 10/01/2025-12:48
+Version: 1.0.5
+Descripcion: Se incorporaron las pruebas de todo el sector de funeraria plan sustentable tanto para desktop como para Mobile ambos con sus flujos correspondientes, en ambos casos se creo un archivo el cual contines todas las funcionalidades de la pagina inicial siendo estos "funerariaSustentable.js" y "funerariaSustentableMobile.js"  
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 10/01/2025-11:11
 Version: 1.0.4
 Descripcion: Se incorporaron las pruebas para todo el sector de funeraria plan tradicion tanto para desktop como Mobile ambos con su flujo completo, en ambos casos se creo un archivo el cual contiene todas las funcionalidades de la pagina inicial "funerariaTradicion.js" y "funerariaTradicionMobile.js" 

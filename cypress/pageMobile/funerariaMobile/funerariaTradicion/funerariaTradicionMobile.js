@@ -13,8 +13,8 @@ const btnVelatorioPremium = '#cont-swipper-otras-opciones > swiper > div > div.s
 const iconCheckVelatorio = '#mat-checkbox-4 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
 //botones de cremacion
 const btnDetalleCremacion = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-servicios-adicionales.ng-star-inserted > div:nth-child(3) > div > button.btn-ver-detalle-mobile'
-const btnCremacionTradicion = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-active > div > div.cont-img-producto'
-const btnCremacionTradicionDestacada = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
+const btnCremacionFull = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-active > div > div.cont-img-producto'
+const btnCremacionPremium = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
 const iconCheckCremacion = '#mat-checkbox-5 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
 //botones de Descanso de cenizas
 const btnDetalleDescanso = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-servicios-adicionales.ng-star-inserted > div:nth-child(4) > div > button.btn-ver-detalle-mobile'
@@ -103,7 +103,7 @@ class FunerariaTradicionMobile {
     //Ademas revisa si la casilla quede marcada con un check
     agregarCremacionFull(){
         cy.get(btnDetalleCremacion,{timeout:100000}).should('be.visible').click()
-        cy.get(btnCremacionTradicion,{timeout:100000}).click()
+        cy.get(btnCremacionFull,{timeout:100000}).click()
         cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
             cy.log(text);
             cy.wrap(text).as('precioCremacion')
@@ -115,7 +115,7 @@ class FunerariaTradicionMobile {
     //Ademas revisa si la casilla quede marcada con un check
     agregarCremacionPremium(){
         cy.get(btnDetalleCremacion,{timeout:100000}).should('be.visible').click()
-        cy.get(btnCremacionTradicionDestacada,{timeout:100000}).click()
+        cy.get(btnCremacionPremium,{timeout:100000}).click()
         cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
             cy.log(text);
             cy.wrap(text).as('precioCremacion')

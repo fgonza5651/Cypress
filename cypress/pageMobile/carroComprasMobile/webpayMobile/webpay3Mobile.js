@@ -82,6 +82,7 @@ class Webpay3Mobile{
                             cy.get(inputFechaExpiracion,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaRechazadaMasterCard'].año)
                             cy.get(inputCvv,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaRechazadaMasterCard'].cvv)
                             cy.contains(btnContinuar,{timeout:100000}).click()
+                            cy.wait(1000)
                             cy.get(btnListaCuotas,{timeout:100000}).should('be.visible').click()
                             cy.get(btn3cuotas,{timeout:100000}).should('be.visible').click()
                             cy.contains(btnConfirmar,{timeout:100000}).click()
