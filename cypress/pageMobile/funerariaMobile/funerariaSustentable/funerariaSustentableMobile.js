@@ -44,11 +44,11 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
     })
 }
 
-class FunerariaBasicoMobile {
-    //ingreso a la URL de Funeraria plan basico Mobile
-    ingresoFunerariaBasicoMobile(){
+class FunerariaSustentableMobile {
+    //ingreso a la URL de Funeraria plan Sustentable Mobile
+    ingresoFunerariaSustentableMobile(){
         cy.viewport('iphone-xr')
-        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
+        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-Sustentable')
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
@@ -222,5 +222,5 @@ class FunerariaBasicoMobile {
     }
 }
 
-const funerariaBasicoMobile = new FunerariaBasicoMobile ()
-export default funerariaBasicoMobile
+const funerariaSustentableMobile = new FunerariaSustentableMobile ()
+export default funerariaSustentableMobile
