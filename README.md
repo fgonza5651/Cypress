@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 13/01/2025-09:20
+Version: 1.0.8
+Descripcion: Se incorporaron las pruebas de funeraria plan homenaje premium destacado tanto en desktop como en Mobile ambos con su flujo completo, para ambas plataformas se crearon archivos que contienen la pagina de inicio llamados "funerariaPremiumDestacada.js" y "funerariaPremiumDestacadaMobile.js"
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 10/01/2025-15:48
 Version: 1.0.7
 Descripcion: Se incorporo el sector funeraria homenaje premium tanto en desktop como mobile, ademas se crearon archivos que continesn las funcionalidades de ambas paginas, estos archivos son "funerariaPremium.js" y "funerariaPremiumMobile.js"  
