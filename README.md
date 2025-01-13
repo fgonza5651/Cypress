@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 10/01/2025-10:20
+Version: 1.0.10
+Descripcion: Se implemento el sector de funeraria plan parvulo tanto para desktop como para mobile con sus respectivos flujos, ademas se creo un archivo que contiens todas las funcionalidades de la pagina base, estos se llaman "funerariaParvulo.js" y "funerariaParvuloMobile.js" 
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 10/01/2025-12:48
 Version: 1.0.5
 Descripcion: Se incorporaron las pruebas de todo el sector de funeraria plan sustentable tanto para desktop como para Mobile ambos con sus flujos correspondientes, en ambos casos se creo un archivo el cual contines todas las funcionalidades de la pagina inicial siendo estos "funerariaSustentable.js" y "funerariaSustentableMobile.js"  
