@@ -1,8 +1,28 @@
 # Cypress
 Nombre: Benjamin Barria 
-Fecha: 10/01/2025-10:20
+Fecha: 13/01/2025-10:20
 Version: 1.0.10
 Descripcion: Se implemento el sector de funeraria plan parvulo tanto para desktop como para mobile con sus respectivos flujos, ademas se creo un archivo que contiens todas las funcionalidades de la pagina base, estos se llaman "funerariaParvulo.js" y "funerariaParvuloMobile.js" 
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 13/01/2025-09:46
+Version: 1.0.9
+Descripcion: Se incorporo el sector funeraria plan parvulo base con sus respectivos test tanto en Mobile como desktop con sus flujos completos, ademas se crearon archivos para las paginas base de cada plataforma los cuales contienen todas las funcionalidades de esta misma y se llaman "funerariaParvuloBase.js" y "funerariaParvuloBaseMobile.js"
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 13/01/2025-09:20
+Version: 1.0.8
+Descripcion: Se incorporaron las pruebas de funeraria plan homenaje premium destacado tanto en desktop como en Mobile ambos con su flujo completo, para ambas plataformas se crearon archivos que contienen la pagina de inicio llamados "funerariaPremiumDestacada.js" y "funerariaPremiumDestacadaMobile.js"
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 10/01/2025-15:48
+Version: 1.0.7
+Descripcion: Se incorporo el sector funeraria homenaje premium tanto en desktop como mobile, ademas se crearon archivos que continesn las funcionalidades de ambas paginas, estos archivos son "funerariaPremium.js" y "funerariaPremiumMobile.js"  
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
+Fecha: 10/01/2025-14:20
+Version: 1.0.6
+Descripcion: Se incorporo el sector funeraria plan tradicion destacado en desktop asi como en Mobile ambos con sus flujos correspondientes, ademas se agrego los archivos "funerariaTradicionDestacado.js" y "funerariaTradicionDestacadoMobile.js" los que tienen todas las funcionalidades de la pagina inicial
 ---------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria 
 Fecha: 10/01/2025-12:48
