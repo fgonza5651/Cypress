@@ -4,6 +4,11 @@ Fecha: 10/01/2025-15:48
 Version: 1.0.7
 Descripcion: Se incorporo el sector funeraria homenaje premium tanto en desktop como mobile, ademas se crearon archivos que continesn las funcionalidades de ambas paginas, estos archivos son "funerariaPremium.js" y "funerariaPremiumMobile.js"  
 ---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
+Fecha: 10/01/2025-14:20
+Version: 1.0.6
+Descripcion: Se incorporo el sector funeraria plan tradicion destacado en desktop asi como en Mobile ambos con sus flujos correspondientes, ademas se agrego los archivos "funerariaTradicionDestacado.js" y "funerariaTradicionDestacadoMobile.js" los que tienen todas las funcionalidades de la pagina inicial
+---------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria 
 Fecha: 10/01/2025-12:48
 Version: 1.0.5
