@@ -13,22 +13,22 @@ describe('test cremacion-basico-NI', () =>{
             return false;
           });
     });
-    //{nombre historia}
+    ////CEC-2527
     it('Cremacion -Basico - NI  - Compra en linea', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.compraEnLinea()
     })
-    //{nombre historia}
+    //CEC-1784
     it('Cremacion -Basico - NI  - Hablar en linea con una ejecutiva', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Cremacion -Basico - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.ejecutivaEnlineaOtraSolicitud()
     })
-    //{nombre historia}
+    //CEC-2603 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Velatorio basico', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioBasico()
@@ -54,7 +54,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.revisarVelatorioResumen()
         }
     })
-    //{nombre historia}
+    //CEC-2604 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Velatorio estandar', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioEstandar()
@@ -79,7 +79,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada() 
         }
     })
-    //{nombre historia}
+    //CEC-2608 CEC-2993 CEC-3001 CEC-3028 CEC-3029 CEC-3032
     it('Cremacion - Basico -NI -Velatorio premium', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioPremium()
@@ -103,7 +103,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2662 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria basico', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioBasico()
@@ -131,7 +131,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2660 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Funeraria tradicion', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioBasico()
@@ -161,7 +161,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.revisarFunerariaResumen()
         }
     })
-    //{nombre historia}
+    //CEC-2658 CEC-2993 CEC-3001 CEC-3028 CEC-3029 CEC-3032
     it('Cremacion - Basico -NI -Funeraria tradicion destacada', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioEstandar()
@@ -189,7 +189,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2658 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria sustentable', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioEstandar()
@@ -217,7 +217,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2656 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria premium', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioPremium()
@@ -245,7 +245,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3105 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria premium destacada', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioPremium()
@@ -273,7 +273,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3114 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso vidriado', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioPremium()
@@ -307,7 +307,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.revisarDescansoResumen()
         }
     })
-    //{nombre historia}
+    //CEC-3115 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso pared', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioBasico()
@@ -338,7 +338,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3237 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores premium', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioEstandar()
@@ -369,7 +369,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3111 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioEstandar()
@@ -400,7 +400,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3112 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso memorial', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarVelatorioPremium()
@@ -434,27 +434,27 @@ describe('test cremacion-basico-NI', () =>{
             checkoutRecibo.revisarDescansoResumen()
         }
     })
-    //{nombre historia}
+    //CEC-2523
     it('Cremacion - Basico -NI -Tour virtual', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.tourVirtual()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Caracteristicas y detalles', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.caracteristicasDetalles()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Llamanos', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.llamanos()
     })
-    //{nombre historia}
+    //CEC-2530
     it('Cremacion - Basico -NI -Escribenos', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.escribenos()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Cremacion - Basico -NI -Cotiza', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.cotiza()

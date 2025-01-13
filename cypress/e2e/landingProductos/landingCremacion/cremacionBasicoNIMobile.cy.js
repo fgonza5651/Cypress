@@ -14,23 +14,23 @@ describe('test cremacion-basico-NI', () =>{
           });
     });   
    
-   //{nombre historia}
+    //CEC-2527
     it('Landing Sepultura - NI - Compra en linea', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.iconoTelefonosTitulo()
     })
-    //{nombre historia}
+    //CEC-1784
     it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.ejecutivaEnlineaOtraSolicitud()
     })
     
-    //{nombre historia}
+    //CEC-2603 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Velatorio basico -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioBasico()
@@ -55,7 +55,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.revisarVelatorioResumen()
         }
     })
-    //{nombre historia}
+    //CEC-2604 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Velatorio estandar -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioEstandar()
@@ -79,7 +79,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2608 CEC-2993 CEC-3001 CEC-3028 CEC-3029 CEC-3032
     it('Cremacion - Basico -NI -Velatorio premium -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioPremium()
@@ -103,7 +103,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2662 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria basico -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioBasico()
@@ -131,7 +131,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2660 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Funeraria tradicion -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioBasico()
@@ -161,7 +161,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.revisarVelatorioResumen()
         }
     })
-    //{nombre historia}
+    //CEC-2658 CEC-2993 CEC-3001 CEC-3028 CEC-3029 CEC-3032
     it('Cremacion - Basico -NI -Funeraria tradicion destacada -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioEstandar()
@@ -190,7 +190,7 @@ describe('test cremacion-basico-NI', () =>{
         }
         
     })
-    //{nombre historia}
+    //CEC-2658 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria sustentable -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioEstandar()
@@ -218,7 +218,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-2656 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria premium -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioPremium()
@@ -246,7 +246,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3105 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria premium destacada -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioPremium()
@@ -276,7 +276,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.revisarVelatorioResumen()
         }
     })
-    //{nombre historia}
+    //CEC-3114 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso vidriado -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioPremium()
@@ -310,7 +310,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.revisarDescansoResumen()
         }
     })
-    //{nombre historia}
+    //CEC-3115 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso pared -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioBasico()
@@ -341,7 +341,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3237 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores premium -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioEstandar()
@@ -372,7 +372,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3111 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioEstandar()
@@ -403,7 +403,7 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.validarPaginaRechazada()
         }
     })
-    //{nombre historia}
+    //CEC-3112 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso memorial -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarVelatorioPremium()
@@ -437,27 +437,27 @@ describe('test cremacion-basico-NI', () =>{
             checkoutReciboMobile.revisarDescansoResumen()
         }
     })
-    //{nombre historia}
+    //CEC-2523
     it('Cremacion - Basico -NI -Tour virtual -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.tourVirtual()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Caracteristicas y detalles -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.caracteristicasDetalles()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Llamanos -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.llamanos()
     })
-    //{nombre historia}
+    //CEC-2530
     it('Cremacion - Basico -NI -Escribenos -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.escribenos()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Cremacion - Basico -NI -Cotiza -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.cotiza()
