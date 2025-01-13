@@ -1,4 +1,4 @@
-import FunnelCremacionNIF from "../../pages/funnel/funnelCremacionNIFPage";
+import FunnelCremacionNIF from "../../../pages/funnel/funnelCremacionNIFPage";
 
 describe('', () => {
     beforeEach(() => {

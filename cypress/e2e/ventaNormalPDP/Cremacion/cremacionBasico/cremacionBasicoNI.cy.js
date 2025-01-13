@@ -1,8 +1,8 @@
-import cremacionBasicoNI from "../../../pages/cremacion/cremacionBasicoNI/cremacionBasicoNI";
-import carroCompras from "../../../pages/carroCompras/carroCompras/carroCompras";
-import webpay3 from "../../../pages/carroCompras/webpay/webpay3";
-import authenticatorWebpay from "../../../pages/carroCompras/webpay/autentificacion";
-import checkoutRecibo from "../../../pages/carroCompras/recibo/checkoutRecibo";
+import cremacionBasicoNI from "../../../../pages/cremacion/cremacionBasicoNI/cremacionBasicoNI";
+import carroCompras from "../../../../pages/carroCompras/carroCompras/carroCompras";
+import webpay3 from "../../../../pages/carroCompras/webpay/webpay3";
+import authenticatorWebpay from "../../../../pages/carroCompras/webpay/autentificacion";
+import checkoutRecibo from "../../../../pages/carroCompras/recibo/checkoutRecibo";
 
 describe('test cremacion-basico-NI', () =>{
     beforeEach(() => {
@@ -42,17 +42,23 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoPrimerServico()
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            cy.log('Funciona')
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaAprobada()
-            checkoutRecibo.revisarVelatorioResumen()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                    }
+                })
+            }
+        })
     })
     //CEC-2604 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Velatorio estandar', () =>{
@@ -68,16 +74,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoPrimerServico()
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            cy.log('Funciona')
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaRechazada() 
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaRechazada() 
+                    }
+                })
+            }
+        })
     })
     //CEC-2608 CEC-2993 CEC-3001 CEC-3028 CEC-3029 CEC-3032
     it('Cremacion - Basico -NI -Velatorio premium', () =>{
@@ -93,15 +105,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoPrimerServico()
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankRechazar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankRechazar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-2662 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria basico', () =>{
@@ -121,15 +140,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankRechazar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankRechazar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-2660 CEC-2977 CEC-2976 CEC-3029
     it('Cremacion - Basico -NI -Funeraria tradicion', () =>{
@@ -149,17 +175,24 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaAprobada()
-            checkoutRecibo.revisarVelatorioResumen()
-            checkoutRecibo.revisarFunerariaResumen()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
+                    }
+                })
+            }
+        })
     })
     //CEC-2658 CEC-2993 CEC-3001 CEC-3028 CEC-3029 CEC-3032
     it('Cremacion - Basico -NI -Funeraria tradicion destacada', () =>{
@@ -179,15 +212,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankRechazar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankRechazar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-2658 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria sustentable', () =>{
@@ -207,15 +247,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-2656 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria premium', () =>{
@@ -235,15 +282,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankRechazar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankRechazar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-3105 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Funeraria premium destacada', () =>{
@@ -263,15 +317,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-3114 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso vidriado', () =>{
@@ -294,18 +355,25 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaAprobada()
-            checkoutRecibo.revisarVelatorioResumen()
-            checkoutRecibo.revisarFunerariaResumen()
-            checkoutRecibo.revisarDescansoResumen()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
+                        checkoutRecibo.revisarDescansoResumen()
+                    }
+                })
+            }
+        })
     })
     //CEC-3115 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso pared', () =>{
@@ -328,15 +396,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-3237 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores premium', () =>{
@@ -359,15 +434,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-3111 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores', () =>{
@@ -390,15 +472,22 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaMastercard()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankRechazar()
-            checkoutRecibo.validarPaginaRechazada()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaMastercard().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankRechazar()
+                        checkoutRecibo.validarPaginaRechazada()
+                    }
+                })
+            }
+        })
     })
     //CEC-3112 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso memorial', () =>{
@@ -421,18 +510,25 @@ describe('test cremacion-basico-NI', () =>{
         carroCompras.formularioFallecidoSegundoServicio()
         carroCompras.formularioFallecidoTercerServicio()
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas()
-        const caso = webpay3.formularioTarjetaRedcompra()
-        cy.log(caso)
-        if(caso == 0){
-            cy.log('Falla')
-        }else{
-            authenticatorWebpay.formularioTransbankAceptar()
-            checkoutRecibo.validarPaginaAprobada()
-            checkoutRecibo.revisarVelatorioResumen()
-            checkoutRecibo.revisarFunerariaResumen()
-            checkoutRecibo.revisarDescansoResumen()
-        }
+        webpay3.precionarTarjetas().then((respuesta) =>{
+            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
+            if(respuesta){
+                cy.log('Error')
+            }else{
+                webpay3.formularioTarjetaRedcompra().then((success) =>{
+                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
+                    if(success){
+                        cy.log('Error')
+                    }else{
+                        authenticatorWebpay.formularioTransbankAceptar()
+                        checkoutRecibo.validarPaginaAprobada()
+                        checkoutRecibo.revisarVelatorioResumen()
+                        checkoutRecibo.revisarFunerariaResumen()
+                        checkoutRecibo.revisarDescansoResumen()
+                    }
+                })
+            }
+        })
     })
     //CEC-2523
     it('Cremacion - Basico -NI -Tour virtual', () =>{

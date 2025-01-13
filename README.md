@@ -1,11 +1,60 @@
 # Cypress
-
+Nombre: Benjamin Barria 
+Fecha: 13/01/2025-11:23
+Version: 1.0.11
+Descripcion: Se incorporaron las pruebas de funeraria plan parvulo destacado con su flujo completo tanto en desktop como en Mobile, ademas se crearon archivs que contienen todas las funcionalidades de la pagina inicial los cuales se llaman "funerariaParvuloDestacado.js" y "funerariaParvuloDestacadoMobile.js"  
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 13/01/2025-10:20
+Version: 1.0.10
+Descripcion: Se implemento el sector de funeraria plan parvulo tanto para desktop como para mobile con sus respectivos flujos, ademas se creo un archivo que contiens todas las funcionalidades de la pagina base, estos se llaman "funerariaParvulo.js" y "funerariaParvuloMobile.js" 
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 13/01/2025-09:46
+Version: 1.0.9
+Descripcion: Se incorporo el sector funeraria plan parvulo base con sus respectivos test tanto en Mobile como desktop con sus flujos completos, ademas se crearon archivos para las paginas base de cada plataforma los cuales contienen todas las funcionalidades de esta misma y se llaman "funerariaParvuloBase.js" y "funerariaParvuloBaseMobile.js"
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 13/01/2025-09:20
+Version: 1.0.8
+Descripcion: Se incorporaron las pruebas de funeraria plan homenaje premium destacado tanto en desktop como en Mobile ambos con su flujo completo, para ambas plataformas se crearon archivos que contienen la pagina de inicio llamados "funerariaPremiumDestacada.js" y "funerariaPremiumDestacadaMobile.js"
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 10/01/2025-15:48
+Version: 1.0.7
+Descripcion: Se incorporo el sector funeraria homenaje premium tanto en desktop como mobile, ademas se crearon archivos que continesn las funcionalidades de ambas paginas, estos archivos son "funerariaPremium.js" y "funerariaPremiumMobile.js"  
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
+Fecha: 10/01/2025-14:20
+Version: 1.0.6
+Descripcion: Se incorporo el sector funeraria plan tradicion destacado en desktop asi como en Mobile ambos con sus flujos correspondientes, ademas se agrego los archivos "funerariaTradicionDestacado.js" y "funerariaTradicionDestacadoMobile.js" los que tienen todas las funcionalidades de la pagina inicial
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 10/01/2025-12:48
+Version: 1.0.5
+Descripcion: Se incorporaron las pruebas de todo el sector de funeraria plan sustentable tanto para desktop como para Mobile ambos con sus flujos correspondientes, en ambos casos se creo un archivo el cual contines todas las funcionalidades de la pagina inicial siendo estos "funerariaSustentable.js" y "funerariaSustentableMobile.js"  
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 10/01/2025-11:11
+Version: 1.0.4
+Descripcion: Se incorporaron las pruebas para todo el sector de funeraria plan tradicion tanto para desktop como Mobile ambos con su flujo completo, en ambos casos se creo un archivo el cual contiene todas las funcionalidades de la pagina inicial "funerariaTradicion.js" y "funerariaTradicionMobile.js" 
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 09/01/2025-18:02
+Version: 1.0.3
+Descripcion:Se incorporo todo el sector de funeraria basica tanto para desktop como Mobile realizando el flujo completo y se incorporo la funcione revisarCremacionResumen en el archivo carroCompras.js y tambien se agrego la funcion revisarCremacionResumen en el archivo checkoutRecibo.js
+---------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 09/01/2025-12:25
+Version: 1.0.2
+Descripcion: Se incorporo todo el sector de cremacion full NI ademas de cremacion Premium NI, tambien se modifico el de los archivos de prueba colocandolos test en una carpeta llamada "e2e" -> "ventaNormalPDP" -> "Cremacion" y dentro de esta se creo una carpeta para cada sector, ademas se comento los if utiizados tanto en el sector de test case como en los archivos webpay3.js y webpay3Mobile.js. Ademas se incorporaron mas condiciones en los archivos anteriores asi como en los test case
+---------------------------------------------------------------------------------------------------------
 Nombre:Fernando Reyes
 Fecha: 08/01/2025 - 10:59
 version: 1.0.1
 Descripcion: Se agrega el lufjo de funnel de sepultura donde se selecciona un parque, capacidad y rango de precio, luego se selecciona una card
 ---------------------------------------------------------------------------------------------------------
-Nombre: Benjamin Barria
+Nombre: Benjamin Barria 
 Fecha: 03/01/2025-16:20
 Version: 1.0.0
 Descripcion: Se incorporo el flujo completo de cremacion basico ni ademas de las funciones revisar precio velatorio, revisar precio funeraria y revisar precio descanso, ademas de almacer los valores de cada funeraria, velatorio, descanso que se seleccina.

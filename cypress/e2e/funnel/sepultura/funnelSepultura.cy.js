@@ -1,4 +1,4 @@
-import FunerariaFunnel from "../../pages/funnel/funnelSepulturaPage";
+import FunerariaFunnel from "../../../pages/funnel/funnelSepulturaPage";
 
 describe ('' , () => {
 
