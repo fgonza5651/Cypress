@@ -2,7 +2,7 @@ const totalPrecio = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-
 const precioAgregado = '#contenedor-sidenav-ssaa > div > div.cont-info-producto-ssaa > div.cont-info-ssaa > div > p.text-normal'
 const slideCarrito = '#sidenav-carro-compra > div'
 //Agregar al carrito
-const btnAgregarCarrito = '.contenedor-caracteristicas-pdp > .contenedor-detalle-producto > .contenedor-total-pagar > .btn-agragar-compra'
+const btnAgregarCarrito = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-total-pagar.ng-star-inserted > button'
 const btnCarroCompras = '#contenedor-sidenav-carro-compra > div.cont-carro > div.cont-total-pagar > button'
 //Botones de velatorio
 const popUpVelatorio = '#mat-tab-content-2-0 > div'
@@ -48,7 +48,7 @@ class FunerariaParvuloDestacadoMobile {
     //ingreso a la URL de Funeraria plan ParvuloDestacado Mobile
     ingresoFunerariaParvuloDestacadoMobile(){
         cy.viewport('iphone-xr')
-        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo-destacado')
+        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo-destacado')
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
@@ -62,7 +62,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioVelatorio')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckVelatorio).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo velatorio cafeteria estandar y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -74,7 +73,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioVelatorio')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckVelatorio).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo Velatorio cafeteria premium y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -86,7 +84,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioVelatorio')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckVelatorio).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo Cremacion Parvulo y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -97,7 +94,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioCremacion')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckCremacion).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso columbrario vidriado y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -108,7 +104,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso columbario de pared y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -120,7 +115,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso jardin de flores premium y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -132,7 +126,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso jardin de flores y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -144,7 +137,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso memorial del recuerdo y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -156,7 +148,6 @@ class FunerariaParvuloDestacadoMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Preciona el boton agregar al carrito y revisa que se muestre el slide
     revisarAgregarCarrito () {

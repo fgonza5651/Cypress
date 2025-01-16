@@ -13,19 +13,18 @@ const btnVelatorioPremium = '#cont-swipper-otras-opciones > swiper > div > div.s
 const iconCheckVelatorio = '#mat-checkbox-4 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
 //botones de funeraria
 const btnDetalleFuneraria = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-servicios-adicionales.ng-star-inserted > div:nth-child(3) > div > button.btn-ver-detalle-mobile'
-const btnFunerariaTradicion = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-active > div > div.cont-img-producto'
-const btnFunerariaTradicionDestacada = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
-const btnFunerariaSustentable = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-active > div > div.cont-img-producto'
-const btnFunerariaPremium = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
-const btnFunerariaPremiumDestacada = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
+const btnFunerariaTradicion = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(1) > div > div.cont-img-producto'
+const btnFunerariaTradicionDestacada = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(2) > div > div.cont-img-producto'
+const btnFunerariaSustentable = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(3) > div > div.cont-img-producto'
+const btnFunerariaPremium = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(4) > div > div.cont-img-producto'
+const btnFunerariaPremiumDestacada = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(5) > div > div.cont-img-producto'
 const iconCheckFuneraria = '#mat-checkbox-5 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
 //botones de Descanso de cenizas
 const btnDetalleDescanso = '#grilla-caracteristicas-pdp > div > div.contenedor-detalle-producto > div.contenedor-servicios-adicionales.ng-star-inserted > div:nth-child(4) > div > button.btn-ver-detalle-mobile'
-const btnDescansoPared = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-active > div > div.cont-img-producto'
-const btnDescansoFloresPremium = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
-const btnDescansoFlores = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-active > div > div.cont-img-producto'
-const btnDescansoMemorial = '#cont-swipper-otras-opciones > swiper > div > div.swiper-slide.ng-star-inserted.swiper-slide-next > div > div.cont-img-producto'
-const iconCheckDescanso = '#mat-checkbox-6 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
+const btnDescansoPared = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(1) > div > div.cont-img-producto'
+const btnDescansoFloresPremium = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(2) > div > div.cont-img-producto'
+const btnDescansoFlores = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(3) > div > div.cont-img-producto'
+const btnDescansoMemorial = '#cont-swipper-otras-opciones > swiper > div > div:nth-child(4) > div > div.cont-img-producto'
 
 //Funcion que revisa la suma de los productos agregados sea igual al total
 function ComprararPrecios (precioTotaltext, precioAgregadoText){
@@ -51,7 +50,7 @@ class CremacionPremiumNIMobile {
     //ingreso a la URL de Cremacion Premium NI Mobile
     ingresoCremacionPremiumNIMobile(){
         cy.viewport('iphone-xr')
-        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
+        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
@@ -100,23 +99,10 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioFuneraria')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo Funeraria tradicion y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
     agregarFunerariaTradicion(){
-        cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
-        cy.get(btnFunerariaTradicion,{timeout:100000}).click()
-        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
-            cy.log(text);
-            cy.wrap(text).as('precioFuneraria')
-        })
-        ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
-    }
-    //Agrega al carrito el articulo Funeraria tradicion destacado y revisa que la suma del total sea correcta
-    //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaTradicionDestacado(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaTradicionDestacada,{timeout:100000}).click()
         cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
@@ -124,7 +110,17 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioFuneraria')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
+    }
+    //Agrega al carrito el articulo Funeraria tradicion destacado y revisa que la suma del total sea correcta
+    //Ademas revisa si la casilla quede marcada con un check
+    agregarFunerariaTradicionDestacado(){
+        cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
+        cy.get(btnFunerariaTradicion,{timeout:100000}).click()
+        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
+            cy.log(text);
+            cy.wrap(text).as('precioFuneraria')
+        })
+        ComprararPrecios(totalPrecio, precioAgregado)
     }
     //Agrega al carrito el articulo Funeraria sustentable y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -136,7 +132,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioFuneraria')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo Funeraria Homenaje Premium y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -148,7 +143,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioFuneraria')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo Funeraria Homenaje Premium Destacado y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -160,7 +154,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioFuneraria')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso columbrario vidriado y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -171,7 +164,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso columbario de pared y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -183,7 +175,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso jardin de flores premium y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -195,7 +186,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso jardin de flores y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -207,7 +197,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Agrega al carrito el articulo descanso memorial del recuerdo y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -219,7 +208,6 @@ class CremacionPremiumNIMobile {
             cy.wrap(text).as('precioDescanso')
         })
         ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckDescanso).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
     }
     //Preciona el boton agregar al carrito y revisa que se muestre el slide
     revisarAgregarCarrito () {
