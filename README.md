@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 16/01/2025-17:26
+Version: 1.1.11
+Descripcion: Se incorporo el archivo "ventaCruzadaPDP.cy.js", ademas se modificaron todos los archivos de test de los sectores funeraria y cremacion del sector venta normal PDP reorganizando asi estos archivos moviendo gran parte de los test a el archivo "ventaCruzadaPDP.cy.js"
+-----------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 13/01/2025-11:23
 Version: 1.0.11
 Descripcion: Se incorporaron las pruebas de funeraria plan parvulo destacado con su flujo completo tanto en desktop como en Mobile, ademas se crearon archivs que contienen todas las funcionalidades de la pagina inicial los cuales se llaman "funerariaParvuloDestacado.js" y "funerariaParvuloDestacadoMobile.js"  
