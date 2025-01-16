@@ -19,6 +19,7 @@ class Webpay3{
         return new Cypress.Promise((resolve) => {
             cy.wait(4000)
             cy.get(popUpTransaccionCaida).then(($modal)=>{
+                cy.wait(4000)
                 //Revisa si se encuentra el pop up de transaccion caida, si lo encuentra retorna true para cancelar la ejecucion, sino continua con el flujo
                 if(!$modal.is(':visible')){
                     cy.get(btnTarjetas,{timeout:100000}).should('be.visible').click()
@@ -42,7 +43,9 @@ class Webpay3{
                     cy.get(boxPagar).then(($error)=>{
                         //Revisa si debajo del numero de tarjeta aparece el tecto "Intenta..." de una transaccion fallida, si este aparece se termina la ejecucion sino se continua con el flujo
                         if(!$error.text().includes('Intenta')) {
+                            cy.wait(3000)
                             cy.contains(btnPagar, { timeout: 100000 }).click();
+                            cy.wait(4000)
                             cy.get(popUpTransaccionCaida).then(($modal)=>{
                                 //Revisa si antes de pagar aparece el pop up de transaccion caida, si lo encuntra termina la ejecucion sino continua con el flujo
                                 if($modal.is(':visible')){
@@ -111,6 +114,22 @@ class Webpay3{
             })
         })
     }
+
+    //Ingreso numero de tarjeta
+    ingresoTarjetaDebito()
+    {
+        //ingresa a numero de tarejeta (debito)
+        cy.get(inputNumeroTarjeta,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaAprobadaRedcompra'].numero)
+        cy.wait(3000)
+
+        //clic en el boton continuar
+        cy.get(btnContinuar,{timeout:100000}).should('be.visible').click()
+
+        //clic en el boton pagar
+        cy.wait(1000)
+        cy.contains(btnPagar,{timeout:100000}).should('be.visible').click()
+    }
+  
 }
 const webpay3 = new Webpay3()
 export default webpay3

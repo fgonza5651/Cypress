@@ -227,7 +227,7 @@ class funnelCremacionNIF {
 
     //se seleciona el plan homenaje premium
     seleccionarPlanHomenajePremium(){
-        cy.get(checkPlanHomenajePremium,{timeout: 100000}).should('be.visible').click()
+        
 
         cy.get(precioPlanHomenajePremium)
         .invoke('text') //obtengo el texto del elemento
@@ -235,11 +235,12 @@ class funnelCremacionNIF {
             //guardo el precio del producto y lo guardo en una variable
             cy.wrap(precio).as('precioProducto');
         });
+
+        cy.get(checkPlanHomenajePremium,{timeout: 100000}).should('be.visible').click()
         
         cy.get(precioServicioFunerario)
         .invoke('text')//obtengo el texto del elemento
         .then((precio)=> {
-
             const formato = cleanPrice(precio)
             //Compara el precio para ver si es el mismo con el elemento seleccionado
             cy.get('@precioProducto').then((formato) =>{
@@ -252,7 +253,7 @@ class funnelCremacionNIF {
     }
 
      //se seleciona el plan homenaje premium
-     seleccionarPlanHomenajePremium(){
+     seleccionarPlanHomenajePremiumDestacado(){
         cy.get(checkPlanHomenajePremiumDestacado,{timeout: 100000}).should('be.visible').click()
 
         cy.get(precioCeremoniaDeDespedidaEspecial)
@@ -288,6 +289,10 @@ class funnelCremacionNIF {
     //Seleccion ceremonia de despedida incluida
     seleccionCermmoniaDeDespedidaIncluida(){
         cy.get(checkCeremoniaDespedidaIncluida,{timeout: 10000}).should('be.visible').click()
+
+        cy.wait(3000)
+        cy.xpath(btnContinuarCeremoniaDespedida,{timeout: 100000}).should('be.visible').click()
+        cy.wait(3000)
     }
 
     //selecciona ceremonia de despedida especial
@@ -317,9 +322,9 @@ class funnelCremacionNIF {
           });
         });
 
-        cy.wait(5000)
+        cy.wait(3000)
         cy.xpath(btnContinuarCeremoniaDespedida,{timeout: 100000}).should('be.visible').click()
-        cy.wait(5000)
+        cy.wait(3000)
     }
 
     //selecciona ceremonia de despedida con coro
@@ -348,19 +353,22 @@ class funnelCremacionNIF {
           });
         });
 
+        cy.wait(3000)
+        cy.xpath(btnContinuarCeremoniaDespedida,{timeout: 100000}).should('be.visible').click()
+        cy.wait(3000)
     }
 
     //Selecion ceremonia de despedida con coro especial
     seleccionCeremoniaDespedidaEspecialConCoro(){
        
-        cy.get(checkCeremoniaDespedidaEspecialConCoro) // Captura el precio del producto seleccionado
+        cy.get(precioCeremoniaDeDesPedidaEspecialConCoror) // Captura el precio del producto seleccionado
         .invoke('text')
         .then((precio) => {
           const precioProductoLimpio = cleanPrice(precio); // Limpia el precio capturado
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
-
-        cy.get(precioCeremoniaDeDesPedidaEspecialConCoror, { timeout: 100000 })
+        checkCeremoniaDespedidaEspecialConCoro
+        cy.get(checkCeremoniaDespedidaEspecialConCoro, { timeout: 100000 })
         .should('be.visible')
         .click();
 
@@ -375,6 +383,10 @@ class funnelCremacionNIF {
             expect(precioCarritoLimpio).to.eq(precioProductoLimpio); // Compara ambos precios
           });
         });
+
+        cy.wait(3000)
+        cy.xpath(btnContinuarCeremoniaDespedida,{timeout: 100000}).should('be.visible').click()
+        cy.wait(3000)
     }
 
     //seleccion anafora de madera basica incluida
@@ -447,6 +459,10 @@ class funnelCremacionNIF {
     seleccionEntregaCenizasIncluida(){
 
         cy.get(checkEntregaCenizasIncluida,{timeout: 100000}).should('be.visible').click()
+
+        cy.wait(5000)
+
+        cy.xpath(btnEntregaCenizas,{timeout: 10000}).should('be.visible').click()
     }
 
     //Se selecciona entrega de cenizas especial
@@ -524,18 +540,23 @@ class funnelCremacionNIF {
           });
         });
 
+        cy.xpath(btnIaResumen, {timeout: 100000}).should('be.visible').click()
         
     }
 
     // se selecciona jardin de flores premium
     seleccionarJardinFloresPremium()
     {
+        cy.wait(3000)
+
         cy.get(precioJardinFloresPremium) // Captura el precio del producto seleccionado
         .invoke('text')
         .then((precio) => {
           const precioProductoLimpio = cleanPrice(precio); // Limpia el precio capturado
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
+
+        cy.wait(3000)
 
         cy.get(checkJardinFloresPremium, { timeout: 100000 })
         .should('be.visible')
@@ -552,6 +573,9 @@ class funnelCremacionNIF {
             expect(precioCarritoLimpio).to.eq(precioProductoLimpio); // Compara ambos precios
           });
         });
+
+        cy.wait(3000)
+        cy.xpath(btnIaResumen, {timeout: 100000}).should('be.visible').click()
 
     }
 
@@ -580,11 +604,16 @@ class funnelCremacionNIF {
             expect(precioCarritoLimpio).to.eq(precioProductoLimpio); // Compara ambos precios
           });
         });
+
+        cy.wait(3000)
+        cy.xpath(btnIaResumen, {timeout: 100000}).should('be.visible').click()
     }
 
     //Se selecciona columbario vidriado
     seleccionarColumbarioVidriado()
     {
+
+        cy.wait(3000)
         cy.get(precioColumbarioVidriado) // Captura el precio del producto seleccionado
         .invoke('text')
         .then((precio) => {
@@ -607,6 +636,9 @@ class funnelCremacionNIF {
             expect(precioCarritoLimpio).to.eq(precioProductoLimpio); // Compara ambos precios
           });
         });
+
+        cy.wait(3000)
+        cy.xpath(btnIaResumen, {timeout: 100000}).should('be.visible').click()
     }
 
 }

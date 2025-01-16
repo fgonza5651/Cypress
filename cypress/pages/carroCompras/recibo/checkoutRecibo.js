@@ -1,6 +1,7 @@
 const nroPedidoAprovado = '#contenedor-typ > div.cont-typ > div.cont-numero-pedido > p.num-pedido'
 const resumenPago = '.resumen-pago'
 const nroPedidoRechaso = '#contenedor-ntyp > div.cont-ntyp > div.cont-numero-pedido > p'
+const nroPedidoAprovadoFannel = '.cont-resumen-pago-servicio > h2'
 
 class CheckoutRecibo{
     //revisa que la pagina contenga la palabra "con éxito" ademas revisa que la url contenga el mismo numero del pedido
@@ -46,6 +47,21 @@ class CheckoutRecibo{
             cy.log(precioDescansoExport)
             cy.get(resumenPago).contains(precioDescansoExport)
         })
+    }
+
+    validarAprobacionFunnel()
+    {
+        //revisa que la pagina contenga la palabra "con éxito" ademas revisa que la url contenga el mismo numero del pedido
+        cy.get(nroPedidoAprovadoFannel,{timeout:10000})
+        .should('be.visible')
+        .and('have.text', 'El pago de tus servicios se ha realizado con éxito.')
+        .debug()
+
+        cy.wait(1000)
+
+        cy.clearCookies();   
+        cy.clearLocalStorage();
+        
     }
 }
 const checkoutRecibo = new CheckoutRecibo()
