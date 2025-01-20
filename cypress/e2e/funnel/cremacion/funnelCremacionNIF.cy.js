@@ -41,6 +41,7 @@ describe('', () => {
     })
     //
 
+    //Con servicio de plan tradicion - cremacion base - despedida con coro- anafora madera bascia incluida - entrega cenizas inclida - jarin de flores
     it('Comprar plan tradicion', () => {
       
         FunnelCremacionNIF.inicioFlujoCremacion()
