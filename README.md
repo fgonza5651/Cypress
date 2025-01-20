@@ -1,6 +1,6 @@
 # Cypress
 Nombre: Fernando Reyes 
-Fecha: 20/01/2025-15:33
+Fecha: 20/01/2025-15:44
 Version: 1.0.13
 Descripcion: Se agrego el funnel de cremacion NIF con toodos los planes y el pago hasta webpay 
 --------------------------------------------------------------------------------------------------------
