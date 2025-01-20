@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 16/01/2025-17:12
+Version: 1.2.12
+Descripcion: Se completaron los test de funnel sepultura, ademas se modifico la carpeta e2e/ventaNormalPDP/funeraria unificando en un unico archivo desktop y mobile las pruebas anteriormente separadas por carpeta
+-----------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 16/01/2025-17:26
 Version: 1.1.11
 Descripcion: Se incorporo el archivo "ventaCruzadaPDP.cy.js", ademas se modificaron todos los archivos de test de los sectores funeraria y cremacion del sector venta normal PDP reorganizando asi estos archivos moviendo gran parte de los test a el archivo "ventaCruzadaPDP.cy.js"
