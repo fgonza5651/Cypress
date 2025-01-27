@@ -115,6 +115,12 @@ class Webpay3{
         })
     }
 
+    
+    //Preciona el boton tarjetas
+    selectTarjetas(){
+        cy.get(btnTarjetas,{timeout:100000}).should('be.visible').click()
+    }
+    
     //Ingreso numero de tarjeta
     ingresoTarjetaDebito()
     {
@@ -124,7 +130,7 @@ class Webpay3{
 
         //clic en el boton continuar
         cy.get(btnContinuar,{timeout:100000}).should('be.visible').click()
-
+        
         //clic en el boton pagar
         cy.wait(1000)
         cy.contains(btnPagar,{timeout:100000}).should('be.visible').click()

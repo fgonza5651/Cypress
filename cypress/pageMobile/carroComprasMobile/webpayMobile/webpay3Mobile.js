@@ -1,6 +1,6 @@
 const btnTarjetas = '#tarjetas'
 const inputNumeroTarjeta = '#card-number'
-const btnContinuar = 'Continuar'
+const btnContinuar = 'body > app-root > app-home > main-panel > main > section > right-panel > app-tarjeta > form > button'
 const btnConfirmar = 'Confirmar'
 const urlPagar = 'https://webpay3gint.transbank.cl/testcommercebank/authenticator.cgi'
 const inputFechaExpiracion = '#card-exp'
@@ -109,6 +109,20 @@ class Webpay3Mobile{
                 }
             })
         })
+    }
+    //Ingreso numero de tarjeta
+    ingresoTarjetaDebito()
+    {
+        //ingresa a numero de tarejeta (debito)
+        cy.get(inputNumeroTarjeta,{timeout:100000}).should('be.visible').type(formularioWebpay3['FormularioTarjetaAprobadaRedcompra'].numero)
+        cy.wait(3000)
+
+        //clic en el boton continuar
+        cy.get(btnContinuar,{timeout:100000}).should('be.visible').click()
+        
+        //clic en el boton pagar
+        cy.wait(1000)
+        cy.contains(btnPagar,{timeout:100000}).should('be.visible').click()
     }
 }
 const webpay3Mobile = new Webpay3Mobile()

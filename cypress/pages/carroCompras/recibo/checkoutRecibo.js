@@ -49,6 +49,7 @@ class CheckoutRecibo{
         })
     }
 
+    
     validarAprobacionFunnel()
     {
         //revisa que la pagina contenga la palabra "con éxito" ademas revisa que la url contenga el mismo numero del pedido
