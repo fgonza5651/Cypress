@@ -13,17 +13,17 @@ describe('test cremacion-basico-NI', () =>{
             return false;
           });
     });
-    //{nombre historia}
+    ////CEC-2527
     it('Cremacion -Basico - NI  - Compra en linea', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.compraEnLinea()
     })
-    //{nombre historia}
+    //CEC-1784
     it('Cremacion -Basico - NI  - Hablar en linea con una ejecutiva', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Cremacion -Basico - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.ejecutivaEnlineaOtraSolicitud()
@@ -59,7 +59,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3115 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso pared', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarDescansoParedSola()
@@ -89,7 +89,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3237 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores premium', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarDescansoFloresPremiumSola()
@@ -119,7 +119,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3111 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarDescansoFloresSola()
@@ -149,7 +149,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3112 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso memorial', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.agregarDescansoMemoriarSola()
@@ -180,27 +180,27 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-2523
     it('Cremacion - Basico -NI -Tour virtual', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.tourVirtual()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Caracteristicas y detalles', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.caracteristicasDetalles()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Llamanos', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.llamanos()
     })
-    //{nombre historia}
+    //CEC-2530
     it('Cremacion - Basico -NI -Escribenos', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.escribenos()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Cremacion - Basico -NI -Cotiza', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.cotiza()

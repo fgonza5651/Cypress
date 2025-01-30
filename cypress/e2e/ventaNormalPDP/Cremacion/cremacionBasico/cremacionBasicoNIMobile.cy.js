@@ -14,18 +14,18 @@ describe('test cremacion-basico-NI', () =>{
           });
     });   
    
-   //{nombre historia}
-    it('Cremacion - Basica - NI - Compra en linea - Mobile', ()=>{
+    //CEC-2527
+    it('Landing Sepultura - NI - Compra en linea', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.iconoTelefonosTitulo()
     })
-    //{nombre historia}
-    it('Cremacion - Basica - NI - Hablar en linea con una ejecutiva - Mobile', ()=>{
+    //CEC-1784
+    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.ejecutivaEnlineaHablar()
     })
-    //{nombre historia}
-    it('Cremacion - Basica - NI - Realizar otra solicitud con ejecutiva en linea - Mobile', ()=>{
+    //CEC-2532
+    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.ejecutivaEnlineaOtraSolicitud()
     })
@@ -60,7 +60,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3115 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso pared -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarDescansoPared()
@@ -90,7 +90,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3237 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores premium -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarDescansoFloresPremium()
@@ -120,7 +120,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3111 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso flores -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarDescansoFlores()
@@ -150,7 +150,7 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-3112 CEC-3267 CEC-3268 CEC-3269 CEC-3270
     it('Cremacion - Basico -NI -Descanso memorial -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.agregarDescansoMemoriar()
@@ -182,27 +182,27 @@ describe('test cremacion-basico-NI', () =>{
             }
         })
     })
-    //{nombre historia}
+    //CEC-2523
     it('Cremacion - Basico -NI -Tour virtual -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.tourVirtual()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Caracteristicas y detalles -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.caracteristicasDetalles()
     })
-    //{nombre historia}
+    //CEC-2528
     it('Cremacion - Basico -NI -Llamanos -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.llamanos()
     })
-    //{nombre historia}
+    //CEC-2530
     it('Cremacion - Basico -NI -Escribenos -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.escribenos()
     })
-    //{nombre historia}
+    //CEC-2532
     it('Cremacion - Basico -NI -Cotiza -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.cotiza()

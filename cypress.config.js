@@ -1,5 +1,6 @@
 const { defineConfig } = require("cypress");
 
+
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
@@ -10,7 +11,9 @@ module.exports = defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1080,
     baseUrl: "https://ic.parquedelrecuerdo.cl/", // Cambia según tu proyecto
+    browser: 'chrome',
     chromeWebSecurity: false,
+    args: ['--disable-features=PrivacySandbox'],
     supportFile: false,
   },
 });

@@ -1,5 +1,20 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 30/01/2025-16:38
+Version: 1.3.14
+Descripcion: Se implemento funnel de cremacion NI con todos los planes y el pago hasta webpay tanto para desktop como Mobile , ademas se modificaron algunas funcionalidades de comparacion de precios y tambien se agregaron funciones en funnel cremacion NIF tanto en destop como en Mobile. Finalmente se agrego en el sector ventasCruzadaPDP la cafeteria velatorio tanto en desktop como Mobile
+-----------------------------------------------------------------------------------------------------------
+Nombre: Fernando Reyes 
+Fecha: 20/01/2025-15:44
+Version: 1.2.13
+Descripcion: Se agrego el funnel de cremacion NIF con toodos los planes y el pago hasta webpay 
+----------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 16/01/2025-17:12
+Version: 1.2.12
+Descripcion: Se completaron los test de funnel sepultura, ademas se modifico la carpeta e2e/ventaNormalPDP/funeraria unificando en un unico archivo desktop y mobile las pruebas anteriormente separadas por carpeta
+-----------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 16/01/2025-17:26
 Version: 1.1.11
 Descripcion: Se incorporo el archivo "ventaCruzadaPDP.cy.js", ademas se modificaron todos los archivos de test de los sectores funeraria y cremacion del sector venta normal PDP reorganizando asi estos archivos moviendo gran parte de los test a el archivo "ventaCruzadaPDP.cy.js"

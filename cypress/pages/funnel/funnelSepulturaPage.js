@@ -11,21 +11,29 @@ const inputApellidoMaterno = '.mat-form-field.ng-tns-c31-6 > .mat-form-field-wra
 const inputTelefono = '#checkout-info-input-telefono'
 const inputCorreo = '.mat-form-field.ng-tns-c31-8 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
 //Capacidad de sepulturas
+const checkCapacidad3 = '#\\31  > .mat-checkbox-layout'
 const checkCapacidad4 = '#\\32 > .mat-checkbox-layout > .mat-checkbox-inner-container';
-const checkCapacidad6 =''
+const checkCapacidad6 ='#\\33 > .mat-checkbox-layout > .mat-checkbox-inner-container'
 const checkCapacidad8 ='#\\34  > .mat-checkbox-layout > .mat-checkbox-inner-container';
 //Rango de precios
-const checkEconomico = 'Quiero lo más económico'
-const checkTerminoMedio = 'Opciones de termino medio'
-const checkPremium = 'Quiero lo más premium'
+const checkEconomico = 'más económico'
+const checkTerminoMedio = 'termino medio'
+const checkPremium = 'más premium'
 //Select de capacidad - Precios - Sectores
 const selectSepultura = '#mat-select-value-1 > .mat-select-value-text > .mat-select-min-line'
 const selectPrecio = '#mat-select-value-3 > .mat-select-value-text > .mat-select-min-line'
 const selectSectores = '#mat-select-value-5 > .mat-select-value-text > .mat-select-min-line'
 const btnVerTodasOpciones = '.busqueda-opciones'
 //Ubicacion sepulura
+const contenedorCards = '.cont-card-sep .card'
 const seleccionCard1 = ':nth-child(2) > .cont-info-sep > :nth-child(1) > ul'
+const seleccionImagenCard1 = ':nth-child(2) > .cont-img-galeria > .contenedor-swiper-card > .mySwiper > .swiper-wrapper > .swiper-slide-active > .ng-star-inserted'
+const popUpImagenCard = '#cont-modal-galeria-sectores > .cont-galeria-img'
+const seleccionB1Mapa = '#B1'
+const seleccionC32Mapa = '#C32'
+const seleccionS24Mapa = '#S24'
 //link pdp-sep
+const urlPdpSep = 'https://ic.parquedelrecuerdo.cl/sepultura/pdp-sep'
 const linkComoEsElSector = '#nivel-uno > :nth-child(2) > .link-modal'
 const linkCapacidadSpultura = '#nivel-dos > .cont-detalle > .link-modal'
 const linkOpcionesFinanciamiento = '#nivel-tres > :nth-child(1) > .link-modal'
@@ -34,11 +42,16 @@ const linkOcuparSepultura = '#nivel-cuatro > :nth-child(2) > .link-modal'
 const cerrarPopup = '.cont-titulo-cerrar > .material-icons'
 //editar financiemiento
 const linkEditarFinanciamiento = ':nth-child(4) > .link-modal'
-const checkCredito = '#mat-radio-2 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'
-const checkContado = '#mat-radio-3 > .mat-radio-label > .mat-radio-container > .mat-radio-outer-circle'
+const precioSubtittle = '.subtitulo-editar > :nth-child(2)'
+const checkCredito = '#mat-radio-2 > label'
+const checkContado = '#mat-radio-3 > label'
 const inputPieAPagar = '#mat-input-0'
-const selectCuotas = '.mat-select-placeholder'
+const precioPieMinimo = '#cont-financiamiento > form > div.cont-input-pie.ng-star-inserted > label > span'
+const selectCuotas = '.contenedor-selector-cuotas > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
+const btn92Cuotas = '#mat-option-90 > .mat-option-text'
+const precioPie = '.cont-ahora-pagaras'
 const btnGuardarInformacion = '.btn-guardar-financiamiento'
+
 
 
 //variables
@@ -70,6 +83,8 @@ class funerariaFunnel {
     iniciarFunnel(){
 
         cy.visit("https://ic.parquedelrecuerdo.cl/sepultura/funnel")
+        cy.clearCookies();   
+        cy.clearLocalStorage();
         cy.get(parqueAmericoVespucio, {timeout: 100000}).should('be.visible')
         cy.get(parqueCordillera, {timeout: 100000}).should('be.visible')
         cy.get(parquePadreHurtado, {timeout: 100000}).should('be.visible')
@@ -112,10 +127,26 @@ class funerariaFunnel {
         cy.contains(btnContinuar).should('be.visible').click()
     }
 
+    //seleccionar capacidad de 3 personas
+    seleccion3Capacidad(){
+
+        cy.get(checkCapacidad3, {timeout: 100000}).should('be.visible').click()
+        cy.contains(btnContinuar).should('be.visible').click()
+
+    }
+
     //seleccionar capacidad de 4 personas
     seleccion4Capacidad(){
 
         cy.get(checkCapacidad4, {timeout: 100000}).should('be.visible').click()
+        cy.contains(btnContinuar).should('be.visible').click()
+
+    }
+
+    //seleccionar capacidad de 6 personas
+    seleccion6Capacidad(){
+
+        cy.get(checkCapacidad6, {timeout: 100000}).should('be.visible').click()
         cy.contains(btnContinuar).should('be.visible').click()
 
     }
@@ -136,47 +167,81 @@ class funerariaFunnel {
 
     }
 
-     //rango de precio termino medio selecionado
-    seleccionPrecioEconomico(){
-
-        cy.contains(checkTerminoMedio, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
-
-    }
-
-      //rango de precio termino medio selecionado
-      seleccionPrecioEconomico(){
+    //rango de precio termino medio selecionado
+    seleccionPrecioMedio(){
 
         cy.contains(checkTerminoMedio, {timeout: 100000}).should('be.visible').click()
         cy.contains(btnContinuar).should('be.visible').click()
     }
+    
+    //rango de precio premium selecionado
+    seleccionPrecioPremium(){
 
+        cy.contains(checkPremium, {timeout: 100000}).should('be.visible').click()
+        cy.contains(btnContinuar).should('be.visible').click()
+    }
+    
     //select de capacidadades
     selectCapacidadSepultura(){
-
+        
         cy.get(selectSepultura, {timeout: 100000}).should('be.visible').click()
-    
+        
     }
-
+    
     //Select de rango de precio
     selectRangoPrecio(){
-
+        
         cy.get(selectPrecio, {timeout: 100000}).should('be.visible').click()
-
+        
     }
-
-     //Select de los sectores
-     selectSectores(){
-
+    
+    //Select de los sectores
+    selectSectores(){
+        
         cy.get(selectSectores, {timeout: 100000}).should('be.visible').click()
     }
-
+    
     //Se seleciona la primera card
     seleccionCard(){
 
         cy.get(seleccionCard1, {timeout: 100000}).should('be.visible').click()
+        cy.wait(1000)
+        cy.url().should('eq',urlPdpSep)
     }
 
+    //Se seleciona la primera card
+    seleccionImagenCard(){
+        
+        cy.get(seleccionImagenCard1, {timeout: 100000}).should('be.visible').click()
+        cy.get(popUpImagenCard, {timeout: 100000}).should('be.visible')
+
+    }
+    //Se seleciona sector B1 de PAV
+    seleccionSectorB1MapaPAV(){
+        
+        cy.get(contenedorCards).its('length').then((count) => {
+            cy.get(seleccionB1Mapa, {timeout: 100000}).should('be.visible').click()
+            cy.get(contenedorCards).its('length').should('not.equal',count)
+        })
+    }
+    //Se seleciona sector C32 de PCO
+    seleccionSectorC32MapaPCO(){
+        
+        cy.get(contenedorCards).its('length').then((count) => {
+            cy.get(seleccionC32Mapa, {timeout: 100000}).should('be.visible').click()
+            cy.get(contenedorCards).its('length').should('not.equal',count)
+        })
+    }
+    //Se seleciona sector B1 de PPH
+    seleccionSectorS24MapaPPH(){
+        
+        cy.get(contenedorCards).its('length').then((count) => {
+            cy.get(seleccionS24Mapa, {timeout: 100000}).should('be.visible').click()
+            cy.get(contenedorCards).its('length').should('not.equal',count)
+        })
+    }
+
+    
     //Abrir link del pdp-sep
     clickLinkComoEsElSector(){
 
@@ -200,17 +265,30 @@ class funerariaFunnel {
     //Editar financimiento con credito
     editarFinanciamientoCredito(){
 
-        cy.get(linkEditarFinanciamiento, {timeout: 100000}).should('be.visible').click()
+        cy.get(linkEditarFinanciamiento, {timeout: 100000}).click()
         cy.get(checkCredito, {timeout: 100000}).should('be.visible').click()
-        cy.get(inputPieAPagar, {timeout: 100000}).should('be.visible').type('300000')
-        cy.get(selectCuotas, {timeout: 100000}).should('be.visible')
-
+        cy.get(inputPieAPagar, { timeout: 100000 }).should('be.visible').invoke('val').then((inputValue) => {
+            cy.get(precioPieMinimo).contains(inputValue)
+        });
+        cy.get(inputPieAPagar, {timeout: 100000}).should('be.visible').clear().type('300000')
+        cy.get(selectCuotas, {timeout: 100000}).should('be.visible').click()
+        cy.get(btn92Cuotas, {timeout: 100000}).should('be.visible').click()
+        cy.get(inputPieAPagar, { timeout: 100000 }).should('be.visible').invoke('val').then((inputValue) => {
+            cy.get(precioPie).contains(inputValue)
+        });
+        cy.get(btnGuardarInformacion, {timeout: 100000}).should('be.visible').click()
+        
     }
-
+    
     editarFinanciamientoContado(){
-
-        cy.get(linkEditarFinanciamiento, {timeout: 100000}).should('be.visible')
-
+        
+        cy.get(linkEditarFinanciamiento, {timeout: 100000}).click()
+        cy.get(checkContado, {timeout: 100000}).should('be.visible').click()
+        cy.get(precioPie, {timeout: 100000}).invoke('text').then((textPrecioPie) =>{
+            const numPrecioPie = textPrecioPie.match(/[\d,.]+/)[0]
+            cy.get(precioSubtittle,{timeout: 100000}).contains(numPrecioPie)
+        })
+        cy.get(btnGuardarInformacion, {timeout: 100000}).should('be.visible').click()
     }
 
 }
