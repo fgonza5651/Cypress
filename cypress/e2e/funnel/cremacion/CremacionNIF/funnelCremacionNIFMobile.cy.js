@@ -1,8 +1,8 @@
-import FunnelCremacionNIFMobile from "../../../pageMobile/funnelMobile/funnelCremacionNIFPageMobile";
-import ResumenPagoPageMobile from "../../../pageMobile/funnelMobile/resumenPago/resumenPagoMobile";
-import webpay3Mobile from "../../../pageMobile/carroComprasMobile/webpayMobile/webpay3Mobile";
-import authenticatorWebpayMobile from "../../../pageMobile/carroComprasMobile/webpayMobile/autentificacionMobile";
-import checkoutReciboMobile from "../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
+import FunnelCremacionNIFMobile from "../../../../pageMobile/funnelMobile/funnelCremacionNIFPageMobile";
+import ResumenPagoPageMobile from "../../../../pageMobile/funnelMobile/resumenPago/resumenPagoMobile";
+import webpay3Mobile from "../../../../pageMobile/carroComprasMobile/webpayMobile/webpay3Mobile";
+import authenticatorWebpayMobile from "../../../../pageMobile/carroComprasMobile/webpayMobile/autentificacionMobile";
+import checkoutReciboMobile from "../../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
 
 describe('', () => {
     beforeEach(() => {
@@ -15,7 +15,7 @@ describe('', () => {
     });
 
     //
-    it('Ingresar flujo cremacion NIF', () => {
+    it('Ingresar flujo cremacion NIF Mobile', () => {
 
         FunnelCremacionNIFMobile.inicioFlujoCremacion()
 
@@ -325,7 +325,7 @@ describe('', () => {
         authenticatorWebpayMobile.formularioTransbankAceptar()
         checkoutReciboMobile.validarAprobacionFunnel()
     })
-    it.only('Comprar plan homenaje premium Descado -Seleccionar desde Ver mas', () => {
+    it('Comprar plan homenaje premium Descado -Seleccionar desde Ver mas', () => {
         
         FunnelCremacionNIFMobile.inicioFlujoCremacion()
         FunnelCremacionNIFMobile.seleccionRegion()

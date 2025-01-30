@@ -110,6 +110,11 @@ class Webpay3Mobile{
             })
         })
     }
+    
+    //Preciona el boton tarjetas
+    selectTarjetas(){
+        cy.get(btnTarjetas,{timeout:100000}).should('be.visible').click()
+    }
     //Ingreso numero de tarjeta
     ingresoTarjetaDebito()
     {

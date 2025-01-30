@@ -1,8 +1,8 @@
-import FunnelCremacionNIF from "../../../pages/funnel/funnelCremacionNIFPage";
-import ResumenPagoPage from "../../../pages/funnel/resumenPago/resumenPago";
-import webpay3 from "../../../pages/carroCompras/webpay/webpay3";
-import authenticatorWebpay from "../../../pages/carroCompras/webpay/autentificacion";
-import checkoutRecibo from "../../../pages/carroCompras/recibo/checkoutRecibo";
+import FunnelCremacionNIF from "../../../../pages/funnel/funnelCremacionNIFPage";
+import ResumenPagoPage from "../../../../pages/funnel/resumenPago/resumenPago";
+import webpay3 from "../../../../pages/carroCompras/webpay/webpay3";
+import authenticatorWebpay from "../../../../pages/carroCompras/webpay/autentificacion";
+import checkoutRecibo from "../../../../pages/carroCompras/recibo/checkoutRecibo";
 
 describe('', () => {
     beforeEach(() => {
@@ -10,8 +10,6 @@ describe('', () => {
             // ...
             return false;
           });
-          cy.clearCookies();   
-          cy.clearLocalStorage();
     });
 
     //

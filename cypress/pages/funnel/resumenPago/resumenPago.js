@@ -26,7 +26,7 @@ class resumenPagoPage {
     formularioComprador()
     {
         //formulario informacion comprador
-        cy.get(inputDireccion,{timeout: 100000}).should('be.visible').type(formularioCheckout['FormularioInoformacionComprador'].direccion)
+        cy.get(inputDireccion,{timeout: 5000}).should('be.visible').type(formularioCheckout['FormularioInoformacionComprador'].direccion)
         cy.get(inputRut,{timeout: 100000}).should('be.visible').type(formularioCheckout['FormularioInoformacionComprador'].rut)
 
         //formulario informacion beneficiario

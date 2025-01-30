@@ -1,7 +1,9 @@
 require('cypress-xpath');
 //Selecion Region
-const selectRegion = '#mat-select-4 > div'
-const selectMetroplitana = '#mat-option-16 > .mat-option-text'
+const selectRegion = '#mat-select-value-1 > .mat-select-placeholder'
+const selectMetroplitana = '#mat-option-0 > .mat-option-text'
+const selectComuna = '#mat-select-value-3 > .mat-select-placeholder'
+const selectProvidencia = '#mat-option-67 > .mat-option-text'
 //Expansion indicador cotizacion
 const btnExpansionIndicador = '.mat-expansion-indicator'
 //Boton continuar
@@ -34,8 +36,20 @@ const precioPlanSustentable = '#funeraria-plan-sustentable > .mat-checkbox-layou
 const precioPlanTradicionDestacado = '#funeraria-plan-tradicion-destacado > .mat-checkbox-layout > .mat-checkbox-label >.cont-precio-uf > .detalle-valor'
 const precioPlanHomenajePremium = '#funeraria-plan-homenaje-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
 const precioPlanHomenajePremiumDestacado = '#funeraria-plan-homenaje-premium-destacado > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
+//Seleccion servicio Velatorio
+const checkVelatorioBasico = '#velatorio-ni > .mat-checkbox-layout > .mat-checkbox-inner-container'
+const btnVerMasVelatorioBasico = '#card-producto-velatorio-0 > .btn-sidenav-mobile'
+const checkVelatorioCafeteriaEstandar = '#velatorio-cafeteria-ni > .mat-checkbox-layout > .mat-checkbox-inner-container'
+const btnVerMasVelatorioCafeteriaEstandar = '#card-producto-velatorio-1 > .btn-sidenav-mobile'
+const checkVelatorioCefeteriaPremium = '#velatorio-cafeteria-premium-ni > .mat-checkbox-layout > .mat-checkbox-inner-container'
+const btnVerMasVelatorioCafeteriaPremium = '#card-producto-velatorio-2 > .btn-sidenav-mobile'
+const btnContinuarVelatorio = '//*[@id="mat-tab-content-0-1"]/div/div[2]/div[1]/button'
+//precion servicios Velatorio
+const precioVelatorioBasico = '#velatorio-ni > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
+const precioVelatorioEstandar = '#velatorio-cafeteria-ni > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
+const precioVelatorioPremium = '#velatorio-cafeteria-premium-ni > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
 //btn continuar servicio de cremacion base
-const btnContinuarCremacionBase = '//*[@id="mat-tab-content-0-1"]/div/div[2]/div[1]/button'
+const btnContinuarCremacionBase = '//*[@id="mat-tab-content-0-2"]/div/div[2]/div[1]/button'
 //seleccion ceremonia de despedida
 const checkCeremoniaDespedidaIncluida = '#ceremonia-despedida-incluida > .mat-checkbox-layout > .mat-checkbox-inner-container'
 const btnVerMasCeremoniaDespedidaIncluida = '#card-producto-ceremonia-despedida-1 > .btn-sidenav-mobile'
@@ -49,8 +63,8 @@ const btnVerMasCeremoniaDespedidaEspecialConCoro = '#card-producto-ceremonia-des
 const precioCeremoniaDeDespedidaEspecial = '#ceremonia-despedida-especial > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
 const precioCeremoniaDeDespedidaConCoro = '#ceremonia-despedida-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
 const precioCeremoniaDeDesPedidaEspecialConCoror = '#ceremonia-despedida-especial-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioCeremoniaDepedida= '#cdk-accordion-child-0 > div > div > div:nth-child(3) > div > div > p.valor-servicio-peso'
-const btnContinuarCeremoniaDespedida = '//*[@id="mat-tab-content-0-2"]/div/div[2]/div[1]/button'
+const precioCeremoniaDepedida= ':nth-child(4) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
+const btnContinuarCeremoniaDespedida = '//*[@id="mat-tab-content-0-3"]/div/div[2]/div[1]/button'
 //seccion seleccion de anafora
 const checkAnaforaMaderaBasica = '//*[@id="seleccion-anforas-incluida"]/label/span[1]'
 const btnVerMasAnaforaMaderaBasica = '#card-producto-seleccion-anfora-1 > .btn-sidenav-mobile'
@@ -58,11 +72,11 @@ const checkAnaforaCofresFull = '#seleccion-anforas-full > .mat-checkbox-layout >
 const btnVerMasAnaforaCofresFull = '#card-producto-seleccion-anfora-2 > .btn-sidenav-mobile'
 const checkAnaforaCofrePremium = '#seleccion-anforas-premium > .mat-checkbox-layout > .mat-checkbox-inner-container'
 const btnVerMasAnaforaCofrePremium = '#card-producto-seleccion-anfora-3 > .btn-sidenav-mobile'
-const btnContinuarSelecionAnafora = '//*[@id="mat-tab-content-0-3"]/div/div[2]/div[1]/button'
+const btnContinuarSelecionAnafora = '//*[@id="mat-tab-content-0-4"]/div/div[2]/div[1]/button'
 //precio seleccion de anafora
 const precioAnaforaCofresFull = '#seleccion-anforas-full > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
 const precioAnaforaCofresPremium = '#seleccion-anforas-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioSeleccionAnafora = ':nth-child(4) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
+const precioSeleccionAnafora = ':nth-child(5) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
 //Seccion entrega de cenizas
 const checkEntregaCenizasIncluida = '#entrega-cenizas-incluido > .mat-checkbox-layout > .mat-checkbox-inner-container'
 const btnVerMasEntregaCenizasIncluida = '#card-producto-entrega-cenizas-0 > .btn-sidenav-mobile'
@@ -70,8 +84,8 @@ const checkEntregaCenizaseEspecial = '#entrega-especial-cenizas > .mat-checkbox-
 const btnVerMasEntregaCenizasEspecial = '#card-producto-entrega-cenizas-2 > .btn-sidenav-mobile'
 //Precio entrega de cenizas
 const precioEntregaCenizasEspecial = '.detalle-valor'
-const precioEntregaDeCenizas = '#cdk-accordion-child-1 > div > div > div:nth-child(5) > div > div > p.valor-servicio-peso'
-const btnEntregaCenizas = '//*[@id="mat-tab-content-0-4"]/div/div[2]/div[1]/button'
+const precioEntregaDeCenizas = ':nth-child(6) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
+const btnEntregaCenizas = '//*[@id="mat-tab-content-0-5"]/div/div[2]/div[1]/button'
 //Seccion descansp de ceizas
 const checkMemorialRecuerdo = '#descanso-memorial-recuerdo > .mat-checkbox-layout > .mat-checkbox-inner-container'
 const btnVerMasMemorialRecuerdo =  ':nth-child(1) > .btn-sidenav-mobile'
@@ -89,8 +103,8 @@ const precioJardinFlores = '#descanso-jardin-flores > .mat-checkbox-layout > .ma
 const precioJardinFloresPremium = '#descanso-jardin-flores-premium > .mat-checkbox-layout > .mat-checkbox-label >.cont-precio-uf > .detalle-valor'
 const precioColumbarioPared = '#descanso-columbario-pared > .mat-checkbox-layout > .mat-checkbox-label >.cont-precio-uf > .detalle-valor'
 const precioColumbarioVidriado = '#descanso-columbario-vidriado > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioDescansoCenizas = ':nth-child(6) > .pasos > .cont-detalle > .valor-peso'
-const btnIaResumen = '//*[@id="mat-tab-content-0-5"]/div/div[2]/div[1]/button'
+const precioDescansoCenizas = ':nth-child(7) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
+const btnIaResumen = '//*[@id="mat-tab-content-0-6"]/div/div[2]/div[1]/button'
 //Seccion Sidenav
 const sidenavServicio = '.mat-bottom-sheet-container > corporativo-bottom-sidenav'
 const precioServicioSidenav = '.precio-servicio-sidenav'
@@ -101,6 +115,8 @@ const btnSeleccionar = '.btn-seleccionar'
 
 
 const precioServicioFunerario = '.valor-servicio-peso'
+const precioServicioVelatorio = ':nth-child(2) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
+
 
 //variables
 const formulario = Cypress.env('Formulario');
@@ -117,23 +133,25 @@ function generarCorrero() {
 // formatea el precio eliminando los punto y el signo $
 const cleanPrice = (price) => price.replace(/[$.]/g, '').trim(); // Remueve símbolos y espacios
 
-class funnelCremacionNIFMobile {
+class funnelCremacionNIMobile {
 
-    //ingresa al flujo funnel cremacion NIF
+    //ingresa al flujo funnel cremacion NI
     
     inicioFlujoCremacion(){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=cremacion-nif')
+        cy.visit('https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=cremacion-ni')
         cy.wait(2000)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
 
     //Se selecciona la region metropolitana
-    seleccionRegion(){
+    seleccionRegionComuna(){
         cy.wait(2000)
         cy.get(selectRegion, {timeout: 100000}).should('be.visible').click()
         cy.get(selectMetroplitana,{timeout: 100000}).should('be.visible').click()
+        cy.get(selectComuna, {timeout: 100000}).should('be.visible').click()
+        cy.get(selectProvidencia,{timeout: 100000}).scrollIntoView().should('be.visible').click()
         //clic en el boton continuar
         cy.contains(btnContinuar,{timeout: 100000}).should('be.visible').click()
     }
@@ -171,7 +189,7 @@ class funnelCremacionNIFMobile {
     seleccionPlanBasico(){
 
         cy.wait(2000)
-        cy.get(precioPlanBasico,{timeout:100000})
+        cy.get(precioPlanBasico)
         .invoke('text') //obtengo el texto del elemento
         .then((precio) => {
           //guardo el precio del producto sin espacios y lo guardo en una variable
@@ -381,7 +399,8 @@ class funnelCremacionNIFMobile {
     seleccionarPlanHomenajePremium(){
       
       
-      cy.get(precioPlanHomenajePremium)
+      cy.wait(3000)
+      cy.get(precioPlanHomenajePremium,{timeout:100000})
       .invoke('text') //obtengo el texto del elemento
       .then((precio) => {
           //guardo el precio sin espacios del producto y lo guardo en una variable
@@ -467,6 +486,161 @@ class funnelCremacionNIFMobile {
          cy.wrap(precioLimpio).as('precioProducto');
         });
         cy.get(btnVerMasPlanHomenajePremiumDestacado,{timeout: 100000}).should('be.visible').click()
+        cy.wait(2000)
+        cy.get(precioServicioSidenav)
+        .invoke('text')//obtengo el texto del elemento
+        .then((precio)=> {
+            const precioSinText = cleanPrice(precio)
+            cy.get('@precioProducto').then((valor) =>{
+                expect(valor).to.eq(precioSinText)
+            })
+        })
+
+        cy.get(sidenavServicio,{timeout: 100000}).should('be.visible')
+    }
+
+    //Selecciona continuar de la seccion velatorio
+    seccionVelatorioContinuar(){
+        cy.xpath(btnContinuarVelatorio,{timeout: 100000}).should('be.visible').click()
+    }
+
+    //se seleciona Velatorio basico
+    seleccionarVelatorioBasico(){
+          
+          cy.get(precioVelatorioBasico)
+          .invoke('text') //obtengo el texto del elemento
+          .then((precio) => {
+            //guardo el precio del producto y lo guardo en una variable
+            const precioLimpio = cleanPrice(precio)
+            cy.wrap(precioLimpio).as('precioProducto');
+          });
+       cy.get(checkVelatorioBasico,{timeout: 100000}).should('be.visible').click()
+       cy.wait(2000)
+       cy.xpath(btnContinuarVelatorio,{timeout: 100000}).should('be.visible').click()
+       cy.get(btnExpansionIndicador,{timeout: 100000}).should('be.visible').click()
+        cy.get(precioServicioVelatorio)
+        .invoke('text')//obtengo el texto del elemento
+        .then((precio)=> {
+            const precioSinText = cleanPrice(precio)
+            cy.get('@precioProducto').then((valor) =>{
+                expect(valor).to.eq(precioSinText)
+            })
+        })
+
+        //clic en el boton continuar
+        cy.get(btnExpansionIndicador,{timeout: 100000}).should('be.visible').click()
+    }
+     //se seleciona ver mas de Velatorio basico
+     verMasVelatorioBasico(){
+       cy.wait(2000)
+       cy.get(precioVelatorioBasico)
+       .invoke('text') //obtengo el texto del elemento
+       .then((precio) => {
+         //guardo el precio del producto y lo guardo en una variable
+         const precioLimpio = cleanPrice(precio)
+         cy.wrap(precioLimpio).as('precioProducto');
+        });
+        cy.get(btnVerMasVelatorioBasico,{timeout: 100000}).should('be.visible').click()
+        cy.wait(2000)
+        cy.get(precioServicioSidenav)
+        .invoke('text')//obtengo el texto del elemento
+        .then((precio)=> {
+            const precioSinText = cleanPrice(precio)
+            cy.get('@precioProducto').then((valor) =>{
+                expect(valor).to.eq(precioSinText)
+            })
+        })
+
+        cy.get(sidenavServicio,{timeout: 100000}).should('be.visible')
+    }
+    //se seleciona Velatorio cafeteria estandar
+    seleccionarVelatorioCafeteriaEstandar(){
+          
+          cy.get(precioVelatorioEstandar)
+          .invoke('text') //obtengo el texto del elemento
+          .then((precio) => {
+            //guardo el precio del producto y lo guardo en una variable
+            const precioLimpio = cleanPrice(precio)
+            cy.wrap(precioLimpio).as('precioProducto');
+          });
+          
+        cy.get(checkVelatorioCafeteriaEstandar,{timeout: 100000}).should('be.visible').click()
+        cy.wait(2000)
+        cy.xpath(btnContinuarVelatorio,{timeout: 100000}).should('be.visible').click()
+        cy.get(btnExpansionIndicador,{timeout: 100000}).should('be.visible').click()
+        cy.get(precioServicioVelatorio)
+        .invoke('text')//obtengo el texto del elemento
+        .then((precio)=> {
+            const precioSinText = cleanPrice(precio)
+            cy.get('@precioProducto').then((valor) =>{
+                expect(valor).to.eq(precioSinText)
+            })
+        })
+
+        //clic en el boton continuar
+        cy.get(btnExpansionIndicador,{timeout: 100000}).should('be.visible').click()
+    }
+     //se seleciona ver mas de Velatorio cafeteria Estandar
+     verMasVelatorioCafeteriaEstandar(){
+       cy.wait(2000)
+       cy.get(precioVelatorioEstandar)
+       .invoke('text') //obtengo el texto del elemento
+       .then((precio) => {
+         //guardo el precio del producto y lo guardo en una variable
+         const precioLimpio = cleanPrice(precio)
+         cy.wrap(precioLimpio).as('precioProducto');
+        });
+        cy.get(btnVerMasVelatorioCafeteriaEstandar,{timeout: 100000}).should('be.visible').click()
+        cy.wait(2000)
+        cy.get(precioServicioSidenav)
+        .invoke('text')//obtengo el texto del elemento
+        .then((precio)=> {
+            const precioSinText = cleanPrice(precio)
+            cy.get('@precioProducto').then((valor) =>{
+                expect(valor).to.eq(precioSinText)
+            })
+        })
+
+        cy.get(sidenavServicio,{timeout: 100000}).should('be.visible')
+    }
+    //se seleciona Velatorio cafeteria premium
+    seleccionarVelatorioCafeteriaPremium(){
+          
+          cy.get(precioVelatorioPremium)
+          .invoke('text') //obtengo el texto del elemento
+          .then((precio) => {
+            //guardo el precio del producto y lo guardo en una variable
+            const precioLimpio = cleanPrice(precio)
+            cy.wrap(precioLimpio).as('precioProducto');
+          });
+          
+        cy.get(checkVelatorioCefeteriaPremium,{timeout: 100000}).should('be.visible').click()
+        cy.wait(2000)
+        cy.xpath(btnContinuarVelatorio,{timeout: 100000}).should('be.visible').click()
+        cy.get(btnExpansionIndicador,{timeout: 100000}).should('be.visible').click()
+        cy.get(precioServicioVelatorio)
+        .invoke('text')//obtengo el texto del elemento
+        .then((precio)=> {
+            const precioSinText = cleanPrice(precio)
+            cy.get('@precioProducto').then((valor) =>{
+                expect(valor).to.eq(precioSinText)
+            })
+        })
+
+        //clic en el boton continuar
+        cy.get(btnExpansionIndicador,{timeout: 100000}).should('be.visible').click()
+    }
+     //se seleciona ver mas de Velatorio cafeteria premium
+     verMasVelatorioCafeteriaPremium(){
+       cy.wait(2000)
+       cy.get(precioVelatorioPremium)
+       .invoke('text') //obtengo el texto del elemento
+       .then((precio) => {
+         //guardo el precio del producto y lo guardo en una variable
+         const precioLimpio = cleanPrice(precio)
+         cy.wrap(precioLimpio).as('precioProducto');
+        });
+        cy.get(btnVerMasVelatorioCafeteriaPremium,{timeout: 100000}).should('be.visible').click()
         cy.wait(2000)
         cy.get(precioServicioSidenav)
         .invoke('text')//obtengo el texto del elemento
@@ -813,7 +987,7 @@ class funnelCremacionNIFMobile {
         cy.wait(3000)
         cy.xpath(btnEntregaCenizas,{timeout: 10000}).should('be.visible').click()
         cy.get(btnExpansionIndicador, { timeout: 100000 }).should('be.visible').click();
-        cy.get(precioEntregaCenizasEspecial) // Captura el precio del carrito o el lugar donde lo comparas
+        cy.get(precioEntregaDeCenizas) // Captura el precio del carrito o el lugar donde lo comparas
         .invoke('text')
         .then((precio) => {
           const precioCarritoLimpio = cleanPrice(precio); // Limpia el precio capturado
@@ -942,7 +1116,7 @@ class funnelCremacionNIFMobile {
     // se selecciona jardin de flores premium
     seleccionarJardinFloresPremium(){
         cy.wait(3000)
-        cy.get(precioJardinFloresPremium,{timeout:100000}) // Captura el precio del producto seleccionado
+        cy.get(precioJardinFloresPremium) // Captura el precio del producto seleccionado
         .invoke('text')
         .then((precio) => {
           const precioProductoLimpio = cleanPrice(precio); // Limpia el precio capturado
@@ -984,7 +1158,7 @@ class funnelCremacionNIFMobile {
     //Se selecciona columbario de pared
     seleccionarColumbarioPared()
     {
-        cy.get(precioColumbarioPared,{timeout:100000}) // Captura el precio del producto seleccionado
+        cy.get(precioColumbarioPared) // Captura el precio del producto seleccionado
         .invoke('text')
         .then((precio) => {
           const precioProductoLimpio = cleanPrice(precio); // Limpia el precio capturado
@@ -1064,5 +1238,5 @@ class funnelCremacionNIFMobile {
     }
 
 }
-const FunnelCremacionNIFMobile = new funnelCremacionNIFMobile()
-export default FunnelCremacionNIFMobile;
+const FunnelCremacionNIMobile = new funnelCremacionNIMobile()
+export default FunnelCremacionNIMobile;

@@ -1,12 +1,10 @@
 {
-  "dependencies": {
-    "cypress": "^13.16.1"
-  },
   "name": "ecommers",
   "version": "1.0.0",
   "description": "automatizacion ecommers",
   "main": "index.js",
   "devDependencies": {
+    "cypress": "^14.0.1",
     "cypress-real-events": "^1.13.0",
     "cypress-xpath": "^2.0.1"
   },
