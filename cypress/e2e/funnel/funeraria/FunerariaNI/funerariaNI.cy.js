@@ -1,0 +1,290 @@
+import FunnelFunerariaNI from "../../../../pages/funnel/funnelFuneriaNIPage";
+import ResumenPagoPage from "../../../../pages/funnel/resumenPago/resumenPago";
+import webpay3 from "../../../../pages/carroCompras/webpay/webpay3";
+import authenticatorWebpay from "../../../../pages/carroCompras/webpay/autentificacion";
+import checkoutRecibo from "../../../../pages/carroCompras/recibo/checkoutRecibo";
+
+describe('', () => {
+    beforeEach(() => {
+        Cypress.on('uncaught:exception', (err, runnable) => {
+            // ...
+            return false;
+          });
+    });
+
+    //
+    it('Ingresar flujo funeraria NI', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+
+    })
+
+    //Con servicio de cremacion base - ceremonia despedida especial - anafora cofres full- descanzo de cnizas especial - memorial del recuerdo
+    it('Comprar plan basico -Necesito cremacion', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanBasico()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionPlanBasico()
+        FunnelFunerariaNI.verMasVelatorioBasico()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioBasico()
+        FunnelFunerariaNI.seleccionNecesitoCremacion()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        FunnelFunerariaNI.verMasCeremoniaDespeidaEspecial()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionCeremoniaDespeidaEspecial()
+        FunnelFunerariaNI.verMasAnaforaCofreFull()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionAnaforaCofreFull()
+        FunnelFunerariaNI.verMasEntregaCenizasEspecial()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.selecionEntregaCenizasEspecial()
+        FunnelFunerariaNI.verMasMemorialDelRecuerdo()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionaMemorialDelRecuerdo()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+    //
+
+    //Con servicio de plan tradicion - cremacion base - despedida con coro- anafora madera bascia incluida - entrega cenizas inclida - jarin de flores
+    it('Comprar plan tradicion -Necesito cremacion', () => {
+      
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanTradicional()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanTradicional()
+        FunnelFunerariaNI.verMasVelatorioCafeteriaEstandar()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioCafeteriaEstandar()
+        FunnelFunerariaNI.seleccionNecesitoCremacion()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        FunnelFunerariaNI.verMasCeremoniaDespedidaConCoro()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.selecionCeremoniaDespedidaConCoro()
+        FunnelFunerariaNI.verMasAnaforaMaderaBasicaIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionAnaforaMaderaBasicaIncluida()
+        FunnelFunerariaNI.verMasEntregaCenizasIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionEntregaCenizasIncluida()
+        FunnelFunerariaNI.verMasJardinFlores()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.selecionarJardinFlores()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+
+    //
+    it('Comprar plan sustentable -Necesito cremacion', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanSustentable()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanSustentable()
+        FunnelFunerariaNI.verMasVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.seleccionNecesitoCremacion()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        FunnelFunerariaNI.verMasCermmoniaDeDespedidaIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionCermmoniaDeDespedidaIncluida()
+        FunnelFunerariaNI.verMasAnaforaCofrePremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionAnaforaCofrePremium()
+        FunnelFunerariaNI.verMasEntregaCenizasIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionEntregaCenizasIncluida()
+        FunnelFunerariaNI.verMasJardinFloresPremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarJardinFloresPremium()
+        /*
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+        */
+    })
+
+    //
+    it('Comprar plan tradicion destacada -Necesito cremacion', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanTradicionalDestacado()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanTradicionalDestacado()
+        FunnelFunerariaNI.verMasVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.seleccionNecesitoCremacion()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        FunnelFunerariaNI.verMasCeremoniaDespedidaEspecialConCoro()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionCeremoniaDespedidaEspecialConCoro()
+        FunnelFunerariaNI.verMasAnaforaCofrePremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionAnaforaCofrePremium()
+        FunnelFunerariaNI.verMasEntregaCenizasIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionEntregaCenizasIncluida()
+        FunnelFunerariaNI.verMasColumbarioPared()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarColumbarioPared()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+
+    //
+    it('Comprar plan premium -Necesito cremacion', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanSustentable()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanSustentable()
+        FunnelFunerariaNI.verMasVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.seleccionNecesitoCremacion()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        FunnelFunerariaNI.verMasCermmoniaDeDespedidaIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionCermmoniaDeDespedidaIncluida()
+        FunnelFunerariaNI.verMasAnaforaCofrePremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionAnaforaCofrePremium()
+        FunnelFunerariaNI.verMasEntregaCenizasIncluida()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionEntregaCenizasIncluida()
+        FunnelFunerariaNI.verMasColumbarioVidriado()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarColumbarioVidriado()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+
+    //
+    it('Comprar plan tradicion Destacado -Necesito Sepultura', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanTradicionalDestacado()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanTradicionalDestacado()
+        FunnelFunerariaNI.verMasVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioCafeteriaPremium()
+        FunnelFunerariaNI.seleccionNecesitoSepultura()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+
+    //
+    it('Comprar plan homenaje premium -Necesito Sepultura', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanHomenajePremium()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanHomenajePremium()
+        FunnelFunerariaNI.verMasVelatorioBasico()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioBasico()
+        FunnelFunerariaNI.seleccionNecesitoSepultura()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+
+    //
+    it('Comprar plan homenaje premium destado -Necesito Sepultura', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanHomenajePremiumDestacado()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarPlanHomenajePremiumDestacado()
+        FunnelFunerariaNI.verMasVelatorioCafeteriaEstandar()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioCafeteriaEstandar()
+        FunnelFunerariaNI.seleccionNecesitoSepultura()
+        FunnelFunerariaNI.seccionServicioCremacionBase()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+
+    //
+    it('Comprar plan basico -Continuar sin estos servicios', () => {
+
+        FunnelFunerariaNI.inicioFlujoCremacion()
+        FunnelFunerariaNI.seleccionRegionComuna()
+        FunnelFunerariaNI.formularioCuentanoDeTi()
+        FunnelFunerariaNI.verMasPlanBasico()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionPlanBasico()
+        FunnelFunerariaNI.verMasVelatorioBasico()
+        FunnelFunerariaNI.SeleccionarVolverSidenav()
+        FunnelFunerariaNI.seleccionarVelatorioBasico()
+        FunnelFunerariaNI.seleccionContinuarSinEstosServicios()
+        ResumenPagoPage.completarDatos()
+        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.checkTerminosCondiciones()
+        webpay3.precionarTarjetas()
+        webpay3.ingresoTarjetaDebito()
+        authenticatorWebpay.formularioTransbankAceptar()
+        checkoutRecibo.validarAprobacionFunnel()
+    })
+})
