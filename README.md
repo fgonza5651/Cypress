@@ -1,5 +1,15 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 03/02/2025-11:08
+Version: 2.3.16
+Descripcion: se implemento funnel funeraria NIF con todos los planes y el pago hasta webpay tanto en desktop como en mobile
+------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
+Fecha: 31/01/2025-15:39
+Version: 2.3.15
+Descripcion: Implementacion de funnel funeraria NI con todos los planes y el pago hasta webpay tanto en desktop como en mobile, ademas se actualizo la version de cypress a la version 14.0.1
+------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 30/01/2025-16:38
 Version: 1.3.14
 Descripcion: Se implemento funnel de cremacion NI con todos los planes y el pago hasta webpay tanto para desktop como Mobile , ademas se modificaron algunas funcionalidades de comparacion de precios y tambien se agregaron funciones en funnel cremacion NIF tanto en destop como en Mobile. Finalmente se agrego en el sector ventasCruzadaPDP la cafeteria velatorio tanto en desktop como Mobile
