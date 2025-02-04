@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 04/02/2025-10:20
+Version: 2.3.17
+Descripcion: Se implemento menu con sus implementaciones AccesosSV y AccesosYRutas tanto en desktop y mobile
+-------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 03/02/2025-11:08
 Version: 2.3.16
 Descripcion: se implemento funnel funeraria NIF con todos los planes y el pago hasta webpay tanto en desktop como en mobile

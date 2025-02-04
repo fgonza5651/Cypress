@@ -1,19 +1,26 @@
 const btnCremacionNI = ".cont-necesidad-inmediata > .cont-btn-producto > :nth-child(3)"
 const btnCremacionNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(2)"
-//  menu header
+// menu header
+const OpcionMenuBarra = '//*[@id="contenedor-header-menu"]/div/div[2]/ul/li'
 const menuProductosServicios = '//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[3]'
+const menuPagoExpress = '.btn-pago-express-header'
+
+//productos y servicios desde la barra
+const menuVelatorio = '//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[3]/ul/li/ul/li[2]/a'
 const menuCremacion = '//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[3]/ul/li/ul/li[3]/a'
+const menuFuneraria = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > a'
+const menuSepultura = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > a'
+
+//Cremacion desde la barra
 const menuNecesidadInmediata = '//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[3]/ul/li/ul/li[3]/ul/li[1]/a'
 const menuNcesidadFutura = '(//*[@id="contenedor-header-menu"]/div/div[2]/ul/li[3]/ul/li/ul/li[3]/ul/li[3]/a)[1]'
 
 //Funeraria desde la Barra
-const menuFuneraria = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > a'
 const menuFunerariaNI = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(1) > a'
 const menuFunerariaNIF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(2) > a'
 const menuFunerariaNF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(1) > ul > li:nth-child(3) > a'
 
 //Sepultura desde la Barra
-const menuSepultura = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > a'
 const menuSepulturaNI = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > ul > li:nth-child(1) > a'
 const menuSepulturaNIF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > ul > li:nth-child(2) > a'
 const menuSepulturaNF = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-desktop > ul > li:nth-child(3) > ul > li > ul > li:nth-child(4) > ul > li:nth-child(3) > a'
@@ -24,17 +31,88 @@ const btnConocerParquePPH = ':nth-child(3) > .cont-info-btn > .cont-btn-conocer-
 // explorar nuestros productos
 const fotoCremacion = ':nth-child(3) > .cont-info-productos'
 const btnDetallesCremacion = '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[3]/div/button'
+//Ingreso Clientes body
+const btnPagoExpress = '.cont-btn-pago-express > .btn-producto'
 
+let btnOpcionMenuBarra;
+let btnSubServicioBarra;
 
 require('cypress-xpath')
 import "cypress-real-events/support";
 
 class HomePage {
 
+    
+
     //ingreso a la URL de parque del recuerdo
     ingresoHomeParqueDelRecuerdo(){
+
         cy.visit('/')
     }
+
+    //utilizando un numero desde el 1 hasta el 8 para las opciones del Menu desplegable
+    OpcionBarraMenu(opcion){
+
+        btnOpcionMenuBarra = `${OpcionMenuBarra}[${opcion}]`
+        cy.xpath(btnOpcionMenuBarra, { timeout: 100000 }).should('exist').realHover().click()
+    }
+
+    //utilizando un numero desde el 1 hasta el 6 para las opciones del SubMenu que se desplegable despues de seleccionar una opcion
+    SubServicioBarraMenu(Servicio){
+        btnSubServicioBarra = `${btnOpcionMenuBarra}/ul/li/ul/li[${Servicio}]`;
+        cy.xpath(`${btnSubServicioBarra}/a`, { timeout: 100000 }).should('exist').realHover()
+    }
+
+    //Se selecciona la opcion del sub menu
+    seleccionarSubServicioBarra(){
+        cy.xpath(`${btnSubServicioBarra}/a`, { timeout: 100000 }).should('exist').realHover().click()
+    }
+
+    //utilizando un numero desde el 1 hasta el 3 para las opciones del segundo SubMenu que se desplegable despues de seleccionar una segunda opcion
+    NecesidadBarraMenu(Servicio){
+        let btnNecesidad
+        btnNecesidad = `${btnSubServicioBarra}/ul/li[${Servicio}]`;
+        cy.xpath(`${btnNecesidad}/a`, { timeout: 100000 }).should('exist').realHover().click()
+    }
+
+    //revisa que al presionar uno de los botones, este te redirija a otra pagina con una URL diferente
+    RevisarCambioUrl(){
+        cy.wait(3000)
+        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/')
+    }
+
+    //revisa que al precionar el boton este abra otra pestaña utilizando un numero del 1 al 2 para distintos botones
+    RevisarNuevaUrl(opcion){
+        cy.window().then((win) => {
+            // Espía window.open y simula su comportamiento
+            cy.stub(win, 'open', (url) => {
+                // Abre la URL en la misma pestaña para fines de prueba
+                win.location.href = url;
+            }).as('windowOpen');
+        });
+        switch (opcion){
+            //Se selecciona pago express desde el menu superior de la pagina
+            case '1':
+                cy.get(menuPagoExpress, { timeout: 100000 }).should('be.visible').click();
+                break;
+            //Se selecciona pago express desde el menu principal
+            case '2':
+                cy.get(btnPagoExpress, { timeout: 100000 }).should('be.visible').click();
+                break;                
+        }
+        // Verifica que window.open fue llamado
+        cy.get('@windowOpen').should('be.calledOnce');
+    }
+    
+    //Revisa que el btn enviar flores redirija a otra pestaña 
+    RevisarNuevaPestaña(){
+        cy.xpath(`${btnSubServicioBarra}/a`).should('have.attr', 'target', '_blank');
+        // Haz clic en el botón que abre la nueva pestaña
+        cy.xpath(`${btnSubServicioBarra}/a`, { timeout: 100000 }).invoke('removeAttr', 'target').click()
+        // Verifica que window.open fue llamado
+        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/')
+    }
+
 
     //selecciona de cremacion NI
     seleccionaraCremacionNI(){
