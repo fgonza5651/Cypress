@@ -33,6 +33,15 @@ const fotoCremacion = ':nth-child(3) > .cont-info-productos'
 const btnDetallesCremacion = '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[3]/div/button'
 //Ingreso Clientes body
 const btnPagoExpress = '.cont-btn-pago-express > .btn-producto'
+//Footer
+const btnParquesFooter = '//*[@id="contenedor-secciones-footer"]/div[1]/ul/li'
+const btnConocenosFooter = '//*[@id="contenedor-secciones-footer"]/div[2]/ul/li'
+const btnServicioClienteFooter = '//*[@id="contenedor-secciones-footer"]/div[3]/ul/li'
+const btnContactoFooter = '//*[@id="contenedor-secciones-footer"]/div[4]/ul/li'
+const btnRedesSocialesFooter = '//*[@id="seccion-redes-footer"]/div/ul/li'
+const popUpCotizaEnLinea = '#mat-menu-panel-0'
+//Archivos descargados
+const filename = 'BASES_SORTEO_PARQUE_DEL_RECUERDO.pdf'
 
 let btnOpcionMenuBarra;
 let btnSubServicioBarra;
@@ -198,6 +207,82 @@ class HomePage {
         cy.get(menuProductosServicios, {timeout: 100000}).should('be.visible').realHover()
         cy.get(menuCremacion, {timeout: 100000}).should('be.visible').realHover()
         cy.get(menuNcesidadFutura, {timeout: 100000}).should('be.visible').realHover()
+    }
+
+    //Selecciona desde el Footer un parque con opciones del 1 al 3 
+    FooterParques(opcion){
+        cy.window().then((win) => {
+            // Espía window.open y simula su comportamiento
+            cy.stub(win, 'open', (url) => {
+                // Abre la URL en la misma pestaña para fines de prueba
+                win.location.href = url;
+            }).as('windowOpen');
+        });
+        cy.xpath(`${btnParquesFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
+        // Verifica que window.open fue llamado
+        cy.get('@windowOpen').should('be.calledOnce');
+    }
+
+    //Selecciona desde el Footer Conocenos una Opcion del 1 al 6
+    FooterConocenos(opcion){
+        cy.window().then((win) => {
+            // Espía window.open y simula su comportamiento
+            cy.stub(win, 'open', (url) => {
+                // Abre la URL en la misma pestaña para fines de prueba
+                win.location.href = url;
+            }).as('windowOpen');
+        });
+        cy.xpath(`${btnConocenosFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
+        // Verifica que window.open fue llamado
+        cy.get('@windowOpen').should('be.calledOnce');
+    }
+
+    //Selecciona desde el Footer Servicio al cliente una Opcion del 1 al 4
+    FooterServicioCliente(opcion){
+        cy.window().then((win) => {
+            // Espía window.open y simula su comportamiento
+            cy.stub(win, 'open', (url) => {
+                // Abre la URL en la misma pestaña para fines de prueba
+                win.location.href = url;
+            }).as('windowOpen');
+        });
+        if(opcion == '4'){
+            cy.xpath(`${btnServicioClienteFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
+            cy.log('estamos antes de ver si se descarga')
+            cy.readFile(`cypress/downloads/${filename}`).should('exist');
+        }else{
+            cy.xpath(`${btnServicioClienteFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
+            cy.get('@windowOpen').should('be.calledOnce');
+        }
+        // Verifica que window.open fue llamado
+    }
+
+    //Selecciona desde el Footer contacto una Opcion del 1 al 4
+    FooterContacto(opcion){
+        if(opcion == '3'){
+            cy.xpath(`${btnContactoFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
+            cy.get(popUpCotizaEnLinea,{timeout:100000}).should('be.visible')
+        }else{
+
+            cy.window().then((win) => {
+                // Espía window.open y simula su comportamiento
+                cy.stub(win, 'open', (url) => {
+                    // Abre la URL en la misma pestaña para fines de prueba
+                    win.location.href = url;
+                }).as('windowOpen');
+            });
+            cy.xpath(`${btnContactoFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
+            // Verifica que window.open fue llamado
+            cy.get('@windowOpen').should('be.calledOnce');
+        }
+    }
+    //Selecciona desde el Footer inferior de redes sociales facebook
+    FooterRedesSociales(opcion){
+        cy.xpath(`${btnRedesSocialesFooter}[${opcion}]/a`).should('have.attr', 'target', '_blank');
+        // Haz clic en el botón que abre la nueva pestaña
+        cy.xpath(`${btnRedesSocialesFooter}[${opcion}]/a`, { timeout: 100000 }).invoke('removeAttr', 'target').click()
+        // Verifica que window.open fue llamado
+        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/')
     }
 
 }

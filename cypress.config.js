@@ -1,9 +1,30 @@
 const { defineConfig } = require("cypress");
+const fs = require("fs");
+const path = require("path");
 
 
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
+
+      //Tarea para limpiar la carpeta de descargas
+      on("task", {
+        clearDownloadsFolder() {
+          const downloadsFolder = path.join(__dirname, "cypress", "downloads");
+          
+          if (fs.existsSync(downloadsFolder)) {
+            // Elimina todos los archivos dentro de la carpeta de descargas
+            fs.readdirSync(downloadsFolder).forEach((file) => {
+              const filePath = path.join(downloadsFolder, file);
+              fs.unlinkSync(filePath); // Elimina el archivo
+            });
+          }
+          
+          return null; // Cypress espera que las tareas devuelvan null o un valor
+        },
+        
+      });
+      
       // implement node event listeners here
     },
     projectId: "suzrxt",
@@ -15,5 +36,6 @@ module.exports = defineConfig({
     chromeWebSecurity: false,
     args: ['--disable-features=PrivacySandbox'],
     supportFile: false,
+    downloadsFolder: "cypress/downloads",
   },
 });
