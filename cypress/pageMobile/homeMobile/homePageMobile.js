@@ -1,7 +1,17 @@
 const btnMenuDesplegable = '[src="https://stappdeveastus001.blob.core.windows.net/corporativo-ic/media/icons/svg/menu-hamburguesa.svg"]'
 const btnProductosServicios = ':nth-child(4) > .a-menu-sidenav'
 
+//Necesito ayuda ahora menu
+const btnFunerariaNI = '.cont-necesidad-inmediata > .cont-btn-producto > :nth-child(1)'
+const btnVelatorioNI = '.cont-necesidad-inmediata > .cont-btn-producto > :nth-child(2)'
+const btnCremacionNI = ".cont-necesidad-inmediata > .cont-btn-producto > :nth-child(3)"
+const btnSepulturaNI = ".cont-necesidad-inmediata > .cont-btn-producto > :nth-child(4)"
+//Estoy pensando en futuro menu
+const btnFunerariaNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(1)"
+const btnCremacionNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(2)"
+const btnSepulturaNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(3)"
 // menu header
+const btnHomeParqueRecuerdo = '.logo-header'
 const btnOpcionMenuBarra = '//*[@id="mat-tab-content-0-0"]/div/ul/li';
 const btnSegundaSeleccionMenuBarra = '//*[@id="mat-tab-content-0-1"]/div/ul/li'
 const btnTerceraSeleccionMenuBarra = '//*[@id="mat-tab-content-0-2"]/div/ul/li'
@@ -9,16 +19,34 @@ const btnTerceraSeleccionMenuBarra = '//*[@id="mat-tab-content-0-2"]/div/ul/li'
 const menuPagoExpress = '.btn-pago-express-sidenav'
 const btnPagoExpress = '.cont-btn-pago-express > .btn-producto'
 
+// parques del home
+const btnConocerParque = '.swiper-slide-active > .card-parque > .cont-info-btn > .cont-btn-conocer-parque > .btn-conocer-parque'
+const btnSegundaOpcionSwipeParques = '#grilla-nuestros-parques > div > div.cont-card-parques-swiper > swiper > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal > span:nth-child(2)'
+const btnTerceraOpcionSwipeParques = '#grilla-nuestros-parques > div > div.cont-card-parques-swiper > swiper > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal > span:nth-child(3)'
+
+//Banner principal
+const SwiperBannerPrincipal = '#contenedor-home-pdr > pdr-cross-banner-mkt > div > swiper > div.swiper-wrapper'
+const btnQuieroContactarme = '.btn-pasos-contacto'
+const btnPlanificaConTiempo = '.btn-cotiza-aqui-landing'
+
 //Botones Funeraria
 const btnFunerariaMenu = '#mat-tab-content-0-1 > div > ul > li:nth-child(1) > a'
 const btnNecesidadInmeditaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(2) > a'
 const btnProntoFallecimientoFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(3) > a'
 const btnNecesidadFuturaFuneraria = '#mat-tab-content-0-2 > div > ul > li:nth-child(4) > a'
+
 //Botones Sepultura
 const btnSepulturaMenu = '#mat-tab-content-0-1 > div > ul > li:nth-child(4) > a'
 const btnNecesidadInmeditaSepultura = '#mat-tab-content-0-2 > div > ul > li:nth-child(2) > a'
 const btnProntoFallecimientoSepultura = '#mat-tab-content-0-2 > div > ul > li:nth-child(3) > a'
 const btnNecesidadFuturaSepultura = '#mat-tab-content-0-2 > div > ul > li:nth-child(4) > a'
+
+//Explora nuestros servicios
+const cardVelatorio ='#grilla-nuestros-productos > div > div.cont-card-productos-swiper > swiper > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal > span:nth-child(2)'
+const cardCremacion ='#grilla-nuestros-productos > div > div.cont-card-productos-swiper > swiper > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal > span:nth-child(3)'
+const cardSepultura ='#grilla-nuestros-productos > div > div.cont-card-productos-swiper > swiper > div.swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal > span:nth-child(4)'
+const cardVerDetalle ='#grilla-nuestros-productos > div > div.cont-card-productos-swiper > swiper > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > div > div > a'
+
 //Footer
 const btnParquesFooter = '//*[@id="contenedor-secciones-footer"]/div[1]/ul/li'
 const btnConocenosFooter = '//*[@id="contenedor-secciones-footer"]/div[2]/ul/li'
@@ -44,6 +72,12 @@ class HomePageMobile {
     ingresoHomeMobile (){
         cy.viewport('iphone-xr')
         cy.visit('/')
+    }
+
+    //Se selecciona la opcion del sub menu
+    PrecionarLogoParqueHome(){
+        cy.get(btnHomeParqueRecuerdo,{timeout:100000}).should('be.visible').click()
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/')
     }
 
     //utilizando un numero desde el 1 hasta el 8 para las opciones del Menu desplegable
@@ -99,6 +133,70 @@ class HomePageMobile {
         cy.get('@windowOpen').should('be.calledOnce');
     }
 
+    //selecciona de Funeraria NI
+    seleccionaraFunerariaNI(){
+        cy.get(btnFunerariaNI, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-inmediata')
+    }
+    //selecciona de Velatorio NI
+    seleccionaraVelatorioNI(){
+        cy.get(btnVelatorioNI, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni')
+    }
+    //selecciona de cremacion NI
+    seleccionaraCremacionNI(){
+        cy.get(btnCremacionNI, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-inmediata')
+    }
+    //selecciona de Sepultura NI
+    seleccionaraSepulturaNI(){
+        cy.get(btnSepulturaNI, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-inmediata')
+    }
+    
+    //selecciona de Funeraria NIF
+    seleccionFunerariaNIF(){
+        cy.get(btnFunerariaNIF, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-futura')
+    }
+    //selecciona de cremacion NIF
+    seleccionCremacionNIF(){
+        cy.get(btnCremacionNIF, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-futura')
+    }
+    //selecciona de Sepultura NIF
+    seleccionSepulturaNIF(){
+        cy.get(btnSepulturaNIF, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-futura')
+    }
+
+    //Comprueba que el banner principal cambie
+    ComprobarBanner(){
+        cy.scrollTo(0,750)
+        cy.wait(4500)
+        cy.get(SwiperBannerPrincipal).should('have.css', 'transform', 'matrix(1, 0, 0, 1, -1227, 0)');
+        cy.wait(4000)
+        cy.get(SwiperBannerPrincipal).should('have.css', 'transform', 'matrix(1, 0, 0, 1, -1636, 0)');
+    }
+
+    //Comprueba que al precionar quiero contactarme se redirija a whatssap
+    quieroContactarme(){
+        cy.window().then((win) => {
+            // Espía window.open y simula su comportamiento
+            cy.stub(win, 'open').callsFake((url) => {
+                win.location.assign(url);
+            });
+        });
+        cy.get(btnQuieroContactarme).scrollIntoView().should('be.visible').click();
+        cy.url().should('eq', 'https://wa.me/56940277054?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Parque%20del%20Recuerdo')
+    }
+
+    //selecciona de Sepultura NIF
+    seleccionPlanificaConTiempo(){
+        cy.get(btnPlanificaConTiempo, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui')
+    }
+
     //Ingresa desde el menu desplegable a la seccion Funeraria Necesidad inmediata de la saccion Productos y servicios
     ingresoFunerariaNIProductosServiciosMobile(){
         cy.get(btnMenuDesplegable, { timeout: 10000 }).should('be.visible').click();
@@ -142,6 +240,57 @@ class HomePageMobile {
         cy.get(btnProductosServicios, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnSepulturaMenu, { timeout: 10000 }).should('be.visible').click();
         cy.get(btnNecesidadFuturaSepultura, { timeout: 10000 }).should('be.visible').click();
+    }
+
+    //se ingresa al parque de PAV
+    ingresarPAV(){
+        cy.get(btnConocerParque, { timeout: 10000 }).should('be.visible').click()
+        cy.get('h1').contains('Parque Américo Vespucio')
+    }
+    
+    //se ingresa al parque de PCO
+    ingresarPCO(){
+        cy.get(btnSegundaOpcionSwipeParques).click()
+        cy.scrollTo(0,2900)
+        cy.get(btnConocerParque, {timeout: 10000}).should('be.visible').click()
+        cy.get('h1').contains('Parque Cordillera')
+    }
+    
+    //Se ingresa el parque de PPH
+    ingresaPPH(){
+        cy.get(btnTerceraOpcionSwipeParques).click()
+        cy.scrollTo(0,2900)
+        cy.get(btnConocerParque, {timeout: 10000}).should('be.visible').click()
+        cy.get('h1').contains('Parque Padre Hurtado')
+    }
+    
+    //selecciona card de Funeraria 
+    seleccionarCardFuneraria(){
+        cy.scrollTo(0,3500)
+        cy.wait(1500)
+        cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/funeraria')
+    }
+    //selecciona card de Velatorio 
+    seleccionarCardVelatorio(){
+        cy.get(cardVelatorio, { timeout: 100000 }).should('be.visible').click();
+        cy.scrollTo(0,3500)
+        cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni')
+    }
+    //selecciona card de cremacion 
+    seleccionarCardCremacion(){
+        cy.get(cardCremacion, { timeout: 100000 }).should('be.visible').click();
+        cy.scrollTo(0,3500)
+        cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/cremacion')
+    }
+    //selecciona card de Sepultura 
+    seleccionarCardSepultura(){
+        cy.get(cardSepultura, { timeout: 100000 }).should('be.visible').click();
+        cy.scrollTo(0,3500)
+        cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
+        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/sepultura')
     }
 
     //Selecciona desde el Footer un parque con opciones del 1 al 3 

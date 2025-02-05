@@ -1,8 +1,13 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 05/02/2025-17:27
+Version: 2.3.19
+Descripcion: Se implemento el sector Home con todas las funciones necesarias tanto en desktop como en mobile
+-------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 04/02/2025-15:32
 Version: 2.3.18
-Descripcion: Se implemento una funcion en cypress.config.js para eliminar los archivos que se descargar y guardan el la carpeta cypress/downloads esta se es utilizada en el beforeEach del archivo buscador-enrutamiento.cy.js el cual se implemnto con todas sus funcionalidades tanto en desktop como en mobile 
+Descripcion: Se implemento el sector Footer con todas sus funcionalidades tanto en desktop como mobile ademas se incorporo una funcion en cypress.config.js para eliminar los archivos que se descargar y guardan el la carpeta cypress/downloads esta se es utilizada en el beforeEach del archivo buscador-enrutamiento.cy.js
 -------------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria 
 Fecha: 04/02/2025-10:20
