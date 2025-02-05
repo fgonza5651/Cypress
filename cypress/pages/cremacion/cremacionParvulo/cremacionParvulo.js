@@ -14,10 +14,6 @@ const iconCheckVelatorio = '#mat-checkbox-4 > label > span.mat-checkbox-inner-co
 //botones de funeraria
 const btnDetalleFuneraria = ':nth-child(3) > .valor-ss-aa > .btn-ver-detalle-desktop'
 const btnFunerariaTradicion = '#mat-tab-content-3-0 > div > div.cont-card-otras-opciones.ng-star-inserted > div > div:nth-child(1)'
-const btnFunerariaTradicionDestacada = '#mat-tab-content-3-0 > div > div.cont-card-otras-opciones.ng-star-inserted > div > div:nth-child(2)'
-const btnFunerariaSustentable = '#mat-tab-content-3-0 > div > div.cont-card-otras-opciones.ng-star-inserted > div > div:nth-child(3)'
-const btnFunerariaPremium = '#mat-tab-content-3-0 > div > div.cont-card-otras-opciones.ng-star-inserted > div > div:nth-child(4)'
-const btnFunerariaPremiumDestacada = '#mat-tab-content-3-0 > div > div.cont-card-otras-opciones.ng-star-inserted > div > div:nth-child(5)'
 const iconCheckFuneraria = '#mat-checkbox-5 > label > span.mat-checkbox-inner-container > span.mat-checkbox-background'
 //botones de Descanso de cenizas
 const btnDetalleDescanso = ':nth-child(4) > .valor-ss-aa > .btn-ver-detalle-desktop'
@@ -50,7 +46,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class CremacionParvulo {
     //ingreso a la URL de Cremacion Premium NI
     ingresoCremacionParvulo(){
-        cy.visit('https://preprod.parquedelrecuerdo.cl/productos-pdp/cremacion/servicio-parvulo')
+        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/servicio-parvulo')
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
@@ -92,7 +88,7 @@ class CremacionParvulo {
     }
     //Agrega al carrito el articulo Funeraria basico y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaBasico(){
+    agregarFunerariaParvulo(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
             cy.log(text);
@@ -103,57 +99,9 @@ class CremacionParvulo {
     }
     //Agrega al carrito el articulo Funeraria tradicion y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaTradicion(){
+    agregarFunerariaParvuloDestacado(){
         cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
         cy.get(btnFunerariaTradicion,{timeout:100000}).should('be.visible').click()
-        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
-            cy.log(text);
-            cy.wrap(text).as('precioFuneraria')
-        })
-        ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
-    }
-    //Agrega al carrito el articulo Funeraria tradicion destacado y revisa que la suma del total sea correcta
-    //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaTradicionDestacado(){
-        cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
-        cy.get(btnFunerariaTradicionDestacada,{timeout:100000}).should('be.visible').click()
-        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
-            cy.log(text);
-            cy.wrap(text).as('precioFuneraria')
-        })
-        ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
-    }
-    //Agrega al carrito el articulo Funeraria sustentable y revisa que la suma del total sea correcta
-    //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaSustentable(){
-        cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
-        cy.get(btnFunerariaSustentable,{timeout:100000}).should('be.visible').click()
-        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
-            cy.log(text);
-            cy.wrap(text).as('precioFuneraria')
-        })
-        ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
-    }
-    //Agrega al carrito el articulo Funeraria Homenaje Premium y revisa que la suma del total sea correcta
-    //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaPremium(){
-        cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
-        cy.get(btnFunerariaPremium,{timeout:100000}).should('be.visible').click()
-        cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
-            cy.log(text);
-            cy.wrap(text).as('precioFuneraria')
-        })
-        ComprararPrecios(totalPrecio, precioAgregado)
-        cy.get(iconCheckFuneraria).should('be.visible').and('have.css','background-color','rgb(0, 153, 114)')
-    }
-    //Agrega al carrito el articulo Funeraria Homenaje Premium Destacado y revisa que la suma del total sea correcta
-    //Ademas revisa si la casilla quede marcada con un check
-    agregarFunerariaPremiumDestacado(){
-        cy.get(btnDetalleFuneraria,{timeout:100000}).should('be.visible').click()
-        cy.get(btnFunerariaPremiumDestacada,{timeout:100000}).should('be.visible').click()
         cy.get(precioAgregado,{timeout:100000}).invoke('text').then((text) => {
             cy.log(text);
             cy.wrap(text).as('precioFuneraria')
