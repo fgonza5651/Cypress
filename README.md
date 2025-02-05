@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 04/02/2025-15:32
+Version: 2.3.18
+Descripcion: Se implemento una funcion en cypress.config.js para eliminar los archivos que se descargar y guardan el la carpeta cypress/downloads esta se es utilizada en el beforeEach del archivo buscador-enrutamiento.cy.js el cual se implemnto con todas sus funcionalidades tanto en desktop como en mobile 
+-------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 04/02/2025-10:20
 Version: 2.3.17
 Descripcion: Se implemento menu con sus implementaciones AccesosSV y AccesosYRutas tanto en desktop y mobile
