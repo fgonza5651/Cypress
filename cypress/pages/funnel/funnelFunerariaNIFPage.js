@@ -13,25 +13,25 @@ const inputTelefono = '#checkout-info-input-telefono'
 const inputCorreo = '#checkout-info-input-mail'
 //Seleccion servicio funerario
 const checkPlanBasico = '#funeraria-plan-basico > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasPlanBasico = '#card-producto-funeraria-3 > .btn-sidenav-desktop'
+const btnVerMasPlanBasico = '#funeraria-plan-basico > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkPlanTradicion = '#funeraria-plan-tradicion > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasPlanTradicion = '#card-producto-funeraria-4 > .btn-sidenav-desktop'
+const btnVerMasPlanTradicion = '#funeraria-plan-tradicion > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkPlanSustentable = '#funeraria-plan-sustentable > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasPlanSustentable = '#card-producto-funeraria-5 > .btn-sidenav-desktop'
+const btnVerMasPlanSustentable = '#funeraria-plan-sustentable > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkPlanTradicionDestacado = '#funeraria-plan-tradicion-destacado > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasPlanTradicionDestacado = '#card-producto-funeraria-6 > .btn-sidenav-desktop'
+const btnVerMasPlanTradicionDestacado = '#funeraria-plan-tradicion-destacado > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkPlanHomenajePremium = '#funeraria-plan-homenaje-premium > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasPlanHomenajePremium = '#card-producto-funeraria-7 > .btn-sidenav-desktop'
+const btnVerMasPlanHomenajePremium = '#funeraria-plan-homenaje-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkPlanHomenajePremiumDestacado = '#funeraria-plan-homenaje-premium-destacado > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasPlanHomenajePremiumDestacado = '#card-producto-funeraria-8 > .btn-sidenav-desktop'
+const btnVerMasPlanHomenajePremiumDestacado = '#funeraria-plan-homenaje-premium-destacado > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const btnContinuarFunnel = '//*[@id="mat-tab-content-0-0"]/div/div[2]/div[1]/button'
 //precion servicios funerario
-const precioPlanBasico = '#funeraria-plan-basico > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioPlanTradicion = '#funeraria-plan-tradicion > .mat-checkbox-layout > .mat-checkbox-label >  .cont-precio-uf > .detalle-valor'
-const precioPlanSustentable = '#funeraria-plan-sustentable > .mat-checkbox-layout > .mat-checkbox-label >  .cont-precio-uf > .detalle-valor'
-const precioPlanTradicionDestacado = '#funeraria-plan-tradicion-destacado > .mat-checkbox-layout > .mat-checkbox-label >  .cont-precio-uf > .detalle-valor'
-const precioPlanHomenajePremium = '#funeraria-plan-homenaje-premium > .mat-checkbox-layout > .mat-checkbox-label >  .cont-precio-uf > .detalle-valor'
-const precioPlanHomenajePremiumDestacado = '#funeraria-plan-homenaje-premium-destacado > .mat-checkbox-layout > .mat-checkbox-label >  .cont-precio-uf > .detalle-valor'
+const precioPlanBasico = '#funeraria-plan-basico > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioPlanTradicion = '#funeraria-plan-tradicion > .mat-checkbox-layout > .mat-checkbox-label >  .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioPlanSustentable = '#funeraria-plan-sustentable > .mat-checkbox-layout > .mat-checkbox-label >  .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioPlanTradicionDestacado = '#funeraria-plan-tradicion-destacado > .mat-checkbox-layout > .mat-checkbox-label >  .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioPlanHomenajePremium = '#funeraria-plan-homenaje-premium > .mat-checkbox-layout > .mat-checkbox-label >  .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioPlanHomenajePremiumDestacado = '#funeraria-plan-homenaje-premium-destacado > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
 //Seccion Nesecita cremacion o sepultura
 const btnNecesitoCremacion = ':nth-child(1) > .cont-info-servicio > button'
 const btnNecesitoSepultura = ':nth-child(2) > .cont-info-servicio > button'
@@ -40,57 +40,57 @@ const btnContinuarSinEstosServicios = '//*[@id="mat-tab-content-0-1"]/div/div[2]
 const btnContinuarCremacionBase = '//*[@id="mat-tab-content-0-1"]/div/div[2]/div[1]/button'
 //seleccion ceremonia de despedida
 const checkCeremoniaDespedidaIncluida = '#ceremonia-despedida-incluida > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasCeremoniaDespedidaIncluida = '#card-producto-ceremonia-despedida-1 > .btn-sidenav-desktop'
+const btnVerMasCeremoniaDespedidaIncluida = '#ceremonia-despedida-incluida > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkCeremoniaDespedidaEspecial = '#ceremonia-despedida-especial > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasCeremoniaDespedidaEspecial = '#card-producto-ceremonia-despedida-2 > .btn-sidenav-desktop'
+const btnVerMasCeremoniaDespedidaEspecial = '#ceremonia-despedida-especial > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkCeremoniaDespedidaConCoro = '#ceremonia-despedida-con-coro > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasCeremoniaDespedidaConCoro = '#card-producto-ceremonia-despedida-4 > .btn-sidenav-desktop'
+const btnVerMasCeremoniaDespedidaConCoro = '#ceremonia-despedida-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkCeremoniaDespedidaEspecialConCoro = '#ceremonia-despedida-especial-con-coro > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasCeremoniaDespedidaEspecialConCoro = '#card-producto-ceremonia-despedida-5 > .btn-sidenav-desktop'
+const btnVerMasCeremoniaDespedidaEspecialConCoro = '#ceremonia-despedida-especial-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 //Precio ceremonia de despedida 
-const precioCeremoniaDeDespedidaEspecial = '#ceremonia-despedida-especial > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioCeremoniaDeDespedidaConCoro = '#ceremonia-despedida-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioCeremoniaDeDesPedidaEspecialConCoror = '#ceremonia-despedida-especial-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
+const precioCeremoniaDeDespedidaEspecial = '#ceremonia-despedida-especial > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioCeremoniaDeDespedidaConCoro = '#ceremonia-despedida-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioCeremoniaDeDesPedidaEspecialConCoror = '#ceremonia-despedida-especial-con-coro > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
 const precioCeremoniaDepedida= ':nth-child(3) > .pasos > .cont-detalle > .valor-peso'
 const btnContinuarCeremoniaDespedida = '//*[@id="mat-tab-content-0-2"]/div/div[2]/div[1]/button'
 //seccion seleccion de anafora
 const checkAnaforaMaderaBasica = '#seleccion-anforas-incluida > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasAnaforaMaderaBasica = '#card-producto-seleccion-anfora-1 > .btn-sidenav-desktop'
+const btnVerMasAnaforaMaderaBasica = '#seleccion-anforas-incluida > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkAnaforaCofresFull = '#seleccion-anforas-full > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasAnaforaCofresFull = '#card-producto-seleccion-anfora-2 > .btn-sidenav-desktop'
+const btnVerMasAnaforaCofresFull = '#seleccion-anforas-full > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkAnaforaCofrePremium = '#seleccion-anforas-premium > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasAnaforaCofrePremium = '#card-producto-seleccion-anfora-3 > .btn-sidenav-desktop'
+const btnVerMasAnaforaCofrePremium = '#seleccion-anforas-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const btnContinuarSelecionAnafora = '//*[@id="mat-tab-content-0-3"]/div/div[2]/div[1]/button'
 //precio seleccion de anafora
-const precioAnaforaCofresFull = '#seleccion-anforas-full > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioAnaforaCofresPremium = '#seleccion-anforas-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
+const precioAnaforaCofresFull = '#seleccion-anforas-full > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioAnaforaCofresPremium = '#seleccion-anforas-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
 const precioSeleccionAnafora = ':nth-child(4) > .pasos > .cont-detalle > .valor-peso'
 //Seccion entrega de cenizas
 const checkEntregaCenizasIncluida = '#entrega-cenizas-incluido > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasEntregaCenizasIncluida = '#card-producto-entrega-cenizas-0 > .btn-sidenav-desktop'
+const btnVerMasEntregaCenizasIncluida = '#entrega-cenizas-incluido > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkEntregaCenizaseEspecial = '#entrega-especial-cenizas > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasEntregaCenizasEspecial = '#card-producto-entrega-cenizas-2 > .btn-sidenav-desktop'
+const btnVerMasEntregaCenizasEspecial = '#entrega-especial-cenizas > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 //Precio entrega de cenizas
 const precioEntregaCenizasEspecial = '.detalle-valor'
 const precioEntregaDeCenizas = ':nth-child(5) > .pasos > .cont-detalle > .valor-peso'
 const btnEntregaCenizas = '//*[@id="mat-tab-content-0-4"]/div/div[2]/div[1]/button'
 //Seccion descansp de ceizas
 const checkMemorialRecuerdo = '#descanso-memorial-recuerdo > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasMemorialRecuerdo =  ':nth-child(1) > .btn-sidenav-desktop'
+const btnVerMasMemorialRecuerdo =  '#descanso-memorial-recuerdo > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkjardinFlores = '#descanso-jardin-flores > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasJardinFlores = '#card-producto-descanso-cenizas-1 > .btn-sidenav-desktop'
+const btnVerMasJardinFlores = '#descanso-jardin-flores > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkJardinFloresPremium = '#descanso-jardin-flores-premium > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasJardinFloresPremium = '#card-producto-descanso-cenizas-2 > .btn-sidenav-desktop'
+const btnVerMasJardinFloresPremium = '#descanso-jardin-flores-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkColumbarioPared = '#descanso-columbario-pared > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasColumbarioPared = '#card-producto-descanso-cenizas-3 > .btn-sidenav-desktop'
+const btnVerMasColumbarioPared = '#descanso-columbario-pared > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 const checkColumbarioVidriado = '#descanso-columbario-vidriado > .mat-checkbox-layout > .mat-checkbox-inner-container'
-const btnVerMasColumbarioVidriado = '#card-producto-descanso-cenizas-4 > .btn-sidenav-desktop'
+const btnVerMasColumbarioVidriado = '#descanso-columbario-vidriado > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .btn-sidenav-desktop'
 //Precio descanzo de cenizas
-const precioMemorialRecuerdo = '#descanso-memorial-recuerdo > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioJardinFlores = '#descanso-jardin-flores > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioJardinFloresPremium = '#descanso-jardin-flores-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioColumbarioPared = '#descanso-columbario-pared > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
-const precioColumbarioVidriado = '#descanso-columbario-vidriado > .mat-checkbox-layout > .mat-checkbox-label > .cont-precio-uf > .detalle-valor'
+const precioMemorialRecuerdo = '#descanso-memorial-recuerdo > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioJardinFlores = '#descanso-jardin-flores > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioJardinFloresPremium = '#descanso-jardin-flores-premium > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioColumbarioPared = '#descanso-columbario-pared > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
+const precioColumbarioVidriado = '#descanso-columbario-vidriado > .mat-checkbox-layout > .mat-checkbox-label > .cont-pie-card > .cont-precio-uf > .detalle-valor > span'
 const precioDescansoCenizas = ':nth-child(6) > .pasos > .cont-detalle > .valor-peso'
 const btnIaResumen = '//*[@id="mat-tab-content-0-5"]/div/div[2]/div[1]/button'
 //Seccion Sidenav
@@ -200,7 +200,7 @@ class funnelFunerariaNIF {
       verMasPlanBasico(){
         
         cy.wait(2000)
-        cy.get(precioPlanBasico,{timeout:100000})
+        cy.get(precioPlanBasico,{timeout:50000})
         .invoke('text') //obtengo el texto del elemento
         .then((precio) => {
           //guardo el precio del producto y lo guardo en una variable
@@ -208,7 +208,7 @@ class funnelFunerariaNIF {
           cy.wrap(precioLimpio).as('precioProducto');
         });
         
-        cy.get(btnVerMasPlanBasico, {timeout: 100000}).should('be.visible').click()
+        cy.get(btnVerMasPlanBasico, {timeout: 5000}).should('be.visible').click()
         
         cy.wait(2000)
         
@@ -258,7 +258,7 @@ class funnelFunerariaNIF {
         cy.wrap(precioLimpio).as('precioProducto');
       });
       
-      cy.get(btnVerMasPlanTradicion,{timeout: 100000}).should('be.visible').click()
+      cy.get(btnVerMasPlanTradicion,{timeout: 5000}).should('be.visible').click()
       cy.wait(2000)
       cy.get(precioServicioSidenav,{timeout:100000})
       .invoke('text')//obtengo el texto del elemento
@@ -309,7 +309,7 @@ class funnelFunerariaNIF {
          cy.wrap(precioLimpio).as('precioProducto');
         });
         
-        cy.get(btnVerMasPlanSustentable,{timeout: 100000}).should('be.visible').click()
+        cy.get(btnVerMasPlanSustentable,{timeout: 5000}).should('be.visible').click()
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000})
         .invoke('text')//obtengo el texto del elemento
@@ -358,7 +358,7 @@ class funnelFunerariaNIF {
         cy.wrap(precioLimpio).as('precioProducto');
       });
       
-      cy.get(btnVerMasPlanTradicionDestacado,{timeout: 100000}).should('be.visible').click()
+      cy.get(btnVerMasPlanTradicionDestacado,{timeout: 5000}).should('be.visible').click()
       cy.wait(2000)
       cy.get(precioServicioSidenav,{timeout:100000})
       .invoke('text')//obtengo el texto del elemento
@@ -409,7 +409,7 @@ class funnelFunerariaNIF {
             cy.wrap(precioLimpio).as('precioProducto');
           });
           
-          cy.get(btnVerMasPlanHomenajePremium,{timeout: 100000}).should('be.visible').click()
+          cy.get(btnVerMasPlanHomenajePremium,{timeout: 5000}).should('be.visible').click()
           cy.wait(2000)
           cy.get(precioServicioSidenav,{timeout:100000})
           .invoke('text')//obtengo el texto del elemento
@@ -457,7 +457,7 @@ class funnelFunerariaNIF {
          const precioLimpio = cleanPrice(precio)
          cy.wrap(precioLimpio).as('precioProducto');
         });
-        cy.get(btnVerMasPlanHomenajePremiumDestacado,{timeout: 100000}).should('be.visible').click()
+        cy.get(btnVerMasPlanHomenajePremiumDestacado,{timeout: 5000}).should('be.visible').click()
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000})
         .invoke('text')//obtengo el texto del elemento
@@ -508,7 +508,7 @@ class funnelFunerariaNIF {
     }
     //Seleccion ceremonia de despedida incluida
     verMasCermmoniaDeDespedidaIncluida(){
-        cy.get(btnVerMasCeremoniaDespedidaIncluida,{timeout: 10000}).should('be.visible').click()
+        cy.get(btnVerMasCeremoniaDespedidaIncluida,{timeout: 5000}).should('be.visible').click()
         cy.wait(3000)
         cy.get(sidenavServicio,{timeout:100000}).should('be.visible')
         cy.wait(3000)
@@ -548,7 +548,7 @@ class funnelFunerariaNIF {
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
 
-      cy.get(btnVerMasCeremoniaDespedidaEspecial, { timeout: 100000 }).should('be.visible').click();
+      cy.get(btnVerMasCeremoniaDespedidaEspecial, { timeout: 50000 }).should('be.visible').click();
       cy.wait(2000)
       cy.get(precioServicioSidenav,{timeout:100000}).invoke('text').then((precio) => {
           const precioCarritoLimpio = cleanPrice(precio); // Limpia el precio capturado
@@ -593,7 +593,7 @@ class funnelFunerariaNIF {
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
 
-        cy.get(btnVerMasCeremoniaDespedidaConCoro, { timeout: 100000 }).should('be.visible').click();
+        cy.get(btnVerMasCeremoniaDespedidaConCoro, { timeout: 50000 }).should('be.visible').click();
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000}) // Captura el precio del carrito o el lugar donde lo comparas
         .invoke('text')
@@ -639,7 +639,7 @@ class funnelFunerariaNIF {
           const precioProductoLimpio = cleanPrice(precio); // Limpia el precio capturado
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
-        cy.get(btnVerMasCeremoniaDespedidaEspecialConCoro, { timeout: 100000 }).should('be.visible').click();
+        cy.get(btnVerMasCeremoniaDespedidaEspecialConCoro, { timeout: 50000 }).should('be.visible').click();
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000}) // Captura el precio del carrito o el lugar donde lo comparas
         .invoke('text')
@@ -706,7 +706,7 @@ class funnelFunerariaNIF {
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
 
-        cy.get(btnVerMasAnaforaCofresFull, { timeout: 100000 }).should('be.visible').click();
+        cy.get(btnVerMasAnaforaCofresFull, { timeout: 5000 }).should('be.visible').click();
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000}) // Captura el precio del carrito o el lugar donde lo comparas
         .invoke('text')
@@ -755,7 +755,7 @@ class funnelFunerariaNIF {
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
 
-        cy.get(btnVerMasAnaforaCofrePremium, { timeout: 100000 }).should('be.visible').click();
+        cy.get(btnVerMasAnaforaCofrePremium, { timeout: 5000 }).should('be.visible').click();
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000}) // Captura el precio del carrito o el lugar donde lo comparas
         .invoke('text')
@@ -829,7 +829,7 @@ class funnelFunerariaNIF {
           cy.wrap(precioProductoLimpio).as('precioProducto'); // Guarda el precio limpio
         });
 
-        cy.get(btnVerMasEntregaCenizasEspecial, { timeout: 100000 }).should('be.visible').click();
+        cy.get(btnVerMasEntregaCenizasEspecial, { timeout: 5000 }).should('be.visible').click();
         cy.wait(2000)
         cy.get(precioServicioSidenav,{timeout:100000}) // Captura el precio del carrito o el lugar donde lo comparas
         .invoke('text')

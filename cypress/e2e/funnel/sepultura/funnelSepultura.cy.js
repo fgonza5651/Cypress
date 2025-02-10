@@ -1,4 +1,5 @@
 import FunerariaFunnel from "../../../pages/funnel/funnelSepulturaPage";
+import ResumenPagoPageSepultura from "../../../pages/funnel/resumenPago/resumenPagoSepultura";
 
 describe ('' , () => {
 
@@ -205,21 +206,21 @@ describe ('' , () => {
     })
     
     //
-    it('Seleccionar capacidad PCO (8 capacidades) - precio economico - selccionar card', () => {
+    it('Seleccionar capacidad PCO (3 capacidades) - precio economico - selccionar card', () => {
         FunerariaFunnel.iniciarFunnel()
         FunerariaFunnel.seleccionarPCO()
         FunerariaFunnel.rellernarFormulario()
-        FunerariaFunnel.seleccion8Capacidad()
+        FunerariaFunnel.seleccion3Capacidad()
         FunerariaFunnel.seleccionPrecioEconomico()
         FunerariaFunnel.seleccionCard()
     })
     
     //
-    it('Seleccionar capacidad PCO (8 capacidades) - precio premium - selccionar card', () => {
+    it('Seleccionar capacidad PCO (3 capacidades) - precio premium - selccionar card', () => {
         FunerariaFunnel.iniciarFunnel()
         FunerariaFunnel.seleccionarPCO()
         FunerariaFunnel.rellernarFormulario()
-        FunerariaFunnel.seleccion8Capacidad()
+        FunerariaFunnel.seleccion3Capacidad()
         FunerariaFunnel.seleccionPrecioPremium()
         FunerariaFunnel.seleccionCard()
     })
@@ -231,7 +232,7 @@ describe ('' , () => {
         FunerariaFunnel.rellernarFormulario()
         FunerariaFunnel.seleccion3Capacidad()
         FunerariaFunnel.seleccionPrecioMedio()
-        FunerariaFunnel.seleccionSectorB1MapaPAV()
+        FunerariaFunnel.seleccionSectorB9MapaPAV()
     })
     
     //
@@ -241,7 +242,7 @@ describe ('' , () => {
         FunerariaFunnel.rellernarFormulario()
         FunerariaFunnel.seleccion4Capacidad()
         FunerariaFunnel.seleccionPrecioEconomico()
-        FunerariaFunnel.seleccionSectorC32MapaPCO()
+        FunerariaFunnel.seleccionSectorC20MapaPCO()
     })
     
     //
@@ -315,6 +316,54 @@ describe ('' , () => {
         FunerariaFunnel.seleccionPrecioEconomico()
         FunerariaFunnel.seleccionCard()
         FunerariaFunnel.editarFinanciamientoContado()
+    })
+
+    //
+    it('Credito completar pago', () => {
+        FunerariaFunnel.iniciarFunnel()
+        FunerariaFunnel.seleccionarPPH()
+        FunerariaFunnel.rellernarFormulario()
+        FunerariaFunnel.seleccion4Capacidad()
+        FunerariaFunnel.seleccionPrecioEconomico()
+        FunerariaFunnel.seleccionCard()
+        FunerariaFunnel.editarFinanciamientoCredito()
+        FunerariaFunnel.irPagar()
+        ResumenPagoPageSepultura.verDetallePago()
+        ResumenPagoPageSepultura.continuarPago()
+        ResumenPagoPageSepultura.formularioComprador()
+        ResumenPagoPageSepultura.checkTerminosCondiciones()
+    })
+
+    //
+    it('Contado completar pago', () => {
+        FunerariaFunnel.iniciarFunnel()
+        FunerariaFunnel.seleccionarPPH()
+        FunerariaFunnel.rellernarFormulario()
+        FunerariaFunnel.seleccion4Capacidad()
+        FunerariaFunnel.seleccionPrecioEconomico()
+        FunerariaFunnel.seleccionCard()
+        FunerariaFunnel.editarFinanciamientoContado()
+        FunerariaFunnel.irPagar()
+        ResumenPagoPageSepultura.verDetallePago()
+        ResumenPagoPageSepultura.continuarPago()
+        ResumenPagoPageSepultura.formularioComprador()
+        ResumenPagoPageSepultura.checkTerminosCondiciones()
+    })
+    //
+    it('Contado boton ver financiamiento', () => {
+        FunerariaFunnel.iniciarFunnel()
+        FunerariaFunnel.seleccionarPPH()
+        FunerariaFunnel.rellernarFormulario()
+        FunerariaFunnel.seleccion4Capacidad()
+        FunerariaFunnel.seleccionPrecioEconomico()
+        FunerariaFunnel.seleccionCard()
+        FunerariaFunnel.verFinanciamineto()
+        FunerariaFunnel.editarFinanciamientoContado()
+        FunerariaFunnel.irPagar()
+        ResumenPagoPageSepultura.verDetallePago()
+        ResumenPagoPageSepultura.continuarPago()
+        ResumenPagoPageSepultura.formularioComprador()
+        ResumenPagoPageSepultura.checkTerminosCondiciones()
     })
 
 })

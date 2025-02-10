@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 10/02/2025-15:42
+Version: 2.3.20
+Descripcion: Se arreglaron los erroes en funnel tanto de cremacion como de funeraria tanto en desktop como en mobile, ademas se implemento el pago en funnel sepultura para desktop como mobile 
+-------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 05/02/2025-17:27
 Version: 2.3.19
 Descripcion: Se implemento el sector Home con todas las funciones necesarias tanto en desktop como en mobile
