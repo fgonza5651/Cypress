@@ -1,3 +1,4 @@
+require('cypress-xpath');
 const btnCompletarDatos = '//*[@id="single-spa-application:corporativo-funnel"]/corporativo-funnel/corporativo-resumen-pago/div[2]/div[1]/div/button'
 //formulario checkout
 const inputDireccion = '.mat-form-field.ng-tns-c46-6 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
@@ -47,6 +48,8 @@ class resumenPagoPage {
 
         //Se hace clic en el boton continuar
         cy.xpath(btnContinuarCotizacion,{timeout: 100000}).should('be.visible').click()
+
+        cy.wait(2000)
 
     }
 }

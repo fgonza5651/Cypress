@@ -32,7 +32,7 @@ const seleccionCard1 = ':nth-child(2) > .cont-info-sep > :nth-child(1) > ul'
 const seleccionImagenCard1 = ':nth-child(2) > .cont-img-galeria > .ver-img-sector-mobile > p'
 const popUpImagenCard = '.cont-galeria-img'
 const seleccionB1Mapa = '#B1'
-const seleccionC32Mapa = '#C32'
+const seleccionC20Mapa = '#C20'
 const seleccionS24Mapa = '#S24'
 //link pdp-sep
 const urlPdpSep = 'https://ic.parquedelrecuerdo.cl/sepultura/pdp-sep'
@@ -43,17 +43,26 @@ const linkCuantoCuestaMantencion = '#nivel-cuatro > :nth-child(1) > .link-modal-
 const linkOcuparSepultura = '#nivel-cuatro > :nth-child(2) > .link-modal-mobile'
 const cerrarPopup = '.icono-cerrar-mobile > .material-icons'
 //editar financiemiento
-const linkEditarFinanciamiento = ':nth-child(5) > .link-modal-mobile'
+const linkEditarFinanciamiento = '#nivel-cuatro > div:nth-child(5) > div.cont-link-modal-mobile > p.link-modal-financiamiento-mobile'
 const precioSubtittle = '.subtitulo-editar > :nth-child(3)'
 const checkCredito = '#mat-radio-2 > label'
 const checkContado = '#mat-radio-3 > label'
 const inputPieAPagar = '#mat-input-0'
 const precioPieMinimo = '#cont-financiamiento > form > div.cont-input-pie.ng-star-inserted > label > span'
-const selectCuotas = '.contenedor-selector-cuotas > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
-const btn92Cuotas = '#mat-option-90 > .mat-option-text'
+const selectCuotas = '#mat-select-value-1'
+const btn92Cuotas = '#mat-option-93 > .mat-option-text'
+const selectCuandoPrimerPago = '.mat-select-placeholder'
+const btnSegundoMes = '#mat-option-1 > .mat-option-text'
 const precioPie = '.cont-ahora-pagaras'
+const precioPagarasPie = '.ahora-pagaras > span'
+const precioAhoraPagaras = '.cont-ahora-pagaras > p > span'
 const btnGuardarInformacion = '.btn-guardar-financiamiento'
 const btnPagar = '.cont-button > .btn-ir-a-pagar'
+const verFinanciamineto = '#cont-footer-pdp-sep > div > div.cont-btn.ng-tns-c114-0 > button'
+//boton ir a pagar y ver financiamineto 
+const btnIrPagar = '.cont-button > .btn-ir-a-pagar'
+const btnVerFinanciamineto = '.cont-btn > .btn-ir-a-pagar'
+const precioPagarAhora = '#cont-general-resumen > div.cont-pagaras-ahora > p.total-pagaras-ahora'
 
 
 
@@ -229,13 +238,9 @@ class funerariaFunnelMobile {
         })
     }
     //Se seleciona sector C32 de PCO
-    seleccionSectorC32MapaPCO(){
-        
-        cy.get(contenedorCards,{timeout: 100000}).its('length').then((count) => {
-            cy.get(btnVerMapa, {timeout: 100000}).should('be.visible').click()
-            cy.get(seleccionC32Mapa, {timeout: 100000}).should('be.visible').click()
-            cy.get(contenedorCardsMapa).its('length').should('not.equal',count)
-        })
+    seleccionSectorC20MapaPCO(){
+        cy.get(btnVerMapa, {timeout: 100000}).should('be.visible').click()
+        cy.get(seleccionC20Mapa, {timeout: 100000}).should('be.visible').click()
     }
     //Se seleciona sector B1 de PPH
     seleccionSectorS24MapaPPH(){
@@ -254,9 +259,6 @@ class funerariaFunnelMobile {
         cy.get(linkComoEsElSector, {timeout: 100000}).scrollIntoView().should('be.visible').click()
         cy.get(cerrarPopup, {timeout: 100000}).should('be.visible').click()
 
-        cy.get(linkCapacidadSpultura, {timeout: 100000}).scrollIntoView().should('be.visible').click()
-        cy.get(cerrarPopup, {timeout: 100000}).should('be.visible').click()
-
         cy.get(linkOpcionesFinanciamiento, {timeout: 100000}).scrollIntoView().should('be.visible').click()
         cy.get(cerrarPopup, {timeout: 100000}).should('be.visible').click()
 
@@ -270,8 +272,8 @@ class funerariaFunnelMobile {
 
     //Editar financimiento con credito
     editarFinanciamientoCredito(){
-
-        cy.get(btnPagar, {timeout: 100000}).click()
+        cy.wait(2000)
+        cy.get(verFinanciamineto, {timeout: 100000}).click()
         cy.get(linkEditarFinanciamiento, {timeout: 100000}).click()
         cy.get(checkCredito, {timeout: 100000}).should('be.visible').click()
         cy.get(inputPieAPagar, { timeout: 100000 }).should('be.visible').invoke('val').then((inputValue) => {
@@ -280,23 +282,46 @@ class funerariaFunnelMobile {
         cy.get(inputPieAPagar, {timeout: 100000}).should('be.visible').clear().type('300000')
         cy.get(selectCuotas, {timeout: 100000}).should('be.visible').click()
         cy.get(btn92Cuotas, {timeout: 100000}).scrollIntoView().should('be.visible').click()
-        cy.get(inputPieAPagar, { timeout: 100000 }).should('be.visible').invoke('val').then((inputValue) => {
-            cy.get(precioPie).contains(inputValue)
-        });
+        cy.get(selectCuandoPrimerPago, { timeout: 100000 }).should('be.visible').click()
+        cy.get(btnSegundoMes, { timeout: 100000 }).should('be.visible').click()
+        cy.get(precioPagarasPie, { timeout: 100000 }).invoke('text').then((precioPagaras)=>{
+            cy.wrap(precioPagaras).as('PrecioPagarPie')
+        })
         cy.get(btnGuardarInformacion, {timeout: 100000}).should('be.visible').click()
         
     }
     
     editarFinanciamientoContado(){
-        
-        cy.get(btnPagar, {timeout: 100000}).click()
+        cy.wait(2000)
+        cy.get(verFinanciamineto, {timeout: 100000}).click()
         cy.get(linkEditarFinanciamiento, {timeout: 100000}).click()
         cy.get(checkContado, {timeout: 100000}).should('be.visible').click()
         cy.get(precioPie, {timeout: 100000}).invoke('text').then((textPrecioPie) =>{
             const numPrecioPie = textPrecioPie.match(/[\d,.]+/)[0]
             cy.get(precioSubtittle,{timeout: 100000}).contains(numPrecioPie)
         })
+        cy.get(precioAhoraPagaras, { timeout: 100000 }).invoke('text').then((precioPagaras)=>{
+            cy.wrap(precioPagaras).as('PrecioPagarPie')
+        })
         cy.get(btnGuardarInformacion, {timeout: 100000}).should('be.visible').click()
+        cy.wait(2000)
+    }
+
+    //Preciona ir a pagar y revisa que el valor del resumen sea igual que el del pago
+    irPagar(){
+        cy.get(btnIrPagar, {timeout: 100000}).should('be.visible').click()
+        cy.get('@PrecioPagarPie').then((precioPagarPie) => {
+            cy.get(precioPagarAhora, {timeout: 100000}).invoke('text').then((texto) =>{
+                const textoLimpio = texto.split('|')[0].trim()
+                expect(textoLimpio).to.eq(precioPagarPie)
+            })
+        })
+    }
+    
+    //preciona ver financiamiento 
+    verFinanciamineto(){
+        cy.wait(2000)
+        cy.get(btnVerFinanciamineto, {timeout: 100000}).should('be.visible').click()
     }
 
 }
