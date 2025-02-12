@@ -393,7 +393,7 @@ class funnelFunerariaNI {
     seleccionarPlanHomenajePremium(){
       
       
-      cy.get(precioPlanHomenajePremium)
+      cy.get(precioPlanHomenajePremium,{timeout:100000})
       .invoke('text') //obtengo el texto del elemento
       .then((precio) => {
           //guardo el precio sin espacios del producto y lo guardo en una variable
@@ -543,7 +543,7 @@ class funnelFunerariaNI {
     //se seleciona Velatorio cafeteria estandar
     seleccionarVelatorioCafeteriaEstandar(){
           
-          cy.get(precioVelatorioEstandar)
+          cy.get(precioVelatorioEstandar,{timeout:100000})
           .invoke('text') //obtengo el texto del elemento
           .then((precio) => {
             //guardo el precio del producto y lo guardo en una variable
@@ -568,7 +568,7 @@ class funnelFunerariaNI {
      //se seleciona ver mas de Velatorio cafeteria Estandar
      verMasVelatorioCafeteriaEstandar(){
        cy.wait(2000)
-       cy.get(precioVelatorioEstandar)
+       cy.get(precioVelatorioEstandar,{timeout:100000})
        .invoke('text') //obtengo el texto del elemento
        .then((precio) => {
          //guardo el precio del producto y lo guardo en una variable

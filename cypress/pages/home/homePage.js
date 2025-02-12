@@ -83,6 +83,8 @@ class HomePage {
     ingresoHomeParqueDelRecuerdo(){
 
         cy.visit('/')
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     }
     
     //Se selecciona la opcion del sub menu

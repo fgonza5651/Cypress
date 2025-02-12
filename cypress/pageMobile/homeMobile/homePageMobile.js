@@ -72,6 +72,8 @@ class HomePageMobile {
     ingresoHomeMobile (){
         cy.viewport('iphone-xr')
         cy.visit('/')
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     }
 
     //Se selecciona la opcion del sub menu
