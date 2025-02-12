@@ -23,16 +23,17 @@ const btnHablarWhassap = '#btn_chat_unif_salesforce'
 const btnCotiza = '.btn-cotiza'
 //Nuestros Servicios
 const Servicio = {
-    Funeraria: ":nth-child(1) > .cont-info-productos",
-    Velatorio: ":nth-child(2) > .cont-info-productos",
-    Cremacion: ":nth-child(3) > .cont-info-productos",
-    Sepultura: ":nth-child(4) > .cont-info-productos" 
+    Funeraria: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[1]/span[1]',
+    Velatorio: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[1]/span[2]',
+    Cremacion: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[1]/span[3]',
+    Sepultura: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[1]/span[4]' 
 };
 const btnVerDetalles = {
-    Funeraria: '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[1]/div/button',
-    Velatorio: '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[2]/div/button',
-    Cremacion: '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[3]/div/button',
-    Sepultura: '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[4]/div/button'
+    
+    Funeraria: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[2]/div[1]/div/div/a',
+    Velatorio: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[2]/div[2]/div/div/a',
+    Cremacion: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[2]/div[3]/div/div/a',
+    Sepultura: '//*[@id="grilla-nuestros-productos"]/div/div[3]/swiper/div[2]/div[4]/div/div/a'
 };
 const url = {
     Funeraria: 'https://ic.parquedelrecuerdo.cl/landing/funeraria',
@@ -41,9 +42,29 @@ const url = {
     Sepultura: 'https://ic.parquedelrecuerdo.cl/landing/sepultura'
 };
 //Tambien te ofrecemos
-const btnSiguinteTambienOfrecemos = '#grilla-tambien-ofrecemos > div > div > swiper > div.swiper-button-next.ng-star-inserted'
-const popUpVerMasTambienOfrecemos = '#mat-dialog-0'
-const btnHablarEnLineaTambienOfrecemos = '#lightbox-ssaa-tambien-ofrecemos > div > div.contenedor-modal-ssaa > div > div.info-ssaa > div.cont-btns > button.btn-hablar'
+const btnHablarEnLineaTambienOfrecemos = 'sidenav-multimedia.ng-tns-c44-10 > #cont-sidenav-ssaa > .info-ssaa > .cont-btns > .btn-hablar'
+const btnSiguinteTambienOfrecemos = {
+    Templo: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[1]',
+    despedida: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[2]',
+    sepultación: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[3]',
+    Recuerdo: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[4]',
+    coros: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[5]',
+    lápida: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[6]',
+    flores: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[7]',
+    cafeterías: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[8]',
+    multimedia: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[3]/span[9]'
+}
+const popUpVerMasTambienOfrecemos = {
+    Templo: '#sidenav-ssaa-templo-velatorio > div',
+    despedida: '#sidenav-ssaa-ceremonia-despedida > div',
+    sepultación: '#sidenav-ssaa-ceremonia-sepultacion > div',
+    Recuerdo: '#sidenav-ssaa-ceremonia-recuerdo > div',
+    coros: '#sidenav-ssaa-apoyo-coral > div',
+    lápida: '#sidenav-ssaa-lapidas > div',
+    flores: '#sidenav-ssaa-floreria > div',
+    cafeterías: '#sidenav-ssaa-cafeteria > div',
+    multimedia: '#sidenav-ssaa-multimedia > div'
+};
 const btnVerMasTambienOfrecemos = {
     Templo: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[4]/div[5]/div/div/a',
     despedida: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[4]/div[6]/div/div/a',
@@ -54,26 +75,25 @@ const btnVerMasTambienOfrecemos = {
     flores: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[4]/div[11]/div/div/a',
     cafeterías: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[4]/div[12]/div/div/a',
     multimedia: '//*[@id="grilla-tambien-ofrecemos"]/div/div/swiper/div[4]/div[13]/div/div/a'
-
 }
 //pop up de ceremonia despedida
-const btnCeremoniaLaica = '#mat-tab-label-2-0 > div'
-const btnCeremoniaCatolica = '#mat-tab-label-2-1 > div'
-const textoCeremoniaDespedidaLaica = '#mat-tab-content-2-0 > div > div > p'
-const textoCeremoniaDespedidaCatolica = '#mat-tab-content-2-1 > div > div > p'
+const btnCeremoniaLaica = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-1-0 > .mat-tab-label-content'
+const btnCeremoniaCatolica = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-1-1 > .mat-tab-label-content'
+const textoCeremoniaDespedidaLaica = '#mat-tab-content-1-0 > div > div > p'
+const textoCeremoniaDespedidaCatolica = '#mat-tab-content-1-1 > div > div > p'
 //pop up de ceremonia del recuerdo
-const btnCeremoniaPAV = '#mat-tab-label-2-0'
-const btnCeremoniaPCO = '#mat-tab-label-2-1'
-const btnCeremoniaPPH = '#mat-tab-label-2-2'
-const textoCeremoniaRecuerdoPAV = '#mat-tab-content-2-0 > div > div > div > div.cont-tabla-ceremonia-laica > div.cuerpo-tabla > div:nth-child(1)'
-const textoCeremoniaRecuerdoPCO = '#mat-tab-content-2-1 > div > div > div > div.cont-tabla-ceremonia-laica > div.cuerpo-tabla > div:nth-child(1)'
-const textoCeremoniaRecuerdoPPH = '#mat-tab-content-2-2 > div > div > div > div.cont-tabla-ceremonia-laica > div.cuerpo-tabla > div:nth-child(1)'
+const btnCeremoniaPAV = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-0-0 > .mat-tab-label-content'
+const btnCeremoniaPCO = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-0-1 > .mat-tab-label-content'
+const btnCeremoniaPPH = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-0-2 > .mat-tab-label-content'
+const textoCeremoniaRecuerdoPAV = '#mat-tab-content-0-0 > div > div > div > div.cont-tabla-ceremonia-laica > div.cuerpo-tabla > div:nth-child(1)'
+const textoCeremoniaRecuerdoPCO = '#mat-tab-content-0-1 > div > div > div > div.cont-tabla-ceremonia-laica > div.cuerpo-tabla > div:nth-child(1)'
+const textoCeremoniaRecuerdoPPH = '#mat-tab-content-0-2 > div > div > div > div.cont-tabla-ceremonia-laica > div.cuerpo-tabla > div:nth-child(1)'
 //pop up de Floreria
-const btnVerArreglos = '#lightbox-ssaa-tambien-ofrecemos > div > div.contenedor-modal-ssaa > div > div.info-ssaa > div.cont-btn-arreglos > button'
+const btnVerArreglos = '.btn-ver-arreglos'
 //Sector Obituario
-const btnVerTodosObituarios = '.cont-card-avisos-funebres > .card-ver-mas-avisos'
+const btnVerTodosObituarios = '.swiper-slide-active > .card-ver-mas-avisos'
 //Sector ultimas noticias
-const btnVerTodoUltimasNoticias = '.cont-titulo-comunidad > a'
+const btnVerTodoUltimasNoticias = '.cont-enlace-ver-todo > a'
 const btnActividadesEnParques = '[href="../../../comunidad/actividades-en-nuestros-parques"]'
 const btnArticulosNoticias = '.boton-noticia'
 const btnSostenibilidad = '[href="../../../comunidad/sostenibilidad"]'
@@ -85,7 +105,7 @@ const btnIrContigoRecuerdo = ':nth-child(2) > .btn-ir-sitio'
 
 const formulario = Cypress.env('Formulario');
 
-class pphHome {
+class pcoHomeMobile {
 
     //Se selecciona Cotiza aqui desde el parque PAV
     seleccionCotizaAqui(){
@@ -149,7 +169,7 @@ class pphHome {
     
     //Se selecciona la cremacion desde el parque PAV
     seleccionNuestrosServicios(tipo){
-        cy.get(Servicio[tipo], {timeout: 10000}).should('be.visible').realHover()
+        cy.xpath(Servicio[tipo], {timeout: 10000}).should('be.visible').click()
         cy.xpath(btnVerDetalles[tipo],{timeout: 10000}).should('be.visible').click()
         cy.url().should('eq', url[tipo])
         
@@ -157,25 +177,17 @@ class pphHome {
     
     //Se selecciona la cremacion desde el parque PAV
     seleccionTambienOfrecemos(tipo){
-        let key = Object.keys(btnVerMasTambienOfrecemos)
-        let index = key.indexOf(tipo)
-        if(index >=4 && index <8){
-            cy.get(btnSiguinteTambienOfrecemos,{timeout: 10000}).click()
-        }else if(index >= 8){
-            cy.get(btnSiguinteTambienOfrecemos,{timeout: 10000}).click()
-            cy.wait(1000)
-            cy.get(btnSiguinteTambienOfrecemos,{timeout: 10000}).click()
-        }
+        cy.xpath(btnSiguinteTambienOfrecemos[tipo],{timeout: 10000}).click()
         cy.xpath(btnVerMasTambienOfrecemos[tipo],{timeout: 10000}).should('be.visible').click()
-        cy.get(popUpVerMasTambienOfrecemos,{timeout: 10000}).should('be.visible')
-        cy.get(popUpVerMasTambienOfrecemos,{timeout: 10000}).contains(tipo)
+        cy.get(popUpVerMasTambienOfrecemos[tipo],{timeout: 10000}).should('be.visible')
+        cy.get(popUpVerMasTambienOfrecemos[tipo],{timeout: 10000}).contains(tipo)
     }
     
     //Se revisa la ceremonia de despedida desde tambien te ofrecemos
     revisarCeremoniaDespedida(){
         let textoAntes;
-        cy.get(popUpVerMasTambienOfrecemos, {timeout: 10000}).contains('Ceremonia Laica')
-        cy.get(popUpVerMasTambienOfrecemos, {timeout: 10000}).contains('Ceremonia Católica')
+        cy.get(popUpVerMasTambienOfrecemos["despedida"], {timeout: 10000}).contains('Ceremonia Laica')
+        cy.get(popUpVerMasTambienOfrecemos["despedida"], {timeout: 10000}).contains('Ceremonia Católica')
         cy.get(textoCeremoniaDespedidaLaica, {timeout: 10000}).invoke('text').then(texto => {
             cy.wait(2000)
             textoAntes = texto;
@@ -190,9 +202,9 @@ class pphHome {
     //Se revisa la ceremonia del recuerdo desde tambien te ofrecemos
     revisarCeremoniasRecuerdo(){
         let textoAntes;
-        cy.get(popUpVerMasTambienOfrecemos, {timeout: 10000}).contains('Parque Américo Vespucio')
-        cy.get(popUpVerMasTambienOfrecemos, {timeout: 10000}).contains('Parque Cordillera')
-        cy.get(popUpVerMasTambienOfrecemos, {timeout: 10000}).contains('Parque Padre Hurtado')
+        cy.get(popUpVerMasTambienOfrecemos["Recuerdo"], {timeout: 10000}).contains('Parque Américo Vespucio')
+        cy.get(popUpVerMasTambienOfrecemos["Recuerdo"], {timeout: 10000}).contains('Parque Cordillera')
+        cy.get(popUpVerMasTambienOfrecemos["Recuerdo"], {timeout: 10000}).contains('Parque Padre Hurtado')
         cy.get(textoCeremoniaRecuerdoPAV, {timeout: 10000}).invoke('text').then(texto => {
             cy.wait(2000)
             textoAntes = texto;
@@ -290,5 +302,5 @@ class pphHome {
         cy.url().should('eq', 'https://contigoenelrecuerdo.cl/')
     }
 }
-const PphHome = new pphHome()
-export default PphHome;
+const PcoHomeMobile = new pcoHomeMobile()
+export default PcoHomeMobile;

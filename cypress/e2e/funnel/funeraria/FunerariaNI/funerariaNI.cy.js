@@ -48,12 +48,10 @@ describe('', () => {
         ResumenPagoPage.completarDatos()
         ResumenPagoPage.formularioComprador()
         ResumenPagoPage.checkTerminosCondiciones()
-        /*
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
         authenticatorWebpay.formularioTransbankAceptar()
         checkoutRecibo.validarAprobacionFunnel()
-        */
     })
     //
 

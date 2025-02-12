@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria 
+Fecha: 12/02/2025-11:48
+Version: 3.3.21
+Descripcion: Se agrego la libreria cypress-iframe version: 1.0.1, ademas se implemento la automatizacion del sector paginas informativas -Parques con toddas sus funcionalidades tanto en desktop y mobile
+-------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria 
 Fecha: 10/02/2025-15:42
 Version: 2.3.20
 Descripcion: Se arreglaron los erroes en funnel tanto de cremacion como de funeraria tanto en desktop como en mobile, ademas se implemento el pago en funnel sepultura para desktop como mobile 
