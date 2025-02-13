@@ -1,4 +1,9 @@
 # Cypress
+Nombre: Benjamin Barria
+Fecha: 13/02/2025-12:55
+Version: 3.3.22
+Descripcion: Se implemento la automatizacion de paginas informativas -Seguros ademas de -Servicio al cliente revisando todas las funcionalidades tanto en desktop como en mobile
+--------------------------------------------------------------------------------------------------------------
 Nombre: Benjamin Barria 
 Fecha: 12/02/2025-11:48
 Version: 3.3.21
