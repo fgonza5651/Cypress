@@ -1,3 +1,7 @@
+//Pop up informacion importante
+const btnContinuarPopUp = '.btn-cta'
+const btnCerrarPopUp = '#cont-pop-up-info-sv > .material-icons'
+const PopUpInformacion = '#cont-pop-up-info-sv'
 //Necesito ayuda ahora menu
 const btnFunerariaNI = '.cont-necesidad-inmediata > .cont-btn-producto > :nth-child(1)'
 const btnVelatorioNI = '.cont-necesidad-inmediata > .cont-btn-producto > :nth-child(2)'
@@ -76,15 +80,20 @@ require('cypress-xpath')
 import "cypress-real-events/support";
 
 class HomePage {
-
     
-
     //ingreso a la URL de parque del recuerdo
     ingresoHomeParqueDelRecuerdo(){
-
         cy.visit('/')
-        cy.clearCookies();   
-        cy.clearLocalStorage();
+        cy.wait(1000)
+        cy.clearCookies(); 
+        cy.get('body').then(($body) =>{
+            if ($body.find(PopUpInformacion).length > 0){
+                cy.get(btnContinuarPopUp,{timeout:100000}).should('be.visible').click()
+                cy.clearLocalStorage();
+            }else{
+                cy.clearLocalStorage();
+            }
+        })
     }
     
     //Se selecciona la opcion del sub menu
