@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria
+Fecha: 17/02/2025-17:38
+Version: 3.3.24
+Descripcion: Se implemento la automatizacion de la seccion comunidad con sus 2 apartados "noticias" y "mas parques" tanto en desktop como en mobile
+--------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
 Fecha: 17/02/2025-11:32
 Version: 3.3.23
 Descripcion: Se implemento la automatizacion de la seccion portal conocenos, junto a todos sus botones y revision de descargas correspondientes tanto en desktop como Mobile

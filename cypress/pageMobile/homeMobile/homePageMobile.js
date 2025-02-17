@@ -1,3 +1,8 @@
+//Pop up informacion importante
+const btnContinuarPopUp = '.btn-cta'
+const btnCerrarPopUp = '#cont-pop-up-info-sv > .material-icons'
+const PopUpInformacion = '#cont-pop-up-info-sv'
+
 const btnMenuDesplegable = '[src="https://stappdeveastus001.blob.core.windows.net/corporativo-ic/media/icons/svg/menu-hamburguesa.svg"]'
 const btnProductosServicios = ':nth-child(4) > .a-menu-sidenav'
 
@@ -59,9 +64,6 @@ const filename = 'BASES_SORTEO_PARQUE_DEL_RECUERDO.pdf'
 
 
 
-
-let btnSubServicioBarra;
-
 require('cypress-xpath')
 import "cypress-real-events/support";
 
@@ -72,8 +74,16 @@ class HomePageMobile {
     ingresoHomeMobile (){
         cy.viewport('iphone-xr')
         cy.visit('/')
+        cy.wait(1000)
         cy.clearCookies();   
-        cy.clearLocalStorage();
+        cy.get('body').then(($body) =>{
+            if ($body.find(PopUpInformacion).length > 0){
+                cy.get(btnContinuarPopUp,{timeout:100000}).should('be.visible').click()
+                cy.clearLocalStorage();
+            }else{
+                cy.clearLocalStorage();
+            }
+        })
     }
 
     //Se selecciona la opcion del sub menu
@@ -370,6 +380,7 @@ class HomePageMobile {
         cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/')
     }
 }
+
 
 const homePageMobile = new HomePageMobile()
 export default homePageMobile;
