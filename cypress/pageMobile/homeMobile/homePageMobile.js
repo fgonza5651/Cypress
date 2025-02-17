@@ -334,7 +334,6 @@ class HomePageMobile {
         });
         if(opcion == '4'){
             cy.xpath(`${btnServicioClienteFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()
-            cy.log('estamos antes de ver si se descarga')
             cy.readFile(`cypress/downloads/${filename}`).should('exist');
         }else{
             cy.xpath(`${btnServicioClienteFooter}[${opcion}]/a`, { timeout: 100000 }).should('exist').click()

@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria
+Fecha: 17/02/2025-11:32
+Version: 3.3.23
+Descripcion: Se implemento la automatizacion de la seccion portal conocenos, junto a todos sus botones y revision de descargas correspondientes tanto en desktop como Mobile
+--------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
 Fecha: 13/02/2025-12:55
 Version: 3.3.22
 Descripcion: Se implemento la automatizacion de paginas informativas -Seguros ademas de -Servicio al cliente revisando todas las funcionalidades tanto en desktop como en mobile
