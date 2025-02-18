@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria
+Fecha: 18/02/2025-17:42
+Version: 3.3.25
+Descripcion: Se implemento la automatizacion del sector Obituario y buscar sepultura tanto en desktop como en mobile
+--------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
 Fecha: 17/02/2025-17:38
 Version: 3.3.24
 Descripcion: Se implemento la automatizacion de la seccion comunidad con sus 2 apartados "noticias" y "mas parques" tanto en desktop como en mobile
