@@ -3,7 +3,7 @@ const parqueAmericoVespucio = '#card-pav > .mat-checkbox-layout > .mat-checkbox-
 const parqueCordillera = '#card-pco > .mat-checkbox-layout > .mat-checkbox-inner-container'
 const parquePadreHurtado = '#card-pph > .mat-checkbox-layout > .mat-checkbox-inner-container'
 //botton continuar
-const btnContinuar = 'Continuar'
+const btnContinuar = ' Continuar'
 //formulario funnel
 const inputNombre = '#checkout-info-input-name'
 const inputApellidoPaterno = '.mat-form-field.ng-tns-c31-5 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
@@ -24,11 +24,12 @@ const selectSepultura = '#mat-select-value-1 > .mat-select-value-text > .mat-sel
 const selectPrecio = '#mat-select-value-3 > .mat-select-value-text > .mat-select-min-line'
 const selectSectores = '#mat-select-value-5 > .mat-select-value-text > .mat-select-min-line'
 const btnVerTodasOpciones = '.busqueda-opciones'
+const btnCambiarParque = '.btn-cambiar-parque-mobile > span'
 //Ubicacion sepulura
 const btnVerMapa = '.contenedor-icono-ordenar'
 const contenedorCards = '.cont-card-sep .card'
 const contenedorCardsMapa = '.contenedor-scroll [class ^="card-seleccionada"]'
-const seleccionCard1 = ':nth-child(2) > .cont-info-sep > :nth-child(1) > ul'
+const btnContiuarCard = '//*[@id="mat-tab-content-0-2"]/div/corporativo-footer-contacto-no-fixed/div/div[1]/button'
 const seleccionImagenCard1 = ':nth-child(2) > .cont-img-galeria > .ver-img-sector-mobile > p'
 const popUpImagenCard = '.cont-galeria-img'
 const seleccionB1Mapa = '#B1'
@@ -47,12 +48,12 @@ const linkEditarFinanciamiento = '#nivel-cuatro > div:nth-child(5) > div.cont-li
 const precioSubtittle = '.subtitulo-editar > :nth-child(3)'
 const checkCredito = '#mat-radio-2 > label'
 const checkContado = '#mat-radio-3 > label'
-const inputPieAPagar = '#mat-input-0'
+const inputPieAPagar = '#mat-input-2'
 const precioPieMinimo = '#cont-financiamiento > form > div.cont-input-pie.ng-star-inserted > label > span'
-const selectCuotas = '#mat-select-value-1'
-const btn92Cuotas = '#mat-option-93 > .mat-option-text'
+const selectCuotas = '#mat-select-value-7'
+const btn92Cuotas = '#mat-option-105 > .mat-option-text'
 const selectCuandoPrimerPago = '.mat-select-placeholder'
-const btnSegundoMes = '#mat-option-1 > .mat-option-text'
+const btnSegundoMes = '#mat-option-13 > .mat-option-text'
 const precioPie = '.cont-ahora-pagaras'
 const precioPagarasPie = '.ahora-pagaras > span'
 const precioAhoraPagaras = '.cont-ahora-pagaras > p > span'
@@ -63,6 +64,10 @@ const verFinanciamineto = '#cont-footer-pdp-sep > div > div.cont-btn.ng-tns-c114
 const btnIrPagar = '.cont-button > .btn-ir-a-pagar'
 const btnVerFinanciamineto = '.cont-btn > .btn-ir-a-pagar'
 const precioPagarAhora = '#cont-general-resumen > div.cont-pagaras-ahora > p.total-pagaras-ahora'
+//Pop up cambiar parque 
+const popUpCambiarParque = '#mat-dialog-0'
+const btnCambiarParquePopUp = '.cont-btn-accion > .btn-continuar'
+const btnCancelarPopUp = '.btn-cancelar'
 
 
 
@@ -136,7 +141,7 @@ class funerariaFunnelMobile {
         cy.get(inputCorreo, {timeout: 100000}).should('be.visible').type(correoRandom)
         
         //Se hace clic en el boton continuar
-        cy.contains(btnContinuar).should('be.visible').click()
+        cy.get('button').contains(btnContinuar).should('be.visible').click({force:true})
     }
 
     //seleccionar capacidad de 3 personas
@@ -174,23 +179,41 @@ class funerariaFunnelMobile {
     //rango de precio economico selecionado
     seleccionPrecioEconomico(){
 
-        cy.contains(checkEconomico, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
+        cy.contains(checkEconomico, {timeout: 100000}).invoke('css','background-color').then((color1) =>{
+            let colorInicial = color1
+            cy.contains(checkEconomico, {timeout: 100000}).should('be.visible').click()
+            cy.contains(checkEconomico, {timeout: 100000}).invoke('css','color').then((color) =>{
+                expect(color).to.not.equal(colorInicial)
+                cy.contains(btnContinuar).should('be.visible').click()
+            })
+        })
 
     }
 
     //rango de precio termino medio selecionado
     seleccionPrecioMedio(){
 
-        cy.contains(checkTerminoMedio, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
+        cy.contains(checkTerminoMedio, {timeout: 100000}).invoke('css','background-color').then((color1) =>{
+            let colorInicial = color1
+            cy.contains(checkTerminoMedio, {timeout: 100000}).should('be.visible').click()
+            cy.contains(checkTerminoMedio, {timeout: 100000}).invoke('css','color').then((color) =>{
+                expect(color).to.not.equal(colorInicial)
+                cy.contains(btnContinuar).should('be.visible').click()
+            })
+        })
     }
     
     //rango de precio premium selecionado
     seleccionPrecioPremium(){
 
-        cy.contains(checkPremium, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
+        cy.contains(checkPremium, {timeout: 100000}).invoke('css','background-color').then((color1) =>{
+            let colorInicial = color1
+            cy.contains(checkPremium, {timeout: 100000}).should('be.visible').click()
+            cy.contains(checkPremium, {timeout: 100000}).invoke('css','color').then((color) =>{
+                expect(color).to.not.equal(colorInicial)
+                cy.contains(btnContinuar).should('be.visible').click()
+            })
+        })
     }
     
     //select de capacidadades
@@ -216,9 +239,12 @@ class funerariaFunnelMobile {
     //Se seleciona la primera card
     seleccionCard(){
 
-        cy.get(seleccionCard1, {timeout: 100000}).should('be.visible').click()
-        cy.wait(1000)
-        cy.url().should('eq',urlPdpSep)
+        cy.get(contenedorCards, {timeout: 100000}).should('be.visible').invoke('children').then((Cards) =>{
+            cy.wrap(Cards.eq(1),{timeout:10000}).should('be.visible').click()
+            cy.wait(1000)
+            cy.xpath(btnContiuarCard,{timeout:10000}).should('be.visible').click()
+            cy.url().should('eq',urlPdpSep)
+        })
     }
 
     //Se seleciona la primera card
@@ -273,7 +299,6 @@ class funerariaFunnelMobile {
     //Editar financimiento con credito
     editarFinanciamientoCredito(){
         cy.wait(2000)
-        cy.get(verFinanciamineto, {timeout: 100000}).click()
         cy.get(linkEditarFinanciamiento, {timeout: 100000}).click()
         cy.get(checkCredito, {timeout: 100000}).should('be.visible').click()
         cy.get(inputPieAPagar, { timeout: 100000 }).should('be.visible').invoke('val').then((inputValue) => {
@@ -293,7 +318,6 @@ class funerariaFunnelMobile {
     
     editarFinanciamientoContado(){
         cy.wait(2000)
-        cy.get(verFinanciamineto, {timeout: 100000}).click()
         cy.get(linkEditarFinanciamiento, {timeout: 100000}).click()
         cy.get(checkContado, {timeout: 100000}).should('be.visible').click()
         cy.get(precioPie, {timeout: 100000}).invoke('text').then((textPrecioPie) =>{
@@ -324,6 +348,14 @@ class funerariaFunnelMobile {
         cy.get(btnVerFinanciamineto, {timeout: 100000}).should('be.visible').click()
     }
 
+    //Preciona cambiar parque del sector ubicaicon de la sepultura
+    cambiarParque(){
+        cy.get(contenedorCards, {timeout: 100000}).should('be.visible')
+        cy.get(btnCambiarParque, {timeout: 100000}).should('be.visible').click()
+        cy.get(popUpCambiarParque, {timeout: 100000}).should('be.visible')
+        cy.get(btnCambiarParquePopUp, {timeout: 100000}).should('be.visible').click()
+        
+    }
 }
 const FunerariaFunnelMobile = new funerariaFunnelMobile()
 export default FunerariaFunnelMobile;

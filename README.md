@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria
+Fecha: 19/02/2025-16:58
+Version: 3.3.26
+Descripcion: Se arreglaron los cambio del sector funnel sepultura ademas de incorporar la funcion "cambiarParque" todo esto tanto en desktop como en mobile  
+--------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
 Fecha: 18/02/2025-17:42
 Version: 3.3.25
 Descripcion: Se implemento la automatizacion del sector Obituario y buscar sepultura tanto en desktop como en mobile

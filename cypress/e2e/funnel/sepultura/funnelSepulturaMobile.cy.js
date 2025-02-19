@@ -211,7 +211,6 @@ describe ('' , () => {
         FunerariaFunnelMobile.seleccionarPCO()
         FunerariaFunnelMobile.rellernarFormulario()
         FunerariaFunnelMobile.seleccion3Capacidad()
-        FunerariaFunnelMobile.seleccionPrecioEconomico()
         FunerariaFunnelMobile.seleccionCard()
     })
     
@@ -221,7 +220,6 @@ describe ('' , () => {
         FunerariaFunnelMobile.seleccionarPCO()
         FunerariaFunnelMobile.rellernarFormulario()
         FunerariaFunnelMobile.seleccion3Capacidad()
-        FunerariaFunnelMobile.seleccionPrecioPremium()
         FunerariaFunnelMobile.seleccionCard()
     })
 
@@ -319,7 +317,7 @@ describe ('' , () => {
     })
 
     //
-    it('Credito', () => {
+    it('Credito completar pago', () => {
         FunerariaFunnelMobile.iniciarFunnel()
         FunerariaFunnelMobile.seleccionarPPH()
         FunerariaFunnelMobile.rellernarFormulario()
@@ -335,7 +333,7 @@ describe ('' , () => {
     })
     
     //
-    it('Contado', () => {
+    it('Contado completar pago', () => {
         FunerariaFunnelMobile.iniciarFunnel()
         FunerariaFunnelMobile.seleccionarPPH()
         FunerariaFunnelMobile.rellernarFormulario()
@@ -348,6 +346,48 @@ describe ('' , () => {
         ResumenPagoPageSepulturaMobile.continuarPago()
         ResumenPagoPageSepulturaMobile.formularioComprador()
         ResumenPagoPageSepulturaMobile.checkTerminosCondiciones()
+    })
+
+    //
+    it('Contado boton ver financiamiento', () => {
+        FunerariaFunnelMobile.iniciarFunnel()
+        FunerariaFunnelMobile.seleccionarPPH()
+        FunerariaFunnelMobile.rellernarFormulario()
+        FunerariaFunnelMobile.seleccion4Capacidad()
+        FunerariaFunnelMobile.seleccionPrecioEconomico()
+        FunerariaFunnelMobile.seleccionCard()
+        FunerariaFunnelMobile.verFinanciamineto()
+        FunerariaFunnelMobile.editarFinanciamientoContado()
+        FunerariaFunnelMobile.irPagar()
+        ResumenPagoPageSepulturaMobile.verDetallePago()
+        ResumenPagoPageSepulturaMobile.continuarPago()
+        ResumenPagoPageSepulturaMobile.formularioComprador()
+        ResumenPagoPageSepulturaMobile.checkTerminosCondiciones()
+    })
+
+    //
+    it('Cambiar parque', () => {
+        FunerariaFunnelMobile.iniciarFunnel()
+        FunerariaFunnelMobile.seleccionarPPH()
+        FunerariaFunnelMobile.rellernarFormulario()
+        FunerariaFunnelMobile.seleccion4Capacidad()
+        FunerariaFunnelMobile.seleccionPrecioEconomico()
+        FunerariaFunnelMobile.cambiarParque()
+        FunerariaFunnelMobile.seleccionarPCO()
+        FunerariaFunnelMobile.seleccion3Capacidad()
+        FunerariaFunnelMobile.seleccionCard()
+        FunerariaFunnelMobile.verFinanciamineto()
+        FunerariaFunnelMobile.editarFinanciamientoContado()
+        FunerariaFunnelMobile.irPagar()
+        ResumenPagoPageSepulturaMobile.verDetallePago()
+        ResumenPagoPageSepulturaMobile.continuarPago()
+        ResumenPagoPageSepulturaMobile.formularioComprador()
+        ResumenPagoPageSepulturaMobile.checkTerminosCondiciones()
+    })
+
+    afterEach(() =>{
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     })
 
 })
