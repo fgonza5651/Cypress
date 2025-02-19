@@ -8,6 +8,8 @@ describe ('' , () => {
             // ...
             return false;
           });
+          cy.clearCookies();   
+          cy.clearLocalStorage();
     });
 
     //
@@ -206,22 +208,20 @@ describe ('' , () => {
     })
     
     //
-    it('Seleccionar capacidad PCO (3 capacidades) - precio economico - selccionar card', () => {
+    it('Seleccionar capacidad PCO (3 capacidades) - selccionar card', () => {
         FunerariaFunnel.iniciarFunnel()
         FunerariaFunnel.seleccionarPCO()
         FunerariaFunnel.rellernarFormulario()
         FunerariaFunnel.seleccion3Capacidad()
-        FunerariaFunnel.seleccionPrecioEconomico()
         FunerariaFunnel.seleccionCard()
     })
     
     //
-    it('Seleccionar capacidad PCO (3 capacidades) - precio premium - selccionar card', () => {
+    it('Seleccionar capacidad PCO (3 capacidades) - selccionar card', () => {
         FunerariaFunnel.iniciarFunnel()
         FunerariaFunnel.seleccionarPCO()
         FunerariaFunnel.rellernarFormulario()
         FunerariaFunnel.seleccion3Capacidad()
-        FunerariaFunnel.seleccionPrecioPremium()
         FunerariaFunnel.seleccionCard()
     })
 
@@ -349,6 +349,7 @@ describe ('' , () => {
         ResumenPagoPageSepultura.formularioComprador()
         ResumenPagoPageSepultura.checkTerminosCondiciones()
     })
+
     //
     it('Contado boton ver financiamiento', () => {
         FunerariaFunnel.iniciarFunnel()
@@ -364,6 +365,27 @@ describe ('' , () => {
         ResumenPagoPageSepultura.continuarPago()
         ResumenPagoPageSepultura.formularioComprador()
         ResumenPagoPageSepultura.checkTerminosCondiciones()
+    })
+
+    //
+    it('Cambiar parque', () => {
+        FunerariaFunnel.iniciarFunnel()
+        FunerariaFunnel.seleccionarPPH()
+        FunerariaFunnel.rellernarFormulario()
+        FunerariaFunnel.seleccion4Capacidad()
+        FunerariaFunnel.seleccionPrecioEconomico()
+        FunerariaFunnel.cambiarParque()
+        FunerariaFunnel.seleccionarPCO()
+        FunerariaFunnel.seleccion3Capacidad()
+        FunerariaFunnel.seleccionCard()
+        FunerariaFunnel.verFinanciamineto()
+        FunerariaFunnel.editarFinanciamientoContado()
+    })
+
+
+    afterEach(() =>{
+        cy.clearCookies();   
+        cy.clearLocalStorage();
     })
 
 })

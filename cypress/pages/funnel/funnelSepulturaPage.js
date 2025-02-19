@@ -20,13 +20,14 @@ const checkEconomico = 'más económico'
 const checkTerminoMedio = 'termino medio'
 const checkPremium = 'más premium'
 //Select de capacidad - Precios - Sectores
-const selectSepultura = '#mat-select-value-1 > .mat-select-value-text > .mat-select-min-line'
-const selectPrecio = '#mat-select-value-3 > .mat-select-value-text > .mat-select-min-line'
-const selectSectores = '#mat-select-value-5 > .mat-select-value-text > .mat-select-min-line'
+const selectSepultura = '#mat-select-value-7 > .mat-select-value-text > .mat-select-min-line'
+const selectPrecio = '#mat-select-value-9 > .mat-select-value-text > .mat-select-min-line'
+const selectSectores = '#mat-select-value-11 > .mat-select-value-text > .mat-select-min-line'
 const btnVerTodasOpciones = '.busqueda-opciones'
+const btnCambiarParque = '.btn-cambiar-parque'
 //Ubicacion sepulura
 const contenedorCards = '.cont-card-sep .card'
-const seleccionCard1 = ':nth-child(2) > .cont-info-sep > :nth-child(1) > ul'
+const btnContiuarCard = '//*[@id="mat-tab-content-0-2"]/div/corporativo-footer-contacto-no-fixed/div/div[1]/button'
 const seleccionImagenCard1 = ':nth-child(2) > .cont-img-galeria > .contenedor-swiper-card > .mySwiper > .swiper-wrapper > .swiper-slide-active > .ng-star-inserted'
 const popUpImagenCard = '#cont-modal-galeria-sectores > .cont-galeria-img'
 const seleccionB9Mapa = '#B9'
@@ -44,12 +45,12 @@ const linkEditarFinanciamiento = '.link-modal-financiamiento'
 const precioSubtittle = '.subtitulo-editar > :nth-child(2)'
 const checkCredito = '#mat-radio-2 > label'
 const checkContado = '#mat-radio-3 > label'
-const inputPieAPagar = '#mat-input-0'
+const inputPieAPagar = '#mat-input-2'
 const precioPieMinimo = '#cont-financiamiento > form > div.cont-input-pie.ng-star-inserted > label > span'
-const selectCuotas = '#mat-select-value-1'
-const btn92Cuotas = '#mat-option-93 > .mat-option-text'
+const selectCuotas = ':nth-child(4) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex'
+const btn92Cuotas = '#mat-option-105 > .mat-option-text'
 const selectCuandoPrimerPago = '.mat-select-placeholder'
-const btnSegundoMes = '#mat-option-1 > .mat-option-text'
+const btnSegundoMes = '#mat-option-13 > .mat-option-text'
 const precioPie = '.cont-ahora-pagaras'
 const precioPagarasPie = '.ahora-pagaras > span'
 const precioAhoraPagaras = '.cont-ahora-pagaras > p > span'
@@ -58,6 +59,11 @@ const btnGuardarInformacion = '.btn-guardar-financiamiento'
 const btnIrPagar = '.cont-button > .btn-ir-a-pagar'
 const btnVerFinanciamineto = '.cont-btn > .btn-ir-a-pagar'
 const precioPagarAhora = '#cont-general-resumen > div.cont-pagaras-ahora > p.total-pagaras-ahora'
+//Pop up cambiar parque 
+const popUpCambiarParque = '#mat-dialog-0'
+const btnCambiarParquePopUp = '.cont-btn-accion > .btn-continuar'
+const btnCancelarPopUp = '.btn-cancelar'
+
 
 
 //variables
@@ -168,23 +174,41 @@ class funerariaFunnel {
     //rango de precio economico selecionado
     seleccionPrecioEconomico(){
 
-        cy.contains(checkEconomico, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
-
+        cy.contains(checkEconomico, {timeout: 100000}).invoke('css','background-color').then((color1) =>{
+            let colorInicial = color1
+            cy.contains(checkEconomico, {timeout: 100000}).should('be.visible').click()
+            cy.contains(checkEconomico, {timeout: 100000}).invoke('css','color').then((color) =>{
+                expect(color).to.not.equal(colorInicial)
+                cy.contains(btnContinuar).should('be.visible').click()
+            })
+        })
     }
 
     //rango de precio termino medio selecionado
     seleccionPrecioMedio(){
 
-        cy.contains(checkTerminoMedio, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
+        cy.contains(checkTerminoMedio, {timeout: 100000}).invoke('css','background-color').then((color1) =>{
+            let colorInicial = color1
+            cy.contains(checkTerminoMedio, {timeout: 100000}).should('be.visible').click()
+            cy.contains(checkTerminoMedio, {timeout: 100000}).invoke('css','color').then((color) =>{
+                expect(color).to.not.equal(colorInicial)
+                cy.contains(btnContinuar).should('be.visible').click()
+            })
+        })
     }
     
     //rango de precio premium selecionado
     seleccionPrecioPremium(){
+        
+        cy.contains(checkPremium, {timeout: 100000}).invoke('css','background-color').then((color1) =>{
+            let colorInicial = color1
+            cy.contains(checkPremium, {timeout: 100000}).should('be.visible').click()
+            cy.contains(checkPremium, {timeout: 100000}).invoke('css','color').then((color) =>{
+                expect(color).to.not.equal(colorInicial)
+                cy.contains(btnContinuar).should('be.visible').click()
+            })
+        })
 
-        cy.contains(checkPremium, {timeout: 100000}).should('be.visible').click()
-        cy.contains(btnContinuar).should('be.visible').click()
     }
     
     //select de capacidadades
@@ -202,17 +226,19 @@ class funerariaFunnel {
     }
     
     //Select de los sectores
-    selectSectores(){
-        
+    selectSectores(){   
         cy.get(selectSectores, {timeout: 100000}).should('be.visible').click()
     }
     
     //Se seleciona la primera card
     seleccionCard(){
 
-        cy.get(seleccionCard1, {timeout: 100000}).should('be.visible').click()
-        cy.wait(1000)
-        cy.url().should('eq',urlPdpSep)
+        cy.get(contenedorCards, {timeout: 100000}).should('be.visible').invoke('children').then((Cards) =>{
+            cy.wrap(Cards.eq(1),{timeout:10000}).should('be.visible').click()
+            cy.wait(1000)
+            cy.xpath(btnContiuarCard,{timeout:10000}).should('be.visible').click()
+            cy.url().should('eq',urlPdpSep)
+        })
     }
 
     //Se seleciona la primera card
@@ -314,7 +340,15 @@ class funerariaFunnel {
         cy.wait(2000)
         cy.get(btnVerFinanciamineto, {timeout: 100000}).should('be.visible').click()
     }
-
+    
+    //Preciona cambiar parque del sector ubicaicon de la sepultura
+    cambiarParque(){
+        cy.get(contenedorCards, {timeout: 100000}).should('be.visible')
+        cy.get(btnCambiarParque, {timeout: 100000}).should('be.visible').click()
+        cy.get(popUpCambiarParque, {timeout: 100000}).should('be.visible')
+        cy.get(btnCambiarParquePopUp, {timeout: 100000}).should('be.visible').click()
+        
+    }
 
 
 }
