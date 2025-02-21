@@ -23,6 +23,11 @@ const btnPPH = '.cont-resultados-obituario > .mat-tab-group > .mat-tab-header > 
 
 class obituarioPageMobile{
 
+    ingresoObituario(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/busqueda/obituario')
+    }
+
     //Revisa que el banner de cards tenga almenos 1 elemento
     RevisarCard(){
         cy.get(cards,{timeout:10000}).should('be.visible').children().should('have.length.greaterThan',0)

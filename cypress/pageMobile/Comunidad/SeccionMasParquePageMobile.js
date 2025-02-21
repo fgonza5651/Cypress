@@ -5,6 +5,11 @@ const btnDetalleMasParqueFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class seccionMasParquePageMobile{
 
+    ingresarSeccionMasParques(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/seccion-mas-parque')
+    }
+
     //Se selecciona el apartado Mas parque
     SeleccionarMasParque(){
         cy.get(btnMasParque,{timeout:10000}).click()

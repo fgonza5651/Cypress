@@ -4,6 +4,11 @@ const btnDetalleTodoInicial = ':nth-child('
 const btnDetalleTodoFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class todoPageMobile{
+    
+    ingresarTodo(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/ver-todo')
+    }
 
     //Se selecciona el apartado todo
     SeleccionarTodo(){

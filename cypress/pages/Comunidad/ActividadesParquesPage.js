@@ -4,6 +4,10 @@ const btnDetalleActividadesInicial = ':nth-child('
 const btnDetalleActividadesFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class actividadesParquePage{
+    
+    ingresarActividadesParque(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/actividades-en-nuestros-parques')
+    }
 
     //Se selecciona el apartado Actividades en nuestros parques
     SeleccionarActividades(){
@@ -17,7 +21,7 @@ class actividadesParquePage{
         cy.get(cardsActividades).should('be.visible').invoke('children').then((numeroCards) =>{
             let numeroChildrne = Math.floor(Math.random() * numeroCards.length) + 1
             cy.get(btnDetalleActividadesInicial + numeroChildrne + btnDetalleActividadesFinal).should('be.visible').click()
-            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/actividades-en-nuestros-parques')
         })
     }
 

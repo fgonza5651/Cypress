@@ -21,6 +21,12 @@ const formularioLanding = Cypress.env('Formulario')
 
 class LandingFunerariaNIMobile {
 
+    ingresoLandingFunerariaNI(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-inmediata')
+    }
+
+
     //revisa el boton de telefonos y lo preciona 
     iconoTelefonosTitulo (){
         cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()

@@ -5,6 +5,10 @@ const btnDetalleMasParqueFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class seccionMasParquePage{
 
+    ingresarSeccionMasParques(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/seccion-mas-parque')
+    }
+
     //Se selecciona el apartado Mas parque
     SeleccionarMasParque(){
         cy.get(btnMasParque,{timeout:10000}).should('be.visible').click()
@@ -17,7 +21,7 @@ class seccionMasParquePage{
         cy.get(cardsMasParque).should('be.visible').invoke('children').then((numeroCards) =>{
             let numeroChildrne = Math.floor(Math.random() * numeroCards.length) + 1
             cy.get(btnDetalleMasParqueInicial + numeroChildrne + btnDetalleMasParqueFinal).should('be.visible').click()
-            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/seccion-mas-parque')
         })
     }
 

@@ -44,6 +44,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaSustentableMobile {
+    
     //ingreso a la URL de Funeraria plan Sustentable Mobile
     ingresoFunerariaSustentableMobile(){
         cy.viewport('iphone-xr')

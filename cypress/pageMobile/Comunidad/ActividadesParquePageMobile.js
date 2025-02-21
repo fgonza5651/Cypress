@@ -4,6 +4,11 @@ const btnDetalleActividadesInicial = ':nth-child('
 const btnDetalleActividadesFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class actividadesParquePageMobile{
+    
+    ingresarActividadesParque(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/actividades-en-nuestros-parques')
+    }
 
     //Se selecciona el apartado Actividades en nuestros parques
     SeleccionarActividades(){

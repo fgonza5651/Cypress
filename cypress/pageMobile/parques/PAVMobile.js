@@ -107,6 +107,11 @@ const formulario = Cypress.env('Formulario');
 
 class pavHomeMobile {
 
+    ingresoPavHome(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/parques/americo-vespucio')
+    }
+
     //Se selecciona Cotiza aqui desde el parque PAV
     seleccionCotizaAqui(){
         cy.get(btnCotizaAqui, {timeout: 10000}).should('be.visible').click()

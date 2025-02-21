@@ -23,6 +23,11 @@ const popUpTourVirtual = '#lightbox-tour-virtual > div > swiper > div > div'
 
 class landingCremacionNF {
 
+    ingresoLandingCremacionNF(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-futura')
+    }
+
+
     //Se envia formulario en cremacion necesidad futura
     formularioCremacion(){
       
@@ -69,3 +74,5 @@ class landingCremacionNF {
     }
 
 }
+const LandingCremacionNF = new landingCremacionNF()
+export default LandingCremacionNF

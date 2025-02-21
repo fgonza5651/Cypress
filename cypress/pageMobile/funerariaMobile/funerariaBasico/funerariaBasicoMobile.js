@@ -44,10 +44,11 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaBasicoMobile {
+
     //ingreso a la URL de Funeraria plan basico Mobile
     ingresoFunerariaBasicoMobile(){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
+        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-basico')
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

@@ -81,6 +81,7 @@ import "cypress-real-events/support";
 
 class HomePage {
     
+    
     //ingreso a la URL de parque del recuerdo
     ingresoHomeParqueDelRecuerdo(){
         cy.visit('/')

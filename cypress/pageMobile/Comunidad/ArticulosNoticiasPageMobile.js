@@ -5,6 +5,10 @@ const btnDetalleNoticiaFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class articulosNoticiasPageMobile{
 
+    ingresarArticulosNoticias(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/articulos-y-noticias')
+    }
     //Se selecciona el apartado articulos y noticias
     SeleccionarArticulosNoticias(){
         cy.get(btnArticulosNoticias,{timeout:10000}).should('be.visible').click()

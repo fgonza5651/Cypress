@@ -93,7 +93,20 @@ const btnCodigoEtica = {
     LineaEtica: '[href="https://report.resguarda.com/?empresa=Parque%20del%20Recuerdo"]'
 }
 
+//URL de conoce mas sobre nosotros
+const urlConocenos = {
+    reglas: 'https://ic.parquedelrecuerdo.cl/conocenos/reglamento-interno',
+    contratos: 'https://ic.parquedelrecuerdo.cl/conocenos/contratos',
+    informacion: 'https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa',
+    proveedores: 'https://ic.parquedelrecuerdo.cl/conocenos/proveedores',
+    gestion: 'https://ic.parquedelrecuerdo.cl/conocenos/sistema-de-gestion-etica-cumplimiento'
+}
+
 class portalConocenosPage {
+
+    ingresoPortalConocenos(url){
+        cy.visit(urlConocenos[url])
+    }
     
     //Se selecciona uno de los reglamentos internos entre "ReglasPAV", "ReglasPCO" y "ReglasPPH" 
     //se revisa que se descargue el archivo de manera correcta

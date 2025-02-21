@@ -44,6 +44,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaTradicionDestacadoMobile {
+    
     //ingreso a la URL de Funeraria plan Tradicion Destacado Mobile
     ingresoFunerariaTradicionDestacadoMobile(){
         cy.viewport('iphone-xr')

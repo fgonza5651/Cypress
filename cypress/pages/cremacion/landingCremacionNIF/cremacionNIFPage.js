@@ -12,6 +12,9 @@ const btnIrHome = '//*[@id="cont-lb-solicitud-recibida"]/div[2]/button'
 
 class crenacionNIFF {
 
+    ingresarCremacionNIF(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/cremacion-pronto-fallecimiento')
+    }
     //SE ENVIA FORMULARIO
     enviarFormulario(){
 
@@ -23,9 +26,6 @@ class crenacionNIFF {
         cy.get(inputCorreo,{timeout: 10000}).should('be.visible').type('q@q.cl')
         cy.get(inputDetllaCotizar, {timeout: 10000}).should('be.visible').type('Prueba QA automatizacion')
         cy.get(btnSolicitarAsesoria, {timeout: 100000}).should('be.visible').click()
-
-        //se acepta el modal del formulario
-        cy.xpath(btnIrHome, {timeout:10000}).should('be.visible').click()
     }
 
 }

@@ -33,6 +33,11 @@ const textoDetalle = 'Test de prueba form funeraria NF'
 
 class LandingSepulturaNFMobile {
 
+    ingresoLandingSepulturaNF(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-futura')
+    }
+
     //revisa el boton de telefonos y lo preciona 
     iconoTelefonosTitulo (){
         cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()

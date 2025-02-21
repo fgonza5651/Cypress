@@ -21,6 +21,11 @@ const formularioLanding = Cypress.env('Formulario')
 
 class LandingFunerariaNIFMobile {
 
+    ingresoLandingFunerariaNIF(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/funeraria-pronto-fallecimiento')
+    }
+    
     //revisa el boton de telefonos y lo preciona 
     iconoTelefonosTitulo (){
         cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()

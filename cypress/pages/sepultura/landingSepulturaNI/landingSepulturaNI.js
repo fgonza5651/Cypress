@@ -31,6 +31,10 @@ const formularioLanding = Cypress.env('Formulario')
 
 class LandingSepulturaNI {
 
+    ingresoLandingSepulturaNI(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-inmediata')
+    }
+    
     //revisa el boton compra en linea, lo preciona y rellena el formulario
     compraEnLinea(){
         cy.get(btnCompraEnLinea,{timeout: 100000}).should('be.visible').click()

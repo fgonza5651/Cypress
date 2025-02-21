@@ -5,6 +5,11 @@ const btnDetalleSostenibilidadFinal = ') > .cont-info-comunidad > .link-ver-deta
 
 class sostenibilidadPageMobile{
 
+    ingresarSostenibilidad(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/sostenibilidad')
+    }
+
     //Se selecciona el apartado Sostenibilidad
     SeleccionarSostenibilidad(){
         cy.get(btnSostenibilidad,{timeout:10000}).should('be.visible').click()
