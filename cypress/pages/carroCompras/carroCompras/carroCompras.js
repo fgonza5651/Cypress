@@ -39,6 +39,10 @@ const btnIrPagar = 'form.ng-untouched > #contenido-tab-info-personal > corporati
 
 const formularioCarroCompras = Cypress.env('Formulario')
 class CarroCompras{
+    
+    ingresarCarroCompras(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/carro-compra')
+    }
     //Revisa que el precio del servicio velatorio en el resumen sea el mismo que el seleccionado 
     revisarVelatorioResumen(){
         cy.get('@precioVelatorioExport').then((precioVelatorioExport) => {

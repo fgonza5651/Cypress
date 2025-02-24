@@ -30,6 +30,11 @@ const formularioLanding = Cypress.env('Formulario')
 
 class LandingSepulturaNIFMobile {
 
+    ingresoLandingSepulturaNIF(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/sepultura-nif')
+    }
+
     //revisa el boton de telefonos y lo preciona 
     iconoTelefonosTitulo (){
         cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()

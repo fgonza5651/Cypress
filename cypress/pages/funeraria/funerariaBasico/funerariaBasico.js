@@ -44,6 +44,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
     })
 }
 
+
 class FunerariaBasico {
     //ingreso a la URL de funeraria plan basico
     ingresarFunerariaBasico(){

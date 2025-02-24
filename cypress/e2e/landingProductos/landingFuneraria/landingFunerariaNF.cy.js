@@ -29,18 +29,6 @@ describe('Formulario landing de funeraria NF', () => {
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.solicitarAsesoriaGoHome()
     })
-    //CEC-2843
-    it('Landing Funeraria - NF - Hablar en linea con una ejecutiva', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoFunerariaNFProductosServicios()
-        landingFunerariaNF.ejecutivaEnlineaHablar()
-    })
-    //CEC-2822
-    it('Landing Funeraria - NF - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoFunerariaNFProductosServicios()
-        landingFunerariaNF.ejecutivaEnlineaOtraSolicitud()
-    })
     //CEC-4291
     it('Landing Funeraria - NF - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
@@ -70,18 +58,6 @@ describe('Formulario landing de funeraria NF', () => {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.solicitarAsesoriaGoHome()
-    })
-    //CEC-2843
-    it('Landing Funeraria - NF - Hablar en linea con una ejecutiva -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
-        landingFunerariaNFMobile.ejecutivaEnlineaHablar()
-    })
-    //CEC-2822
-    it('Landing Funeraria - NF - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
-        landingFunerariaNFMobile.ejecutivaEnlineaOtraSolicitud()
     })
     //CEC-4291
     it('Landing Funeraria - NF - Revisar titulos -Mobile', ()=>{

@@ -68,7 +68,6 @@ require('cypress-xpath')
 import "cypress-real-events/support";
 
 
-
 class HomePageMobile {
     //ingresa a la pagina desde mobile
     ingresoHomeMobile (){

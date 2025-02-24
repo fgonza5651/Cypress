@@ -45,6 +45,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaSustentable {
+    
     //ingreso a la URL de funeraria plan Sustentable
     ingresarFunerariaSustentable(){
         cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-Sustentable')

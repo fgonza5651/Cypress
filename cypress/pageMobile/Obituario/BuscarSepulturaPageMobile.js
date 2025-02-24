@@ -41,6 +41,11 @@ const btnVerMasPPH = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > 
 
 class buscarSepulturaMobile{
 
+    ingresoBusquedaSepultura(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/busqueda/sepultados')
+    }
+
     //Revisa que el banner de cards tenga almenos 1 elemento
     RevisarCard(){
         cy.get(cards,{timeout:10000}).should('be.visible').children().should('have.length.greaterThan',0)

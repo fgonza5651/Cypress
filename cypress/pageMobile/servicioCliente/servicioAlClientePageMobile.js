@@ -122,8 +122,19 @@ const contenidoDesplegableTerminos = {
     11: '#cdk-accordion-child-31 > .mat-expansion-panel-body'
 }
 
+const urlServicioCliente = {
+    nuestrosParques: 'https://ic.parquedelrecuerdo.cl/servicio-al-cliente/nuestras-oficinas',
+    preguntas: 'https://ic.parquedelrecuerdo.cl/servicio-al-cliente/preguntas-frecuentes',
+    terminos: 'https://ic.parquedelrecuerdo.cl/servicio-al-cliente/terminos-y-condiciones'
+}
+
 
 class ServicioClientePageMobile {
+
+    ingresoServicioCliente(url){
+        cy.viewport('iphone-xr')
+        cy.visit(urlServicioCliente[url])
+    }
 
     //Seleciona Nuestros parques del menu lateral 
     seleccionarNuestrosParques(){

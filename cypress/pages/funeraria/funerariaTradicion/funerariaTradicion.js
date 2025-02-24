@@ -43,6 +43,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaTradicion {
+    
     //ingreso a la URL de funeraria plan tradicion
     ingresarFunerariaTradicion(){
         cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-tradicion')

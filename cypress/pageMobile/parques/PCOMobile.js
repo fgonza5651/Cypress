@@ -107,6 +107,11 @@ const formulario = Cypress.env('Formulario');
 
 class pcoHomeMobile {
 
+    ingresoPcoHome(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/parques/cordillera')
+    }
+
     //Se selecciona Cotiza aqui desde el parque PAV
     seleccionCotizaAqui(){
         cy.get(btnCotizaAqui, {timeout: 10000}).should('be.visible').click()

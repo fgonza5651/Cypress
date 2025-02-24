@@ -1,4 +1,5 @@
 import homePage from "../../../pages/home/homePage";
+import LandingCremacionNF from "../../../pages/cremacion/landingCremacionNF/landingCremacionNF";
 
 describe('Landing cremacion NF', () => {
 

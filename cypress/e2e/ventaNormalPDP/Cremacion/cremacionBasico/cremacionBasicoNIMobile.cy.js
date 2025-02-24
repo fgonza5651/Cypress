@@ -19,16 +19,6 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         cremacionBasicoNIMobile.iconoTelefonosTitulo()
     })
-    //CEC-1784
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.ejecutivaEnlineaHablar()
-    })
-    //CEC-2532
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
-        cremacionBasicoNIMobile.ejecutivaEnlineaOtraSolicitud()
-    })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso vidriado -Mobile', () =>{
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()

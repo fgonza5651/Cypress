@@ -12,6 +12,11 @@ const btnDetalleNoticiaFinal = ') > .cont-info-mas-parque > .link-ver-detalle'
 
 class masParquesPageMobile{
 
+    IngresarMasParques(){
+        cy.viewport('iphone-xr')
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+    }
+    
     //Se revisa si la pagina contiene los titulos "Noticias actividades" y "Calendario actividades 2024"
     RevisarTitulos(){
         cy.contains(tituloCalendario)

@@ -44,6 +44,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaPremiumMobile {
+    
     //ingreso a la URL de Funeraria plan Premium Mobile
     ingresoFunerariaPremiumMobile(){
         cy.viewport('iphone-xr')

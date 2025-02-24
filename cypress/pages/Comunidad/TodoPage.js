@@ -5,6 +5,9 @@ const btnDetalleTodoFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class todoPage{
 
+    ingresarTodo(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/ver-todo')
+    }
     //Se selecciona el apartado Todo
     SeleccionarTodo(){
         cy.get(btnTodo,{timeout:10000}).should('be.visible').click()
@@ -17,7 +20,7 @@ class todoPage{
         cy.get(cardsTodo).should('be.visible').invoke('children').then((numeroCards) =>{
             let numeroChildrne = Math.floor(Math.random() * numeroCards.length) + 1
             cy.get(btnDetalleTodoInicial + numeroChildrne + btnDetalleTodoFinal).should('be.visible').click()
-            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/ver-todo')
         })
     }
 

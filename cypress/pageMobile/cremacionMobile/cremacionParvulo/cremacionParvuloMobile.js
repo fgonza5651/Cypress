@@ -44,6 +44,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class CremacionParvuloMobile {
+    
     //ingreso a la URL de Cremacion Premium NI Mobile
     ingresoCremacionParvuloMobile(){
         cy.viewport('iphone-xr')

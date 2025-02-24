@@ -31,6 +31,11 @@ const formularioLanding = Cypress.env('Formulario')
 const textoDetalle = 'Test de prueba form funeraria NF'
 
 class LandingFunerariaNF {
+    
+    ingresoLandingFunerariaNF(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-futura')
+    }
+
     //preciona el boton de compra en linea y rellena el formulario 
     compraEnLinea(){
         cy.get(btnCompraEnLinea,{timeout: 100000}).should('be.visible').click()

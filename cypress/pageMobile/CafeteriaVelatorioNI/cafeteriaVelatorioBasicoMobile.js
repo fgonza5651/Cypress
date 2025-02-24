@@ -19,6 +19,7 @@ const btnVerDetalleCafeteriaEstandar = ':nth-child(2) > .valor-ss-aa > .btn-ver-
 const btnVerDetalleCafeteriaPremium = ':nth-child(3) > .valor-ss-aa > .btn-ver-detalle-mobile'
 
 
+
 class cafeteriaVelatorioBasicoMobile {
     //ingreso a la URL de Cremacion Basico NI
     ingresoCafetariaVelatorioBasico(){

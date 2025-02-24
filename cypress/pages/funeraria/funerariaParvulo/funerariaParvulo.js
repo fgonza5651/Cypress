@@ -45,6 +45,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaParvulo {
+    
     //ingreso a la URL de funeraria plan Parvulo
     ingresarFunerariaParvulo(){
         cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo')

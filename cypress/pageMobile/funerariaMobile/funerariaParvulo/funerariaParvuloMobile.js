@@ -44,6 +44,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaParvuloMobile {
+    
     //ingreso a la URL de Funeraria plan Parvulo Mobile
     ingresoFunerariaParvuloMobile(){
         cy.viewport('iphone-xr')

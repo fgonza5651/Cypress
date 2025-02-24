@@ -5,6 +5,10 @@ const btnDetalleSostenibilidadFinal = ') > .cont-info-comunidad > .link-ver-deta
 
 class sostenibilidadPage{
 
+    ingresarSostenibilidad(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/sostenibilidad')
+    }
+
     //Se selecciona el apartado Sostenibilidad
     SeleccionarSostenibilidad(){
         cy.get(btnSostenibilidad,{timeout:10000}).should('be.visible').click()
@@ -17,7 +21,7 @@ class sostenibilidadPage{
         cy.get(cardsSostenibilidad).should('be.visible').invoke('children').then((numeroCards) =>{
             let numeroChildrne = Math.floor(Math.random() * numeroCards.length) + 1
             cy.get(btnDetalleSostenibilidadInicial + numeroChildrne + btnDetalleSostenibilidadFinal).should('be.visible').click()
-            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/sostenibilidad')
         })
     }
 

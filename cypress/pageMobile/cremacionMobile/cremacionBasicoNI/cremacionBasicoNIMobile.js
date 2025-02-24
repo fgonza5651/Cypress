@@ -74,6 +74,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 const formularioLanding = Cypress.env('Formulario')
 
 class CremacionBasicoNIMobile {
+    
     //ingreso a la URL de Cremacion Basica NI Mobile
     ingresoCremacionBasicaNIMobile(){
         cy.viewport('iphone-xr')

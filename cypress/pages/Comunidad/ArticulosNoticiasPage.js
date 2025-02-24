@@ -5,6 +5,10 @@ const btnDetalleNoticiaFinal = ') > .cont-info-comunidad > .link-ver-detalle'
 
 class articulosNoticiasPage{
 
+    ingresarArticulosNoticias(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/comunidad/articulos-y-noticias')
+    }
+
     //Se selecciona el apartado articulos y noticias
     SeleccionarArticulosNoticias(){
         cy.get(btnArticulosNoticias,{timeout:10000}).should('be.visible').click()
@@ -17,7 +21,7 @@ class articulosNoticiasPage{
         cy.get(cardsNoticias).should('be.visible').invoke('children').then((numeroCards) =>{
             let numeroChildrne = Math.floor(Math.random() * numeroCards.length) + 1
             cy.get(btnDetalleNoticiaInicial + numeroChildrne + btnDetalleNoticiaFinal).should('be.visible').click()
-            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+            cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/comunidad/articulos-y-noticias')
         })
     }
 

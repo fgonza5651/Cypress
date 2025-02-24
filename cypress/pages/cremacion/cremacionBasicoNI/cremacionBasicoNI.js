@@ -85,6 +85,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 
 const formularioLanding = Cypress.env('Formulario')
 
+
 class CremacionBasicoNI {
     //ingreso a la URL de Cremacion Basico NI
     ingresoCremacionBasicaNI(){

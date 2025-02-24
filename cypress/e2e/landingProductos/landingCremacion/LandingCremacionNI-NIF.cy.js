@@ -26,7 +26,7 @@ describe('Formulario landing de cremacion NI/NIF', () => {
     it('Ingresando al landing de cremacion NIF', () => {
 
         homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.seleccionaraCremacionNI()
+        homePage.seleccionCremacionNIF()
     })
 
     //CEC-2747
@@ -41,21 +41,21 @@ describe('Formulario landing de cremacion NI/NIF', () => {
     it('Enrutamientos Landings Cremación - PARQUE PAV', () => {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresarPAV()
-        PavHome.seleccionCremacion()
+        PavHome.seleccionNuestrosServicios('Cremacion')
     })
-
+    
     //CEC-2752
     it('Enrutamientos Landings Cremación - PARQUE PCO', () =>{
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresarPCO()
-        PcoHome.seleccionCremacion()
+        PavHome.seleccionNuestrosServicios('Cremacion')
     })
 
     //CEC-2753
     it('Enrutamientos Landings Cremación - PARQUE PPH', () => {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresaPPH()
-        PphHome.seleccionCremacion()
+        PphHome.seleccionNuestrosServicios('Cremacion')
     })
 
     //CEC-2720
@@ -65,15 +65,8 @@ describe('Formulario landing de cremacion NI/NIF', () => {
         CrenacionNIFF.enviarFormulario()
     })
 
-    //CEC-2732
-    it('Landings Cremación - NI - Contacto whatsapp', () => {
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.seleccionaraCremacionNI()
-        landingCremacionNi.whatssapNI()
-    })
-
     //CEC-2930
-    it.only('Cambios landing cremación - Cambio rótulos selector NI', () => {
+    it('Cambios landing cremación - Cambio rótulos selector NI', () => {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresarCremacion()
     })

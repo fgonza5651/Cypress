@@ -33,6 +33,10 @@ const btnVerMasPCO = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > 
 const btnVerMasPPH = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > .mat-tab-label-container > .mat-tab-list > .mat-tab-labels > #mat-tab-label-1-2'
 
 class buscarSepultura{
+    
+    ingresoBusquedaSepultura(){
+        cy.visit('https://ic.parquedelrecuerdo.cl/busqueda/sepultados')
+    }
 
     //Revisa que el banner de cards tenga almenos 1 elemento
     RevisarCard(){

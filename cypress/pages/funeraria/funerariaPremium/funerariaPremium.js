@@ -43,6 +43,7 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 }
 
 class FunerariaPremium {
+    
     //ingreso a la URL de funeraria plan Premium
     ingresarFunerariaPremium(){
         cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-homenaje-premium')
