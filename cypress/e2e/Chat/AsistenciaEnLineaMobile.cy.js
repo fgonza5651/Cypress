@@ -289,14 +289,14 @@ describe('Chat en linea -Mobile', () => {
 
     })
 
-    //
+    //CEC-1784
     it('cremacion Basico NI -Seleccionar Hablar con una Asesora -Mobile', () => {
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-2532
     it('cremacion Basico NI -Seleccionar Otra Solicitud -Mobile', () => {
         cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
         ChatPageMobile.seleccionarOtroSolicitud()
@@ -513,42 +513,42 @@ describe('Chat en linea -Mobile', () => {
 
     })
 
-    //
+    //CEC-2843
     it('landing Funeraria NF -Seleccionar Hablar con una Asesora -Mobile', () => {
         landingFunerariaNFMobile.ingresoLandingFunerariaNF()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-2822
     it('landing Funeraria NF -Seleccionar Otra Solicitud -Mobile', () => {
         landingFunerariaNFMobile.ingresoLandingFunerariaNF()
         ChatPageMobile.seleccionarOtroSolicitud()
 
     })
 
-    //
+    //CEC-2843
     it('landing Funeraria NI -Seleccionar Hablar con una Asesora -Mobile', () => {
         landingFunerariaNIMobile.ingresoLandingFunerariaNI()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-2822
     it('landing Funeraria NI -Seleccionar Otra Solicitud -Mobile', () => {
         landingFunerariaNIMobile.ingresoLandingFunerariaNI()
         ChatPageMobile.seleccionarOtroSolicitud()
 
     })
 
-    //
+    //CEC-2842
     it('landing Funeraria NIF -Seleccionar Hablar con una Asesora -Mobile', () => {
         landingFunerariaNIFMobile.ingresoLandingFunerariaNIF()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-2843
     it('landing Funeraria NIF -Seleccionar Otra Solicitud -Mobile', () => {
         landingFunerariaNIFMobile.ingresoLandingFunerariaNIF()
         ChatPageMobile.seleccionarOtroSolicitud()
@@ -709,42 +709,42 @@ describe('Chat en linea -Mobile', () => {
 
     })
 
-    //
+    //CEC-3419
     it('landing Sepultura NI -Seleccionar Hablar con una Asesora -Mobile', () => {
         landingSepulturaNIMobile.ingresoLandingSepulturaNI()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-2861
     it('landing Sepultura NI -Seleccionar Otra Solicitud -Mobile', () => {
         landingSepulturaNIMobile.ingresoLandingSepulturaNI()
         ChatPageMobile.seleccionarOtroSolicitud()
 
     })
 
-    //
+    //CEC-3419
     it('landing Sepultura NIF -Seleccionar Hablar con una Asesora -Mobile', () => {
         landingSepulturaNIFMobile.ingresoLandingSepulturaNIF()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-2861
     it('landing Sepultura NIF -Seleccionar Otra Solicitud -Mobile', () => {
         landingSepulturaNIFMobile.ingresoLandingSepulturaNIF()
         ChatPageMobile.seleccionarOtroSolicitud()
 
     })
 
-    //
+    //CEC-5059
     it('landing Sepultura NF -Seleccionar Hablar con una Asesora -Mobile', () => {
         landingSepulturaNFMobile.ingresoLandingSepulturaNF()
         ChatPageMobile.seleccionarHablarAsesora()
 
     })
 
-    //
+    //CEC-5063
     it('landing Sepultura NF -Seleccionar Otra Solicitud -Mobile', () => {
         landingSepulturaNFMobile.ingresoLandingSepulturaNF()
         ChatPageMobile.seleccionarOtroSolicitud()

@@ -1,7 +1,7 @@
 import homePage from "../../../pages/home/homePage";
 import landingFunerariaNI from "../../../pages/funeraria/landingFunerariaNI/landingFunerariaNI";
 import homePageMobile from "../../../pageMobile/homeMobile/homePageMobile";
-import landingFunerariaNIMobile from "../../../pageMobile/funerariaMobile/landingFunerariaNiMobile/landingFunerariaNIMobile";
+import landingFunerariaNIMobile from "../../../pageMobile/funerariaMobile/landingFunerariaNIMobile/landingFunerariaNIMobile";
 
 describe('Formulario landing de funeraria NI', () => {
 
@@ -22,18 +22,6 @@ describe('Formulario landing de funeraria NI', () => {
         homePage.ingresoHomeParqueDelRecuerdo()
         homePage.ingresoFunerariaNIProductosServicios()
         landingFunerariaNI.empiezaAqui()
-    })
-    //CEC-2843
-    it('Landing Funeraria - NI - Hablar en linea con una ejecutiva', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoFunerariaNIProductosServicios()
-        landingFunerariaNI.ejecutivaEnlineaHablar()
-    })
-    //CEC-2822
-    it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoFunerariaNIProductosServicios()
-        landingFunerariaNI.ejecutivaEnlineaOtraSolicitud()
     })
     //CEC-3966
     it('Landing Funeraria - NI - Revisar titulos', ()=>{
@@ -59,20 +47,6 @@ describe('Formulario landing de funeraria NI', () => {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
         landingFunerariaNIMobile.empiezaAqui()
-
-    })
-    //CEC-2843
-    it('Landing Funeraria - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
-        landingFunerariaNIMobile.ejecutivaEnlineaHablar()
-
-    })
-    //CEC-2822
-    it('Landing Funeraria - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIProductosServiciosMobile()
-        landingFunerariaNIMobile.ejecutivaEnlineaOtraSolicitud()
 
     })
     //CEC-3966

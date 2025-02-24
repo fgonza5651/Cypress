@@ -65,13 +65,6 @@ describe('Formulario landing de cremacion NI/NIF', () => {
         CrenacionNIFF.enviarFormulario()
     })
 
-    //CEC-2732
-    it('Landings Cremación - NI - Contacto whatsapp', () => {
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.seleccionaraCremacionNI()
-        landingCremacionNi.whatssapNI()
-    })
-
     //CEC-2930
     it('Cambios landing cremación - Cambio rótulos selector NI', () => {
         homePage.ingresoHomeParqueDelRecuerdo()

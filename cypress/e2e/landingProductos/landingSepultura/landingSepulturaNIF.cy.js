@@ -29,18 +29,6 @@ describe('Formulario landing de Sepultura NIF', () => {
         homePage.ingresoSepulturaNIFProductosServicios()
         landingSepulturaNIF.chatWhatsapp()
     })
-    //CEC-3419
-    it('Landing Sepultura - NIF - Hablar en linea con una ejecutiva', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNIF.ejecutivaEnlineaHablar()
-    })
-    //CEC-2861
-    it('Landing Sepultura - NIF - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoSepulturaNIFProductosServicios()
-        landingSepulturaNIF.ejecutivaEnlineaOtraSolicitud()
-    })
     //CEC-5068
     it('Landing Sepultura - NIF - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
@@ -94,18 +82,6 @@ describe('Formulario landing de Sepultura NIF', () => {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
         landingSepulturaNIFMobile.chatWhatsapp()
-    })
-    //CEC-2714
-    it('Landing Sepultura - NIF - Hablar en linea con una ejecutiva -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIFMobile.ejecutivaEnlineaHablar()
-    })
-    //CEC-3419
-    it('Landing Sepultura - NIF - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoSepulturaNIFProductosServiciosMobile()
-        landingSepulturaNIFMobile.ejecutivaEnlineaOtraSolicitud()
     })
     //CEC-2861
     it('Landing Sepultura - NIF -Revisar titulos -Mobile', ()=>{

@@ -23,19 +23,6 @@ describe('Formulario landing de funeraria NIF', () => {
         homePage.ingresoFunerariaNIFProductosServicios()
         landingFunerariaNIF.empiezaAqui()
     })
-
-    //CEC-2842
-    it('Landing Funeraria - NIF - Hablar en linea con una ejecutiva', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoFunerariaNIFProductosServicios()
-        landingFunerariaNIF.ejecutivaEnlineaHablar()
-    })
-    //CEC-2843
-    it('Landing Funeraria - NIF - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoFunerariaNIFProductosServicios()
-        landingFunerariaNIF.ejecutivaEnlineaOtraSolicitud()
-    })
     //CEC-3914
     it('Landing Funeraria - NIF - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
@@ -60,20 +47,6 @@ describe('Formulario landing de funeraria NIF', () => {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoFunerariaNIFProductosServiciosMobile()
         landingFunerariaNIFMobile.empiezaAqui()
-
-    })
-    //CEC-2842
-    it('Landing Funeraria - NIF - Hablar en linea con una ejecutiva -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIFProductosServiciosMobile()
-        landingFunerariaNIFMobile.ejecutivaEnlineaHablar()
-
-    })
-    //CEC-2843
-    it('Landing Funeraria - NIF - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoFunerariaNIFProductosServiciosMobile()
-        landingFunerariaNIFMobile.ejecutivaEnlineaOtraSolicitud()
 
     })
     //CEC-3914

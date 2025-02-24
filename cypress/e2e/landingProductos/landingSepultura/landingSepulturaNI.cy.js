@@ -29,18 +29,6 @@ describe('Formulario landing de Sepultura NI', () => {
         homePage.ingresoSepulturaNIProductosServicios()
         landingSepulturaNI.chatWhatsapp()
     })
-    //CEC-3419
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoSepulturaNIProductosServicios()
-        landingSepulturaNI.ejecutivaEnlineaHablar()
-    })
-    //CEC-2861
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
-        homePage.ingresoSepulturaNIProductosServicios()
-        landingSepulturaNI.ejecutivaEnlineaOtraSolicitud()
-    })
     //CEC-5068
     it('Landing Sepultura - NI - Revisar titulos', ()=>{
         homePage.ingresoHomeParqueDelRecuerdo()
@@ -95,18 +83,6 @@ describe('Formulario landing de Sepultura NI', () => {
         homePageMobile.ingresoHomeMobile()
         homePageMobile.ingresoSepulturaNIProductosServiciosMobile()
         landingSepulturaNIMobile.chatWhatsapp()
-    })
-    //CEC-3419
-    it('Landing Sepultura - NI - Hablar en linea con una ejecutiva -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoSepulturaNIProductosServiciosMobile()
-        landingSepulturaNIMobile.ejecutivaEnlineaHablar()
-    })
-    //CEC-2861
-    it('Landing Sepultura - NI - Realizar otra solicitud con ejecutiva en linea -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
-        homePageMobile.ingresoSepulturaNIProductosServiciosMobile()
-        landingSepulturaNIMobile.ejecutivaEnlineaOtraSolicitud()
     })
     //CEC-5068
     it('Landing Sepultura - NI -Revisar titulos -Mobile', ()=>{

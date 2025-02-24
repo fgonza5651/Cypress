@@ -1,5 +1,10 @@
 # Cypress
 Nombre: Benjamin Barria
+Fecha: 24/02/2025-10:28
+Version: 3.3.27
+Descripcion:Se implemento la automatizacion de ejecutiva en linea de todos los sectores revisando los botones "hablar con asesora de ventas" y "otro tipo de solicitudes" esto tanto para desktop como mobile 
+--------------------------------------------------------------------------------------------------------------
+Nombre: Benjamin Barria
 Fecha: 19/02/2025-16:58
 Version: 3.3.26
 Descripcion: Se arreglaron los cambio del sector funnel sepultura ademas de incorporar la funcion "cambiarParque" todo esto tanto en desktop como en mobile  

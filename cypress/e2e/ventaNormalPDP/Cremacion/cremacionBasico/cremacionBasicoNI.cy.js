@@ -18,16 +18,6 @@ describe('test cremacion-basico-NI', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
         cremacionBasicoNI.compraEnLinea()
     })
-    //CEC-1784
-    it('Cremacion -Basico - NI  - Hablar en linea con una ejecutiva', ()=>{
-        cremacionBasicoNI.ingresoCremacionBasicaNI()
-        cremacionBasicoNI.ejecutivaEnlineaHablar()
-    })
-    //CEC-2532
-    it('Cremacion -Basico - NI - Realizar otra solicitud con ejecutiva en linea', ()=>{
-        cremacionBasicoNI.ingresoCremacionBasicaNI()
-        cremacionBasicoNI.ejecutivaEnlineaOtraSolicitud()
-    })
     //{nombre historia}
     it('Cremacion - Basico -NI -Descanso vidriado', () =>{
         cremacionBasicoNI.ingresoCremacionBasicaNI()
