@@ -34,11 +34,11 @@ const btnVerDetalles = {
     Cremacion: '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[3]/div/button',
     Sepultura: '//*[@id="grilla-nuestros-productos"]/div/div[2]/div[4]/div/button'
 };
-const url = {
-    Funeraria: 'https://ic.parquedelrecuerdo.cl/landing/funeraria',
-    Velatorio: 'https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni',
-    Cremacion: 'https://ic.parquedelrecuerdo.cl/landing/cremacion',
-    Sepultura: 'https://ic.parquedelrecuerdo.cl/landing/sepultura'
+const urlServicio = {
+    Funeraria: 'urlLandingFuneraria',
+    Velatorio: 'urlCafeteriaVelatorioBasico',
+    Cremacion: 'urlLandingCremacion',
+    Sepultura: 'urlLandingSepultura'
 };
 //Tambien te ofrecemos
 const btnSiguinteTambienOfrecemos = '#grilla-tambien-ofrecemos > div > div > swiper > div.swiper-button-next.ng-star-inserted'
@@ -83,18 +83,17 @@ const btnIrFloresRecuerdo = ':nth-child(1) > .btn-ir-sitio'
 const btnIrContigoRecuerdo = ':nth-child(2) > .btn-ir-sitio'
 
 
-const formulario = Cypress.env('Formulario');
 
 class pcoHome {
 
-    ingresoPcoHome(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/parques/cordillera')
+    ingresoPcoHome(url){
+        cy.visit(url.urlPCO)
     }
 
     //Se selecciona Cotiza aqui desde el parque PAV
-    seleccionCotizaAqui(){
+    seleccionCotizaAqui(url){
         cy.get(btnCotizaAqui, {timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui')
+        cy.url().should('eq', url.urlCotiza)
     }
 
     //Se selecciona tour virtual del parque PAV
@@ -125,13 +124,13 @@ class pcoHome {
     }
     
     //Se selecciona llamanos de parque PAV
-    seleccionLlamanos(){
+    seleccionLlamanos(formulario){
         cy.get(btnLlamanos,{timeout: 10000}).click()
-        cy.get(inputNumeroLlamanos,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].telefono)
+        cy.get(inputNumeroLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     
     //Se selecciona Escribenos de parque PAV
-    seleccionEscribenos(){
+    seleccionEscribenos(url,formulario){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -140,22 +139,22 @@ class pcoHome {
         });
         cy.get(btnEscribenos,{timeout: 10000}).click()
         cy.get(popUpEscribenos, {timeout: 10000}).should('be.visible')
-        cy.get(inputNumeroEscribenos,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].telefono)
+        cy.get(inputNumeroEscribenos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
         cy.get(btnHablarWhassap,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://wa.me/56940277054?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Parque%20del%20Recuerdo')
+        cy.url().should('include', url.urlWhatsapp)
     }
     
     //Se selecciona Cotiza de parque PAV
-    seleccionCotiza(){
+    seleccionCotiza(url){
         cy.get(btnCotiza,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui')
+        cy.url().should('eq', url.urlCotiza)
     }
     
     //Se selecciona la cremacion desde el parque PAV
-    seleccionNuestrosServicios(tipo){
+    seleccionNuestrosServicios(url,tipo){
         cy.get(Servicio[tipo], {timeout: 10000}).should('be.visible').realHover()
         cy.xpath(btnVerDetalles[tipo],{timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', url[tipo])
+        cy.url().should('eq', url[ urlServicio[tipo] ])
         
     }
     
@@ -211,7 +210,7 @@ class pcoHome {
     }
 
     //Se revisa la Loreria desde tambien te ofrecemos
-    revisarFloreria(){
+    revisarFloreria(url){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -219,11 +218,11 @@ class pcoHome {
             });
         });
         cy.get(btnVerArreglos,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://flores.parquedelrecuerdo.cl/')
+        cy.url().should('eq', url.urlFlores)
     }
 
     //Se revisa hablar en linea de pop up tambien te ofrecemos 
-    revisarHablaEnLinea(){
+    revisarHablaEnLinea(url){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -231,47 +230,47 @@ class pcoHome {
             });
         });
         cy.get(btnHablarEnLineaTambienOfrecemos,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://wa.me/56940277054?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Parque%20del%20Recuerdo')
+        cy.url().should('include', url.urlWhatsapp)
     }
 
-    //Se selecciona ver todos los obituarios 
-    seleccionObituarios(){
+     //Se selecciona ver todos los obituarios 
+     seleccionObituarios(url){
         cy.get(btnVerTodosObituarios,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/busqueda/obituario')
+        cy.url().should('eq', url.urlObituario)
     }
 
     //Se selecciona ver todos los obituarios 
-    seleccionVerTodoNoticias(){
+    seleccionVerTodoNoticias(url){
         cy.get(btnVerTodoUltimasNoticias,{timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/comunidad/ver-todo')
+        cy.url().should('eq', url.urlComunidadVerTodo)
     }
 
     //Se selecciona ver todos los obituarios 
-    seleccionActividadesEnParques(){
+    seleccionActividadesEnParques(url){
         cy.get(btnActividadesEnParques,{timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/comunidad/actividades-en-nuestros-parques')
+        cy.url().should('eq', url.urlComunidadActividadesParques)
     }
 
     //Se selecciona ver todos los obituarios 
-    seleccionArticulosNoticias(){
+    seleccionArticulosNoticias(url){
         cy.get(btnArticulosNoticias,{timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/comunidad/articulos-y-noticias')
+        cy.url().should('eq', url.urlComunidadArticulos)
     }
 
     //Se selecciona ver todos los obituarios 
-    seleccionSostenibilidad(){
+    seleccionSostenibilidad(url){
         cy.get(btnSostenibilidad,{timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/comunidad/sostenibilidad')
+        cy.url().should('eq', url.urlComunidadSostenibilidad)
     }
 
     //Se selecciona ver todos los obituarios 
-    seleccionMasParque(){
+    seleccionMasParque(url){
         cy.get(btnMasParque,{timeout: 10000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/comunidad/mas-parque')
+        cy.url().should('eq', url.urlComunidadMasParque)
     }
 
     //Se Selecciona ir al sitio Flores del Recuerdo 
-    seleccionFloresRecuerdoIr(){
+    seleccionFloresRecuerdoIr(url){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -279,11 +278,11 @@ class pcoHome {
             });
         });
         cy.get(btnIrFloresRecuerdo,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://flores.parquedelrecuerdo.cl/')
+        cy.url().should('eq', url.urlFlores)
     }
 
     //Se Selecciona ir al sitio Contigo en el Recuerdo
-    seleccionContigoRecuerdoIr(){
+    seleccionContigoRecuerdoIr(url){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -291,7 +290,7 @@ class pcoHome {
             });
         });
         cy.get(btnIrContigoRecuerdo,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://contigoenelrecuerdo.cl/')
+        cy.url().should('eq', url.urlContigo)
     }
 }
 const PcoHome = new pcoHome()

@@ -5,26 +5,30 @@ import authenticatorWebpayMobile from "../../../../pageMobile/carroComprasMobile
 import checkoutReciboMobile from "../../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
 
 describe('', () => {
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+          cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
     });
 
     //
-    it('Ingresar flujo funeraria NI Mobile', () => {
+    it('Ingresar flujo funeraria NI Mobile', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
 
     })
 
     //Con servicio de cremacion base - ceremonia despedida especial - anafora cofres full- descanzo de cnizas especial - memorial del recuerdo
-    it('Comprar plan basico -Necesito cremacion', () => {
+    it('Comprar plan basico -Necesito cremacion', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanBasico()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -46,7 +50,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionDescansoCenizasContinuar()
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         /*
         webpay3Mobile.precionarTarjetas()
@@ -58,11 +62,11 @@ describe('', () => {
     //
 
     //Con servicio de plan tradicion - cremacion base - despedida con coro- anafora madera bascia incluida - entrega cenizas inclida - jarin de flores
-    it('Comprar plan tradicion -Necesito cremacion', () => {
+    it('Comprar plan tradicion -Necesito cremacion', function()  {
       
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanTradicional()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -85,7 +89,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         webpay3Mobile.precionarTarjetas()
         webpay3Mobile.ingresoTarjetaDebito()
@@ -95,11 +99,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan sustentable -Necesito cremacion', () => {
+    it('Comprar plan sustentable -Necesito cremacion', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanSustentable()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -122,7 +126,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         webpay3Mobile.precionarTarjetas()
         webpay3Mobile.ingresoTarjetaDebito()
@@ -132,11 +136,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan tradicion destacada -Necesito cremacion', () => {
+    it('Comprar plan tradicion destacada -Necesito cremacion', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanTradicionalDestacado()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -158,7 +162,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionDescansoCenizasContinuar()
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         /*
         webpay3Mobile.precionarTarjetas()
@@ -169,11 +173,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan premium -Necesito cremacion', () => {
+    it('Comprar plan premium -Necesito cremacion', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanSustentable()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -196,7 +200,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         webpay3Mobile.precionarTarjetas()
         webpay3Mobile.ingresoTarjetaDebito()
@@ -206,11 +210,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan tradicion Destacado -Necesito Sepultura', () => {
+    it('Comprar plan tradicion Destacado -Necesito Sepultura', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanTradicionalDestacado()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -221,7 +225,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seccionServicioCremacionBase()
         /*
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         webpay3Mobile.precionarTarjetas()
         webpay3Mobile.ingresoTarjetaDebito()
@@ -231,11 +235,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan homenaje premium -Necesito Sepultura', () => {
+    it('Comprar plan homenaje premium -Necesito Sepultura', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanHomenajePremium()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -245,7 +249,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seleccionNecesitoSepultura()
         FunnelFunerariaNIMobile.seccionServicioCremacionBase()
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         /*
         webpay3Mobile.precionarTarjetas()
@@ -256,11 +260,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan homenaje premium destado -Necesito Sepultura', () => {
+    it('Comprar plan homenaje premium destado -Necesito Sepultura', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanHomenajePremiumDestacado()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -271,7 +275,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seccionServicioCremacionBase()
         /*
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         webpay3Mobile.precionarTarjetas()
         webpay3Mobile.ingresoTarjetaDebito()
@@ -281,11 +285,11 @@ describe('', () => {
     })
 
     //
-    it('Comprar plan basico -Continuar sin estos servicios', () => {
+    it('Comprar plan basico -Continuar sin estos servicios', function()  {
 
-        FunnelFunerariaNIMobile.inicioFlujoCremacion()
+        FunnelFunerariaNIMobile.inicioFlujoCremacion(this.datos.Url)
         FunnelFunerariaNIMobile.seleccionRegionComuna()
-        FunnelFunerariaNIMobile.formularioCuentanoDeTi()
+        FunnelFunerariaNIMobile.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelFunerariaNIMobile.verMasPlanBasico()
         FunnelFunerariaNIMobile.SeleccionarServiciosSidenav()
         FunnelFunerariaNIMobile.seccionFunerariaContinuar()
@@ -294,7 +298,7 @@ describe('', () => {
         FunnelFunerariaNIMobile.seccionVelatorioContinuar()
         FunnelFunerariaNIMobile.seleccionContinuarSinEstosServicios()
         ResumenPagoPageMobile.completarDatos()
-        ResumenPagoPageMobile.formularioComprador()
+        ResumenPagoPageMobile.formularioComprador(this.datos.Formulario)
         ResumenPagoPageMobile.checkTerminosCondiciones()
         /*
         webpay3Mobile.precionarTarjetas()

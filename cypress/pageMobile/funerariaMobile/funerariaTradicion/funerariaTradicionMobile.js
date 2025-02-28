@@ -45,9 +45,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaTradicionMobile {
     
     //ingreso a la URL de Funeraria plan Tradicion Mobile
-    ingresoFunerariaTradicionMobile(){
+    ingresoFunerariaTradicionMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-tradicion')
+        cy.visit(url.urlFunerariaTradicion)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

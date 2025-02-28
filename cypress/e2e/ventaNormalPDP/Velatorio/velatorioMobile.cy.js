@@ -18,29 +18,33 @@ import authenticatorWebpayMobile from "../../../pageMobile/carroComprasMobile/we
 import checkoutReciboMobile from "../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
 
 
-describe('test funeraria plan basico', () =>{
-    beforeEach(() => {
+describe('test funeraria plan basico', () => {
+    beforeEach(function()  {
         cy.clearCookies();   
         cy.clearLocalStorage();
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
-          });
+        });
+
+        cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
     });
 //---------------------------------------cremacion Basica Mobile----------------------------------------//
     //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio basico -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
+    it('Cremacion - Basico -NI -Velatorio basico -Mobile', function() {
+        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile(this.datos.Url)
         cremacionBasicoNIMobile.agregarVelatorioBasico()
         cremacionBasicoNIMobile.revisarAgregarCarrito()
         cremacionBasicoNIMobile.revisarPreciosVelatorio()
         cremacionBasicoNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -63,18 +67,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio estandar -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
+    it('Cremacion - Basico -NI -Velatorio estandar -Mobile', function() {
+        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile(this.datos.Url)
         cremacionBasicoNIMobile.agregarVelatorioEstandar()
         cremacionBasicoNIMobile.revisarAgregarCarrito()
         cremacionBasicoNIMobile.revisarPreciosVelatorio()
         cremacionBasicoNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -96,18 +100,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio premium -Mobile', () =>{
-        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile()
+    it('Cremacion - Basico -NI -Velatorio premium -Mobile', function() {
+        cremacionBasicoNIMobile.ingresoCremacionBasicaNIMobile(this.datos.Url)
         cremacionBasicoNIMobile.agregarVelatorioPremium()
         cremacionBasicoNIMobile.revisarAgregarCarrito()
         cremacionBasicoNIMobile.revisarPreciosVelatorio()
         cremacionBasicoNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -131,50 +135,37 @@ describe('test funeraria plan basico', () =>{
 
 //----------------------------------------cremacion FULL Mobile------------------------------------------//
     //{nombre historia}
-    it('Cremacion -Full -NI -Velatorio basico -Mobile', () =>{
-        cremacionFullNIMobile.ingresoCremacionFullNIMobile()
+    it('Cremacion -Full -NI -Velatorio basico -Mobile', function() {
+        cremacionFullNIMobile.ingresoCremacionFullNIMobile(this.datos.Url)
         cremacionFullNIMobile.agregarVelatorioBasico()
         cremacionFullNIMobile.revisarAgregarCarrito()
         cremacionFullNIMobile.revisarPreciosVelatorio()
         cremacionFullNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio estandar -Mobile', () =>{
-        cremacionFullNIMobile.ingresoCremacionFullNIMobile()
+    it('Cremacion - Basico -NI -Velatorio estandar -Mobile', function() {
+        cremacionFullNIMobile.ingresoCremacionFullNIMobile(this.datos.Url)
         cremacionFullNIMobile.agregarVelatorioEstandar()
         cremacionFullNIMobile.revisarAgregarCarrito()
         cremacionFullNIMobile.revisarPreciosVelatorio()
         cremacionFullNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -196,18 +187,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Basico -NI -Velatorio premium -Mobile', () =>{
-        cremacionFullNIMobile.ingresoCremacionFullNIMobile()
+    it('Cremacion - Basico -NI -Velatorio premium -Mobile', function() {
+        cremacionFullNIMobile.ingresoCremacionFullNIMobile(this.datos.Url)
         cremacionFullNIMobile.agregarVelatorioPremium()
         cremacionFullNIMobile.revisarAgregarCarrito()
         cremacionFullNIMobile.revisarPreciosVelatorio()
         cremacionFullNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -232,18 +223,18 @@ describe('test funeraria plan basico', () =>{
 
 //---------------------------------------cremacion Premium Mobile----------------------------------------//    
     //{nombre historia}
-    it('Cremacion - Premium -NI -Velatorio basico -Mobile', () =>{
-        cremacionPremiumNIMobile.ingresoCremacionPremiumNIMobile()
+    it('Cremacion - Premium -NI -Velatorio basico -Mobile', function() {
+        cremacionPremiumNIMobile.ingresoCremacionPremiumNIMobile(this.datos.Url)
         cremacionPremiumNIMobile.agregarVelatorioBasico()
         cremacionPremiumNIMobile.revisarAgregarCarrito()
         cremacionPremiumNIMobile.revisarPreciosVelatorio()
         cremacionPremiumNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -266,18 +257,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Premium -NI -Velatorio estandar -Mobile', () =>{
-        cremacionPremiumNIMobile.ingresoCremacionPremiumNIMobile()
+    it('Cremacion - Premium -NI -Velatorio estandar -Mobile', function() {
+        cremacionPremiumNIMobile.ingresoCremacionPremiumNIMobile(this.datos.Url)
         cremacionPremiumNIMobile.agregarVelatorioEstandar()
         cremacionPremiumNIMobile.revisarAgregarCarrito()
         cremacionPremiumNIMobile.revisarPreciosVelatorio()
         cremacionPremiumNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -299,18 +290,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Premium -NI -Velatorio premium -Mobile', () =>{
-        cremacionPremiumNIMobile.ingresoCremacionPremiumNIMobile()
+    it('Cremacion - Premium -NI -Velatorio premium -Mobile', function() {
+        cremacionPremiumNIMobile.ingresoCremacionPremiumNIMobile(this.datos.Url)
         cremacionPremiumNIMobile.agregarVelatorioPremium()
         cremacionPremiumNIMobile.revisarAgregarCarrito()
         cremacionPremiumNIMobile.revisarPreciosVelatorio()
         cremacionPremiumNIMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -335,18 +326,18 @@ describe('test funeraria plan basico', () =>{
 
 //----------------------------------------funeraria Basico Mobile-----------------------------------------//
     //{nombre historia}
-    it('Funeraria - Basico -Velatorio basico -Mobile', () =>{
-        funerariaBasicoMobile.ingresoFunerariaBasicoMobile()
+    it('Funeraria - Basico -Velatorio basico -Mobile', function() {
+        funerariaBasicoMobile.ingresoFunerariaBasicoMobile(this.datos.Url)
         funerariaBasicoMobile.agregarVelatorioBasico()
         funerariaBasicoMobile.revisarAgregarCarrito()
         funerariaBasicoMobile.revisarPreciosVelatorio()
         funerariaBasicoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -369,18 +360,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Basico -Velatorio estandar -Mobile', () =>{
-        funerariaBasicoMobile.ingresoFunerariaBasicoMobile()
+    it('Funeraria - Basico -Velatorio estandar -Mobile', function() {
+        funerariaBasicoMobile.ingresoFunerariaBasicoMobile(this.datos.Url)
         funerariaBasicoMobile.agregarVelatorioEstandar()
         funerariaBasicoMobile.revisarAgregarCarrito()
         funerariaBasicoMobile.revisarPreciosVelatorio()
         funerariaBasicoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -402,18 +393,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Basico -Velatorio premium -Mobile', () =>{
-        funerariaBasicoMobile.ingresoFunerariaBasicoMobile()
+    it('Funeraria - Basico -Velatorio premium -Mobile', function() {
+        funerariaBasicoMobile.ingresoFunerariaBasicoMobile(this.datos.Url)
         funerariaBasicoMobile.agregarVelatorioPremium()
         funerariaBasicoMobile.revisarAgregarCarrito()
         funerariaBasicoMobile.revisarPreciosVelatorio()
         funerariaBasicoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -437,18 +428,18 @@ describe('test funeraria plan basico', () =>{
     })
 //---------------------------------------funeraria Parvulo Mobile-----------------------------------------//
     //{nombre historia}
-    it('Funeraria - Parvulo -Velatorio basico -Mobile', () =>{
-        funerariaParvuloMobile.ingresoFunerariaParvuloMobile()
+    it('Funeraria - Parvulo -Velatorio basico -Mobile', function() {
+        funerariaParvuloMobile.ingresoFunerariaParvuloMobile(this.datos.Url)
         funerariaParvuloMobile.agregarVelatorioBasico()
         funerariaParvuloMobile.revisarAgregarCarrito()
         funerariaParvuloMobile.revisarPreciosVelatorio()
         funerariaParvuloMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -471,18 +462,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Parvulo -Velatorio estandar -Mobile', () =>{
-        funerariaParvuloMobile.ingresoFunerariaParvuloMobile()
+    it('Funeraria - Parvulo -Velatorio estandar -Mobile', function() {
+        funerariaParvuloMobile.ingresoFunerariaParvuloMobile(this.datos.Url)
         funerariaParvuloMobile.agregarVelatorioEstandar()
         funerariaParvuloMobile.revisarAgregarCarrito()
         funerariaParvuloMobile.revisarPreciosVelatorio()
         funerariaParvuloMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -504,18 +495,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Parvulo -Velatorio premium -Mobile', () =>{
-        funerariaParvuloMobile.ingresoFunerariaParvuloMobile()
+    it('Funeraria - Parvulo -Velatorio premium -Mobile', function() {
+        funerariaParvuloMobile.ingresoFunerariaParvuloMobile(this.datos.Url)
         funerariaParvuloMobile.agregarVelatorioPremium()
         funerariaParvuloMobile.revisarAgregarCarrito()
         funerariaParvuloMobile.revisarPreciosVelatorio()
         funerariaParvuloMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -540,18 +531,18 @@ describe('test funeraria plan basico', () =>{
 
 //-------------------------------------funeraria Parvulo Base Mobile---------------------------------------//
     //{nombre historia}
-    it('Funeraria - Parvulo base -Velatorio basico -Mobile', () =>{
-        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile()
+    it('Funeraria - Parvulo base -Velatorio basico -Mobile', function() {
+        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile(this.datos.Url)
         funerariaParvuloBaseMobile.agregarVelatorioBasico()
         funerariaParvuloBaseMobile.revisarAgregarCarrito()
         funerariaParvuloBaseMobile.revisarPreciosVelatorio()
         funerariaParvuloBaseMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -574,18 +565,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Parvulo base -Velatorio estandar -Mobile', () =>{
-        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile()
+    it('Funeraria - Parvulo base -Velatorio estandar -Mobile', function() {
+        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile(this.datos.Url)
         funerariaParvuloBaseMobile.agregarVelatorioEstandar()
         funerariaParvuloBaseMobile.revisarAgregarCarrito()
         funerariaParvuloBaseMobile.revisarPreciosVelatorio()
         funerariaParvuloBaseMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -607,18 +598,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Parvulo base -Velatorio premium -Mobile', () =>{
-        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile()
+    it('Funeraria - Parvulo base -Velatorio premium -Mobile', function() {
+        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile(this.datos.Url)
         funerariaParvuloBaseMobile.agregarVelatorioPremium()
         funerariaParvuloBaseMobile.revisarAgregarCarrito()
         funerariaParvuloBaseMobile.revisarPreciosVelatorio()
         funerariaParvuloBaseMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -643,18 +634,18 @@ describe('test funeraria plan basico', () =>{
 
 //----------------------------------funeraria Parvulo Destacado Mobile---------------------------------------//
     //{nombre historia}
-    it('Funeraria - Parvulo destacado -Velatorio basico -Mobile', () =>{
-        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile()
+    it('Funeraria - Parvulo destacado -Velatorio basico -Mobile', function() {
+        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile(this.datos.Url)
         funerariaParvuloDestacadoMobile.agregarVelatorioBasico()
         funerariaParvuloDestacadoMobile.revisarAgregarCarrito()
         funerariaParvuloDestacadoMobile.revisarPreciosVelatorio()
         funerariaParvuloDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -677,18 +668,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Parvulo destacado -Velatorio estandar -Mobile', () =>{
-        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile()
+    it('Funeraria - Parvulo destacado -Velatorio estandar -Mobile', function() {
+        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile(this.datos.Url)
         funerariaParvuloDestacadoMobile.agregarVelatorioEstandar()
         funerariaParvuloDestacadoMobile.revisarAgregarCarrito()
         funerariaParvuloDestacadoMobile.revisarPreciosVelatorio()
         funerariaParvuloDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -710,18 +701,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Parvulo destacado -Velatorio premium -Mobile', () =>{
-        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile()
+    it('Funeraria - Parvulo destacado -Velatorio premium -Mobile', function() {
+        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile(this.datos.Url)
         funerariaParvuloDestacadoMobile.agregarVelatorioPremium()
         funerariaParvuloDestacadoMobile.revisarAgregarCarrito()
         funerariaParvuloDestacadoMobile.revisarPreciosVelatorio()
         funerariaParvuloDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -746,18 +737,18 @@ describe('test funeraria plan basico', () =>{
 
 //---------------------------------------funeraria Premium Mobile-----------------------------------------//
     //{nombre historia}
-    it('Funeraria - Premium -Velatorio basico -Mobile', () =>{
-        funerariaPremiumMobile.ingresoFunerariaPremiumMobile()
+    it('Funeraria - Premium -Velatorio basico -Mobile', function() {
+        funerariaPremiumMobile.ingresoFunerariaPremiumMobile(this.datos.Url)
         funerariaPremiumMobile.agregarVelatorioBasico()
         funerariaPremiumMobile.revisarAgregarCarrito()
         funerariaPremiumMobile.revisarPreciosVelatorio()
         funerariaPremiumMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -780,18 +771,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Premium -Velatorio estandar -Mobile', () =>{
-        funerariaPremiumMobile.ingresoFunerariaPremiumMobile()
+    it('Funeraria - Premium -Velatorio estandar -Mobile', function() {
+        funerariaPremiumMobile.ingresoFunerariaPremiumMobile(this.datos.Url)
         funerariaPremiumMobile.agregarVelatorioEstandar()
         funerariaPremiumMobile.revisarAgregarCarrito()
         funerariaPremiumMobile.revisarPreciosVelatorio()
         funerariaPremiumMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -813,18 +804,18 @@ describe('test funeraria plan basico', () =>{
         */
     })
     //{nombre historia}
-    it('Funeraria - Premium -Velatorio premium -Mobile', () =>{
-        funerariaPremiumMobile.ingresoFunerariaPremiumMobile()
+    it('Funeraria - Premium -Velatorio premium -Mobile', function() {
+        funerariaPremiumMobile.ingresoFunerariaPremiumMobile(this.datos.Url)
         funerariaPremiumMobile.agregarVelatorioPremium()
         funerariaPremiumMobile.revisarAgregarCarrito()
         funerariaPremiumMobile.revisarPreciosVelatorio()
         funerariaPremiumMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
         /*
         webpay3Mobile.precionarTarjetas().then((respuesta) =>{
@@ -850,388 +841,241 @@ describe('test funeraria plan basico', () =>{
 //----------------------------------funeraria Premium Destacado Mobile-----------------------------------------//
     
     //{nombre historia}
-    it('Funeraria - Premium Destacada -Velatorio basico -Mobile', () =>{
-        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile()
+    it('Funeraria - Premium Destacada -Velatorio basico -Mobile', function() {
+        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile(this.datos.Url)
         funerariaPremiumDestacadaMobile.agregarVelatorioBasico()
         funerariaPremiumDestacadaMobile.revisarAgregarCarrito()
         funerariaPremiumDestacadaMobile.revisarPreciosVelatorio()
         funerariaPremiumDestacadaMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
+        checkoutReciboMobile.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Funeraria - Premium Destacada -Velatorio estandar -Mobile', () =>{
-        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile()
+    it('Funeraria - Premium Destacada -Velatorio estandar -Mobile', function() {
+        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile(this.datos.Url)
         funerariaPremiumDestacadaMobile.agregarVelatorioEstandar()
         funerariaPremiumDestacadaMobile.revisarAgregarCarrito()
         funerariaPremiumDestacadaMobile.revisarPreciosVelatorio()
         funerariaPremiumDestacadaMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Premium Destacada -Velatorio premium -Mobile', () =>{
-        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile()
+    it('Funeraria - Premium Destacada -Velatorio premium -Mobile', function() {
+        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile(this.datos.Url)
         funerariaPremiumDestacadaMobile.agregarVelatorioPremium()
         funerariaPremiumDestacadaMobile.revisarAgregarCarrito()
         funerariaPremiumDestacadaMobile.revisarPreciosVelatorio()
         funerariaPremiumDestacadaMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
+        checkoutReciboMobile.revisarVelatorioResumen()
     })
 
 //-------------------------------------funeraria Sustentable Mobile----------------------------------------//
     //{nombre historia}
-    it('Funeraria - Sustentable -Velatorio basico -Mobile', () =>{
-        funerariaSustentableMobile.ingresoFunerariaSustentableMobile()
+    it('Funeraria - Sustentable -Velatorio basico -Mobile', function() {
+        funerariaSustentableMobile.ingresoFunerariaSustentableMobile(this.datos.Url)
         funerariaSustentableMobile.agregarVelatorioBasico()
         funerariaSustentableMobile.revisarAgregarCarrito()
         funerariaSustentableMobile.revisarPreciosVelatorio()
         funerariaSustentableMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
+        checkoutReciboMobile.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Funeraria - Sustentable -Velatorio estandar -Mobile', () =>{
-        funerariaSustentableMobile.ingresoFunerariaSustentableMobile()
+    it('Funeraria - Sustentable -Velatorio estandar -Mobile', function() {
+        funerariaSustentableMobile.ingresoFunerariaSustentableMobile(this.datos.Url)
         funerariaSustentableMobile.agregarVelatorioEstandar()
         funerariaSustentableMobile.revisarAgregarCarrito()
         funerariaSustentableMobile.revisarPreciosVelatorio()
         funerariaSustentableMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Sustentable -Velatorio premium -Mobile', () =>{
-        funerariaSustentableMobile.ingresoFunerariaSustentableMobile()
+    it('Funeraria - Sustentable -Velatorio premium -Mobile', function() {
+        funerariaSustentableMobile.ingresoFunerariaSustentableMobile(this.datos.Url)
         funerariaSustentableMobile.agregarVelatorioPremium()
         funerariaSustentableMobile.revisarAgregarCarrito()
         funerariaSustentableMobile.revisarPreciosVelatorio()
         funerariaSustentableMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
 
 //--------------------------------------funeraria Tradicion Mobile---------------------------------------//
     //{nombre historia}
-    it('Funeraria - Tradicion -Velatorio basico -Mobile', () =>{
-        funerariaTradicionMobile.ingresoFunerariaTradicionMobile()
+    it('Funeraria - Tradicion -Velatorio basico -Mobile', function() {
+        funerariaTradicionMobile.ingresoFunerariaTradicionMobile(this.datos.Url)
         funerariaTradicionMobile.agregarVelatorioBasico()
         funerariaTradicionMobile.revisarAgregarCarrito()
         funerariaTradicionMobile.revisarPreciosVelatorio()
         funerariaTradicionMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Tradicion -Velatorio estandar -Mobile', () =>{
-        funerariaTradicionMobile.ingresoFunerariaTradicionMobile()
+    it('Funeraria - Tradicion -Velatorio estandar -Mobile', function() {
+        funerariaTradicionMobile.ingresoFunerariaTradicionMobile(this.datos.Url)
         funerariaTradicionMobile.agregarVelatorioEstandar()
         funerariaTradicionMobile.revisarAgregarCarrito()
         funerariaTradicionMobile.revisarPreciosVelatorio()
         funerariaTradicionMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Tradicion -Velatorio premium -Mobile', () =>{
-        funerariaTradicionMobile.ingresoFunerariaTradicionMobile()
+    it('Funeraria - Tradicion -Velatorio premium -Mobile', function() {
+        funerariaTradicionMobile.ingresoFunerariaTradicionMobile(this.datos.Url)
         funerariaTradicionMobile.agregarVelatorioPremium()
         funerariaTradicionMobile.revisarAgregarCarrito()
         funerariaTradicionMobile.revisarPreciosVelatorio()
         funerariaTradicionMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
+        checkoutReciboMobile.revisarVelatorioResumen()
     })
 //---------------------------------funeraria Tradicion Destacado Mobile---------------------------------------//
     //{nombre historia}
-    it('Funeraria - Tradicion Destacado -Velatorio basico -Mobile', () =>{
-        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile()
+    it('Funeraria - Tradicion Destacado -Velatorio basico -Mobile', function() {
+        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile(this.datos.Url)
         funerariaTradicionDestacadoMobile.agregarVelatorioBasico()
         funerariaTradicionDestacadoMobile.revisarAgregarCarrito()
         funerariaTradicionDestacadoMobile.revisarPreciosVelatorio()
         funerariaTradicionDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
+        checkoutReciboMobile.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Funeraria - Tradicion Destacado -Velatorio estandar -Mobile', () =>{
-        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile()
+    it('Funeraria - Tradicion Destacado -Velatorio estandar -Mobile', function() {
+        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile(this.datos.Url)
         funerariaTradicionDestacadoMobile.agregarVelatorioEstandar()
         funerariaTradicionDestacadoMobile.revisarAgregarCarrito()
         funerariaTradicionDestacadoMobile.revisarPreciosVelatorio()
         funerariaTradicionDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Tradicion Destacado -Velatorio premium -Mobile', () =>{
-        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile()
+    it('Funeraria - Tradicion Destacado -Velatorio premium -Mobile', function() {
+        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile(this.datos.Url)
         funerariaTradicionDestacadoMobile.agregarVelatorioPremium()
         funerariaTradicionDestacadoMobile.revisarAgregarCarrito()
         funerariaTradicionDestacadoMobile.revisarPreciosVelatorio()
         funerariaTradicionDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.revisarVelatorioResumen()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
-        carroComprasMobile.formularioFallecidoSegundoServicio()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                        checkoutReciboMobile.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
 })

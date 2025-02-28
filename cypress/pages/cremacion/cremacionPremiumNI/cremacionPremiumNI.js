@@ -61,8 +61,8 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class CremacionPremiumNI {
     
     //ingreso a la URL de Cremacion Premium NI
-    ingresoCremacionPremiumNI(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
+    ingresoCremacionPremiumNI(url){
+        cy.visit(url.urlCremacionPremiumNI)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

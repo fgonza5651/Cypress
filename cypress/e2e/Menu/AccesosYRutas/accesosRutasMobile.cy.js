@@ -1,278 +1,282 @@
 import homePageMobile from "../../../pageMobile/homeMobile/homePageMobile";
 
 
-describe('Accesos y Rutas ', () => {
+describe('Accesos y Rutas ', () =>  {
 
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+          cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
      });
 
      //
-     it('Necesito ayuda -Necesito ayuda ahora', () => {
+     it('Necesito ayuda -Necesito ayuda ahora', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('2')
         homePageMobile.SubServicioBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
      });
 
      //
-     it('Necesito ayuda -Necesito ayuda futura', () => {
+     it('Necesito ayuda -Necesito ayuda futura', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('2')
         homePageMobile.SubServicioBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Parque -PAV', () => {
+     it('Parque -PAV', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('3')
         homePageMobile.SubServicioBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Parque -PCO', () => {
+     it('Parque -PCO', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('3')
         homePageMobile.SubServicioBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Parque -PPH', () => {
+     it('Parque -PPH', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('3')
         homePageMobile.SubServicioBarraMenu('3')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Funeraria -Necesidad inmediata', () => {
+     it('Productos y servicios -Funeraria -Necesidad inmediata', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('1')
         homePageMobile.NecesidadBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Funeraria -Pronto fallecimiento', () => {
+     it('Productos y servicios -Funeraria -Pronto fallecimiento', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('1')
         homePageMobile.NecesidadBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Funeraria -Necesidad Futura', () => {
+     it('Productos y servicios -Funeraria -Necesidad Futura', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('1')
         homePageMobile.NecesidadBarraMenu('3')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Velatorio', () => {
+     it('Productos y servicios -Velatorio', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Cremacion -Necesidad inmediata', () => {
+     it('Productos y servicios -Cremacion -Necesidad inmediata', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('3')
         homePageMobile.NecesidadBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Cremacion -Pronto fallecimiento', () => {
+     it('Productos y servicios -Cremacion -Pronto fallecimiento', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('3')
         homePageMobile.NecesidadBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Cremacion -Necesidad Futura', () => {
+     it('Productos y servicios -Cremacion -Necesidad Futura', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('3')
         homePageMobile.NecesidadBarraMenu('3')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Sepultura -Necesidad inmediata', () => {
+     it('Productos y servicios -Sepultura -Necesidad inmediata', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('4')
         homePageMobile.NecesidadBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Sepultura -Pronto fallecimiento', () => {
+     it('Productos y servicios -Sepultura -Pronto fallecimiento', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('4')
         homePageMobile.NecesidadBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Productos y servicios -Sepultura -Necesidad Futura', () => {
+     it('Productos y servicios -Sepultura -Necesidad Futura', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('4')
         homePageMobile.SubServicioBarraMenu('4')
         homePageMobile.NecesidadBarraMenu('3')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Obituario -Obituario', () => {
+     it('Obituario -Obituario', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('5')
         homePageMobile.SubServicioBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Obituario -Buscar sepultura', () => {
+     it('Obituario -Buscar sepultura', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('5')
         homePageMobile.SubServicioBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Comunidad -Mas parque', () => {
+     it('Comunidad -Mas parque', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('6')
         homePageMobile.SubServicioBarraMenu('1')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Comunidad -Actividades en nuestros parques ', () => {
+     it('Comunidad -Actividades en nuestros parques ', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('6')
         homePageMobile.SubServicioBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Comunidad -Articulos y noticias', () => {
+     it('Comunidad -Articulos y noticias', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('6')
         homePageMobile.SubServicioBarraMenu('3')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Comunidad -Sostenibilidad', () => {
+     it('Comunidad -Sostenibilidad', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('6')
         homePageMobile.SubServicioBarraMenu('4')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Comunidad -Buzon vecinos', () => {
+     it('Comunidad -Buzon vecinos', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('6')
         homePageMobile.SubServicioBarraMenu('5')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Comunidad -Ver todo', () => {
+     it('Comunidad -Ver todo', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('6')
         homePageMobile.SubServicioBarraMenu('6')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Otros servicios -Enviar flores', () => {
+     it('Otros servicios -Enviar flores', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.RevisarNuevaUrl('1')
 
      });
 
      //
-     it('Otros servicios -Seguros ', () => {
+     it('Otros servicios -Seguros ', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 
      //
-     it('Contactanos', () => {
+     it('Contactanos', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('8')
-        homePageMobile.RevisarCambioUrl()
+        homePageMobile.RevisarCambioUrl(this.datos.Url)
 
      });
 })

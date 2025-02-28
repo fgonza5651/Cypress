@@ -1,0 +1,146 @@
+{
+    "Url":{
+        "urlHome" : "https://ic.parquedelrecuerdo.cl/",
+        "urlCafeteriaVelatorioBasico": "https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni",
+        "urlCarroCompras": "https://ic.parquedelrecuerdo.cl/carro-compra",
+       
+        "_comentario1": " Url Cremacion ",
+            
+            "urlCremacionBasicoNI": "https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni",
+            "urlCremacionFullNI": "https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-full-ni",
+            "urlCremacionParvulo": "https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/servicio-parvulo",
+            "urlCremacionPremiumNI": "https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni",
+            
+        "_comentario2": " Url Funeraria ",
+
+            "urlFunerariaBasico": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-basico",
+            "urlFunerariaParvulo": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo",
+            "urlFunerariaParvuloBase": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-parvulo-base",
+            "urlFunerariaParvuloDestacado": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo-destacado",
+            "urlFunerariaPremium": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-homenaje-premium",
+            "urlFunerariaPremiumDestacada": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-homenaje-premium-destacado",
+            "urlFunerariaSustentable": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-Sustentable",
+            "urlFunerariaTradicion": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-tradicion",
+            "urlFunerariaTradicionDestacado": "https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-tradicion-destacado",
+            
+        "_comentario3": "Url flujo Funeraria y cremacion",
+
+            "urlFlujoCremacionNI": "https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=cremacion-ni",
+            "urlFlujoCremacionNIF": "https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=cremacion-nif",
+
+            "urlFlujoFunerarioNI": "https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=funeraria-ni",
+            "urlFlujoFunerarioNIF": "https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=funeraria-nif",
+            
+        "_comentario4": "Url landing de sepultura, cremacion y funeraria",
+
+            "urlLandingFuneraria": "https://ic.parquedelrecuerdo.cl/landing/funeraria",
+            "urlLandingFunerariaNI": "https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-inmediata",
+            "urlLandingFunerariaNF": "https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-futura",
+            "urlLandingFunerariaNIF": "https://ic.parquedelrecuerdo.cl/landing/funeraria-pronto-fallecimiento",
+            
+            "urlLandingCremacion": "https://ic.parquedelrecuerdo.cl/landing/cremacion",
+            "urlLandingCremacionNI": "https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-inmediata",
+            "urlLandingCremacionNF": "https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-futura",
+            "urlLandingCremacionNIF": "https://ic.parquedelrecuerdo.cl/landing/cremacion-pronto-fallecimiento",
+            
+            "urlLandingSepultura": "https://ic.parquedelrecuerdo.cl/landing/sepultura",
+            "urlLandingSepulturaNI": "https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-inmediata",
+            "urlLandingSepulturaNF": "https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-futura",
+            "urlLandingSepulturaNIF": "https://ic.parquedelrecuerdo.cl/landing/sepultura-nif",
+        
+        "_comentario5": "Url de los Parques",
+        
+            "urlPAV": "https://ic.parquedelrecuerdo.cl/parques/americo-vespucio",
+            "urlPCO": "https://ic.parquedelrecuerdo.cl/parques/cordillera",
+            "urlPPH": "https://ic.parquedelrecuerdo.cl/parques/padre-hurtado",
+        
+        "_comentario6": "Url Carpeta obituario",
+
+            "urlObituario": "https://ic.parquedelrecuerdo.cl/busqueda/obituario",
+            "urlBusquedaSepultura": "https://ic.parquedelrecuerdo.cl/busqueda/sepultados",
+            
+        "urlComunidadVerTodo": "https://ic.parquedelrecuerdo.cl/comunidad/ver-todo",
+        "urlComunidadActividadesParques": "https://ic.parquedelrecuerdo.cl/comunidad/actividades-en-nuestros-parques",
+        "urlComunidadArticulos": "https://ic.parquedelrecuerdo.cl/comunidad/articulos-y-noticias",
+        "urlComunidadSostenibilidad": "https://ic.parquedelrecuerdo.cl/comunidad/sostenibilidad",
+        "urlComunidadMasParque": "https://ic.parquedelrecuerdo.cl/comunidad/mas-parque",
+        "urlSegurosPersonas": "https://ic.parquedelrecuerdo.cl/otros-servicios/seguros-personas",
+        
+        "_comentario7": "Url Ubicaciones parques y oficinas",
+
+            "urlUbicacionPAV": "https://www.google.com/maps?ll=-33.383951,-70.637596&z=16&t=m&hl=es-ES&gl=US&mapclient=embed&q=Av.+Am%C3%A9rico+Vespucio+555+Huechuraba+Regi%C3%B3n+Metropolitana",
+            "urlUbicacionPCO": "https://www.google.com/maps?ll=-33.555192,-70.545634&z=14&t=m&hl=es-ES&gl=US&mapclient=embed&cid=15755909411552318807",
+            "urlUbicacionPPH": "https://www.google.com/maps?ll=-33.609746,-70.834618&z=16&t=m&hl=es-ES&gl=US&mapclient=embed",
+            "urlUbicacionEstacionCentral": "https://www.google.com/maps/place/Av.+Libertador+Bernardo+OHiggins+4463,+Santiago,+Estaci%C3%B3n+Central,+Regi%C3%B3n+Metropolitana,+Chile/@-33.4546488,-70.6994884,17z/data=!3m1!4b1!4m6!3m5!1s0x9662c48a68302afd:0xd210b4e2e4714b4f!8m2!3d-33.4546533!4d-70.6969135!16s%2Fg%2F11gr7t9prx?hl=es-ES",
+            "urlUbicacionProvidencia": "https://www.google.com/maps/place/Av.+Luis+Thayer+Ojeda+320,+Providencia,+Regi%C3%B3n+Metropolitana,+Chile/@-33.4214175,-70.6036895,17z/data=!3m1!4b1!4m6!3m5!1s0x9662cf6b816e87f9:0x52f186cfc7a16b07!8m2!3d-33.421422!4d-70.6011146!16s%2Fg%2F11n7_qk4yv?hl=es-ES",
+            "urlUbicacionLaReina": "https://www.google.com/maps/place/Av.+Ossa+235,+Local+3,+7870117+La+Reina,+Regi%C3%B3n+Metropolitana/@-33.4513489,-70.5728746,17z/data=!3m1!4b1!4m5!3m4!1s0x9662ce4bae5eeeab:0xebce6e6bef93b813!8m2!3d-33.4513534!4d-70.5702997?entry=ttu",
+        
+
+        "url9": "",
+        "urlPagar": "https://webpay3gint.transbank.cl/testcommercebank/authenticator.cgi",
+        "urlCotiza": "https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui",
+        "urlWhatsapp": "https://wa.me/",
+        "urlFlores": "https://flores.parquedelrecuerdo.cl/",
+        "urlContigo": "https://contigoenelrecuerdo.cl/",
+        "urlConocenosReglas": "https://ic.parquedelrecuerdo.cl/conocenos/reglamento-interno",
+        "urlConocenosContratos": "https://ic.parquedelrecuerdo.cl/conocenos/contratos",
+        "urlConocenosInformacion": "https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa",
+        "urlConocenosProveedores": "https://ic.parquedelrecuerdo.cl/conocenos/proveedores",
+        "urlConocenosGestion": "https://ic.parquedelrecuerdo.cl/conocenos/sistema-de-gestion-etica-cumplimiento",
+        "urlServicioClienteNuestrosParques": "https://ic.parquedelrecuerdo.cl/servicio-al-cliente/nuestras-oficinas",
+        "urlServicioClientePreguntas": "https://ic.parquedelrecuerdo.cl/servicio-al-cliente/preguntas-frecuentes",
+        "urlServicioClienteTerminos": "https://ic.parquedelrecuerdo.cl/servicio-al-cliente/terminos-y-condiciones",
+        "urlCos": "",
+        "urlCnos": "",
+        "url05": ""
+    },
+
+    
+    "Formulario":{
+        "FormularioFunnel":{
+            "Nombre" : "QA",
+            "apellido": "QA",
+            "apellidoMaterno": "QA",
+            "telefono": "123456789",
+            "correo": "test@qa.cl"
+        },
+        "FormularioDatosPersonales":{
+            "nombre" : "QA",
+            "apellido" : "QA",
+            "rut" : "111111111",
+            "calle" : "calle",
+            "nroCalle" : "123",
+            "dpto" : "A 530"
+        },
+        "FormularioContacto":{
+            "telefono": "123456789",
+            "correo": "test@qa.cl"
+        },
+        "FormularioFallecido":{
+            "nombre" : "AQ",
+            "apellido" : "AQ",
+            "rut" : "222222222"
+        },
+        "FormularioTarjetaAprobadaRedcompra":{
+            "numero" : "4511 3466 6003 7060",
+            "rut" : "111111111",
+            "clave" : "123"
+        },
+        "FormularioTarjetaRechazadaMasterCard":{
+            "numero" : "5186 0595 5959 0568",
+            "cvv" : "123",
+            "mes" : "08",
+            "año" : "28"
+        },
+        "FormularioInoformacionComprador":{
+            "direccion" : "qa 123",
+            "rut" : "111111111"
+        },
+        "FormularioInformacionBeneficiario":{
+            "nombre": "qa",
+            "apellido": "qa",
+            "rut": "222222222"
+        }
+    }
+    
+}

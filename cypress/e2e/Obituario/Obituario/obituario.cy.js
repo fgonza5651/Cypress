@@ -3,17 +3,21 @@ import ObituarioPage from "../../../pages/Obituario/ObituarioPage";
 
 describe('Obituario ', () => {
 
-    beforeEach(() => {
+    beforeEach(function() {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+         cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+         })
      });
 
      //
-     it('Obituario -Revisar cards informativas', () => {
+     it('Obituario -Revisar cards informativas', function() {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('1')
         homePage.seleccionarSubServicioBarra()
@@ -22,9 +26,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Obituario -Seleccionar 12 diciembre 2024 PAV', () => {
+     it('Obituario -Seleccionar 12 diciembre 2024 PAV', function() {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('1')
         homePage.seleccionarSubServicioBarra()
@@ -35,9 +39,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Obituario -Seleccionar 8 enero 2025 PCO', () => {
+     it('Obituario -Seleccionar 8 enero 2025 PCO', function() {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('1')
         homePage.seleccionarSubServicioBarra()
@@ -48,9 +52,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Obituario -Seleccionar 21 junio 2024 PPH', () => {
+     it('Obituario -Seleccionar 21 junio 2024 PPH', function() {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('1')
         homePage.seleccionarSubServicioBarra()

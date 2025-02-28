@@ -5,69 +5,73 @@ import landingFunerariaNFMobile from "../../../pageMobile/funerariaMobile/landin
 
 describe('Formulario landing de funeraria NF', () => {
 
-    beforeEach(() => {
+    beforeEach(function() {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+          cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
     });
     //CEC-2842
-    it('Landing Funeraria - NF - Compra en linea', ()=> {
-        homePage.ingresoHomeParqueDelRecuerdo()
+    it('Landing Funeraria - NF - Compra en linea', function() {
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.ingresoFunerariaNFProductosServicios()
-        landingFunerariaNF.compraEnLinea()
+        landingFunerariaNF.compraEnLinea(this.datos.Formulario)
     })
     //CEC-4200
-    it('Landing Funeraria - NF - Solicitar asesoria close Pop up', ()=> {
-        homePage.ingresoHomeParqueDelRecuerdo()
+    it('Landing Funeraria - NF - Solicitar asesoria close Pop up', function() {
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.ingresoFunerariaNFProductosServicios()
-        landingFunerariaNF.solicitarAsesoriaCierrePopup()
+        landingFunerariaNF.solicitarAsesoriaCierrePopup(this.datos.Formulario)
     })
     //CEC-2842
-    it('Landing Funeraria - NF - Solicitar asesoria Go home', ()=> {
-        homePage.ingresoHomeParqueDelRecuerdo()
+    it('Landing Funeraria - NF - Solicitar asesoria Go home', function() {
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.ingresoFunerariaNFProductosServicios()
-        landingFunerariaNF.solicitarAsesoriaGoHome()
+        landingFunerariaNF.solicitarAsesoriaGoHome(this.datos.Url,this.datos.Formulario)
     })
     //CEC-4291
-    it('Landing Funeraria - NF - Revisar titulos', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
+    it('Landing Funeraria - NF - Revisar titulos', function(){
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.encontrarTitulo()
     })
     //CEC-4369
-    it('Landing Funeraria - NF - Solicitar asesoria final de pagina', ()=>{
-        homePage.ingresoHomeParqueDelRecuerdo()
+    it('Landing Funeraria - NF - Solicitar asesoria final de pagina', function(){
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.ingresoFunerariaNFProductosServicios()
         landingFunerariaNF.solicitarAsesoriaFinalPagina()
     })
     //CEC-2842
-    it('Landing Funeraria - NF - Compra en linea -Mobile', ()=> {
-        homePageMobile.ingresoHomeMobile()
+    it('Landing Funeraria - NF - Compra en linea -Mobile', function() {
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.iconoTelefonosTitulo()
     })
     //CEC-4200
-    it('Landing Funeraria - NF - Solicitar asesoria close Pop up -Mobile', ()=> {
-        homePageMobile.ingresoHomeMobile()
+    it('Landing Funeraria - NF - Solicitar asesoria close Pop up -Mobile', function() {
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
-        landingFunerariaNFMobile.solicitarAsesoriaCierrePopup()
+        landingFunerariaNFMobile.solicitarAsesoriaCierrePopup(this.datos.Formulario)
     })
     //CEC-2842
-    it('Landing Funeraria - NF - Solicitar asesoria Go home -Mobile', ()=> {
-        homePageMobile.ingresoHomeMobile()
+    it('Landing Funeraria - NF - Solicitar asesoria Go home -Mobile', function() {
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
-        landingFunerariaNFMobile.solicitarAsesoriaGoHome()
+        landingFunerariaNFMobile.solicitarAsesoriaGoHome(this.datos.Url,this.datos.Formulario)
     })
     //CEC-4291
-    it('Landing Funeraria - NF - Revisar titulos -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
+    it('Landing Funeraria - NF - Revisar titulos -Mobile', function(){
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.encontrarTitulo()
     })
     //CEC-4369
-    it('Landing Funeraria - NF - Solicitar asesoria final de pagina -Mobile', ()=>{
-        homePageMobile.ingresoHomeMobile()
+    it('Landing Funeraria - NF - Solicitar asesoria final de pagina -Mobile', function(){
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.ingresoFunerariaNFProductosServiciosMobile()
         landingFunerariaNFMobile.solicitarAsesoriaFinalPagina()
     })

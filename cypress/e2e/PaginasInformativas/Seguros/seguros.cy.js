@@ -3,17 +3,21 @@ import segurosPage from "../../../pages/seguros/SegurosPage";
 
 describe('Accesos y Rutas ', () => {
 
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
-          });
+         });
+
+         cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
      });
 
      //
-     it('Seguros Personales -Smad basico y premium', () => {
+     it('Seguros Personales -Smad basico y premium', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -22,9 +26,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros Personales -Smad mejores años', () => {
+     it('Seguros Personales -Smad mejores años', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -33,9 +37,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros personales -Smad repatriacion', () => {
+     it('Seguros personales -Smad repatriacion', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -44,9 +48,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros empresa', () => {
+     it('Seguros empresa', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -55,9 +59,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros incluidos -Seguro Desgravamen', () => {
+     it('Seguros incluidos -Seguro Desgravamen', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -66,9 +70,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros incluidos -Cuota de mantencion', () => {
+     it('Seguros incluidos -Cuota de mantencion', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -77,9 +81,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros inlcuidos -Smad Colectivo', () => {
+     it('Seguros inlcuidos -Smad Colectivo', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('6')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()

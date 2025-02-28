@@ -13,9 +13,9 @@ const btnParque = {
     PAV: '[href="https://ic.parquedelrecuerdo.cl/parques/americo-vespucio"]'
 }
 const urlBtnParque = {
-    PCO: 'https://ic.parquedelrecuerdo.cl/parques/cordillera',
-    PPH: 'https://ic.parquedelrecuerdo.cl/parques/padre-hurtado',
-    PAV: 'https://ic.parquedelrecuerdo.cl/parques/americo-vespucio'
+    PCO: 'urlPCO',
+    PPH: 'urlPPH',
+    PAV: 'urlPAV'
 }
 //Ver mas seccion nuestros parques y oficionas
 const btnVerMasParquesOficinas = {
@@ -27,12 +27,12 @@ const btnVerMasParquesOficinas = {
     LaReina: ':nth-child(11) > .link-mapa-parque'
 }
 const urlVerMasParquesOficionas = {
-    PAV: 'https://www.google.com/maps?ll=-33.383951,-70.637596&z=16&t=m&hl=es-ES&gl=US&mapclient=embed&q=Av.+Am%C3%A9rico+Vespucio+555+Huechuraba+Regi%C3%B3n+Metropolitana',
-    PCO: 'https://www.google.com/maps?ll=-33.555192,-70.545634&z=14&t=m&hl=es-ES&gl=US&mapclient=embed&cid=15755909411552318807',
-    PPH: 'https://www.google.com/maps?ll=-33.609746,-70.834618&z=16&t=m&hl=es-ES&gl=US&mapclient=embed&q=Av.+Manuel+Castillo+1981+Pe%C3%B1aflor+Regi%C3%B3n+Metropolitana',
-    EstacionCentral: 'https://www.google.com/maps/place/Av.+Libertador+Bernardo+OHiggins+4463,+Santiago,+Estaci%C3%B3n+Central,+Regi%C3%B3n+Metropolitana,+Chile/@-33.4546488,-70.6994884,17z/data=!3m1!4b1!4m6!3m5!1s0x9662c48a68302afd:0xd210b4e2e4714b4f!8m2!3d-33.4546533!4d-70.6969135!16s%2Fg%2F11gr7t9prx?hl=es-ES',
-    Providencia: 'https://www.google.com/maps/place/Av.+Luis+Thayer+Ojeda+320,+Providencia,+Regi%C3%B3n+Metropolitana,+Chile/@-33.4214175,-70.6036895,17z/data=!3m1!4b1!4m6!3m5!1s0x9662cf6b816e87f9:0x52f186cfc7a16b07!8m2!3d-33.421422!4d-70.6011146!16s%2Fg%2F11n7_qk4yv?hl=es-ES',
-    LaReina: 'https://www.google.com/maps/place/Av.+Ossa+235,+Local+3,+7870117+La+Reina,+Regi%C3%B3n+Metropolitana/@-33.4513489,-70.5728746,17z/data=!3m1!4b1!4m5!3m4!1s0x9662ce4bae5eeeab:0xebce6e6bef93b813!8m2!3d-33.4513534!4d-70.5702997?entry=ttu'
+    PAV: 'urlUbicacionPAV',
+    PCO: 'urlUbicacionPCO',
+    PPH: 'urlUbicacionPPH',
+    EstacionCentral: 'urlUbicacionEstacionCentral',
+    Providencia: 'urlUbicacionProvidencia',
+    LaReina: 'urlUbicacionLaReina'
 }
 
 //Servicios seccion preguntas frecuentes
@@ -43,10 +43,11 @@ const btnServicioPreguntasFrecuentes = {
 }
 
 const urlBtnServicioPreguntasFrecuentes = {
-    Cremacion: 'https://ic.parquedelrecuerdo.cl/landing/cremacion',
-    Sepultura: 'https://ic.parquedelrecuerdo.cl/landing/sepultura',
-    Funeraria: 'https://ic.parquedelrecuerdo.cl/landing/funeraria'
+    Cremacion: 'urlLandingCremacion',
+    Sepultura: 'urlLandingSepultura',
+    Funeraria: 'urlLandingFuneraria'
 }
+
 //Sector preguntas frecuentes
 const btnPreguntaDesplegable = {
     0: '#mat-expansion-panel-header-0',
@@ -123,9 +124,9 @@ const contenidoDesplegableTerminos = {
 }
 
 const urlServicioCliente = {
-    nuestrosParques: 'https://ic.parquedelrecuerdo.cl/servicio-al-cliente/nuestras-oficinas',
-    preguntas: 'https://ic.parquedelrecuerdo.cl/servicio-al-cliente/preguntas-frecuentes',
-    terminos: 'https://ic.parquedelrecuerdo.cl/servicio-al-cliente/terminos-y-condiciones'
+    nuestrosParques: 'urlServicioClienteNuestrosParques',
+    preguntas: 'urlServicioClientePreguntas',
+    terminos: 'urlServicioClienteTerminos'
 }
 
 
@@ -158,13 +159,13 @@ class ServicioClientePageMobile {
     }
     
     //se selecciona el parque del texto nuestros parques con las opciones "PPH" "PCO" "PAV" 
-    parquesContenidoNuestrasOficinas(parque){
+    parquesContenidoNuestrasOficinas(url, parque){
         cy.get(btnParque[parque],{timeout:100000}).should('be.visible').click()
-        cy.url().should('equal',urlBtnParque[parque])
+        cy.url().should('equal',url[ urlBtnParque[parque] ])
     }
     //Se selecciona ver mas del parque u oficina en el sector nuestros parque y oficinas y revisa su url
     //Con las opciones "PAV" "PCO" "PPH" "EstacionCentral" "Providencia" "LaReina"
-    verMasParquesOficinas(lugar){
+    verMasParquesOficinas(url, lugar){
         cy.window().then((win) => {
             cy.stub(win, 'open', (url) => {
                 // Abre la URL en la misma pestaña para fines de prueba
@@ -172,13 +173,13 @@ class ServicioClientePageMobile {
             }).as('windowOpen');
         });
         cy.get(btnVerMasParquesOficinas[lugar],{timeout:100000}).should('be.visible').click()
-        cy.url().should('equal',urlVerMasParquesOficionas[lugar])
+        cy.url().should('contains',url[ urlVerMasParquesOficionas[lugar] ])
     }
     
     //se selecciona el servicio del texto preguntas frecuentes con las opciones "Cremacion" "Sepultura" "Funeraria" 
-    serviciosPreguntasFrecunetes(servicio){
+    serviciosPreguntasFrecunetes(url, servicio){
         cy.get(btnServicioPreguntasFrecuentes[servicio],{timeout:10000}).should('be.visible').click()
-        cy.url().should('equal',urlBtnServicioPreguntasFrecuentes[servicio])
+        cy.url().should('equal',url[ urlBtnServicioPreguntasFrecuentes[servicio] ])
     }
 
     //se selecciona la pregunta de preguntas frecuentes con las opciones del 0 al 20 

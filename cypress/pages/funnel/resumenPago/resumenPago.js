@@ -11,8 +11,6 @@ const btnContinuar = '//*[@id="mat-tab-content-0-0"]/div/div[2]/div[1]/button'
 const checkTerminosCondiciones = '//*[@id="mat-checkbox-2"]/label'
 const btnContinuarCotizacion = '//*[@id="mat-tab-content-0-1"]/div/div[2]/div[2]/div/button'
 
-//se llama los datos
-const formularioCheckout = Cypress.env('Formulario')
 
 class resumenPagoPage {
 
@@ -24,16 +22,16 @@ class resumenPagoPage {
     }
 
     // se rellena los formularios
-    formularioComprador()
+    formularioComprador(formulario)
     {
         //formulario informacion comprador
-        cy.get(inputDireccion,{timeout: 5000}).should('be.visible').type(formularioCheckout['FormularioInoformacionComprador'].direccion)
-        cy.get(inputRut,{timeout: 100000}).should('be.visible').type(formularioCheckout['FormularioInoformacionComprador'].rut)
+        cy.get(inputDireccion,{timeout: 5000}).should('be.visible').type(formulario.FormularioInoformacionComprador.direccion)
+        cy.get(inputRut,{timeout: 100000}).should('be.visible').type(formulario.FormularioInoformacionComprador.rut)
 
         //formulario informacion beneficiario
-        cy.get(inputNombre,{timeout: 100000}).should('be.visible').type(formularioCheckout['FormularioInformacionBeneficiario'].nombre)
-        cy.get(inputApellido,{timeout: 100000}).should('be.visible').type(formularioCheckout['FormularioInformacionBeneficiario'].apellido)
-        cy.get(inputRutBeneficiario,{timeout: 100000}).should('be.visible').type(formularioCheckout['FormularioInformacionBeneficiario'].rut)
+        cy.get(inputNombre,{timeout: 100000}).should('be.visible').type(formulario.FormularioInformacionBeneficiario.nombre)
+        cy.get(inputApellido,{timeout: 100000}).should('be.visible').type(formulario.FormularioInformacionBeneficiario.apellido)
+        cy.get(inputRutBeneficiario,{timeout: 100000}).should('be.visible').type(formulario.FormularioInformacionBeneficiario.rut)
 
         //Se hace clic en el boton continuar
         cy.xpath(btnContinuar,{timeout: 100000}).should('be.visible').click()

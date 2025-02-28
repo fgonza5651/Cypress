@@ -12,8 +12,8 @@ const btnIrHome = '//*[@id="cont-lb-solicitud-recibida"]/div[2]/button'
 
 class crenacionNIFF {
 
-    ingresarCremacionNIF(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/landing/cremacion-pronto-fallecimiento')
+    ingresarCremacionNIF(url){
+        cy.visit(url.urlLandingCremacionNIF)
     }
     //SE ENVIA FORMULARIO
     enviarFormulario(){

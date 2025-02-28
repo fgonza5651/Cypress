@@ -47,8 +47,8 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 
 class FunerariaBasico {
     //ingreso a la URL de funeraria plan basico
-    ingresarFunerariaBasico(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-basico')
+    ingresarFunerariaBasico(url){
+        cy.visit(url.urlFunerariaBasico)
     }
     //Agrega al carrito el articulo velatorio cafeteria basico y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check

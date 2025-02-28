@@ -98,18 +98,18 @@ const btnCodigoEtica = {
 
 //URL de conoce mas sobre nosotros
 const urlConocenos = {
-    reglas: 'https://ic.parquedelrecuerdo.cl/conocenos/reglamento-interno',
-    contratos: 'https://ic.parquedelrecuerdo.cl/conocenos/contratos',
-    informacion: 'https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa',
-    proveedores: 'https://ic.parquedelrecuerdo.cl/conocenos/proveedores',
-    gestion: 'https://ic.parquedelrecuerdo.cl/conocenos/sistema-de-gestion-etica-cumplimiento'
+    reglas: 'urlConocenosReglas',
+    contratos: 'urlConocenosContratos',
+    informacion: 'urlConocenosInformacion',
+    proveedores: 'urlConocenosProveedores',
+    gestion: 'urlConocenosGestion'
 }
 
 class portalConocenosPageMobile {
     
     ingresoPortalConocenos(url){
         cy.viewport('iphone-xr')
-        cy.visit(urlConocenos[url])
+        cy.visit(url[ urlConocenos ])
     }
 
 
@@ -161,16 +161,20 @@ class portalConocenosPageMobile {
                 win.location.href = url;
             }).as('windowOpen');
         });
-        cy.get(btnPolitica[politica],{timeout:10000}).should('be.visible').click()
-        cy.exec('powershell "Get-ChildItem -Path cypress/downloads -Filter *.pdf | Select-Object -ExpandProperty Name"').then((result) => {
-            cy.log(result)
-            expect(result.stdout.trim().length).to.be.eq(filenamePolitica[politica].length);
-        })
+        if(politica == "Calidad"){
+            cy.get(btnPolitica[politica],{timeout:10000}).should('be.visible').click()
+        }else{
+            cy.get(btnPolitica[politica],{timeout:10000}).should('be.visible').click()
+            cy.exec('powershell "Get-ChildItem -Path cypress/downloads -Filter *.pdf | Select-Object -ExpandProperty Name"').then((result) => {
+                cy.log(result)
+                expect(result.stdout.trim().length).to.be.eq(filenamePolitica[politica].length);
+            })
+        }
     }
     
     //Se selecciona uno de los botones de sistema de gestion etica entre "pinchaAqui" y "buzonEtico" ademas 
     //revisa que se cambie de pagina
-    seleccionarGestionEtica(etica){
+    seleccionarGestionEtica(url, etica){
         cy.window().then((win) => {
             cy.stub(win, 'open', (url) => {
                 // Abre la URL en la misma pestaña para fines de prueba
@@ -178,13 +182,13 @@ class portalConocenosPageMobile {
             }).as('windowOpen');
         });
         cy.get(btnGestionEtica[etica],{timeout:10000}).should('be.visible').click()
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa')
-        
+        cy.url().should('not.eq', url.urlConocenosInformacion)
+
     }
     
     //Se selecciona una de las memorias compartidas entre "2023", "2022", "2021", "2020", "2019", "2018" y "2017" 
     //ademas revisa que se cambie de pagina
-    seleccionarMemoriasCorporativas(memoria){
+    seleccionarMemoriasCorporativas(url, memoria){
         cy.window().then((win) => {
             cy.stub(win, 'open', (url) => {
                 // Abre la URL en la misma pestaña para fines de prueba
@@ -192,11 +196,11 @@ class portalConocenosPageMobile {
             }).as('windowOpen');
         });
         cy.get(btnMemoriasCorporativas[memoria],{timeout:10000}).should('be.visible').click()
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa')
+        cy.url().should('not.eq', url.urlConocenosInformacion)
     }
     
     //Se preciona revista encontremonos y se revisa que se cambie de pagina
-    seleccionarRevistaEncontremonos(){
+    seleccionarRevistaEncontremonos(url){
         cy.window().then((win) => {
             cy.stub(win, 'open', (url) => {
                 // Abre la URL en la misma pestaña para fines de prueba
@@ -204,11 +208,11 @@ class portalConocenosPageMobile {
             }).as('windowOpen');
         });
         cy.get(btnRevistaEncontremosnos,{timeout:10000}).should('be.visible').click()
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa')
+        cy.url().should('not.eq', url.urlConocenosInformacion)    
     }
     
     //Se preciona Libro de nuestros 40 años y se revisa que se cambie de pagina
-    seleccionarLibroNuestros40años(){
+    seleccionarLibroNuestros40años(url){
         cy.window().then((win) => {
             cy.stub(win, 'open', (url) => {
                 // Abre la URL en la misma pestaña para fines de prueba
@@ -216,7 +220,7 @@ class portalConocenosPageMobile {
             }).as('windowOpen');
         });
         cy.get(btnLibroNuestros40años,{timeout:10000}).should('be.visible').click()
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/conocenos/informacion-corporativa')
+        cy.url().should('not.eq', url.urlConocenosInformacion)
     }
     
     //Selecciona la opcion proveedores del menu lateral
@@ -227,16 +231,16 @@ class portalConocenosPageMobile {
     
     //Selecciona la  opcion del apartado proveedores entre "PoliticaProvedor", "BancoChile", "BBVA" y "EmpresaB"
     //ademas revisa que se cambie la url
-    SeleccionarOpcionProveedores(proveedor){
+    SeleccionarOpcionProveedores(url, proveedor){
         cy.get(btnProveedor[proveedor],{timeout:10000}).should('be.visible').click()
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/conocenos/proveedores')
+        cy.url().should('not.eq', url.urlConocenosProveedores)
     }
 
     //Se preciona el uno de los botones de codigo de etica entre "CanalesDenuncia" y "LineaEtica" 
     //ademas se revisa que cambie de pagina 
-    seleccionarCodigoEtica(canal){
+    seleccionarCodigoEtica(url, canal){
         cy.get(btnCodigoEtica[canal],{timeout:10000}).invoke('removeAttr', 'target').should('be.visible').click()
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/conocenos/sistema-de-gestion-etica-cumplimiento')
+        cy.url().should('not.eq', url.urlConocenosGestion)
     }
 
 

@@ -45,8 +45,8 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaTradicionDestacado {
     
     //ingreso a la URL de funeraria plan Tradicion Destacado
-    ingresarFunerariaTradicionDestacado(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-tradicion-destacado')
+    ingresarFunerariaTradicionDestacado(url){
+        cy.visit(url.urlFunerariaTradicionDestacado)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

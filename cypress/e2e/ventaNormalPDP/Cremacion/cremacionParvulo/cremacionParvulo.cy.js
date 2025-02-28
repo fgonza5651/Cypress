@@ -4,60 +4,52 @@ import webpay3 from "../../../../pages/carroCompras/webpay/webpay3";
 import authenticatorWebpay from "../../../../pages/carroCompras/webpay/autentificacion";
 import checkoutRecibo from "../../../../pages/carroCompras/recibo/checkoutRecibo";
 
-describe('test cremacion -Parvulo', () =>{
-    beforeEach(() => {
+describe('test cremacion -Parvulo', () => {
+    beforeEach(function()  {
         cy.clearCookies();   
         cy.clearLocalStorage();
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
-          });
+        });
+
+        cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
     });
     //{nombre historia}
-    it('Cremacion - Parvulo -Velatorio basico', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Velatorio basico', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioBasico()
         cremacionParvulo.revisarAgregarCarrito()
         cremacionParvulo.revisarPreciosVelatorio()
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpay.formularioTransbankAceptar()
-                        checkoutRecibo.validarPaginaAprobada()
-                        checkoutRecibo.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3.selectTarjetas()
+        webpay3.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpay.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutRecibo.validarPaginaAprobada()
+        checkoutRecibo.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Velatorio estandar', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Velatorio estandar', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioEstandar()
         cremacionParvulo.revisarAgregarCarrito()
         cremacionParvulo.revisarPreciosVelatorio()
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
         /*
         webpay3.precionarTarjetas().then((respuesta) =>{
@@ -79,40 +71,28 @@ describe('test cremacion -Parvulo', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Velatorio premium', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Velatorio premium', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioPremium()
         cremacionParvulo.revisarAgregarCarrito()
         cremacionParvulo.revisarPreciosVelatorio()
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpay.formularioTransbankAceptar()
-                        checkoutRecibo.validarPaginaAprobada()
-                        checkoutRecibo.revisarVelatorioResumen()
-                    }
-                })
-            }
-        })
+        webpay3.selectTarjetas()
+        webpay3.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpay.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutRecibo.validarPaginaAprobada()
+        checkoutRecibo.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Funeraria Parvulo', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Funeraria Parvulo', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioBasico()
         cremacionParvulo.agregarFunerariaParvulo()
         cremacionParvulo.revisarAgregarCarrito()
@@ -122,32 +102,21 @@ describe('test cremacion -Parvulo', () =>{
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpay.formularioTransbankAceptar()
-                        checkoutRecibo.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3.selectTarjetas()
+        webpay3.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpay.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutRecibo.validarPaginaAprobada()
+        checkoutRecibo.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Funeraria Parvulo destacado', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Funeraria Parvulo destacado', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioBasico()
         cremacionParvulo.agregarFunerariaParvuloDestacado()
         cremacionParvulo.revisarAgregarCarrito()
@@ -157,11 +126,11 @@ describe('test cremacion -Parvulo', () =>{
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
         /*
         webpay3.precionarTarjetas().then((respuesta) =>{
@@ -185,8 +154,8 @@ describe('test cremacion -Parvulo', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Descanso vidriado', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Descanso vidriado', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioPremium()
         cremacionParvulo.agregarFunerariaParvuloDestacado()
         cremacionParvulo.agregarDescansoVidriado()
@@ -197,34 +166,23 @@ describe('test cremacion -Parvulo', () =>{
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
-        carroCompras.revisarDescansoResumen()
+        carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpay.formularioTransbankAceptar()
-                        checkoutRecibo.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3.selectTarjetas()
+        webpay3.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpay.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutRecibo.validarPaginaAprobada()
+        checkoutRecibo.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Descanso pared', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Descanso pared', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioBasico()
         cremacionParvulo.agregarFunerariaParvulo()
         cremacionParvulo.agregarDescansoPared()
@@ -235,13 +193,13 @@ describe('test cremacion -Parvulo', () =>{
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
-        carroCompras.revisarDescansoResumen()
+        carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
         /*
         webpay3.precionarTarjetas().then((respuesta) =>{
@@ -258,7 +216,7 @@ describe('test cremacion -Parvulo', () =>{
                         checkoutRecibo.validarPaginaAprobada()
                         checkoutRecibo.revisarVelatorioResumen()
                         checkoutRecibo.revisarFunerariaResumen()
-                        checkoutRecibo.revisarDescansoResumen()
+                        checkoutRecibo.revisarVelatorioResumen()
                     }
                 })
             }
@@ -266,8 +224,8 @@ describe('test cremacion -Parvulo', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Descanso flores premium', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Descanso flores premium', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioEstandar()
         cremacionParvulo.agregarFunerariaParvulo()
         cremacionParvulo.agregarDescansoFloresPremium()
@@ -278,37 +236,23 @@ describe('test cremacion -Parvulo', () =>{
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
-        carroCompras.revisarDescansoResumen()
+        carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpay.formularioTransbankAceptar()
-                        checkoutRecibo.validarPaginaAprobada()
-                        checkoutRecibo.revisarVelatorioResumen()
-                        checkoutRecibo.revisarFunerariaResumen()
-                        checkoutRecibo.revisarDescansoResumen()
-                    }
-                })
-            }
-        })
+        webpay3.selectTarjetas()
+        webpay3.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpay.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutRecibo.validarPaginaAprobada()
+        checkoutRecibo.revisarVelatorioResumen()
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Descanso flores', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Descanso flores', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioEstandar()
         cremacionParvulo.agregarFunerariaParvuloDestacado()
         cremacionParvulo.agregarDescansoFlores()
@@ -319,13 +263,13 @@ describe('test cremacion -Parvulo', () =>{
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
-        carroCompras.revisarDescansoResumen()
+        carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
         /*
         webpay3.precionarTarjetas().then((respuesta) =>{
@@ -347,8 +291,8 @@ describe('test cremacion -Parvulo', () =>{
         */
     })
     //{nombre historia}
-    it('Cremacion - Parvulo -Descanso memorial', () =>{
-        cremacionParvulo.ingresoCremacionParvulo()
+    it('Cremacion - Parvulo -Descanso memorial', function() {
+        cremacionParvulo.ingresoCremacionParvulo(this.datos.Url)
         cremacionParvulo.agregarVelatorioPremium()
         cremacionParvulo.agregarFunerariaParvulo()
         cremacionParvulo.agregarDescansoMemoriar()
@@ -359,29 +303,18 @@ describe('test cremacion -Parvulo', () =>{
         cremacionParvulo.precionarCarroCompra()
         carroCompras.revisarVelatorioResumen()
         carroCompras.revisarFunerariaResumen()
-        carroCompras.revisarDescansoResumen()
+        carroCompras.revisarVelatorioResumen()
         carroCompras.precionarIrComprar()
-        carroCompras.formularioDatosPersonales()
-        carroCompras.formularioContacto()
-        carroCompras.formularioFallecidoPrimerServico()
-        carroCompras.formularioFallecidoSegundoServicio()
-        carroCompras.formularioFallecidoTercerServicio()
+        carroCompras.formularioDatosPersonales(this.datos.Formulario)
+        carroCompras.formularioContacto(this.datos.Formulario)
+        carroCompras.formularioFallecidoPrimerServico(this.datos.Formulario)
+        carroCompras.formularioFallecidoSegundoServicio(this.datos.Formulario)
+        carroCompras.formularioFallecidoTercerServicio(this.datos.Formulario)
         carroCompras.TerminosCondicionesPagar()
-        webpay3.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3.formularioTarjetaMastercard().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpay.formularioTransbankAceptar()
-                        checkoutRecibo.validarPaginaRechazada()
-                    }
-                })
-            }
-        })
+        webpay3.selectTarjetas()
+        webpay3.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpay.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutRecibo.validarPaginaAprobada()
+        checkoutRecibo.revisarVelatorioResumen()
     })
 });

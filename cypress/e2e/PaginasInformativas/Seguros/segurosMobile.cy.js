@@ -4,17 +4,21 @@ import segurosPageMobile from "../../../pageMobile/seguros/SegurosPageMobile";
 
 describe('Accesos y Rutas ', () => {
 
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
-          });
+         });
+
+         cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+         })
      });
 
      //
-     it('Seguros Personales -Smad basico y premium', () => {
+     it('Seguros Personales -Smad basico y premium', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosPersonalesBasicoPremium()
@@ -22,9 +26,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros Personales -Smad mejores años', () => {
+     it('Seguros Personales -Smad mejores años', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosPersonalesMejoresAños()
@@ -32,9 +36,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros personales -Smad repatriacion', () => {
+     it('Seguros personales -Smad repatriacion', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosPersonalesRepatriacion()
@@ -42,9 +46,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros empresa', () => {
+     it('Seguros empresa', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosEmpresas()
@@ -52,9 +56,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros incluidos -Seguro Desgravamen', () => {
+     it('Seguros incluidos -Seguro Desgravamen', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosIncluidosDesgravamen()
@@ -62,9 +66,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros incluidos -Cuota de mantencion', () => {
+     it('Seguros incluidos -Cuota de mantencion', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosIncluidosCuotaMantencion()
@@ -72,9 +76,9 @@ describe('Accesos y Rutas ', () => {
      });
 
      //
-     it('Seguros inlcuidos -Smad Colectivo', () => {
+     it('Seguros inlcuidos -Smad Colectivo', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('7')
         homePageMobile.SubServicioBarraMenu('2')
         segurosPageMobile.revisarSegurosIncluidosColectivo()

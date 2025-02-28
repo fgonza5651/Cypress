@@ -1,6 +1,5 @@
 const btnTelefonoTitulo = '#contenedor-header-menu > div > div.contenedor-menu-desplegable-mobile > img:nth-child(1)'
 const popUpTelefonos = '#mat-tab-content-2-0 > .mat-tab-body-content'
-const urlHomePage = 'https://ic.parquedelrecuerdo.cl/'
 //Formulario Solicitar necesidad
 const inputNombreForm = '.mat-form-field.ng-tns-c22-0 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
 const inputApellidoForm = '.mat-form-field.ng-tns-c22-1 > .mat-form-field-wrapper > .mat-form-field-flex > .mat-form-field-infix'
@@ -14,28 +13,19 @@ const iconInputCorreo = '#checkout-info-ff-mail > div > div.mat-form-field-flex.
 const PopupSolicitud = '#cont-lb-solicitud-recibida'
 const btnCierrePopupSolicitud = '#cont-lb-solicitud-recibida > .material-icons'
 const btnGoHomePopup = '#cont-lb-solicitud-recibida > div.cont-btn-ir-home > button'
-//campo ejecutiva en linea
-const btnEjecutiva = '#chatSalesforce'
-const btnCerrarEjecutiva = '#chatSalesforce > .material-icons-round'
-const btnHablarConAsesora = '#btn-wsp'
-const inputNumeroAsesoraEnLinea = '#mat-input-1'
-const btnOtraSolicitud = '.cont-btns-contactos > :nth-child(3)'
-const inputNombreOtraSolicitud = '#FirstName'
-const inputApellidoOtraSolicitud = '#LastName'
-const inputEmailOtraSolicitud = '#Email'
 
 const titulo = '¿Qué pasa cuando un asesor te contacta?'
 const btnIniciarCotizacion = ':nth-child(6) > .cont-contacto-dudas > .cont-btns-ayuda > .btn-contacto'
 const btnSolicitarAsesoriaFinalPagina = ':nth-child(9) > .cont-contacto-dudas > .cont-btns-ayuda > .btn-contacto'
 
-const formularioLanding = Cypress.env('Formulario')
+
 const textoDetalle = 'Test de prueba form funeraria NF'
 
 class LandingSepulturaNFMobile {
 
-    ingresoLandingSepulturaNF(){
+    ingresoLandingSepulturaNF(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-futura')
+        cy.visit(url.urlLandingSepulturaNF)
     }
 
     //revisa el boton de telefonos y lo preciona 
@@ -44,54 +34,39 @@ class LandingSepulturaNFMobile {
         cy.get(popUpTelefonos,{timeout: 100000}).should('be.visible')
     }
     //Rellena el formulario de solicitar asesoria con un correo fin formato y verifica que sea rechazado
-    solicitarAsesoriaCorreroMalFormato(){
-        cy.get(inputNombreForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputApellidoMaternoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellidoMaterno)
-        cy.get(inputTelefonoFrom,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+    solicitarAsesoriaCorreroMalFormato(formulario){
+        cy.get(inputNombreForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputApellidoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputApellidoMaternoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.apellidoMaterno)
+        cy.get(inputTelefonoFrom,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
         cy.get(inputCorreoForm,{timeout:100000}).should('be.visible').type('qa')
         cy.get(inputDetallaNecesidadForm,{timeout:100000}).should('be.visible').type(textoDetalle) 
         cy.get(iconInputCorreo,{timeout:100000}).should('be.visible').and('have.css','color','rgb(193, 39, 45)')
     }
     //Rellena el formulario de solicitar asesoria y cierra el popup
-    solicitarAsesoriaCierrePopup(){
-        cy.get(inputNombreForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputApellidoMaternoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellidoMaterno)
-        cy.get(inputTelefonoFrom,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-        cy.get(inputCorreoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
+    solicitarAsesoriaCierrePopup(formulario){
+        cy.get(inputNombreForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputApellidoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputApellidoMaternoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.apellidoMaterno)
+        cy.get(inputTelefonoFrom,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
+        cy.get(inputCorreoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.correo)
         cy.get(inputDetallaNecesidadForm,{timeout:100000}).should('be.visible').type(textoDetalle)
         cy.get(btnSolicitarAsesoria,{timeout: 100000}).should('be.visible').click()
         cy.get(PopupSolicitud,{timeout:100000}).should('be.visible')
         cy.get(btnCierrePopupSolicitud,{timeout: 100000}).should('be.visible').click()
     }
     //Rellena el formulario de solicitar asesoria y preciona el boton de go home
-    solicitarAsesoriaGoHome(){
-        cy.get(inputNombreForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputApellidoMaternoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellidoMaterno)
-        cy.get(inputTelefonoFrom,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-        cy.get(inputCorreoForm,{timeout:100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
+    solicitarAsesoriaGoHome(url,formulario){
+        cy.get(inputNombreForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputApellidoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputApellidoMaternoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.apellidoMaterno)
+        cy.get(inputTelefonoFrom,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
+        cy.get(inputCorreoForm,{timeout:100000}).should('be.visible').type(formulario.FormularioFunnel.correo)
         cy.get(inputDetallaNecesidadForm,{timeout:100000}).should('be.visible').type(textoDetalle)
         cy.get(btnSolicitarAsesoria,{timeout: 100000}).should('be.visible').click()
         cy.get(PopupSolicitud,{timeout:100000}).should('be.visible')
         cy.get(btnGoHomePopup,{timeout: 100000}).should('be.visible').click()
-        cy.url({timeout: 100000}).should('eq', urlHomePage)
-    }
-
-    //precion el boton hablar con una ejecutiva y seleciona la opicion hablar con asesora de ventas y rellena el formulario
-    ejecutivaEnlineaHablar (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnHablarConAsesora,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion otro tipo de solicitud y rellena el formulario
-    ejecutivaEnlineaOtraSolicitud (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnOtraSolicitud,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNombreOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputEmailOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
+        cy.url({timeout: 100000}).should('eq', url.urlHome)
     }
     //busca el texto de "¿Qué pasa cuando un asesor te contacta?" en la pagina
     encontrarTitulo(){

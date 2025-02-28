@@ -3,16 +3,20 @@ import LandingCremacionNF from "../../../pages/cremacion/landingCremacionNF/land
 
 describe('Landing cremacion NF', () => {
 
-    beforeEach(() => {
+    beforeEach(function() {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+          cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
      });
 
-     it('Formulario cremacion necesidad futura', () => {
+     it('Formulario cremacion necesidad futura', function() {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.ingresarCremacionNecesidadFutura()
 
      });

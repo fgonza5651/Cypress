@@ -46,8 +46,8 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 
 class CremacionParvulo {
     //ingreso a la URL de Cremacion Premium NI
-    ingresoCremacionParvulo(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/servicio-parvulo')
+    ingresoCremacionParvulo(url){
+        cy.visit(url.urlCremacionParvulo)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

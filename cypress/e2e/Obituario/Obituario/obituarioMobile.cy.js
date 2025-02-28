@@ -3,17 +3,21 @@ import ObituarioPageMobile from "../../../pageMobile/Obituario/ObituarioPageMobi
 
 describe('Obituario ', () => {
 
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+         cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+         })
      });
 
      //
-     it('Obituario -Revisar cards informativas', () => {
+     it('Obituario -Revisar cards informativas', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('5')
         homePageMobile.SubServicioBarraMenu('1')
         ObituarioPageMobile.RevisarCard()
@@ -21,9 +25,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Obituario -Seleccionar 12 diciembre 2024 PAV', () => {
+     it('Obituario -Seleccionar 12 diciembre 2024 PAV', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('5')
         homePageMobile.SubServicioBarraMenu('1')
         ObituarioPageMobile.RevisarCard()
@@ -33,9 +37,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Obituario -Seleccionar 8 enero 2025 PCO', () => {
+     it('Obituario -Seleccionar 8 enero 2025 PCO', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('5')
         homePageMobile.SubServicioBarraMenu('1')
         ObituarioPageMobile.RevisarCard()
@@ -45,9 +49,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Obituario -Seleccionar 21 junio 2024 PPH', () => {
+     it('Obituario -Seleccionar 21 junio 2024 PPH', function()  {
 
-        homePageMobile.ingresoHomeMobile()
+        homePageMobile.ingresoHomeMobile(this.datos.Url)
         homePageMobile.OpcionBarraMenu('5')
         homePageMobile.SubServicioBarraMenu('1')
         ObituarioPageMobile.RevisarCard()

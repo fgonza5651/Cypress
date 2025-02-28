@@ -47,9 +47,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaParvuloDestacadoMobile {
     
     //ingreso a la URL de Funeraria plan ParvuloDestacado Mobile
-    ingresoFunerariaParvuloDestacadoMobile(){
+    ingresoFunerariaParvuloDestacadoMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo-destacado')
+        cy.visit(url.urlFunerariaParvuloDestacado)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

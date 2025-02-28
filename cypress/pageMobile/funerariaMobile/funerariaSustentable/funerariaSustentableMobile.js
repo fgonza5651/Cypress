@@ -46,9 +46,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaSustentableMobile {
     
     //ingreso a la URL de Funeraria plan Sustentable Mobile
-    ingresoFunerariaSustentableMobile(){
+    ingresoFunerariaSustentableMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-Sustentable')
+        cy.visit(url.urlFunerariaSustentable)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
