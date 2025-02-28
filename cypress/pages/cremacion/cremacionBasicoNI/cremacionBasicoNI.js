@@ -20,7 +20,6 @@ const inputApellidoLlamanos = '.form-datos-cliente > :nth-child(2) > .mat-form-f
 const inputTelefonoLlamanos = ':nth-child(3) > .mat-form-field > .mat-form-field-wrapper > .mat-form-field-flex'
 const btnEscribenos = '.btn-escribenos'
 const btnCotiza = '.btn-cotiza'
-const urlCotiza = 'https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui'
 //campo ejecutiva en linea
 const btnEjecutiva = '#chatSalesforce'
 const btnHablarConAsesora = '#btn-wsp'
@@ -83,34 +82,18 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
     })
 }
 
-const formularioLanding = Cypress.env('Formulario')
-
 
 class CremacionBasicoNI {
     //ingreso a la URL de Cremacion Basico NI
-    ingresoCremacionBasicaNI(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+    ingresoCremacionBasicaNI(url){
+        cy.visit(url.urlCremacionBasicoNI)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
     //revisa el boton compra en linea, lo preciona y rellena el formulario
-    compraEnLinea(){
+    compraEnLinea(formulario){
         cy.get(btnCompraEnLinea,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroCompraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion hablar con asesora de ventas y rellena el formulario
-    ejecutivaEnlineaHablar (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnHablarConAsesora,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion otro tipo de solicitud y rellena el formulario
-    ejecutivaEnlineaOtraSolicitud (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnOtraSolicitud,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNombreOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputEmailOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
+        cy.get(inputNumeroCompraEnLinea,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     //Agrega al carrito el articulo velatorio cafeteria basico y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -391,21 +374,21 @@ class CremacionBasicoNI {
         cy.get(informacionCaracteristicas,{timeout:100000}).should('be.visible')
     }
     //Preciona el boton llamanos y rellena el formulario
-    llamanos (){
+    llamanos (formulario){
         cy.get(btnLlamanos,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNombreLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputTelefonoLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+        cy.get(inputNombreLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputApellidoLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputTelefonoLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     //Preciona el boton escribenos y rellena el formulario
-    escribenos (){
+    escribenos (formulario){
         cy.get(btnEscribenos,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     //Preciona el boton cotiza que esta al final de la pagina y revisa que nos redireccione a "https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui" 
-    cotiza (){
+    cotiza (url){
         cy.get(btnCotiza,{timeout:100000}).should('be.visible').click()
-        cy.url({timeout: 100000}).should('eq', urlCotiza)
+        cy.url({timeout: 100000}).should('eq', url.urlCotiza)
     }
     //revisa que el precio de velatorio en el slide carrito sean iguales al solicitado
     revisarPreciosVelatorio(){
@@ -436,6 +419,7 @@ class CremacionBasicoNI {
             cy.get(slideCarrito,{timeout:100000}).contains(precioDescansoNum).should('be.visible')
         })  
     }
+    
 }
 
 const cremacionBasicoNI = new CremacionBasicoNI()

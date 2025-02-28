@@ -108,8 +108,7 @@ const precioServicioFunerario = '.valor-servicio-peso'
 const precioServicioVelatorio = ':nth-child(2) > .cont-valor-servicio > .valor-servicio > .valor-servicio-peso'
 
 
-//variables
-const formulario = Cypress.env('Formulario');
+
 
 function generarCorrero() {
 
@@ -127,9 +126,9 @@ class funnelFunerariaNIFMobile {
 
     //ingresa al flujo funnel cremacion NI
     
-    inicioFlujoCremacion(){
+    inicioFlujoCremacion(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=funeraria-nif')
+        cy.visit(url.urlFlujoFunerarioNIF)
         cy.wait(2000)
         cy.clearCookies();   
         cy.clearLocalStorage();
@@ -145,14 +144,14 @@ class funnelFunerariaNIFMobile {
     }
 
     //Formulario cuentanos de ti
-    formularioCuentanoDeTi(){
+    formularioCuentanoDeTi(formulario){
 
         const correoRandom = generarCorrero();
         //Se rellena el formulario
-        cy.get(inputNombre,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].Nombre)
-        cy.get(inputPaterno,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].apellido)
-        cy.get(inputMaterno,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].apellidoMaterno)
-        cy.get(inputTelefono,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].telefono)
+        cy.get(inputNombre,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputPaterno,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputMaterno,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.apellidoMaterno)
+        cy.get(inputTelefono,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
         cy.get(inputCorreo,{timeout: 100000}).should('be.visible').type(correoRandom)
         //clic en el boton continuar
         cy.contains(btnContinuar,{timeout: 100000}).should('be.visible').click()

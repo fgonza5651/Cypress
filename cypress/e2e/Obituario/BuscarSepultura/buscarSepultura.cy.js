@@ -1,21 +1,25 @@
 import homePage from "../../../pages/home/homePage";
 import BuscarSepultura from "../../../pages/Obituario/BuscarSepulturaPage";
 
-describe('Obituario ', () => {
+describe('Obituario ', () =>  {
 
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
           cy.clearCookies(); 
           cy.clearLocalStorage();
+
+         cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+         })
      });
 
      //
-     it('Buscar sepultura -Revisar cards informativas', () => {
+     it('Buscar sepultura -Revisar cards informativas', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -24,9 +28,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar todos los parques -Sector', () => {
+     it('Buscar sepultura -Revisar todos los parques -Sector', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -36,9 +40,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar parque americo vespucio -Sector', () => {
+     it('Buscar sepultura -Revisar parque americo vespucio -Sector', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -48,9 +52,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar parque cordillera -Sector', () => {
+     it('Buscar sepultura -Revisar parque cordillera -Sector', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -60,9 +64,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar parque padre hurtado -Sector', () => {
+     it('Buscar sepultura -Revisar parque padre hurtado -Sector', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -72,9 +76,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar todos los parques -Ver mapa', () => {
+     it('Buscar sepultura -Revisar todos los parques -Ver mapa', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -84,9 +88,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar parque americo vespucio -Ver mapa', () => {
+     it('Buscar sepultura -Revisar parque americo vespucio -Ver mapa', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -96,9 +100,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar parque cordillera -Ver mapa', () => {
+     it('Buscar sepultura -Revisar parque cordillera -Ver mapa', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -108,9 +112,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Revisar parque padre hurtado -Ver mapa', () => {
+     it('Buscar sepultura -Revisar parque padre hurtado -Ver mapa', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -120,9 +124,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Ver mas Floreria', () => {
+     it('Buscar sepultura -Ver mas Floreria', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -131,9 +135,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Ver mas Lapidas', () => {
+     it('Buscar sepultura -Ver mas Lapidas', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -142,9 +146,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Ver mas Ceremonia', () => {
+     it('Buscar sepultura -Ver mas Ceremonia', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -153,9 +157,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Ver mas Apoyo', () => {
+     it('Buscar sepultura -Ver mas Apoyo', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -164,9 +168,9 @@ describe('Obituario ', () => {
      });
 
      //
-     it('Buscar sepultura -Habla en linea', () => {
+     it('Buscar sepultura -Habla en linea', function()  {
 
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
@@ -175,20 +179,20 @@ describe('Obituario ', () => {
     });
     
     //
-    it('Buscar sepultura -Ir a flores', () => {
+    it('Buscar sepultura -Ir a flores', function()  {
         
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()
-        BuscarSepultura.seleccionVerMasFloresIr()
+        BuscarSepultura.seleccionVerMasFloresIr(this.datos.Url)
 
      });
     
     //
-    it('Buscar sepultura -Revisar ceremonia del recuerdo', () => {
+    it('Buscar sepultura -Revisar ceremonia del recuerdo', function()  {
         
-        homePage.ingresoHomeParqueDelRecuerdo()
+        homePage.ingresoHomeParqueDelRecuerdo(this.datos.Url)
         homePage.OpcionBarraMenu('4')
         homePage.SubServicioBarraMenu('2')
         homePage.seleccionarSubServicioBarra()

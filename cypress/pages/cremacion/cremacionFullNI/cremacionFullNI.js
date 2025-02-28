@@ -58,13 +58,12 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
     })
 }
 
-const formularioLanding = Cypress.env('Formulario')
 
 
 class CremacionFullNI {
     //ingreso a la URL de Cremacion Full NI
-    ingresoCremacionFullNI(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-full-ni')
+    ingresoCremacionFullNI(url){
+        cy.visit(url.urlCremacionFullNI)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

@@ -14,256 +14,152 @@ import webpay3Mobile from "../../../pageMobile/carroComprasMobile/webpayMobile/w
 import authenticatorWebpayMobile from "../../../pageMobile/carroComprasMobile/webpayMobile/autentificacionMobile";
 import checkoutReciboMobile from "../../../pageMobile/carroComprasMobile/reciboMobile/checkoutReciboMobile";
 
-describe('test funeraria plan basico Mobile', () =>{
-    beforeEach(() => {
+describe('test funeraria plan basico Mobile', () => {
+    beforeEach(function()  {
         cy.clearCookies();   
         cy.clearLocalStorage();
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
         });
+
+        cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
     });  
     //{nombre historia}
-    it('Funeraria - Basico -Descanso memorial -Mobile', () =>{
-        funerariaBasicoMobile.ingresoFunerariaBasicoMobile()
+    it('Funeraria - Basico -Descanso memorial -Mobile', function() {
+        funerariaBasicoMobile.ingresoFunerariaBasicoMobile(this.datos.Url)
         funerariaBasicoMobile.revisarAgregarCarrito()
         funerariaBasicoMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Parvulo -Descanso memorial -Mobile', () =>{
-        funerariaParvuloMobile.ingresoFunerariaParvuloMobile()
+    it('Funeraria - Parvulo -Descanso memorial -Mobile', function() {
+        funerariaParvuloMobile.ingresoFunerariaParvuloMobile(this.datos.Url)
         funerariaParvuloMobile.revisarAgregarCarrito()
         funerariaParvuloMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Parvulo - Base -Descanso memorial -Mobile', () =>{
-        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile()
+    it('Funeraria - Parvulo - Base -Descanso memorial -Mobile', function() {
+        funerariaParvuloBaseMobile.ingresoFunerariaParvuloBaseMobile(this.datos.Url)
         funerariaParvuloBaseMobile.revisarAgregarCarrito()
         funerariaParvuloBaseMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Parvulo - Destacado -Descanso memorial -Mobile', () =>{
-        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile()
+    it('Funeraria - Parvulo - Destacado -Descanso memorial -Mobile', function() {
+        funerariaParvuloDestacadoMobile.ingresoFunerariaParvuloDestacadoMobile(this.datos.Url)
         funerariaParvuloDestacadoMobile.revisarAgregarCarrito()
         funerariaParvuloDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Premium -Descanso memorial -Mobile', () =>{
-        funerariaPremiumMobile.ingresoFunerariaPremiumMobile()
+    it('Funeraria - Premium -Descanso memorial -Mobile', function() {
+        funerariaPremiumMobile.ingresoFunerariaPremiumMobile(this.datos.Url)
         funerariaPremiumMobile.revisarAgregarCarrito()
         funerariaPremiumMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Premium Destacada -Mobile', () =>{
-        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile()
+    it('Funeraria - Premium Destacada -Mobile', function() {
+        funerariaPremiumDestacadaMobile.ingresoFunerariaPremiumDestacadaMobile(this.datos.Url)
         funerariaPremiumDestacadaMobile.revisarAgregarCarrito()
         funerariaPremiumDestacadaMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Sustentable -Descanso memorial -Mobile', () =>{
-        funerariaSustentableMobile.ingresoFunerariaSustentableMobile()
+    it('Funeraria - Sustentable -Descanso memorial -Mobile', function() {
+        funerariaSustentableMobile.ingresoFunerariaSustentableMobile(this.datos.Url)
         funerariaSustentableMobile.revisarAgregarCarrito()
         funerariaSustentableMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Tradicion -Descanso memorial -Mobile', () =>{
-        funerariaTradicionMobile.ingresoFunerariaTradicionMobile()
+    it('Funeraria - Tradicion -Descanso memorial -Mobile', function() {
+        funerariaTradicionMobile.ingresoFunerariaTradicionMobile(this.datos.Url)
         funerariaTradicionMobile.revisarAgregarCarrito()
         funerariaTradicionMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
     //{nombre historia}
-    it('Funeraria - Tradicion Destacado -Descanso memorial -Mobile', () =>{
-        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile()
+    it('Funeraria - Tradicion Destacado -Descanso memorial -Mobile', function() {
+        funerariaTradicionDestacadoMobile.ingresoFunerariaTradicionDestacadoMobile(this.datos.Url)
         funerariaTradicionDestacadoMobile.revisarAgregarCarrito()
         funerariaTradicionDestacadoMobile.precionarCarroCompra()
         carroComprasMobile.precionarIrComprar()
-        carroComprasMobile.formularioDatosPersonales()
-        carroComprasMobile.formularioContacto()
-        carroComprasMobile.formularioFallecidoPrimerServico()
+        carroComprasMobile.formularioDatosPersonales(this.datos.Formulario)
+        carroComprasMobile.formularioContacto(this.datos.Formulario)
+        carroComprasMobile.formularioFallecidoPrimerServico(this.datos.Formulario)
         carroComprasMobile.TerminosCondicionesPagar()
-        webpay3Mobile.precionarTarjetas().then((respuesta) =>{
-            //Revisa que se logre precionar el boton tarjeta sin que salte algun error en la transaccion
-            if(respuesta){
-                cy.log('Error')
-            }else{
-                webpay3Mobile.formularioTarjetaRedcompra().then((success) =>{
-                    //Revisa que la transaccion se realiza correctamente y esta no se caiga en mitad del proceso
-                    if(success){
-                        cy.log('Error')
-                    }else{
-                        authenticatorWebpayMobile.formularioTransbankAceptar()
-                        checkoutReciboMobile.validarPaginaAprobada()
-                    }
-                })
-            }
-        })
+        webpay3Mobile.selectTarjetas()
+        webpay3Mobile.ingresoTarjetaDebito(this.datos.Formulario)
+        authenticatorWebpayMobile.formularioTransbankAceptar(this.datos.Formulario)
+        checkoutReciboMobile.validarPaginaAprobada()
     })
 })

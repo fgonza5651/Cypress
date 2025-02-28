@@ -34,8 +34,8 @@ const btnVerMasPPH = '.cont-tabs-ceremonia > .mat-tab-group > .mat-tab-header > 
 
 class buscarSepultura{
     
-    ingresoBusquedaSepultura(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/busqueda/sepultados')
+    ingresoBusquedaSepultura(url){
+        cy.visit(url.urlBusquedaSepultura)
     }
 
     //Revisa que el banner de cards tenga almenos 1 elemento
@@ -145,7 +145,7 @@ class buscarSepultura{
     }
     
     //Se Selecciona ir al sitio Flores del Recuerdo 
-    seleccionVerMasFloresIr(){
+    seleccionVerMasFloresIr(url){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -155,7 +155,7 @@ class buscarSepultura{
         cy.xpath(btnVerMasFloreria,{timeout:10000}).should('be.visible').click()
         cy.get(popUpTambienOfrecemos,{timeout:10000}).should('be.visible')
         cy.get(btnIrFloresRecuerdo,{timeout: 10000}).click()
-        cy.url().should('eq', 'https://flores.parquedelrecuerdo.cl/')
+        cy.url().should('eq', url.urlFlores)
     }
     
     //Se revisa la ceremonia del recuerdo desde tambien te ofrecemos

@@ -46,9 +46,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaParvuloMobile {
     
     //ingreso a la URL de Funeraria plan Parvulo Mobile
-    ingresoFunerariaParvuloMobile(){
+    ingresoFunerariaParvuloMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/plan-parvulo')
+        cy.visit(url.urlFunerariaParvulo)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

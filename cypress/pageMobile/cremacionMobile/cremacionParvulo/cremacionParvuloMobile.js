@@ -46,9 +46,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class CremacionParvuloMobile {
     
     //ingreso a la URL de Cremacion Premium NI Mobile
-    ingresoCremacionParvuloMobile(){
+    ingresoCremacionParvuloMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/servicio-parvulo')
+        cy.visit(url.urlCremacionFullNI)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

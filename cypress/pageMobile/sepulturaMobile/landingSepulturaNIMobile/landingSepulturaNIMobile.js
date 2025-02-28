@@ -8,14 +8,8 @@ const btnIniciarCotizacion = '.btn-iniciar-cot'
 const btnSeleccionarNecesidad = '.btn-contacto'
 
 //campo ejecutiva en linea
-const btnEjecutiva = '#chatSalesforce'
-const btnCerrarEjecutiva = '#chatSalesforce > .material-icons-round'
-const btnHablarConAsesora = '#btn-wsp'
 const inputNumeroAsesoraEnLinea = '#mat-input-1'
-const btnOtraSolicitud = '.cont-btns-contactos > :nth-child(3)'
-const inputNombreOtraSolicitud = '#FirstName'
-const inputApellidoOtraSolicitud = '#LastName'
-const inputEmailOtraSolicitud = '#Email'
+
 //Textos y titulos a buscar
 const titulo1 = '¿Qué pasa cuando un asesor te contacta?'
 const titulo2 = 'Compra tu sepultura con nuestros asesores expertos'
@@ -25,16 +19,14 @@ const btnImagenesPCO = ':nth-child(2) > .card-ubicacion-parques > .btn-ver-img'
 const btnImagenesPPH = ':nth-child(3) > .card-ubicacion-parques > .btn-ver-img'
 const popupDescubrirParques = '#mat-tab-content-0-0 > div > swiper > div.swiper-wrapper > div.swiper-slide.ng-star-inserted.swiper-slide-active'
 const btnCerrarPopupDescubrirParques = '#sidenav-imagenes > div > button > span'
-const btnCerrarPopupPCO = '#sidenav-imagenes > div > button > span'
-const btnCerrarPopupPPH = '#sidenav-imagenes > div > button > span'
 
-const formularioLanding = Cypress.env('Formulario')
+
 
 class LandingSepulturaNIMobile {
 
-    ingresoLandingSepulturaNI(){
+    ingresoLandingSepulturaNI(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-inmediata')
+        cy.visit(url.urlLandingSepulturaNI)
     }
 
     //revisa el boton de telefonos y lo preciona 
@@ -43,27 +35,13 @@ class LandingSepulturaNIMobile {
         cy.get(popUpTelefonos,{timeout: 100000}).should('be.visible')
     }
     //preciona el boton empieza aqui y revisa que nos redireccione a la pagina correcta
-    llamanos(){
+    llamanos(formulario){
         cy.get(btnLlamanos,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+        cy.get(inputNumeroLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
-    chatWhatsapp(){
+    chatWhatsapp(formulario){
         cy.get(btnWhatsapp,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion hablar con asesora de ventas y rellena el formulario
-    ejecutivaEnlineaHablar (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnHablarConAsesora,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion otro tipo de solicitud y rellena el formulario
-    ejecutivaEnlineaOtraSolicitud (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnOtraSolicitud,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNombreOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputEmailOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
+        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     //busca el texto de "¿Qué pasa cuando un asesor te contacta?" en la pagina
     encontrarTitulo1(){

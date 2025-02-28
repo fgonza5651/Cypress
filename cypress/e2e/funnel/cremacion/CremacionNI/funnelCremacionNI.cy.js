@@ -5,26 +5,30 @@ import authenticatorWebpay from "../../../../pages/carroCompras/webpay/autentifi
 import checkoutRecibo from "../../../../pages/carroCompras/recibo/checkoutRecibo";
 
 describe('', () => {
-    beforeEach(() => {
+    beforeEach(function()  {
         Cypress.on('uncaught:exception', (err, runnable) => {
             // ...
             return false;
           });
+
+        cy.fixture('Datos').then((datos) =>{
+            this.datos = datos
+        })
     });
 
     //
-    it('Ingresar flujo cremacion NI', () => {
+    it('Ingresar flujo cremacion NI', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
 
     })
 
     //Con servicio de cremacion base - ceremonia despedida especial - anafora cofres full- descanzo de cnizas especial - memorial del recuerdo
-    it('Comprar plan basico', () => {
+    it('Comprar plan basico', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.seleccionPlanBasico()
         FunnelCremacionNI.seleccionarVelatorioBasico()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -33,7 +37,7 @@ describe('', () => {
         FunnelCremacionNI.selecionEntregaCenizasEspecial()
         FunnelCremacionNI.seleccionaMemorialDelRecuerdo()
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         /*
         webpay3.precionarTarjetas()
@@ -45,11 +49,11 @@ describe('', () => {
     //
 
     //Con servicio de plan tradicion - cremacion base - despedida con coro- anafora madera bascia incluida - entrega cenizas inclida - jarin de flores
-    it('Comprar plan tradicion', () => {
+    it('Comprar plan tradicion', function()  {
       
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.seleccionarPlanTradicional()
         FunnelCremacionNI.seleccionarVelatorioCafeteriaEstandar()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -59,7 +63,7 @@ describe('', () => {
         FunnelCremacionNI.selecionarJardinFlores()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -68,11 +72,11 @@ describe('', () => {
         */
     })
 
-    it('Comprar plan sustentable', () => {
+    it('Comprar plan sustentable', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.seleccionarPlanSustentable()
         FunnelCremacionNI.seleccionarVelatorioCafeteriaPremium()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -82,7 +86,7 @@ describe('', () => {
         FunnelCremacionNI.seleccionarJardinFloresPremium()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -91,11 +95,11 @@ describe('', () => {
         */
     })
 
-    it('Comprar plan tradicion Destacado', () => {
+    it('Comprar plan tradicion Destacado', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.seleccionarPlanTradicionalDestacado()
         FunnelCremacionNI.seleccionarVelatorioCafeteriaPremium()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -104,7 +108,7 @@ describe('', () => {
         FunnelCremacionNI.seleccionEntregaCenizasIncluida()
         FunnelCremacionNI.seleccionarColumbarioPared()
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         /*
         webpay3.precionarTarjetas()
@@ -114,11 +118,11 @@ describe('', () => {
         */
     })
 
-    it('Comprar plan homenaje premium', () => {
+    it('Comprar plan homenaje premium', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.seleccionarPlanHomenajePremium()
         FunnelCremacionNI.seleccionarVelatorioBasico()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -128,7 +132,7 @@ describe('', () => {
         FunnelCremacionNI.seleccionarColumbarioVidriado()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -137,11 +141,11 @@ describe('', () => {
         */
     })
 
-    it('Comprar plan homenaje premium destado', () => {
+    it('Comprar plan homenaje premium destado', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.seleccionarPlanHomenajePremiumDestacado()
         FunnelCremacionNI.seleccionarVelatorioCafeteriaEstandar()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -151,7 +155,7 @@ describe('', () => {
         FunnelCremacionNI.seleccionarColumbarioVidriado()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -161,11 +165,11 @@ describe('', () => {
     })
 
     //Con servicio de cremacion base - ceremonia despedida especial - anafora cofres full- descanzo de cnizas especial - memorial del recuerdo
-    it('Comprar plan basico -Ver mas', () => {
+    it('Comprar plan basico -Ver mas', function()  {
 
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanBasico()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -186,7 +190,7 @@ describe('', () => {
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         /*
         webpay3.precionarTarjetas()
@@ -198,11 +202,11 @@ describe('', () => {
     //
     
     //Con servicio de plan tradicion - cremacion base - despedida con coro- anafora madera bascia incluida - entrega cenizas inclida - jarin de flores
-    it('Comprar plan tradicion -Ver mas', () => {
+    it('Comprar plan tradicion -Ver mas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanTradicional()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -224,7 +228,7 @@ describe('', () => {
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -233,11 +237,11 @@ describe('', () => {
         */
     })
     
-    it('Comprar plan sustentable -Ver mas', () => {
+    it('Comprar plan sustentable -Ver mas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanSustentable()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -259,7 +263,7 @@ describe('', () => {
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -268,11 +272,11 @@ describe('', () => {
         */
     })
     
-    it('Comprar plan tradicion Destacado -Ver mas', () => {
+    it('Comprar plan tradicion Destacado -Ver mas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanTradicionalDestacado()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -293,7 +297,7 @@ describe('', () => {
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         /*
         webpay3.precionarTarjetas()
@@ -303,11 +307,11 @@ describe('', () => {
         */
     })
     
-    it('Comprar plan homenaje premium -Ver mas', () => {
+    it('Comprar plan homenaje premium -Ver mas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanHomenajePremium()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -329,7 +333,7 @@ describe('', () => {
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -337,11 +341,11 @@ describe('', () => {
         checkoutRecibo.validarAprobacionFunnel()
         */
     })
-    it('Comprar plan homenaje premium Descado -Ver mas', () => {
+    it('Comprar plan homenaje premium Descado -Ver mas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanHomenajePremiumDestacado()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -363,7 +367,7 @@ describe('', () => {
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
         /*
         ResumenPagoPage.completarDatos()
-        ResumenPagoPage.formularioComprador()
+        ResumenPagoPage.formularioComprador(this.datos.Formulario)
         ResumenPagoPage.checkTerminosCondiciones()
         webpay3.precionarTarjetas()
         webpay3.ingresoTarjetaDebito()
@@ -371,11 +375,11 @@ describe('', () => {
         checkoutRecibo.validarAprobacionFunnel()
         */
     })
-    it('Comprar plan homenaje premium Descado -Seleccionar desde Ver mas', () => {
+    it('Comprar plan homenaje premium Descado -Seleccionar desde Ver mas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanHomenajePremiumDestacado()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()
@@ -396,11 +400,11 @@ describe('', () => {
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
     })
-    it('Continuar sin servicio Funeraria', () => {
+    it('Continuar sin servicio Funeraria', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.SeleccionarContinuarSinServicio()
         FunnelCremacionNI.seleccionarVelatorioCafeteriaEstandar()
         FunnelCremacionNI.seccionServicioCremacionBase()
@@ -417,11 +421,11 @@ describe('', () => {
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionDescansoCenizasContinuar()
     })
-    it('Continuar sin servicio Descanso cenizas', () => {
+    it('Continuar sin servicio Descanso cenizas', function()  {
         
-        FunnelCremacionNI.inicioFlujoCremacion()
+        FunnelCremacionNI.inicioFlujoCremacion(this.datos.Url)
         FunnelCremacionNI.seleccionRegionComuna()
-        FunnelCremacionNI.formularioCuentanoDeTi()
+        FunnelCremacionNI.formularioCuentanoDeTi(this.datos.Formulario)
         FunnelCremacionNI.verMasPlanHomenajePremiumDestacado()
         FunnelCremacionNI.SeleccionarServiciosSidenav()
         FunnelCremacionNI.seccionFunerariaContinuar()

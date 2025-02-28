@@ -22,8 +22,8 @@ const btnVerDetalleCafeteriaPremium = ':nth-child(3) > .valor-ss-aa > .btn-ver-d
 class cafeteriaVelatorioBasico {
     
     //ingreso a la URL de Cremacion Basico NI
-    ingresoCafetariaVelatorioBasico(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni')
+    ingresoCafetariaVelatorioBasico(url){
+        cy.visit(url)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

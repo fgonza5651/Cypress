@@ -49,9 +49,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class CremacionPremiumNIMobile {
     
     //ingreso a la URL de Cremacion Premium NI Mobile
-    ingresoCremacionPremiumNIMobile(){
+    ingresoCremacionPremiumNIMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-premium-ni')
+        cy.visit(url.urlCremacionPremiumNI)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

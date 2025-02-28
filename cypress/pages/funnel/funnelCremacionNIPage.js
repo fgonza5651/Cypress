@@ -114,8 +114,6 @@ const btnSeleccionar = '.btn-seleccionar'
 const precioServicioFunerario = '.valor-peso'
 const precioServicioVelatorio = ':nth-child(2) > .pasos > .cont-detalle > .valor-peso'
 
-//variables
-const formulario = Cypress.env('Formulario');
 
 function generarCorrero() {
 
@@ -133,9 +131,9 @@ class funnelCremacionNI {
 
     //ingresa al flujo funnel cremacion NI
     
-    inicioFlujoCremacion(){
+    inicioFlujoCremacion(url){
 
-        cy.visit('https://ic.parquedelrecuerdo.cl/funnel/inicio-flujo?producto=cremacion-ni')
+        cy.visit(url.urlFlujoCremacionNI)
         cy.wait(2000)
         cy.clearCookies();   
         cy.clearLocalStorage();
@@ -153,14 +151,14 @@ class funnelCremacionNI {
     }
 
     //Formulario cuentanos de ti
-    formularioCuentanoDeTi(){
+    formularioCuentanoDeTi(formulario){
 
         const correoRandom = generarCorrero();
         //Se rellena el formulario
-        cy.get(inputNombre,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].Nombre)
-        cy.get(inputPaterno,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].apellido)
-        cy.get(inputMaterno,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].apellidoMaterno)
-        cy.get(inputTelefono,{timeout: 100000}).should('be.visible').type(formulario['FormularioFunnel'].telefono)
+        cy.get(inputNombre,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputPaterno,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputMaterno,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.apellidoMaterno)
+        cy.get(inputTelefono,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
         cy.get(inputCorreo,{timeout: 100000}).should('be.visible').type(correoRandom)
         //clic en el boton continuar
         cy.contains(btnContinuar,{timeout: 100000}).should('be.visible').click()

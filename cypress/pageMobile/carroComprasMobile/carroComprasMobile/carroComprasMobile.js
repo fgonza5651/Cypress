@@ -37,13 +37,11 @@ const btnCheckTerminosCondiciones ='.mat-checkbox-inner-container'
 const btnIrPagar = 'corporativo-checkout-metodo-pago > form.ng-valid > #contenido-tab-info-personal > corporativo-checkout-resumen-compra > #contenedor-resumen-compra-mobile > .total > .btn-total > .boton-verde-resumen'
 
 
-const formularioCarroCompras = Cypress.env('Formulario')
-
 class CarroComprasMobile{
 
-    ingresarCarroCompras(){
+    ingresarCarroCompras(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/carro-compra')
+        cy.visit(url)
     }
 
     //Revisa que el precio del servicio velatorio en el resumen sea el mismo que el seleccionado 
@@ -79,45 +77,45 @@ class CarroComprasMobile{
         cy.get(btnComprar,{timeout:100000}).should('be.visible').click()
     }
     //rellena el formulario de datos personales y pasa al siguiente paso
-    formularioDatosPersonales(){
-        cy.get(inputNombreDatosPersonales,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioDatosPersonales'].nombre)
-        cy.get(inputApellidoDatosPersonales,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioDatosPersonales'].apellido)
-        cy.get(inputRutDatosPersonales,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioDatosPersonales'].rut)
+    formularioDatosPersonales(formulario){
+        cy.get(inputNombreDatosPersonales,{timeout:100000}).should('be.visible').type(formulario.FormularioDatosPersonales.nombre)
+        cy.get(inputApellidoDatosPersonales,{timeout:100000}).should('be.visible').type(formulario.FormularioDatosPersonales.apellido)
+        cy.get(inputRutDatosPersonales,{timeout:100000}).should('be.visible').type(formulario.FormularioDatosPersonales.rut)
         cy.get(btnRegionDatosPersonales,{timeout:100000}).should('be.visible').click()
         cy.get(btnMetropolitanaScrollRegion,{timeout:100000}).should('be.visible').click()
         cy.get(btnComunaDatosPersonales,{timeout:100000}).should('be.visible').click()
         cy.get(btnLaFloridaScrollComuna,{timeout:100000}).click()
-        cy.get(inputCalleDatosPersonales,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioDatosPersonales'].calle)
-        cy.get(inputNroCasaDatosPersonales,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioDatosPersonales'].nroCalle)
-        cy.get(inputDptoDatosPersonales,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioDatosPersonales'].dpto)
+        cy.get(inputCalleDatosPersonales,{timeout:100000}).should('be.visible').type(formulario.FormularioDatosPersonales.calle)
+        cy.get(inputNroCasaDatosPersonales,{timeout:100000}).should('be.visible').type(formulario.FormularioDatosPersonales.nroCalle)
+        cy.get(inputDptoDatosPersonales,{timeout:100000}).should('be.visible').type(formulario.FormularioDatosPersonales.dpto)
         cy.get(btnSiguienteDatosPersonales,{timeout:100000}).should('be.visible').click()
     }
     //rellena el formulario de datos de contacto y pasa al siguiente paso
-    formularioContacto(){
-        cy.get(inputTelefonoContacto,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioContacto'].telefono)
-        cy.get(inputCorreoContacto,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioContacto'].correo)
-        cy.get(inputConfirmarCorreoContacto,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioContacto'].correo)
+    formularioContacto(formulario){
+        cy.get(inputTelefonoContacto,{timeout:100000}).should('be.visible').type(formulario.FormularioContacto.telefono)
+        cy.get(inputCorreoContacto,{timeout:100000}).should('be.visible').type(formulario.FormularioContacto.correo)
+        cy.get(inputConfirmarCorreoContacto,{timeout:100000}).should('be.visible').type(formulario.FormularioContacto.correo)
         cy.get(btnSiguienteContacto,{timeout:100000}).should('be.visible').click()
     }
     //rellena el formulario de datos del fallecido primer servicio
-    formularioFallecidoPrimerServico(){
-        cy.get(inputNombreFallecidoPrimerServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].nombre)
-        cy.get(inputApellidoFallecidoPrimerServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].apellido)
-        cy.get(inputRutFallecidoPrimerServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].rut)
+    formularioFallecidoPrimerServico(formulario){
+        cy.get(inputNombreFallecidoPrimerServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.nombre)
+        cy.get(inputApellidoFallecidoPrimerServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.apellido)
+        cy.get(inputRutFallecidoPrimerServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.rut)
     }
     //Pasa al siguiente paso y rellena el formulario de datos del fallecido segundo servicio
-    formularioFallecidoSegundoServicio(){
+    formularioFallecidoSegundoServicio(formulario){
         cy.get(btnSiguienteFallecidoPrimerServicio,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNombreFallecidoSegundoServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].nombre)
-        cy.get(inputApellidoFallecidoSegundoServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].apellido)
-        cy.get(inputRutFallecidoSegundoServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].rut)
+        cy.get(inputNombreFallecidoSegundoServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.nombre)
+        cy.get(inputApellidoFallecidoSegundoServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.apellido)
+        cy.get(inputRutFallecidoSegundoServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.rut)
     }
     //Pasa al siguiente paso y rellena el formulario de datos del fallecido tercero servicio
-    formularioFallecidoTercerServicio(){
+    formularioFallecidoTercerServicio(formulario){
         cy.get(btnSiguienteFallecidoSegundoServicio,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNombreFallecidoTercerServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].nombre)
-        cy.get(inputApellidoFallecidoTercerServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].apellido)
-        cy.get(inputRutFallecidoTercerServicio,{timeout:100000}).should('be.visible').type(formularioCarroCompras['FormularioFallecido'].rut)
+        cy.get(inputNombreFallecidoTercerServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.nombre)
+        cy.get(inputApellidoFallecidoTercerServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.apellido)
+        cy.get(inputRutFallecidoTercerServicio,{timeout:100000}).should('be.visible').type(formulario.FormularioFallecido.rut)
     }
     //Pasa al siguiente paso, acepta los terminos y condiciones y preciona el boton ir a pagar 
     TerminosCondicionesPagar (){

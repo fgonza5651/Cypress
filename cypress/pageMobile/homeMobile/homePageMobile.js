@@ -12,9 +12,9 @@ const btnVelatorioNI = '.cont-necesidad-inmediata > .cont-btn-producto > :nth-ch
 const btnCremacionNI = ".cont-necesidad-inmediata > .cont-btn-producto > :nth-child(3)"
 const btnSepulturaNI = ".cont-necesidad-inmediata > .cont-btn-producto > :nth-child(4)"
 //Estoy pensando en futuro menu
-const btnFunerariaNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(1)"
-const btnCremacionNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(2)"
-const btnSepulturaNIF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(3)"
+const btnFunerariaNF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(1)"
+const btnCremacionNF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(2)"
+const btnSepulturaNF = ".cont-necesidad-futura > .cont-btn-producto > :nth-child(3)"
 // menu header
 const btnHomeParqueRecuerdo = '.logo-header'
 const btnOpcionMenuBarra = '//*[@id="mat-tab-content-0-0"]/div/ul/li';
@@ -70,9 +70,9 @@ import "cypress-real-events/support";
 
 class HomePageMobile {
     //ingresa a la pagina desde mobile
-    ingresoHomeMobile (){
+    ingresoHomeMobile (url){
         cy.viewport('iphone-xr')
-        cy.visit('/')
+        cy.visit(url.urlHome)
         cy.wait(1000)
         cy.clearCookies();   
         cy.get('body').then(($body) =>{
@@ -86,9 +86,9 @@ class HomePageMobile {
     }
 
     //Se selecciona la opcion del sub menu
-    PrecionarLogoParqueHome(){
+    PrecionarLogoParqueHome(url){
         cy.get(btnHomeParqueRecuerdo,{timeout:100000}).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/')
+        cy.url().should('eq', url.urlHome)
     }
 
     //utilizando un numero desde el 1 hasta el 8 para las opciones del Menu desplegable
@@ -110,9 +110,9 @@ class HomePageMobile {
     }
 
     //revisa que al presionar uno de los botones, este te redirija a otra pagina con una URL diferente
-    RevisarCambioUrl(){
+    RevisarCambioUrl(url){
         cy.wait(3000)
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/')
+        cy.url().should('not.eq', url.urlHome)
     }
     
     //revisa que al precionar el boton este abra otra pestaña utilizando un numero del 1 al 3 para distintos botones
@@ -145,53 +145,55 @@ class HomePageMobile {
     }
 
     //selecciona de Funeraria NI
-    seleccionaraFunerariaNI(){
+    seleccionaraFunerariaNI(url){
         cy.get(btnFunerariaNI, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-inmediata')
+        cy.url().should('eq', url.urlLandingFunerariaNI)
     }
     //selecciona de Velatorio NI
-    seleccionaraVelatorioNI(){
+    seleccionaraVelatorioNI(url){
         cy.get(btnVelatorioNI, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni')
+        cy.url().should('eq', url.urlCafeteriaVelatorioBasico)
     }
     //selecciona de cremacion NI
-    seleccionaraCremacionNI(){
+    seleccionaraCremacionNI(url){
         cy.get(btnCremacionNI, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-inmediata')
+        cy.url().should('eq', url.urlLandingCremacionNI)
     }
     //selecciona de Sepultura NI
-    seleccionaraSepulturaNI(){
+    seleccionaraSepulturaNI(url){
         cy.get(btnSepulturaNI, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-inmediata')
+        cy.url().should('eq', url.urlLandingSepulturaNI)
     }
     
     //selecciona de Funeraria NIF
-    seleccionFunerariaNIF(){
-        cy.get(btnFunerariaNIF, { timeout: 100000 }).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/funeraria-necesidad-futura')
+    seleccionFunerariaNIF(url){
+        cy.get(btnFunerariaNF, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', url.urlLandingFunerariaNF)
     }
     //selecciona de cremacion NIF
-    seleccionCremacionNIF(){
-        cy.get(btnCremacionNIF, { timeout: 100000 }).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-futura')
+    seleccionCremacionNIF(url){
+        cy.get(btnCremacionNF, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', url.urlLandingCremacionNF)
     }
     //selecciona de Sepultura NIF
-    seleccionSepulturaNIF(){
-        cy.get(btnSepulturaNIF, { timeout: 100000 }).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/sepultura-necesidad-futura')
+    seleccionSepulturaNIF(url){
+        cy.get(btnSepulturaNF, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', url.urlLandingSepulturaNF)
     }
 
     //Comprueba que el banner principal cambie
     ComprobarBanner(){
         cy.scrollTo(0,750)
-        cy.wait(4500)
-        cy.get(SwiperBannerPrincipal).should('have.css', 'transform', 'matrix(1, 0, 0, 1, -1227, 0)');
-        cy.wait(4000)
-        cy.get(SwiperBannerPrincipal).should('have.css', 'transform', 'matrix(1, 0, 0, 1, -1636, 0)');
+        cy.get(SwiperBannerPrincipal).invoke('css', 'transform').then((BannerInicial) =>{
+            cy.wait(3500)
+            cy.get(SwiperBannerPrincipal).invoke('css', 'transform').then((BannerSecundario) =>{
+                expect(BannerInicial).not.to.eq(BannerSecundario)
+            });
+        })
     }
 
     //Comprueba que al precionar quiero contactarme se redirija a whatssap
-    quieroContactarme(){
+    quieroContactarme(url){
         cy.window().then((win) => {
             // Espía window.open y simula su comportamiento
             cy.stub(win, 'open').callsFake((url) => {
@@ -199,14 +201,15 @@ class HomePageMobile {
             });
         });
         cy.get(btnQuieroContactarme).scrollIntoView().should('be.visible').click();
-        cy.url().should('eq', 'https://wa.me/56940277054?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio%20de%20Parque%20del%20Recuerdo')
+        cy.url().should('include', url.urlWhatsapp)
+    }
+    
+    //selecciona Planifica con tiempo
+    seleccionPlanificaConTiempo(url){
+        cy.get(btnPlanificaConTiempo, { timeout: 100000 }).should('be.visible').click()
+        cy.url().should('eq', url.urlCotiza)
     }
 
-    //selecciona de Sepultura NIF
-    seleccionPlanificaConTiempo(){
-        cy.get(btnPlanificaConTiempo, { timeout: 100000 }).should('be.visible').click()
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui')
-    }
 
     //Ingresa desde el menu desplegable a la seccion Funeraria Necesidad inmediata de la saccion Productos y servicios
     ingresoFunerariaNIProductosServiciosMobile(){
@@ -276,32 +279,32 @@ class HomePageMobile {
     }
     
     //selecciona card de Funeraria 
-    seleccionarCardFuneraria(){
+    seleccionarCardFuneraria(url){
         cy.scrollTo(0,3500)
         cy.wait(1500)
         cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/funeraria')
+        cy.url().should('eq', url.urlLandingFuneraria)
     }
     //selecciona card de Velatorio 
-    seleccionarCardVelatorio(){
+    seleccionarCardVelatorio(url){
         cy.get(cardVelatorio, { timeout: 100000 }).should('be.visible').click();
         cy.scrollTo(0,3500)
         cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/productos/velatorio/velatorio-ni')
+        cy.url().should('eq', url.urlCafeteriaVelatorioBasico)
     }
     //selecciona card de cremacion 
-    seleccionarCardCremacion(){
+    seleccionarCardCremacion(url){
         cy.get(cardCremacion, { timeout: 100000 }).should('be.visible').click();
         cy.scrollTo(0,3500)
         cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/cremacion')
+        cy.url().should('eq', url.urlLandingCremacion)
     }
     //selecciona card de Sepultura 
-    seleccionarCardSepultura(){
+    seleccionarCardSepultura(url){
         cy.get(cardSepultura, { timeout: 100000 }).should('be.visible').click();
         cy.scrollTo(0,3500)
         cy.get(cardVerDetalle, { timeout: 100000 }).should('be.visible').click();
-        cy.url().should('eq', 'https://ic.parquedelrecuerdo.cl/landing/sepultura')
+        cy.url().should('eq', url.urlLandingSepultura)
     }
 
     //Selecciona desde el Footer un parque con opciones del 1 al 3 
@@ -371,12 +374,12 @@ class HomePageMobile {
         }
     }
     //Selecciona desde el Footer inferior de redes sociales facebook
-    FooterRedesSociales(opcion){
+    FooterRedesSociales(opcion,url){
         cy.xpath(`${btnRedesSocialesFooter}[${opcion}]/a`).should('have.attr', 'target', '_blank');
         // Haz clic en el botón que abre la nueva pestaña
         cy.xpath(`${btnRedesSocialesFooter}[${opcion}]/a`, { timeout: 100000 }).invoke('removeAttr', 'target').click()
         // Verifica que window.open fue llamado
-        cy.url().should('not.eq', 'https://ic.parquedelrecuerdo.cl/')
+        cy.url().should('not.eq', url.urlHome)
     }
 }
 

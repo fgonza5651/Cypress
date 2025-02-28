@@ -13,8 +13,8 @@ const checkQuieroPlanearCremacion = '#mat-checkbox-3 > .mat-checkbox-layout > .m
 
 class LandingCremacionNi {
 
-    ingresarLandingCremacionNI(){
-        cy.visit('https://ic.parquedelrecuerdo.cl/landing/cremacion-necesidad-inmediata')
+    ingresarLandingCremacionNI(url){
+        cy.visit(url.urlLandingCremacionNI)
     }
     //Se hace clic en el boton empieza aqui
     clicBotonEmpiezaAqui(){

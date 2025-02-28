@@ -46,9 +46,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaBasicoMobile {
 
     //ingreso a la URL de Funeraria plan basico Mobile
-    ingresoFunerariaBasicoMobile(){
+    ingresoFunerariaBasicoMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-basico')
+        cy.visit(url.urlFunerariaBasico)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }

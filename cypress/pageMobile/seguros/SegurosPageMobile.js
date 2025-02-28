@@ -21,9 +21,9 @@ const tituloSmadColectivo = '.cabecera-seguro-colectivo'
 
 class SegurosPageMobile {
 
-    ingresoSeguros(){
+    ingresoSeguros(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/otros-servicios/seguros-personas')
+        cy.visit(url.urlSegurosPersonas)
     }
 
     //Se revisa que el btn seguros personales Smad Basico y premium funcione de manera correcta y el texto coicida

@@ -76,9 +76,9 @@ const formularioLanding = Cypress.env('Formulario')
 class CremacionBasicoNIMobile {
     
     //ingreso a la URL de Cremacion Basica NI Mobile
-    ingresoCremacionBasicaNIMobile(){
+    ingresoCremacionBasicaNIMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/cremacion/cremacion-basico-ni')
+        cy.visit(url.urlCremacionBasicoNI)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
@@ -86,20 +86,6 @@ class CremacionBasicoNIMobile {
     iconoTelefonosTitulo (){
         cy.get(btnTelefonoTitulo,{timeout: 100000}).should('be.visible').click()
         cy.get(popUpTelefonos,{timeout: 100000}).should('be.visible')
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion hablar con asesora de ventas y rellena el formulario
-    ejecutivaEnlineaHablar (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnHablarConAsesora,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
-    }
-    //precion el boton hablar con una ejecutiva y seleciona la opicion otro tipo de solicitud y rellena el formulario
-    ejecutivaEnlineaOtraSolicitud (){
-        cy.get(btnEjecutiva,{timeout: 100000}).should('be.visible').click()
-        cy.get(btnOtraSolicitud,{timeout: 100000}).should('be.visible').click()
-        cy.get(inputNombreOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputEmailOtraSolicitud,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].correo)
     }
     //Agrega al carrito el articulo velatorio cafeteria basico y revisa que la suma del total sea correcta
     //Ademas revisa si la casilla quede marcada con un check
@@ -278,21 +264,21 @@ class CremacionBasicoNIMobile {
         cy.get(informacionCaracteristicas,{timeout:100000}).should('be.visible')
     }
     //Preciona el boton llamanos y rellena el formulario
-    llamanos (){
+    llamanos (formulario){
         cy.get(btnLlamanos,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNombreLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].Nombre)
-        cy.get(inputApellidoLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].apellido)
-        cy.get(inputTelefonoLlamanos,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+        cy.get(inputNombreLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.Nombre)
+        cy.get(inputApellidoLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.apellido)
+        cy.get(inputTelefonoLlamanos,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     //Preciona el boton escribenos y rellena el formulario
-    escribenos (){
+    escribenos (formulario){
         cy.get(btnEscribenos,{timeout:100000}).should('be.visible').click()
-        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formularioLanding['FormularioFunnel'].telefono)
+        cy.get(inputNumeroAsesoraEnLinea,{timeout: 100000}).should('be.visible').type(formulario.FormularioFunnel.telefono)
     }
     //Preciona el boton cotiza que esta al final de la pagina y revisa que nos redireccione a "https://ic.parquedelrecuerdo.cl/contacto/cotiza-aqui"
-    cotiza (){
+    cotiza (url){
         cy.get(btnCotiza,{timeout:100000}).should('be.visible').click()
-        cy.url({timeout: 100000}).should('eq', urlCotiza)
+        cy.url({timeout: 100000}).should('eq', url.urlCotiza)
     }
     //revisa que el precio de velatorio en el slide carrito sean iguales al solicitado
     revisarPreciosVelatorio(){

@@ -45,9 +45,9 @@ function ComprararPrecios (precioTotaltext, precioAgregadoText){
 class FunerariaPremiumDestacadaMobile {
     
     //ingreso a la URL de Funeraria plan PremiumDestacada Mobile
-    ingresoFunerariaPremiumDestacadaMobile(){
+    ingresoFunerariaPremiumDestacadaMobile(url){
         cy.viewport('iphone-xr')
-        cy.visit('https://ic.parquedelrecuerdo.cl/productos-pdp/funeraria/funeraria-plan-homenaje-premium-destacado')
+        cy.visit(url.urlFunerariaPremiumDestacada)
         cy.clearCookies();   
         cy.clearLocalStorage();
     }
